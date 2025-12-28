@@ -34,7 +34,7 @@ default_config = {
 FULL_BODY_MANIFEST = '/data/hpp_labdata/Analyses/gilsa/dxa_total_body_manifest.pkl'
 CROPS_MANIFEST = '/data/hpp_labdata/Analyses/gilsa/crops_manifest.pkl'
 TARGETS_CSV = '/path/to/project/targets_for_downstream_augmented.csv'
-CHECKPOINTS = '/data/hpp_labdata/Analyses/gilsa/checkpoints/dexa_fm/'
+CHECKPOINTS = '/data/hpp_labdata/Analyses/gilsa/checkpoints/lejepa_dexa/'
 
 # STATS
 DEXA_MEAN = [0.12394659966230392, 0.2626885771751404, 0.3075794577598572]
