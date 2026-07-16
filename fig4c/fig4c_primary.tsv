@@ -1,0 +1,19 @@
+lead_snp	gene	primary_domain	evidence_snp	assoc_type	r2	trait	p_value	source
+rs3753841	COL11A1	Bone	rs3753841	lead	1.0	hip bone size	1e-20	lead
+rs12028481	PRRX1	Height/Anthropometric	rs12028481	lead	1.0	body height	8e-187	lead
+rs12105038	AC010096.2	(none/novel)	-	-	-	-	-	no catalogued association
+rs13417165	AC007319.1	Bone	rs13417165	lead	1.0	heel bone mineral density	3.0000000000000004e-09	lead
+rs1562502	ARPP21	Reproductive/Endocrine	rs67723420	proxy	0.918	age at first sexual intercourse measurement	1e-11	proxy (lead uncatalogued)
+rs7433808	ADAMTS9-AS2	Body composition	rs7433808	lead	1.0	visceral:subcutaneous adipose tissue ratio	2e-07	lead
+rs61749613	VCAN	Body composition	rs61749613	lead	1.0	appendicular lean mass	1e-17	lead
+rs62432291	FNDC1	Joint/connective-tissue	rs62432291	lead	1.0	joint hypermobility measurement	1e-12	lead
+rs2057932	RSBN1L-TMEM60	Body composition	rs10264590	proxy	0.930	BMI-adjusted waist-hip ratio	4e-23	proxy (lead uncatalogued)
+rs7816345	AC090453.1	Height/Anthropometric	rs7816345	lead	1.0	body height	1e-29	lead
+rs12548347	8q12	(none/novel)	-	-	-	-	-	no catalogued association
+rs2370759	EPC1	Reproductive/Endocrine	rs2370759	lead	1.0	sexual dysfunction	2e-06	lead
+rs2274224	PLCE1-AS1	Body composition	rs2274224	lead	1.0	body fat percentage	7e-29	lead
+rs7949030	GANAB	Bone	rs7949030	lead	1.0	abnormality of the skeletal system	6.0000000000000005e-15	lead
+rs585522	PITPNM2	Neuro/Behavioral	rs585522	lead	1.0	insomnia	2e-23	lead
+rs17184313	RIN3	Pulmonary	rs17184313	lead	1.0	forced expiratory volume	2e-23	lead
+rs35874463	SMAD3	Height/Anthropometric	rs35874463	lead	1.0	body height	6.999999999999999e-240	lead
+rs6123685	BMP7	Metabolic/Lipid	rs6123685	lead	1.0	high density lipoprotein cholesterol measurement	4e-14	lead

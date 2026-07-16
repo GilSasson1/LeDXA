@@ -1,0 +1,10 @@
+component,partial_r,p,n
+Lean mass,-0.747,0.0009,16
+Total tissue,-0.65,0.0065,16
+BMI,-0.634,0.002,21
+SAT,-0.62,0.0104,16
+Fat mass (derived),-0.483,0.0583,16
+VAT,-0.478,0.0613,16
+Femur-neck BMD,-0.417,0.1084,16
+Grip strength,0.317,0.1734,20
+Total BMD,0.055,0.8399,16

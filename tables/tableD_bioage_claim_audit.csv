@@ -1,0 +1,40 @@
+claim_id,draft_text,draft_value,regen_value,abs_diff,rel_diff_pct,status,notes
+age_r_hpp,"For chronological age, DeepDXA reached r = 0.89 (HPP)",0.89,0.885,0.005,0.561798,pass,HPP r computed from age_prediction_rate_partitions.csv
+age_r_ukbb_v2,Implicit: UKBB age prediction (Fig 5b),0.876,0.876165,0.000164569,0.0187864,pass,Not explicitly claimed in the bioage paragraph; reported here for completeness
+sarco_male_q1_prev,6.6% (Q1) men,6.6,6.57995,0.0200459,0.303726,pass,
+sarco_male_q4_prev,13.6% (Q4) men,13.6,13.5828,0.0171864,0.126371,pass,
+sarco_female_q1_prev,7.0% (Q1) women,7,7.0405,0.0404984,0.578549,pass,
+sarco_female_q4_prev,10.2% (Q4) women,10.2,10.1983,0.00169972,0.0166639,pass,
+sarco_male_pr,PR 2.06 men,2.06,2.06427,0.00427179,0.207368,pass,
+sarco_male_pr_lo,95% CI 1.62 men,1.62,1.62023,0.000227543,0.0140459,pass,
+sarco_male_pr_hi,95% CI 2.63 men,2.63,2.63001,1.20758e-05,0.000459155,pass,
+sarco_male_p,p = 1.5×10⁻⁹ men,1.5e-09,1.49161e-09,8.38514e-12,0.559009,pass,p-values audited on log scale; rel_tol relaxed
+sarco_female_pr,PR 1.45 women,1.45,1.44852,0.00148036,0.102094,pass,
+sarco_female_pr_lo,95% CI 1.14 women,1.14,1.14435,0.00434756,0.381365,pass,
+sarco_female_pr_hi,95% CI 1.83 women,1.83,1.83354,0.00354185,0.193544,pass,
+sarco_female_p,p = 1.9×10⁻³ women,0.0019,0.00193313,3.31274e-05,1.74355,pass,p-values audited on log scale; rel_tol relaxed
+sarco_per_year_male_pct,Each additional year of bio-age gap → 10.5% sarcopenia odds (men),10.5,10.4713,0.0287255,0.273577,pass,
+sarco_per_year_female_pct,Each additional year of bio-age gap → 6.3% sarcopenia odds (women),6.3,6.27304,0.0269551,0.427859,pass,
+disease_copd_female,COPD women RR 2.32,2.32,2.32,0,0,pass,
+disease_copd_male,COPD men RR 2.43,2.43,2.43,0,0,pass,
+disease_ra_female,RA women RR 2.26,2.26,2.26,0,0,pass,
+disease_ra_male,RA men RR 2.28,2.28,2.28,0,0,pass,
+disease_t2d_male,T2D men RR 2.23,2.23,2.23,0,0,pass,
+disease_hf_male,Heart failure men RR 2.01,2.01,2.01,0,0,pass,
+disease_mi_male,Myocardial infarction men RR 1.69,1.69,1.69,0,0,pass,
+disease_hipoa_male,Hip arthrosis men RR 2.69,2.69,2.69,0,0,pass,
+mort_cont_hr,HR 1.059 per +1 yr gap,1.059,1.05927,0.000272351,0.0257178,pass,underpowered (n<30)
+mort_cont_lo,95% CI 1.026,1.026,1.02573,0.000269252,0.0262428,pass,underpowered (n<30)
+mort_cont_hi,95% CI 1.094,1.094,1.09391,8.92286e-05,0.00815618,pass,underpowered (n<30)
+mort_cont_p,p = 4.5×10⁻⁴,0.00045,0.000452418,2.41829e-06,0.537397,pass,p audited loosely | underpowered (n<30)
+mort_q4_hr,Q4 HR 1.45,1.45,1.45289,0.00289243,0.199478,pass,
+mort_q4_lo,95% CI 1.09,1.09,1.09095,0.000950821,0.0872313,pass,
+mort_q4_hi,95% CI 1.94,1.94,1.93491,0.00508564,0.262146,pass,
+mort_q4_p,p = 0.011,0.011,0.0106047,0.000395301,3.59365,pass,
+mort_n_cohort,"n = 47,400 UKBB visit-2 cohort",47400,47400,0,0,pass,
+med_hrt_delta,HRT G03F Δgap = −2.90 yr,-2.9,-2.90333,0.00332824,0.114767,pass,
+med_hrt_n,HRT G03F n = 10,10,10,0,0,pass,Underpowered (n < 30); flag | underpowered (n<30)
+med_hrt_q,HRT G03F q = 0.026,0.026,0.0263672,0.000367188,1.41226,pass,
+med_ssri_delta,SSRIs N06A Δgap = −1.91 yr,-1.91,-1.91367,0.0036665,0.191963,pass,
+med_ssri_n,SSRIs N06A n = 38,38,38,0,0,pass,
+med_ssri_q,SSRIs N06A q = 0.026,0.026,0.0263672,0.000367188,1.41226,pass,

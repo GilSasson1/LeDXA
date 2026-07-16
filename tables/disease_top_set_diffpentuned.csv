@@ -1,0 +1,309 @@
+cohort,key,raw_key,arm,mean,in_top_set,tier,sole_winner,argmax
+HPP,Allergy,dis__allergy,lejepa,0.6001,True,1,False,False
+HPP,Allergy,dis__allergy,dino,0.5975,True,1,False,False
+HPP,Allergy,dis__allergy,tabular,0.6003,True,1,False,True
+HPP,Allergy,dis__allergy,covariates,0.5901,False,2,False,False
+HPP,Anal Fissure,dis__anal_fissure,lejepa,0.5232,True,1,False,True
+HPP,Anal Fissure,dis__anal_fissure,dino,0.4944,True,1,False,False
+HPP,Anal Fissure,dis__anal_fissure,tabular,0.5083,True,1,False,False
+HPP,Anal Fissure,dis__anal_fissure,covariates,0.5004,True,1,False,False
+HPP,Anemia,dis__anemia,lejepa,0.6846,True,1,True,True
+HPP,Anemia,dis__anemia,dino,0.6745,False,2,False,False
+HPP,Anemia,dis__anemia,tabular,0.6755,False,2,False,False
+HPP,Anemia,dis__anemia,covariates,0.6666,False,3,False,False
+HPP,Anxiety,dis__anxiety,lejepa,0.648,True,1,False,True
+HPP,Anxiety,dis__anxiety,dino,0.639,True,1,False,False
+HPP,Anxiety,dis__anxiety,tabular,0.6352,True,1,False,False
+HPP,Anxiety,dis__anxiety,covariates,0.6268,False,2,False,False
+HPP,Asthma,dis__asthma,lejepa,0.5686,False,2,False,False
+HPP,Asthma,dis__asthma,dino,0.6155,True,1,True,True
+HPP,Asthma,dis__asthma,tabular,0.5751,False,2,False,False
+HPP,Asthma,dis__asthma,covariates,0.5647,False,2,False,False
+HPP,Atopic Derm.,dis__atopic_dermatitis,lejepa,0.5717,True,1,False,False
+HPP,Atopic Derm.,dis__atopic_dermatitis,dino,0.5834,True,1,False,True
+HPP,Atopic Derm.,dis__atopic_dermatitis,tabular,0.5693,True,1,False,False
+HPP,Atopic Derm.,dis__atopic_dermatitis,covariates,0.5779,True,1,False,False
+HPP,ADHD,dis__attention_deficit_disorder_adhd,lejepa,0.5923,True,1,True,True
+HPP,ADHD,dis__attention_deficit_disorder_adhd,dino,0.5817,False,2,False,False
+HPP,ADHD,dis__attention_deficit_disorder_adhd,tabular,0.5791,False,2,False,False
+HPP,ADHD,dis__attention_deficit_disorder_adhd,covariates,0.5791,False,2,False,False
+HPP,B12 Deficiency,dis__b12_deficiency,lejepa,0.5918,True,1,False,True
+HPP,B12 Deficiency,dis__b12_deficiency,dino,0.5811,True,1,False,False
+HPP,B12 Deficiency,dis__b12_deficiency,tabular,0.5812,True,1,False,False
+HPP,B12 Deficiency,dis__b12_deficiency,covariates,0.5654,False,2,False,False
+HPP,Back Pain ,dis__back_pain,lejepa,0.5792,True,1,False,True
+HPP,Back Pain ,dis__back_pain,dino,0.5655,False,2,False,False
+HPP,Back Pain ,dis__back_pain,tabular,0.5743,True,1,False,False
+HPP,Back Pain ,dis__back_pain,covariates,0.5457,False,3,False,False
+HPP,BCC,dis__basal_cell_carcinoma,lejepa,0.6698,True,1,False,False
+HPP,BCC,dis__basal_cell_carcinoma,dino,0.6698,True,1,False,False
+HPP,BCC,dis__basal_cell_carcinoma,tabular,0.6773,True,1,False,True
+HPP,BCC,dis__basal_cell_carcinoma,covariates,0.676,True,1,False,False
+HPP,Breast Cancer,dis__breast_cancer,lejepa,0.6332,True,1,False,True
+HPP,Breast Cancer,dis__breast_cancer,dino,0.5911,True,1,False,False
+HPP,Breast Cancer,dis__breast_cancer,tabular,0.5433,False,2,False,False
+HPP,Breast Cancer,dis__breast_cancer,covariates,0.538,False,2,False,False
+HPP,Chr. Sinusitis,dis__chronic_sinusitis,lejepa,0.6174,True,1,False,False
+HPP,Chr. Sinusitis,dis__chronic_sinusitis,dino,0.6159,True,1,False,False
+HPP,Chr. Sinusitis,dis__chronic_sinusitis,tabular,0.614,True,1,False,False
+HPP,Chr. Sinusitis,dis__chronic_sinusitis,covariates,0.6227,True,1,False,True
+HPP,Covid-19,dis__covid_19,lejepa,0.5553,True,1,True,True
+HPP,Covid-19,dis__covid_19,dino,0.5299,False,2,False,False
+HPP,Covid-19,dis__covid_19,tabular,0.5239,False,2,False,False
+HPP,Covid-19,dis__covid_19,covariates,0.5029,False,3,False,False
+HPP,Depression,dis__depression,lejepa,0.6319,True,1,False,False
+HPP,Depression,dis__depression,dino,0.6473,True,1,False,True
+HPP,Depression,dis__depression,tabular,0.6182,False,2,False,False
+HPP,Depression,dis__depression,covariates,0.6142,False,2,False,False
+HPP,Diabetes,dis__diabetes,lejepa,0.7377,True,1,False,True
+HPP,Diabetes,dis__diabetes,dino,0.6788,True,1,False,False
+HPP,Diabetes,dis__diabetes,tabular,0.6678,False,2,False,False
+HPP,Diabetes,dis__diabetes,covariates,0.5605,False,3,False,False
+HPP,Endometriosis,dis__endometriosis_and_adenomyosis,lejepa,0.7763,True,1,False,False
+HPP,Endometriosis,dis__endometriosis_and_adenomyosis,dino,0.7768,True,1,False,False
+HPP,Endometriosis,dis__endometriosis_and_adenomyosis,tabular,0.7766,True,1,False,False
+HPP,Endometriosis,dis__endometriosis_and_adenomyosis,covariates,0.7777,True,1,False,True
+HPP,Episodic Vertigo,dis__episodic_vertigo,lejepa,0.6164,False,2,False,False
+HPP,Episodic Vertigo,dis__episodic_vertigo,dino,0.6322,True,1,False,True
+HPP,Episodic Vertigo,dis__episodic_vertigo,tabular,0.6232,True,1,False,False
+HPP,Episodic Vertigo,dis__episodic_vertigo,covariates,0.6155,False,2,False,False
+HPP,Fatty Liver,dis__fatty_liver_disease,lejepa,0.7738,True,1,True,True
+HPP,Fatty Liver,dis__fatty_liver_disease,dino,0.7601,False,2,False,False
+HPP,Fatty Liver,dis__fatty_liver_disease,tabular,0.7452,False,3,False,False
+HPP,Fatty Liver,dis__fatty_liver_disease,covariates,0.7207,False,4,False,False
+HPP,Fibromyalgia,dis__fibromyalgia,lejepa,0.7569,True,1,False,True
+HPP,Fibromyalgia,dis__fibromyalgia,dino,0.7471,True,1,False,False
+HPP,Fibromyalgia,dis__fibromyalgia,tabular,0.7427,True,1,False,False
+HPP,Fibromyalgia,dis__fibromyalgia,covariates,0.7254,False,2,False,False
+HPP,Folic Acid Deficiency,dis__folic_acid_deficiency,lejepa,0.5931,True,1,False,False
+HPP,Folic Acid Deficiency,dis__folic_acid_deficiency,dino,0.5431,True,1,False,False
+HPP,Folic Acid Deficiency,dis__folic_acid_deficiency,tabular,0.6172,True,1,False,True
+HPP,Folic Acid Deficiency,dis__folic_acid_deficiency,covariates,0.6067,True,1,False,False
+HPP,Fracture,dis__fracture,lejepa,0.6019,True,1,False,True
+HPP,Fracture,dis__fracture,dino,0.5895,True,1,False,False
+HPP,Fracture,dis__fracture,tabular,0.5769,False,2,False,False
+HPP,Fracture,dis__fracture,covariates,0.5264,False,3,False,False
+HPP,G6Pd,dis__g6pd,lejepa,0.5723,True,1,False,False
+HPP,G6Pd,dis__g6pd,dino,0.5942,True,1,False,True
+HPP,G6Pd,dis__g6pd,tabular,0.5245,False,2,False,False
+HPP,G6Pd,dis__g6pd,covariates,0.5807,True,1,False,False
+HPP,Gallstones,dis__gallstone_disease,lejepa,0.7135,True,1,True,True
+HPP,Gallstones,dis__gallstone_disease,dino,0.6865,False,2,False,False
+HPP,Gallstones,dis__gallstone_disease,tabular,0.6918,False,2,False,False
+HPP,Gallstones,dis__gallstone_disease,covariates,0.6878,False,2,False,False
+HPP,Haemorrhoids,dis__haemorrhoids,lejepa,0.5241,True,1,False,True
+HPP,Haemorrhoids,dis__haemorrhoids,dino,0.5209,True,1,False,False
+HPP,Haemorrhoids,dis__haemorrhoids,tabular,0.5215,True,1,False,False
+HPP,Haemorrhoids,dis__haemorrhoids,covariates,0.5225,True,1,False,False
+HPP,Headache,dis__headache,lejepa,0.6286,False,2,False,False
+HPP,Headache,dis__headache,dino,0.6313,True,1,False,False
+HPP,Headache,dis__headache,tabular,0.6479,True,1,False,True
+HPP,Headache,dis__headache,covariates,0.628,True,1,False,False
+HPP,Hearing Loss,dis__hearing_loss,lejepa,0.6553,True,1,False,False
+HPP,Hearing Loss,dis__hearing_loss,dino,0.655,True,1,False,False
+HPP,Hearing Loss,dis__hearing_loss,tabular,0.6593,True,1,False,True
+HPP,Hearing Loss,dis__hearing_loss,covariates,0.6563,True,1,False,False
+HPP,Heart Valve Disease,dis__heart_valve_disease,lejepa,0.5286,True,1,False,False
+HPP,Heart Valve Disease,dis__heart_valve_disease,dino,0.4891,False,2,False,False
+HPP,Heart Valve Disease,dis__heart_valve_disease,tabular,0.5139,False,2,False,False
+HPP,Heart Valve Disease,dis__heart_valve_disease,covariates,0.546,True,1,False,True
+HPP,Hyperlipidemia,dis__hyperlipidemia,lejepa,0.735,True,1,True,True
+HPP,Hyperlipidemia,dis__hyperlipidemia,dino,0.7213,False,2,False,False
+HPP,Hyperlipidemia,dis__hyperlipidemia,tabular,0.7265,False,2,False,False
+HPP,Hyperlipidemia,dis__hyperlipidemia,covariates,0.7006,False,3,False,False
+HPP,Hypertension,dis__hypertension,lejepa,0.801,True,1,True,True
+HPP,Hypertension,dis__hypertension,dino,0.796,False,2,False,False
+HPP,Hypertension,dis__hypertension,tabular,0.7873,False,3,False,False
+HPP,Hypertension,dis__hypertension,covariates,0.7763,False,4,False,False
+HPP,Hyperthyroidism,dis__hyperthyroidism,lejepa,0.6215,True,1,False,True
+HPP,Hyperthyroidism,dis__hyperthyroidism,dino,0.6027,True,1,False,False
+HPP,Hyperthyroidism,dis__hyperthyroidism,tabular,0.6026,False,2,False,False
+HPP,Hyperthyroidism,dis__hyperthyroidism,covariates,0.6072,True,1,False,False
+HPP,Hypothyroidism,dis__hypothyroidism,lejepa,0.6659,True,1,False,False
+HPP,Hypothyroidism,dis__hypothyroidism,dino,0.6592,False,2,False,False
+HPP,Hypothyroidism,dis__hypothyroidism,tabular,0.6744,True,1,False,True
+HPP,Hypothyroidism,dis__hypothyroidism,covariates,0.6705,True,1,False,False
+HPP,Insomnia,dis__insomnia,lejepa,0.5223,True,1,False,False
+HPP,Insomnia,dis__insomnia,dino,0.5538,True,1,False,False
+HPP,Insomnia,dis__insomnia,tabular,0.5579,True,1,False,True
+HPP,Insomnia,dis__insomnia,covariates,0.5055,False,2,False,False
+HPP,IBS,dis__irritable_bowel_syndrome_ibs,lejepa,0.6428,True,1,False,False
+HPP,IBS,dis__irritable_bowel_syndrome_ibs,dino,0.6375,True,1,False,False
+HPP,IBS,dis__irritable_bowel_syndrome_ibs,tabular,0.6429,True,1,False,True
+HPP,IBS,dis__irritable_bowel_syndrome_ibs,covariates,0.6345,False,2,False,False
+HPP,Ischemic HD,dis__ischemic_heart_disease,lejepa,0.7521,True,1,False,False
+HPP,Ischemic HD,dis__ischemic_heart_disease,dino,0.7434,True,1,False,False
+HPP,Ischemic HD,dis__ischemic_heart_disease,tabular,0.7561,True,1,False,True
+HPP,Ischemic HD,dis__ischemic_heart_disease,covariates,0.7513,True,1,False,False
+HPP,Migraine,dis__migraine,lejepa,0.6753,True,1,False,True
+HPP,Migraine,dis__migraine,dino,0.6612,False,2,False,False
+HPP,Migraine,dis__migraine,tabular,0.6652,True,1,False,False
+HPP,Migraine,dis__migraine,covariates,0.6576,False,2,False,False
+HPP,Obesity,dis__obesity,lejepa,0.9077,True,1,False,True
+HPP,Obesity,dis__obesity,dino,0.9049,True,1,False,False
+HPP,Obesity,dis__obesity,tabular,0.8996,False,2,False,False
+HPP,Obesity,dis__obesity,covariates,0.8948,False,3,False,False
+HPP,Oral Aphthae,dis__oral_aphthae,lejepa,0.5268,True,1,False,False
+HPP,Oral Aphthae,dis__oral_aphthae,dino,0.5215,True,1,False,False
+HPP,Oral Aphthae,dis__oral_aphthae,tabular,0.5722,True,1,False,True
+HPP,Oral Aphthae,dis__oral_aphthae,covariates,0.5418,False,2,False,False
+HPP,Osteoarthritis,dis__osteoarthritis,lejepa,0.7597,True,1,True,True
+HPP,Osteoarthritis,dis__osteoarthritis,dino,0.7426,False,2,False,False
+HPP,Osteoarthritis,dis__osteoarthritis,tabular,0.7341,False,2,False,False
+HPP,Osteoarthritis,dis__osteoarthritis,covariates,0.7376,False,2,False,False
+HPP,Osteopenia,dis__osteopenia,lejepa,0.8959,False,2,False,False
+HPP,Osteopenia,dis__osteopenia,dino,0.8562,False,3,False,False
+HPP,Osteopenia,dis__osteopenia,tabular,0.9098,True,1,True,True
+HPP,Osteopenia,dis__osteopenia,covariates,0.8192,False,4,False,False
+HPP,Osteoporosis,dis__osteoporosis,lejepa,0.9175,False,2,False,False
+HPP,Osteoporosis,dis__osteoporosis,dino,0.8879,False,3,False,False
+HPP,Osteoporosis,dis__osteoporosis,tabular,0.942,True,1,True,True
+HPP,Osteoporosis,dis__osteoporosis,covariates,0.8486,False,4,False,False
+HPP,Peptic Dis,dis__peptic_dis,lejepa,0.6023,False,2,False,False
+HPP,Peptic Dis,dis__peptic_dis,dino,0.6023,True,1,False,False
+HPP,Peptic Dis,dis__peptic_dis,tabular,0.6088,True,1,False,False
+HPP,Peptic Dis,dis__peptic_dis,covariates,0.6139,True,1,False,True
+HPP,Peptic Ulcer,dis__peptic_ulcer_disease,lejepa,0.5607,True,1,False,True
+HPP,Peptic Ulcer,dis__peptic_ulcer_disease,dino,0.5517,True,1,False,False
+HPP,Peptic Ulcer,dis__peptic_ulcer_disease,tabular,0.5531,False,2,False,False
+HPP,Peptic Ulcer,dis__peptic_ulcer_disease,covariates,0.5501,False,2,False,False
+HPP,PCOS,dis__polycystic_ovary_disease,lejepa,0.6165,True,1,False,False
+HPP,PCOS,dis__polycystic_ovary_disease,dino,0.6147,True,1,False,False
+HPP,PCOS,dis__polycystic_ovary_disease,tabular,0.6122,True,1,False,False
+HPP,PCOS,dis__polycystic_ovary_disease,covariates,0.6169,True,1,False,True
+HPP,Prediabetes,dis__prediabetes,lejepa,0.7217,True,1,False,True
+HPP,Prediabetes,dis__prediabetes,dino,0.712,False,2,False,False
+HPP,Prediabetes,dis__prediabetes,tabular,0.7148,True,1,False,False
+HPP,Prediabetes,dis__prediabetes,covariates,0.6804,False,3,False,False
+HPP,Psoriasis,dis__psoriasis,lejepa,0.5299,False,2,False,False
+HPP,Psoriasis,dis__psoriasis,dino,0.5188,False,3,False,False
+HPP,Psoriasis,dis__psoriasis,tabular,0.5459,False,2,False,False
+HPP,Psoriasis,dis__psoriasis,covariates,0.5688,True,1,True,True
+HPP,Sleep Apnea,dis__sleep_apnea,lejepa,0.7738,True,1,False,True
+HPP,Sleep Apnea,dis__sleep_apnea,dino,0.7663,True,1,False,False
+HPP,Sleep Apnea,dis__sleep_apnea,tabular,0.7527,False,2,False,False
+HPP,Sleep Apnea,dis__sleep_apnea,covariates,0.7537,False,2,False,False
+HPP,UTI,dis__urinary_tract_infection,lejepa,0.7736,True,1,False,True
+HPP,UTI,dis__urinary_tract_infection,dino,0.77,True,1,False,False
+HPP,UTI,dis__urinary_tract_infection,tabular,0.7669,True,1,False,False
+HPP,UTI,dis__urinary_tract_infection,covariates,0.7576,False,2,False,False
+HPP,Urinary Stones,dis__urinary_tract_stones,lejepa,0.735,True,1,True,True
+HPP,Urinary Stones,dis__urinary_tract_stones,dino,0.7117,False,2,False,False
+HPP,Urinary Stones,dis__urinary_tract_stones,tabular,0.7009,False,2,False,False
+HPP,Urinary Stones,dis__urinary_tract_stones,covariates,0.6975,False,3,False,False
+UKBB,dis__anemia,dis__anemia,lejepa,0.6514,True,1,True,True
+UKBB,dis__anemia,dis__anemia,dino,0.6362,False,2,False,False
+UKBB,dis__anemia,dis__anemia,tabular,0.6341,False,2,False,False
+UKBB,dis__anemia,dis__anemia,covariates,0.6184,False,3,False,False
+UKBB,dis__anxiety,dis__anxiety,lejepa,0.6217,True,1,False,True
+UKBB,dis__anxiety,dis__anxiety,dino,0.6153,True,1,False,False
+UKBB,dis__anxiety,dis__anxiety,tabular,0.5964,False,2,False,False
+UKBB,dis__anxiety,dis__anxiety,covariates,0.5866,False,3,False,False
+UKBB,dis__asthma,dis__asthma,lejepa,0.6191,True,1,False,True
+UKBB,dis__asthma,dis__asthma,dino,0.6186,True,1,False,False
+UKBB,dis__asthma,dis__asthma,tabular,0.5871,False,2,False,False
+UKBB,dis__asthma,dis__asthma,covariates,0.5509,False,3,False,False
+UKBB,dis__atrial_fibrillation,dis__atrial_fibrillation,lejepa,0.7251,True,1,False,True
+UKBB,dis__atrial_fibrillation,dis__atrial_fibrillation,dino,0.7174,True,1,False,False
+UKBB,dis__atrial_fibrillation,dis__atrial_fibrillation,tabular,0.7196,True,1,False,False
+UKBB,dis__atrial_fibrillation,dis__atrial_fibrillation,covariates,0.7131,False,2,False,False
+UKBB,dis__back_pain,dis__back_pain,lejepa,0.5876,True,1,False,False
+UKBB,dis__back_pain,dis__back_pain,dino,0.5899,True,1,False,False
+UKBB,dis__back_pain,dis__back_pain,tabular,0.5915,True,1,False,True
+UKBB,dis__back_pain,dis__back_pain,covariates,0.5407,False,2,False,False
+UKBB,dis__celiac,dis__celiac,lejepa,0.6296,False,2,False,False
+UKBB,dis__celiac,dis__celiac,dino,0.6589,True,1,True,True
+UKBB,dis__celiac,dis__celiac,tabular,0.6107,False,3,False,False
+UKBB,dis__celiac,dis__celiac,covariates,0.5679,False,4,False,False
+UKBB,dis__copd,dis__copd,lejepa,0.7608,True,1,False,False
+UKBB,dis__copd,dis__copd,dino,0.7647,True,1,False,True
+UKBB,dis__copd,dis__copd,tabular,0.73,False,2,False,False
+UKBB,dis__copd,dis__copd,covariates,0.6579,False,3,False,False
+UKBB,dis__depression,dis__depression,lejepa,0.6221,True,1,False,False
+UKBB,dis__depression,dis__depression,dino,0.6236,True,1,False,True
+UKBB,dis__depression,dis__depression,tabular,0.6184,True,1,False,False
+UKBB,dis__depression,dis__depression,covariates,0.6108,False,2,False,False
+UKBB,dis__diabetes,dis__diabetes,lejepa,0.8399,True,1,False,True
+UKBB,dis__diabetes,dis__diabetes,dino,0.8355,True,1,False,False
+UKBB,dis__diabetes,dis__diabetes,tabular,0.83,False,2,False,False
+UKBB,dis__diabetes,dis__diabetes,covariates,0.7256,False,3,False,False
+UKBB,dis__endometriosis,dis__endometriosis,lejepa,0.8021,True,1,False,False
+UKBB,dis__endometriosis,dis__endometriosis,dino,0.7843,False,2,False,False
+UKBB,dis__endometriosis,dis__endometriosis,tabular,0.8024,True,1,False,True
+UKBB,dis__endometriosis,dis__endometriosis,covariates,0.7918,False,2,False,False
+UKBB,dis__gallstone,dis__gallstone,lejepa,0.6833,True,1,False,True
+UKBB,dis__gallstone,dis__gallstone,dino,0.6785,False,2,False,False
+UKBB,dis__gallstone,dis__gallstone,tabular,0.6824,True,1,False,False
+UKBB,dis__gallstone,dis__gallstone,covariates,0.6716,False,2,False,False
+UKBB,dis__gout,dis__gout,lejepa,0.8157,True,1,False,True
+UKBB,dis__gout,dis__gout,dino,0.8129,True,1,False,False
+UKBB,dis__gout,dis__gout,tabular,0.8098,False,2,False,False
+UKBB,dis__gout,dis__gout,covariates,0.7966,False,3,False,False
+UKBB,dis__heart_failure,dis__heart_failure,lejepa,0.7826,True,1,False,False
+UKBB,dis__heart_failure,dis__heart_failure,dino,0.7895,True,1,False,True
+UKBB,dis__heart_failure,dis__heart_failure,tabular,0.7856,True,1,False,False
+UKBB,dis__heart_failure,dis__heart_failure,covariates,0.7756,False,2,False,False
+UKBB,dis__hyperlipidemia,dis__hyperlipidemia,lejepa,0.7361,True,1,False,True
+UKBB,dis__hyperlipidemia,dis__hyperlipidemia,dino,0.732,False,2,False,False
+UKBB,dis__hyperlipidemia,dis__hyperlipidemia,tabular,0.7348,True,1,False,False
+UKBB,dis__hyperlipidemia,dis__hyperlipidemia,covariates,0.7099,False,3,False,False
+UKBB,dis__hypertension,dis__hypertension,lejepa,0.7429,True,1,False,True
+UKBB,dis__hypertension,dis__hypertension,dino,0.7386,False,2,False,False
+UKBB,dis__hypertension,dis__hypertension,tabular,0.741,True,1,False,False
+UKBB,dis__hypertension,dis__hypertension,covariates,0.7194,False,3,False,False
+UKBB,dis__hyperthyroidism,dis__hyperthyroidism,lejepa,0.6654,True,1,False,True
+UKBB,dis__hyperthyroidism,dis__hyperthyroidism,dino,0.644,False,2,False,False
+UKBB,dis__hyperthyroidism,dis__hyperthyroidism,tabular,0.6516,True,1,False,False
+UKBB,dis__hyperthyroidism,dis__hyperthyroidism,covariates,0.6544,False,2,False,False
+UKBB,dis__hypothyroidism,dis__hypothyroidism,lejepa,0.6795,False,2,False,False
+UKBB,dis__hypothyroidism,dis__hypothyroidism,dino,0.6741,False,3,False,False
+UKBB,dis__hypothyroidism,dis__hypothyroidism,tabular,0.6851,True,1,False,True
+UKBB,dis__hypothyroidism,dis__hypothyroidism,covariates,0.6851,True,1,False,False
+UKBB,dis__ibs,dis__ibs,lejepa,0.5986,True,1,False,False
+UKBB,dis__ibs,dis__ibs,dino,0.5854,False,2,False,False
+UKBB,dis__ibs,dis__ibs,tabular,0.5995,True,1,False,True
+UKBB,dis__ibs,dis__ibs,covariates,0.592,False,2,False,False
+UKBB,dis__ischemic_heart_disease,dis__ischemic_heart_disease,lejepa,0.7421,True,1,False,True
+UKBB,dis__ischemic_heart_disease,dis__ischemic_heart_disease,dino,0.7341,False,2,False,False
+UKBB,dis__ischemic_heart_disease,dis__ischemic_heart_disease,tabular,0.7414,True,1,False,False
+UKBB,dis__ischemic_heart_disease,dis__ischemic_heart_disease,covariates,0.7334,False,2,False,False
+UKBB,dis__kidney_stones,dis__kidney_stones,lejepa,0.6549,True,1,False,True
+UKBB,dis__kidney_stones,dis__kidney_stones,dino,0.6327,False,2,False,False
+UKBB,dis__kidney_stones,dis__kidney_stones,tabular,0.6533,True,1,False,False
+UKBB,dis__kidney_stones,dis__kidney_stones,covariates,0.6301,False,2,False,False
+UKBB,dis__liver_disease,dis__liver_disease,lejepa,0.6926,True,1,False,True
+UKBB,dis__liver_disease,dis__liver_disease,dino,0.6793,True,1,False,False
+UKBB,dis__liver_disease,dis__liver_disease,tabular,0.6863,True,1,False,False
+UKBB,dis__liver_disease,dis__liver_disease,covariates,0.6834,True,1,False,False
+UKBB,dis__osteoarthritis,dis__osteoarthritis,lejepa,0.6929,True,1,False,False
+UKBB,dis__osteoarthritis,dis__osteoarthritis,dino,0.6964,True,1,False,True
+UKBB,dis__osteoarthritis,dis__osteoarthritis,tabular,0.6746,False,2,False,False
+UKBB,dis__osteoarthritis,dis__osteoarthritis,covariates,0.6475,False,3,False,False
+UKBB,dis__osteoporosis,dis__osteoporosis,lejepa,0.8366,False,2,False,False
+UKBB,dis__osteoporosis,dis__osteoporosis,dino,0.8296,False,3,False,False
+UKBB,dis__osteoporosis,dis__osteoporosis,tabular,0.8461,True,1,True,True
+UKBB,dis__osteoporosis,dis__osteoporosis,covariates,0.7856,False,4,False,False
+UKBB,dis__pcos,dis__pcos,lejepa,0.8309,True,1,False,True
+UKBB,dis__pcos,dis__pcos,dino,0.8208,True,1,False,False
+UKBB,dis__pcos,dis__pcos,tabular,0.8271,True,1,False,False
+UKBB,dis__pcos,dis__pcos,covariates,0.8253,True,1,False,False
+UKBB,dis__psoriasis,dis__psoriasis,lejepa,0.5499,True,1,False,False
+UKBB,dis__psoriasis,dis__psoriasis,dino,0.5449,True,1,False,False
+UKBB,dis__psoriasis,dis__psoriasis,tabular,0.5503,True,1,False,True
+UKBB,dis__psoriasis,dis__psoriasis,covariates,0.5457,True,1,False,False
+UKBB,dis__renal_failure,dis__renal_failure,lejepa,0.6993,True,1,False,True
+UKBB,dis__renal_failure,dis__renal_failure,dino,0.6892,False,2,False,False
+UKBB,dis__renal_failure,dis__renal_failure,tabular,0.6978,True,1,False,False
+UKBB,dis__renal_failure,dis__renal_failure,covariates,0.6871,False,2,False,False
+UKBB,dis__rheumatoid_arthritis,dis__rheumatoid_arthritis,lejepa,0.6042,True,1,False,True
+UKBB,dis__rheumatoid_arthritis,dis__rheumatoid_arthritis,dino,0.5804,False,2,False,False
+UKBB,dis__rheumatoid_arthritis,dis__rheumatoid_arthritis,tabular,0.5969,True,1,False,False
+UKBB,dis__rheumatoid_arthritis,dis__rheumatoid_arthritis,covariates,0.5935,True,1,False,False
+UKBB,dis__sleep_disorders,dis__sleep_disorders,lejepa,0.6437,True,1,True,True
+UKBB,dis__sleep_disorders,dis__sleep_disorders,dino,0.6289,False,2,False,False
+UKBB,dis__sleep_disorders,dis__sleep_disorders,tabular,0.6292,False,2,False,False
+UKBB,dis__sleep_disorders,dis__sleep_disorders,covariates,0.6194,False,2,False,False
+UKBB,dis__stroke,dis__stroke,lejepa,0.6883,True,1,False,False
+UKBB,dis__stroke,dis__stroke,dino,0.6776,True,1,False,False
+UKBB,dis__stroke,dis__stroke,tabular,0.6918,True,1,False,True
+UKBB,dis__stroke,dis__stroke,covariates,0.6888,True,1,False,False

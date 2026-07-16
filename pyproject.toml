@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ledxa"
+version = "0.1.0"
+description = "LeDXA: a self-supervised (LeJEPA + SIGReg) foundation model for DXA scans"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "numpy", "pandas", "scipy", "scikit-learn", "statsmodels", "lifelines",
+    "lightgbm", "h5py", "pydicom", "pillow", "tqdm", "matplotlib", "seaborn",
+    "torch", "torchvision", "timm", "transformers", "wandb",
+]
+
+# Installed as importable packages; top-level analysis/plotting scripts are run
+# from the repository root (or with the repo root on PYTHONPATH).
+[tool.setuptools]
+packages = ["common", "model", "downstream", "downstream.disease", "downstream.survival", "downstream.bioage", "downstream.clustering", "downstream.genetics", "plotting"]

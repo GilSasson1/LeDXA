@@ -1,0 +1,3 @@
+analysis,n_diseases,n_c1_favoured,n_c0_favoured,binomial_p
+pre_matching,34,7,27,0.0008213953115046024
+post_matching,34,13,21,0.22948101302608848

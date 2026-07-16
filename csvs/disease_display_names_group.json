@@ -1,0 +1,22 @@
+{
+  "dis__cardiovascular": "Cardiovascular",
+  "dis__dermatology": "Dermatology",
+  "dis__ent": "ENT",
+  "dis__endocrinology": "Endocrinology",
+  "dis__eye_disorder": "Eye disorder",
+  "dis__gastro": "Gastro",
+  "dis__hematological": "Hematological",
+  "dis__immunology": "Immunology",
+  "dis__infectious_disease": "Infectious Disease",
+  "dis__metabolic": "Metabolic",
+  "dis__neurologic": "Neurologic",
+  "dis__obgyn": "OBGyn",
+  "dis__oncology": "Oncology",
+  "dis__orthopedic": "Orthopedic",
+  "dis__other": "Other",
+  "dis__pulmonology": "Pulmonology",
+  "dis__rheumatology": "Rheumatology",
+  "dis__sleep": "Sleep",
+  "dis__surgery": "Surgery",
+  "dis__urology": "Urology"
+}

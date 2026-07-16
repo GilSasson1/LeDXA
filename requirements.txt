@@ -1,0 +1,20 @@
+# LeDXA dependencies. Versions are unpinned; the study used recent releases of each.
+# Install into a fresh environment: pip install -r requirements.txt
+numpy
+pandas
+scipy
+scikit-learn
+statsmodels
+lifelines
+lightgbm
+h5py
+pydicom
+pillow
+tqdm
+matplotlib
+seaborn
+torch
+torchvision
+timm
+transformers
+wandb

@@ -1,0 +1,14 @@
+atc,label,n_users,category,action
+N06AB,Selective serotonin reuptake inhibitors,1862,decreasing,dedicated_analysis
+A02BC,Proton pump inhibitors for peptic ulcer and GORD,1143,decreasing,dedicated_analysis
+N03A,ANTIEPILEPTICS,202,decreasing,dedicated_analysis
+L02BG,Aromatase inhibitors,58,decreasing,exclude
+H02AB,"Glucocorticoids, Systemic",32,decreasing,exclude
+L02AE,"Gonadotropin releasing hormone analogues, endocrine therapy drugs",0,decreasing,exclude
+L02BB,Anti-androgen hormone antagonists and related agents,0,decreasing,exclude
+A11CC,Vitamin D and analogues,2947,increasing,positive_control
+G03C,"ESTROGENS, SEX HORMONES AND MODULATORS OF THE GENITAL SYSTEM",794,increasing,positive_control
+G03F,PROGESTOGENS AND ESTROGENS IN COMBINATION,500,increasing,positive_control
+M05B,DRUGS AFFECTING BONE STRUCTURE AND MINERALIZATION,319,increasing,positive_control
+H05BA,Calcitonin preparations,0,increasing,positive_control
+G03BA,3-oxoandrosten (4) derivatives,0,increasing,positive_control

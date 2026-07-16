@@ -1,0 +1,41 @@
+"""Central path configuration for LeDXA.
+
+All participant-level data lives OUTSIDE this repository and is **not** distributed
+(UK Biobank and Human Phenotype Project data are access-controlled). Point the paths
+below at your own data via environment variables, or edit the defaults.
+
+Scripts in this repo contain placeholder absolute paths (e.g. ``/data/...`` and
+``/path/to/...``) left over from the original cluster environment; prefer importing
+from this module, or set the environment variables listed here.
+"""
+import os
+from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parent
+
+# Root for large inputs (DXA image HDF5s, embeddings, cohort tables). Never committed.
+DATA_ROOT = Path(os.environ.get("LEDXA_DATA", REPO_ROOT / "data"))
+
+# Key inputs — override via environment variables to match your setup.
+HPP_DXA_H5      = Path(os.environ.get("LEDXA_HPP_DXA_H5",  DATA_ROOT / "hpp"  / "dxa_dataset.h5"))
+UKBB_DXA_H5     = Path(os.environ.get("LEDXA_UKBB_DXA_H5", DATA_ROOT / "ukbb" / "ukbb_dexa_dataset_v3.h5"))
+CHECKPOINTS_DIR = Path(os.environ.get("LEDXA_CHECKPOINTS", DATA_ROOT / "checkpoints"))
+EMBEDDINGS_DIR  = Path(os.environ.get("LEDXA_EMBEDDINGS",  DATA_ROOT / "embeddings"))
+GWAS_DIR        = Path(os.environ.get("LEDXA_GWAS",        DATA_ROOT / "gwas_analysis"))
+
+# Weights & Biases (optional) — set to your own entity/project or disable logging.
+WANDB_ENTITY = os.environ.get("WANDB_ENTITY")  # None -> W&B default
+
+# Repo-relative outputs (curated, de-identified aggregate results — safe to commit).
+TABLES_DIR  = REPO_ROOT / "tables"
+FIGURES_DIR = REPO_ROOT / "figures"
+
+
+def out_table(name: str) -> str:
+    TABLES_DIR.mkdir(exist_ok=True)
+    return str(TABLES_DIR / name)
+
+
+def out_figure(name: str) -> str:
+    FIGURES_DIR.mkdir(exist_ok=True)
+    return str(FIGURES_DIR / name)

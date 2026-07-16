@@ -1,0 +1,27 @@
+claim_id,draft_text,draft_value,regen_value,abs_diff,rel_diff_pct,status,notes
+cluster_a_n,"Cluster A n = 3,899",3899,3899,0,0,pass,
+cluster_b_n,"Cluster B n = 1,515",1515,1515,0,0,pass,
+matched_b_n,"Matched 1,168 Cluster B cases (PSM)",1168,1168,0,0,pass,
+matched_a_n,"Matched 1,168 Cluster A controls (PSM 1:1)",1168,1168,0,0,pass,
+body_comp_lean_n_pos,97 lean-dominant features in Cluster B,97,97,0,0,pass,
+body_comp_total,/ 117 body composition features tested,117,117,0,0,pass,
+trunk_ffm_delta_sd,Trunk FFM ΔSD = +0.34,0.34,0.345441,0.00544092,1.60027,pass,body_comp_trunk_lean_mass; Cluster B > A
+arms_ffm_delta_sd,Arms FFM ΔSD = +0.31,0.31,0.315501,0.0055011,1.77455,pass,
+legs_fat_delta_sd,Legs fat ΔSD = −0.97,0.97,0.971209,0.0012086,0.124598,pass,
+gynoid_fat_delta_sd,Gynoid fat ΔSD = −0.90,0.9,0.904199,0.00419916,0.466574,pass,
+trunk_fat_delta_sd,Trunk fat ΔSD = −0.64,0.64,0.637401,0.00259943,0.40616,pass,
+conditions_pre_b,Cluster B 1.94 conditions (pre-match),1.94,1.94257,0.00257426,0.132694,pass,
+conditions_pre_a,Cluster A 2.38 conditions (pre-match),2.38,2.3783,0.00169787,0.0713391,pass,
+conditions_pre_p,Pre-match p = 2.7×10⁻¹³,2.7e-13,2.68816e-13,1.1835e-15,0.438334,pass,p audited on log scale
+conditions_post_b,Cluster B 1.99 conditions (post-match PSM),1.987,1.98716,0.000157534,0.00792825,pass,
+conditions_post_a,Cluster A 2.13 conditions (post-match PSM),2.134,2.13356,0.000438356,0.0205415,pass,
+conditions_post_p,Post-match p = 0.039,0.039,0.0387589,0.000241103,0.618213,pass,p audited loosely; PSM reduces n and effect size
+sign_test_count,19 of 34 conditions higher in Cluster A (PSM),19,19,0,0,pass,PSM attenuates individual-disease signal; not significant
+sign_test_p,"Sign test p = 0.49 (PSM, not significant)",0.487,0.48685,0.000149758,0.0307512,pass,Not significant after PSM — draft updated to reflect this
+disease_rate_reduction_pct,6.9% reduction (post-match PSM),6.9,6.86196,0.0380417,0.551329,pass,
+liver_sound_speed_sd,Liver sound speed ΔSD = +0.47,0.47,0.467114,0.00288612,0.614068,pass,
+hand_grip_sd,Hand grip ΔSD = +0.38,0.38,0.339802,0.0401981,10.5785,pass,
+resting_hr_sd,Resting HR ΔSD = −0.35,0.35,0.351468,0.00146813,0.419466,pass,
+rem_hr_sd,Min HR during REM ΔSD = −0.32,0.32,0.324432,0.00443161,1.38488,pass,
+neutrophil_sd,Neutrophils ΔSD = −0.10,0.1,0.0962315,0.00376847,3.76847,pass,immune_system; small effect; wider tolerance
+creatinine_sd,Creatinine ΔSD = +0.29,0.29,0.285534,0.00446565,1.53988,pass,

@@ -1,0 +1,841 @@
+Event,Arm,Seed,C-Index
+Date I20 first reported (angina pectoris) - visit 0,Covariates,42,0.6982319244633698
+Date I20 first reported (angina pectoris) - visit 0,Covariates,142,0.698641314660898
+Date I20 first reported (angina pectoris) - visit 0,Covariates,242,0.6962870014981027
+Date I20 first reported (angina pectoris) - visit 0,Covariates,342,0.7057976578997889
+Date I20 first reported (angina pectoris) - visit 0,Covariates,442,0.6842655063485077
+Date I20 first reported (angina pectoris) - visit 0,Covariates,542,0.6914184033274019
+Date I20 first reported (angina pectoris) - visit 0,Covariates,642,0.6395118988460052
+Date I20 first reported (angina pectoris) - visit 0,Covariates,742,0.6054893132104839
+Date I20 first reported (angina pectoris) - visit 0,Covariates,842,0.6960450060471404
+Date I20 first reported (angina pectoris) - visit 0,Covariates,942,0.6698159399968842
+Date I20 first reported (angina pectoris) - visit 0,DXA Tabular + Covariates,42,0.6973797414591115
+Date I20 first reported (angina pectoris) - visit 0,DXA Tabular + Covariates,142,0.6954235183769512
+Date I20 first reported (angina pectoris) - visit 0,DXA Tabular + Covariates,242,0.6953219827444805
+Date I20 first reported (angina pectoris) - visit 0,DXA Tabular + Covariates,342,0.7015769410086937
+Date I20 first reported (angina pectoris) - visit 0,DXA Tabular + Covariates,442,0.6849479918213169
+Date I20 first reported (angina pectoris) - visit 0,DXA Tabular + Covariates,542,0.6894534021811513
+Date I20 first reported (angina pectoris) - visit 0,DXA Tabular + Covariates,642,0.6370382640384297
+Date I20 first reported (angina pectoris) - visit 0,DXA Tabular + Covariates,742,0.603635454014842
+Date I20 first reported (angina pectoris) - visit 0,DXA Tabular + Covariates,842,0.6980753128916276
+Date I20 first reported (angina pectoris) - visit 0,DXA Tabular + Covariates,942,0.6702555028821972
+Date I20 first reported (angina pectoris) - visit 0,DXA SSL (LeJEPA) + Covariates,42,0.6967644272132254
+Date I20 first reported (angina pectoris) - visit 0,DXA SSL (LeJEPA) + Covariates,142,0.6940626643461666
+Date I20 first reported (angina pectoris) - visit 0,DXA SSL (LeJEPA) + Covariates,242,0.7014674846089077
+Date I20 first reported (angina pectoris) - visit 0,DXA SSL (LeJEPA) + Covariates,342,0.7119490990867454
+Date I20 first reported (angina pectoris) - visit 0,DXA SSL (LeJEPA) + Covariates,442,0.6939345148224703
+Date I20 first reported (angina pectoris) - visit 0,DXA SSL (LeJEPA) + Covariates,542,0.6877121928321125
+Date I20 first reported (angina pectoris) - visit 0,DXA SSL (LeJEPA) + Covariates,642,0.6477831152338358
+Date I20 first reported (angina pectoris) - visit 0,DXA SSL (LeJEPA) + Covariates,742,0.6092720753773034
+Date I20 first reported (angina pectoris) - visit 0,DXA SSL (LeJEPA) + Covariates,842,0.6991260377275886
+Date I20 first reported (angina pectoris) - visit 0,DXA SSL (LeJEPA) + Covariates,942,0.6624268322539004
+Date I20 first reported (angina pectoris) - visit 0,DXA SSL (DINO) + Covariates,42,0.696606514707644
+Date I20 first reported (angina pectoris) - visit 0,DXA SSL (DINO) + Covariates,142,0.6939596514912466
+Date I20 first reported (angina pectoris) - visit 0,DXA SSL (DINO) + Covariates,242,0.7013526665135759
+Date I20 first reported (angina pectoris) - visit 0,DXA SSL (DINO) + Covariates,342,0.709409538436223
+Date I20 first reported (angina pectoris) - visit 0,DXA SSL (DINO) + Covariates,442,0.6852934130402082
+Date I20 first reported (angina pectoris) - visit 0,DXA SSL (DINO) + Covariates,542,0.6886783183956857
+Date I20 first reported (angina pectoris) - visit 0,DXA SSL (DINO) + Covariates,642,0.643249958588703
+Date I20 first reported (angina pectoris) - visit 0,DXA SSL (DINO) + Covariates,742,0.603996775897051
+Date I20 first reported (angina pectoris) - visit 0,DXA SSL (DINO) + Covariates,842,0.7018513552708626
+Date I20 first reported (angina pectoris) - visit 0,DXA SSL (DINO) + Covariates,942,0.6734270325610381
+Date I21 first reported (acute myocardial infarction) - visit 0,Covariates,42,0.6485400120482762
+Date I21 first reported (acute myocardial infarction) - visit 0,Covariates,142,0.710327151713588
+Date I21 first reported (acute myocardial infarction) - visit 0,Covariates,242,0.6197003836116538
+Date I21 first reported (acute myocardial infarction) - visit 0,Covariates,342,0.6054206062903128
+Date I21 first reported (acute myocardial infarction) - visit 0,Covariates,442,0.6160712456376389
+Date I21 first reported (acute myocardial infarction) - visit 0,Covariates,542,0.7107761196033808
+Date I21 first reported (acute myocardial infarction) - visit 0,Covariates,642,0.6754701525649339
+Date I21 first reported (acute myocardial infarction) - visit 0,Covariates,742,0.6429072809648395
+Date I21 first reported (acute myocardial infarction) - visit 0,Covariates,842,0.6759995860213199
+Date I21 first reported (acute myocardial infarction) - visit 0,Covariates,942,0.6857852755358672
+Date I21 first reported (acute myocardial infarction) - visit 0,DXA Tabular + Covariates,42,0.6471516905670307
+Date I21 first reported (acute myocardial infarction) - visit 0,DXA Tabular + Covariates,142,0.7116019430503744
+Date I21 first reported (acute myocardial infarction) - visit 0,DXA Tabular + Covariates,242,0.6201175078077094
+Date I21 first reported (acute myocardial infarction) - visit 0,DXA Tabular + Covariates,342,0.5995763142043032
+Date I21 first reported (acute myocardial infarction) - visit 0,DXA Tabular + Covariates,442,0.6145277722762135
+Date I21 first reported (acute myocardial infarction) - visit 0,DXA Tabular + Covariates,542,0.7070469055243389
+Date I21 first reported (acute myocardial infarction) - visit 0,DXA Tabular + Covariates,642,0.6753745861633503
+Date I21 first reported (acute myocardial infarction) - visit 0,DXA Tabular + Covariates,742,0.6424464155304561
+Date I21 first reported (acute myocardial infarction) - visit 0,DXA Tabular + Covariates,842,0.667616517749336
+Date I21 first reported (acute myocardial infarction) - visit 0,DXA Tabular + Covariates,942,0.6891869112877669
+Date I21 first reported (acute myocardial infarction) - visit 0,DXA SSL (LeJEPA) + Covariates,42,0.6490004777764699
+Date I21 first reported (acute myocardial infarction) - visit 0,DXA SSL (LeJEPA) + Covariates,142,0.7105418534124152
+Date I21 first reported (acute myocardial infarction) - visit 0,DXA SSL (LeJEPA) + Covariates,242,0.6203813299488042
+Date I21 first reported (acute myocardial infarction) - visit 0,DXA SSL (LeJEPA) + Covariates,342,0.6063715304803352
+Date I21 first reported (acute myocardial infarction) - visit 0,DXA SSL (LeJEPA) + Covariates,442,0.6163307677072591
+Date I21 first reported (acute myocardial infarction) - visit 0,DXA SSL (LeJEPA) + Covariates,542,0.7107123436650353
+Date I21 first reported (acute myocardial infarction) - visit 0,DXA SSL (LeJEPA) + Covariates,642,0.6748762756408069
+Date I21 first reported (acute myocardial infarction) - visit 0,DXA SSL (LeJEPA) + Covariates,742,0.6425811300420451
+Date I21 first reported (acute myocardial infarction) - visit 0,DXA SSL (LeJEPA) + Covariates,842,0.6765860558181254
+Date I21 first reported (acute myocardial infarction) - visit 0,DXA SSL (LeJEPA) + Covariates,942,0.6855526562426253
+Date I21 first reported (acute myocardial infarction) - visit 0,DXA SSL (DINO) + Covariates,42,0.6500321979794902
+Date I21 first reported (acute myocardial infarction) - visit 0,DXA SSL (DINO) + Covariates,142,0.7071938487963286
+Date I21 first reported (acute myocardial infarction) - visit 0,DXA SSL (DINO) + Covariates,242,0.6189766553056771
+Date I21 first reported (acute myocardial infarction) - visit 0,DXA SSL (DINO) + Covariates,342,0.6106760698743156
+Date I21 first reported (acute myocardial infarction) - visit 0,DXA SSL (DINO) + Covariates,442,0.6143365454880723
+Date I21 first reported (acute myocardial infarction) - visit 0,DXA SSL (DINO) + Covariates,542,0.7117193321652266
+Date I21 first reported (acute myocardial infarction) - visit 0,DXA SSL (DINO) + Covariates,642,0.6745964026075976
+Date I21 first reported (acute myocardial infarction) - visit 0,DXA SSL (DINO) + Covariates,742,0.6429285516771956
+Date I21 first reported (acute myocardial infarction) - visit 0,DXA SSL (DINO) + Covariates,842,0.6769103391175354
+Date I21 first reported (acute myocardial infarction) - visit 0,DXA SSL (DINO) + Covariates,942,0.6879327898807236
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,Covariates,42,0.7441048408360472
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,Covariates,142,0.6986993368488889
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,Covariates,242,0.7808155894334551
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,Covariates,342,0.712759627681765
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,Covariates,442,0.7288264867652114
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,Covariates,542,0.7827386394002898
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,Covariates,642,0.7358031250227427
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,Covariates,742,0.7634483841946678
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,Covariates,842,0.7919095302147163
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,Covariates,942,0.8123724546795168
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,DXA Tabular + Covariates,42,0.8045493739622454
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,DXA Tabular + Covariates,142,0.7482658979564968
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,DXA Tabular + Covariates,242,0.8126006187616368
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,DXA Tabular + Covariates,342,0.7700777600722204
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,DXA Tabular + Covariates,442,0.7327045376418013
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,DXA Tabular + Covariates,542,0.766740270882266
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,DXA Tabular + Covariates,642,0.8325558377666349
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,DXA Tabular + Covariates,742,0.8047467405429335
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,DXA Tabular + Covariates,842,0.8459337703097978
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,DXA Tabular + Covariates,942,0.798325711647029
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,DXA SSL (LeJEPA) + Covariates,42,0.8145189450355241
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,DXA SSL (LeJEPA) + Covariates,142,0.7274358849983715
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,DXA SSL (LeJEPA) + Covariates,242,0.8119076617249731
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,DXA SSL (LeJEPA) + Covariates,342,0.7455665816343977
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,DXA SSL (LeJEPA) + Covariates,442,0.7675676062793629
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,DXA SSL (LeJEPA) + Covariates,542,0.7776683872238084
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,DXA SSL (LeJEPA) + Covariates,642,0.7936859111981195
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,DXA SSL (LeJEPA) + Covariates,742,0.7858754480414697
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,DXA SSL (LeJEPA) + Covariates,842,0.8221633893431831
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,DXA SSL (LeJEPA) + Covariates,942,0.8427822382434869
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,DXA SSL (DINO) + Covariates,42,0.7787881163282904
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,DXA SSL (DINO) + Covariates,142,0.7112486227661093
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,DXA SSL (DINO) + Covariates,242,0.8339142973135666
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,DXA SSL (DINO) + Covariates,342,0.7301513483199857
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,DXA SSL (DINO) + Covariates,442,0.7373954394408159
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,DXA SSL (DINO) + Covariates,542,0.7904178562889411
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,DXA SSL (DINO) + Covariates,642,0.7684542999992723
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,DXA SSL (DINO) + Covariates,742,0.8114370171505276
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,DXA SSL (DINO) + Covariates,842,0.8169111315128353
+Date M81 first reported (osteoporosis without pathological fracture) - visit 0,DXA SSL (DINO) + Covariates,942,0.8288397658379635
+Date K76 first reported (other diseases of liver) - visit 0,Covariates,42,0.6896789726254463
+Date K76 first reported (other diseases of liver) - visit 0,Covariates,142,0.6996883249406597
+Date K76 first reported (other diseases of liver) - visit 0,Covariates,242,0.6907790185906448
+Date K76 first reported (other diseases of liver) - visit 0,Covariates,342,0.6202976164347482
+Date K76 first reported (other diseases of liver) - visit 0,Covariates,442,0.6141198848676871
+Date K76 first reported (other diseases of liver) - visit 0,Covariates,542,0.7345673518204322
+Date K76 first reported (other diseases of liver) - visit 0,Covariates,642,0.665351231814604
+Date K76 first reported (other diseases of liver) - visit 0,Covariates,742,0.6375549455083594
+Date K76 first reported (other diseases of liver) - visit 0,Covariates,842,0.6687506047541741
+Date K76 first reported (other diseases of liver) - visit 0,Covariates,942,0.6882768181528459
+Date K76 first reported (other diseases of liver) - visit 0,DXA Tabular + Covariates,42,0.6903746134573893
+Date K76 first reported (other diseases of liver) - visit 0,DXA Tabular + Covariates,142,0.698196499478693
+Date K76 first reported (other diseases of liver) - visit 0,DXA Tabular + Covariates,242,0.6903803782773351
+Date K76 first reported (other diseases of liver) - visit 0,DXA Tabular + Covariates,342,0.619968394714894
+Date K76 first reported (other diseases of liver) - visit 0,DXA Tabular + Covariates,442,0.6144294703021108
+Date K76 first reported (other diseases of liver) - visit 0,DXA Tabular + Covariates,542,0.73427530386894
+Date K76 first reported (other diseases of liver) - visit 0,DXA Tabular + Covariates,642,0.6683337170762006
+Date K76 first reported (other diseases of liver) - visit 0,DXA Tabular + Covariates,742,0.638726749591519
+Date K76 first reported (other diseases of liver) - visit 0,DXA Tabular + Covariates,842,0.6687613559394924
+Date K76 first reported (other diseases of liver) - visit 0,DXA Tabular + Covariates,942,0.6895914334884314
+Date K76 first reported (other diseases of liver) - visit 0,DXA SSL (LeJEPA) + Covariates,42,0.6990375156926789
+Date K76 first reported (other diseases of liver) - visit 0,DXA SSL (LeJEPA) + Covariates,142,0.7092936844206836
+Date K76 first reported (other diseases of liver) - visit 0,DXA SSL (LeJEPA) + Covariates,242,0.6853004077982665
+Date K76 first reported (other diseases of liver) - visit 0,DXA SSL (LeJEPA) + Covariates,342,0.6299931960844564
+Date K76 first reported (other diseases of liver) - visit 0,DXA SSL (LeJEPA) + Covariates,442,0.6125329108840198
+Date K76 first reported (other diseases of liver) - visit 0,DXA SSL (LeJEPA) + Covariates,542,0.7366228131171252
+Date K76 first reported (other diseases of liver) - visit 0,DXA SSL (LeJEPA) + Covariates,642,0.6670057882703192
+Date K76 first reported (other diseases of liver) - visit 0,DXA SSL (LeJEPA) + Covariates,742,0.6530139571218732
+Date K76 first reported (other diseases of liver) - visit 0,DXA SSL (LeJEPA) + Covariates,842,0.6822863470697644
+Date K76 first reported (other diseases of liver) - visit 0,DXA SSL (LeJEPA) + Covariates,942,0.6954979072386173
+Date K76 first reported (other diseases of liver) - visit 0,DXA SSL (DINO) + Covariates,42,0.6815269316261148
+Date K76 first reported (other diseases of liver) - visit 0,DXA SSL (DINO) + Covariates,142,0.7012300627786774
+Date K76 first reported (other diseases of liver) - visit 0,DXA SSL (DINO) + Covariates,242,0.691700200936266
+Date K76 first reported (other diseases of liver) - visit 0,DXA SSL (DINO) + Covariates,342,0.6157214345287739
+Date K76 first reported (other diseases of liver) - visit 0,DXA SSL (DINO) + Covariates,442,0.6106196171181222
+Date K76 first reported (other diseases of liver) - visit 0,DXA SSL (DINO) + Covariates,542,0.7354824354017745
+Date K76 first reported (other diseases of liver) - visit 0,DXA SSL (DINO) + Covariates,642,0.6652923317466012
+Date K76 first reported (other diseases of liver) - visit 0,DXA SSL (DINO) + Covariates,742,0.6443822171853596
+Date K76 first reported (other diseases of liver) - visit 0,DXA SSL (DINO) + Covariates,842,0.6714491522690377
+Date K76 first reported (other diseases of liver) - visit 0,DXA SSL (DINO) + Covariates,942,0.6935963626319926
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,Covariates,42,0.7308083761016912
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,Covariates,142,0.6552409258170575
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,Covariates,242,0.6191804141607589
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,Covariates,342,0.7272184555029636
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,Covariates,442,0.6600398183003994
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,Covariates,542,0.7148332551494734
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,Covariates,642,0.6633167907361456
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,Covariates,742,0.7117718244496009
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,Covariates,842,0.6865893863660534
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,Covariates,942,0.6123054623938045
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,DXA Tabular + Covariates,42,0.7311548539379371
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,DXA Tabular + Covariates,142,0.6546693666035229
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,DXA Tabular + Covariates,242,0.6195835993235449
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,DXA Tabular + Covariates,342,0.7297556607394141
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,DXA Tabular + Covariates,442,0.6588097989633511
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,DXA Tabular + Covariates,542,0.7157448078809331
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,DXA Tabular + Covariates,642,0.6623655913978495
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,DXA Tabular + Covariates,742,0.7087297798403481
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,DXA Tabular + Covariates,842,0.6879719238540891
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,DXA Tabular + Covariates,942,0.6128291666225838
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,DXA SSL (LeJEPA) + Covariates,42,0.738441715931484
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,DXA SSL (LeJEPA) + Covariates,142,0.6837263483354018
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,DXA SSL (LeJEPA) + Covariates,242,0.6393732710636248
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,DXA SSL (LeJEPA) + Covariates,342,0.7416634685088056
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,DXA SSL (LeJEPA) + Covariates,442,0.6780896369440599
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,DXA SSL (LeJEPA) + Covariates,542,0.7277069384621946
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,DXA SSL (LeJEPA) + Covariates,642,0.6882547559966915
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,DXA SSL (LeJEPA) + Covariates,742,0.7000477401161306
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,DXA SSL (LeJEPA) + Covariates,842,0.6964266723386153
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,DXA SSL (LeJEPA) + Covariates,942,0.6402522244204869
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,DXA SSL (DINO) + Covariates,42,0.7336235085211893
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,DXA SSL (DINO) + Covariates,142,0.6413329849543842
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,DXA SSL (DINO) + Covariates,242,0.6400564459227901
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,DXA SSL (DINO) + Covariates,342,0.7302993475757963
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,DXA SSL (DINO) + Covariates,442,0.6556403537878874
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,DXA SSL (DINO) + Covariates,542,0.7202119493368587
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,DXA SSL (DINO) + Covariates,642,0.6755272952853598
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,DXA SSL (DINO) + Covariates,742,0.7081746622109225
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,DXA SSL (DINO) + Covariates,842,0.7064766563862597
+Date J44 first reported (other chronic obstructive pulmonary disease) - visit 0,DXA SSL (DINO) + Covariates,942,0.6253980681132894
+Date N17 first reported (acute renal failure) - visit 0,Covariates,42,0.7034497609945181
+Date N17 first reported (acute renal failure) - visit 0,Covariates,142,0.6765980442348366
+Date N17 first reported (acute renal failure) - visit 0,Covariates,242,0.8070876632027711
+Date N17 first reported (acute renal failure) - visit 0,Covariates,342,0.6756699505011556
+Date N17 first reported (acute renal failure) - visit 0,Covariates,442,0.7112550368452101
+Date N17 first reported (acute renal failure) - visit 0,Covariates,542,0.709764128754788
+Date N17 first reported (acute renal failure) - visit 0,Covariates,642,0.7142561972663504
+Date N17 first reported (acute renal failure) - visit 0,Covariates,742,0.7664977616231312
+Date N17 first reported (acute renal failure) - visit 0,Covariates,842,0.6926067798307546
+Date N17 first reported (acute renal failure) - visit 0,Covariates,942,0.6956906231058912
+Date N17 first reported (acute renal failure) - visit 0,DXA Tabular + Covariates,42,0.7008629719627162
+Date N17 first reported (acute renal failure) - visit 0,DXA Tabular + Covariates,142,0.6717138025721776
+Date N17 first reported (acute renal failure) - visit 0,DXA Tabular + Covariates,242,0.8083020762876878
+Date N17 first reported (acute renal failure) - visit 0,DXA Tabular + Covariates,342,0.6771098681282144
+Date N17 first reported (acute renal failure) - visit 0,DXA Tabular + Covariates,442,0.711202543669323
+Date N17 first reported (acute renal failure) - visit 0,DXA Tabular + Covariates,542,0.7111753242389625
+Date N17 first reported (acute renal failure) - visit 0,DXA Tabular + Covariates,642,0.7139554225753637
+Date N17 first reported (acute renal failure) - visit 0,DXA Tabular + Covariates,742,0.7682971907343519
+Date N17 first reported (acute renal failure) - visit 0,DXA Tabular + Covariates,842,0.6905162485604126
+Date N17 first reported (acute renal failure) - visit 0,DXA Tabular + Covariates,942,0.6973748273566439
+Date N17 first reported (acute renal failure) - visit 0,DXA SSL (LeJEPA) + Covariates,42,0.7077008151176949
+Date N17 first reported (acute renal failure) - visit 0,DXA SSL (LeJEPA) + Covariates,142,0.6773039192871955
+Date N17 first reported (acute renal failure) - visit 0,DXA SSL (LeJEPA) + Covariates,242,0.8003340917009982
+Date N17 first reported (acute renal failure) - visit 0,DXA SSL (LeJEPA) + Covariates,342,0.6787187146388944
+Date N17 first reported (acute renal failure) - visit 0,DXA SSL (LeJEPA) + Covariates,442,0.7098827152470178
+Date N17 first reported (acute renal failure) - visit 0,DXA SSL (LeJEPA) + Covariates,542,0.7080169343458101
+Date N17 first reported (acute renal failure) - visit 0,DXA SSL (LeJEPA) + Covariates,642,0.7139188065260261
+Date N17 first reported (acute renal failure) - visit 0,DXA SSL (LeJEPA) + Covariates,742,0.7855008624938393
+Date N17 first reported (acute renal failure) - visit 0,DXA SSL (LeJEPA) + Covariates,842,0.7037203945721295
+Date N17 first reported (acute renal failure) - visit 0,DXA SSL (LeJEPA) + Covariates,942,0.6920539342812572
+Date N17 first reported (acute renal failure) - visit 0,DXA SSL (DINO) + Covariates,42,0.7093597630682029
+Date N17 first reported (acute renal failure) - visit 0,DXA SSL (DINO) + Covariates,142,0.6762489851430108
+Date N17 first reported (acute renal failure) - visit 0,DXA SSL (DINO) + Covariates,242,0.8105259382237799
+Date N17 first reported (acute renal failure) - visit 0,DXA SSL (DINO) + Covariates,342,0.6852506314722554
+Date N17 first reported (acute renal failure) - visit 0,DXA SSL (DINO) + Covariates,442,0.7132122824032876
+Date N17 first reported (acute renal failure) - visit 0,DXA SSL (DINO) + Covariates,542,0.7164479227512626
+Date N17 first reported (acute renal failure) - visit 0,DXA SSL (DINO) + Covariates,642,0.7247780805866937
+Date N17 first reported (acute renal failure) - visit 0,DXA SSL (DINO) + Covariates,742,0.7788678741580417
+Date N17 first reported (acute renal failure) - visit 0,DXA SSL (DINO) + Covariates,842,0.6999549346552502
+Date N17 first reported (acute renal failure) - visit 0,DXA SSL (DINO) + Covariates,942,0.7002364841366838
+Date M48 first reported (other spondylopathies) - visit 0,Covariates,42,0.7231774479604219
+Date M48 first reported (other spondylopathies) - visit 0,Covariates,142,0.6658317045571444
+Date M48 first reported (other spondylopathies) - visit 0,Covariates,242,0.6954466506138238
+Date M48 first reported (other spondylopathies) - visit 0,Covariates,342,0.7452465557010162
+Date M48 first reported (other spondylopathies) - visit 0,Covariates,442,0.6191538240643247
+Date M48 first reported (other spondylopathies) - visit 0,Covariates,542,0.7338823733151175
+Date M48 first reported (other spondylopathies) - visit 0,Covariates,642,0.637420171164978
+Date M48 first reported (other spondylopathies) - visit 0,Covariates,742,0.7606602406219276
+Date M48 first reported (other spondylopathies) - visit 0,Covariates,842,0.6518733484333711
+Date M48 first reported (other spondylopathies) - visit 0,Covariates,942,0.7063076967046786
+Date M48 first reported (other spondylopathies) - visit 0,DXA Tabular + Covariates,42,0.7208251656865491
+Date M48 first reported (other spondylopathies) - visit 0,DXA Tabular + Covariates,142,0.6244830778726469
+Date M48 first reported (other spondylopathies) - visit 0,DXA Tabular + Covariates,242,0.6932558323135831
+Date M48 first reported (other spondylopathies) - visit 0,DXA Tabular + Covariates,342,0.7511688797456517
+Date M48 first reported (other spondylopathies) - visit 0,DXA Tabular + Covariates,442,0.5778405283813535
+Date M48 first reported (other spondylopathies) - visit 0,DXA Tabular + Covariates,542,0.7376923002915171
+Date M48 first reported (other spondylopathies) - visit 0,DXA Tabular + Covariates,642,0.6261171055384523
+Date M48 first reported (other spondylopathies) - visit 0,DXA Tabular + Covariates,742,0.7570468574208654
+Date M48 first reported (other spondylopathies) - visit 0,DXA Tabular + Covariates,842,0.6506040015100037
+Date M48 first reported (other spondylopathies) - visit 0,DXA Tabular + Covariates,942,0.6803185763144607
+Date M48 first reported (other spondylopathies) - visit 0,DXA SSL (LeJEPA) + Covariates,42,0.7373658172314012
+Date M48 first reported (other spondylopathies) - visit 0,DXA SSL (LeJEPA) + Covariates,142,0.6658677090834276
+Date M48 first reported (other spondylopathies) - visit 0,DXA SSL (LeJEPA) + Covariates,242,0.7145916393636759
+Date M48 first reported (other spondylopathies) - visit 0,DXA SSL (LeJEPA) + Covariates,342,0.7295575920038235
+Date M48 first reported (other spondylopathies) - visit 0,DXA SSL (LeJEPA) + Covariates,442,0.6311955585335502
+Date M48 first reported (other spondylopathies) - visit 0,DXA SSL (LeJEPA) + Covariates,542,0.742368119762553
+Date M48 first reported (other spondylopathies) - visit 0,DXA SSL (LeJEPA) + Covariates,642,0.6404240268603482
+Date M48 first reported (other spondylopathies) - visit 0,DXA SSL (LeJEPA) + Covariates,742,0.7574117432420105
+Date M48 first reported (other spondylopathies) - visit 0,DXA SSL (LeJEPA) + Covariates,842,0.6549452623631559
+Date M48 first reported (other spondylopathies) - visit 0,DXA SSL (LeJEPA) + Covariates,942,0.7180732992273762
+Date M48 first reported (other spondylopathies) - visit 0,DXA SSL (DINO) + Covariates,42,0.7403995146084197
+Date M48 first reported (other spondylopathies) - visit 0,DXA SSL (DINO) + Covariates,142,0.6599218187429277
+Date M48 first reported (other spondylopathies) - visit 0,DXA SSL (DINO) + Covariates,242,0.7132593849919078
+Date M48 first reported (other spondylopathies) - visit 0,DXA SSL (DINO) + Covariates,342,0.7582444984726638
+Date M48 first reported (other spondylopathies) - visit 0,DXA SSL (DINO) + Covariates,442,0.6262180530295779
+Date M48 first reported (other spondylopathies) - visit 0,DXA SSL (DINO) + Covariates,542,0.7400686941379078
+Date M48 first reported (other spondylopathies) - visit 0,DXA SSL (DINO) + Covariates,642,0.6404738420460093
+Date M48 first reported (other spondylopathies) - visit 0,DXA SSL (DINO) + Covariates,742,0.7425122388785842
+Date M48 first reported (other spondylopathies) - visit 0,DXA SSL (DINO) + Covariates,842,0.6685919214798037
+Date M48 first reported (other spondylopathies) - visit 0,DXA SSL (DINO) + Covariates,942,0.7075557079844141
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,Covariates,42,0.6971321764887576
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,Covariates,142,0.678288121171764
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,Covariates,242,0.7249889848200329
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,Covariates,342,0.6893417169390808
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,Covariates,442,0.6684102924499673
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,Covariates,542,0.6708629097948777
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,Covariates,642,0.6902437118147542
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,Covariates,742,0.689169590079929
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,Covariates,842,0.7039816232771823
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,Covariates,942,0.6688500321591265
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,DXA Tabular + Covariates,42,0.6946769837561281
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,DXA Tabular + Covariates,142,0.6781639264555885
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,DXA Tabular + Covariates,242,0.7237209277928727
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,DXA Tabular + Covariates,342,0.6908186766334882
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,DXA Tabular + Covariates,442,0.6640924893652137
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,DXA Tabular + Covariates,542,0.6700800812449089
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,DXA Tabular + Covariates,642,0.691036051453566
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,DXA Tabular + Covariates,742,0.6903643763697228
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,DXA Tabular + Covariates,842,0.7028629272977392
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,DXA Tabular + Covariates,942,0.6684899030973757
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,DXA SSL (LeJEPA) + Covariates,42,0.7006697660174925
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,DXA SSL (LeJEPA) + Covariates,142,0.6808090096660483
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,DXA SSL (LeJEPA) + Covariates,242,0.7262544191852963
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,DXA SSL (LeJEPA) + Covariates,342,0.6910471272337023
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,DXA SSL (LeJEPA) + Covariates,442,0.6691050807391908
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,DXA SSL (LeJEPA) + Covariates,542,0.6734071025822763
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,DXA SSL (LeJEPA) + Covariates,642,0.6945342040085918
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,DXA SSL (LeJEPA) + Covariates,742,0.6916407774004768
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,DXA SSL (LeJEPA) + Covariates,842,0.7130479923170764
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,DXA SSL (LeJEPA) + Covariates,942,0.6734679232646031
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,DXA SSL (DINO) + Covariates,42,0.7008360855251868
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,DXA SSL (DINO) + Covariates,142,0.6832981888710965
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,DXA SSL (DINO) + Covariates,242,0.7142609863306862
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,DXA SSL (DINO) + Covariates,342,0.700426883854121
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,DXA SSL (DINO) + Covariates,442,0.6785818865232368
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,DXA SSL (DINO) + Covariates,542,0.6944482645537349
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,DXA SSL (DINO) + Covariates,642,0.7021961822165567
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,DXA SSL (DINO) + Covariates,742,0.6997861961376158
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,DXA SSL (DINO) + Covariates,842,0.7225504191865445
+Date I25 first reported (chronic ischaemic heart disease) - visit 0,DXA SSL (DINO) + Covariates,942,0.6772366539624828
+Date I63 first reported (cerebral infarction) - visit 0,Covariates,42,0.7195137052335506
+Date I63 first reported (cerebral infarction) - visit 0,Covariates,142,0.6431550018639409
+Date I63 first reported (cerebral infarction) - visit 0,Covariates,242,0.7047560422471327
+Date I63 first reported (cerebral infarction) - visit 0,Covariates,342,0.5614395615976394
+Date I63 first reported (cerebral infarction) - visit 0,Covariates,442,0.6902212322088331
+Date I63 first reported (cerebral infarction) - visit 0,Covariates,542,0.6436566832957551
+Date I63 first reported (cerebral infarction) - visit 0,Covariates,642,0.6136264325580472
+Date I63 first reported (cerebral infarction) - visit 0,Covariates,742,0.568583552687044
+Date I63 first reported (cerebral infarction) - visit 0,Covariates,842,0.712933324252537
+Date I63 first reported (cerebral infarction) - visit 0,Covariates,942,0.6957059477487493
+Date I63 first reported (cerebral infarction) - visit 0,DXA Tabular + Covariates,42,0.7191112604923093
+Date I63 first reported (cerebral infarction) - visit 0,DXA Tabular + Covariates,142,0.6417332050248381
+Date I63 first reported (cerebral infarction) - visit 0,DXA Tabular + Covariates,242,0.7043163536392332
+Date I63 first reported (cerebral infarction) - visit 0,DXA Tabular + Covariates,342,0.5578915937752486
+Date I63 first reported (cerebral infarction) - visit 0,DXA Tabular + Covariates,442,0.6882889169193884
+Date I63 first reported (cerebral infarction) - visit 0,DXA Tabular + Covariates,542,0.6412200188186837
+Date I63 first reported (cerebral infarction) - visit 0,DXA Tabular + Covariates,642,0.6103044868611834
+Date I63 first reported (cerebral infarction) - visit 0,DXA Tabular + Covariates,742,0.5683399998126516
+Date I63 first reported (cerebral infarction) - visit 0,DXA Tabular + Covariates,842,0.7121257820025102
+Date I63 first reported (cerebral infarction) - visit 0,DXA Tabular + Covariates,942,0.6957569019825829
+Date I63 first reported (cerebral infarction) - visit 0,DXA SSL (LeJEPA) + Covariates,42,0.7175987758603914
+Date I63 first reported (cerebral infarction) - visit 0,DXA SSL (LeJEPA) + Covariates,142,0.6479232229706885
+Date I63 first reported (cerebral infarction) - visit 0,DXA SSL (LeJEPA) + Covariates,242,0.6950134683563052
+Date I63 first reported (cerebral infarction) - visit 0,DXA SSL (LeJEPA) + Covariates,342,0.5544314469385604
+Date I63 first reported (cerebral infarction) - visit 0,DXA SSL (LeJEPA) + Covariates,442,0.6887183203170428
+Date I63 first reported (cerebral infarction) - visit 0,DXA SSL (LeJEPA) + Covariates,542,0.64272906421432
+Date I63 first reported (cerebral infarction) - visit 0,DXA SSL (LeJEPA) + Covariates,642,0.6199177706715395
+Date I63 first reported (cerebral infarction) - visit 0,DXA SSL (LeJEPA) + Covariates,742,0.5628132230475958
+Date I63 first reported (cerebral infarction) - visit 0,DXA SSL (LeJEPA) + Covariates,842,0.7066870335957035
+Date I63 first reported (cerebral infarction) - visit 0,DXA SSL (LeJEPA) + Covariates,942,0.6934593292569946
+Date I63 first reported (cerebral infarction) - visit 0,DXA SSL (DINO) + Covariates,42,0.7199692196109996
+Date I63 first reported (cerebral infarction) - visit 0,DXA SSL (DINO) + Covariates,142,0.6430856459205702
+Date I63 first reported (cerebral infarction) - visit 0,DXA SSL (DINO) + Covariates,242,0.704168248002888
+Date I63 first reported (cerebral infarction) - visit 0,DXA SSL (DINO) + Covariates,342,0.5612814838233744
+Date I63 first reported (cerebral infarction) - visit 0,DXA SSL (DINO) + Covariates,442,0.6906953651270765
+Date I63 first reported (cerebral infarction) - visit 0,DXA SSL (DINO) + Covariates,542,0.6434125730111669
+Date I63 first reported (cerebral infarction) - visit 0,DXA SSL (DINO) + Covariates,642,0.613889606133434
+Date I63 first reported (cerebral infarction) - visit 0,DXA SSL (DINO) + Covariates,742,0.5688364729796821
+Date I63 first reported (cerebral infarction) - visit 0,DXA SSL (DINO) + Covariates,842,0.7124565824422802
+Date I63 first reported (cerebral infarction) - visit 0,DXA SSL (DINO) + Covariates,942,0.6955716138595516
+Date of death - visit 0,Covariates,42,0.7197730088629289
+Date of death - visit 0,Covariates,142,0.7130991899849435
+Date of death - visit 0,Covariates,242,0.7122827529252382
+Date of death - visit 0,Covariates,342,0.7381357401601739
+Date of death - visit 0,Covariates,442,0.709427248156247
+Date of death - visit 0,Covariates,542,0.6900211237074413
+Date of death - visit 0,Covariates,642,0.710059038465
+Date of death - visit 0,Covariates,742,0.7266019248692528
+Date of death - visit 0,Covariates,842,0.714111306835028
+Date of death - visit 0,Covariates,942,0.7203515865029254
+Date of death - visit 0,DXA Tabular + Covariates,42,0.7191621445438808
+Date of death - visit 0,DXA Tabular + Covariates,142,0.7140418991792622
+Date of death - visit 0,DXA Tabular + Covariates,242,0.7120090192912618
+Date of death - visit 0,DXA Tabular + Covariates,342,0.737479673653775
+Date of death - visit 0,DXA Tabular + Covariates,442,0.7090605348581362
+Date of death - visit 0,DXA Tabular + Covariates,542,0.6886605355643904
+Date of death - visit 0,DXA Tabular + Covariates,642,0.7099690408049391
+Date of death - visit 0,DXA Tabular + Covariates,742,0.7266453865432999
+Date of death - visit 0,DXA Tabular + Covariates,842,0.7142639133543784
+Date of death - visit 0,DXA Tabular + Covariates,942,0.7191048258542537
+Date of death - visit 0,DXA SSL (LeJEPA) + Covariates,42,0.7225683067186441
+Date of death - visit 0,DXA SSL (LeJEPA) + Covariates,142,0.718603539403904
+Date of death - visit 0,DXA SSL (LeJEPA) + Covariates,242,0.7120229379506166
+Date of death - visit 0,DXA SSL (LeJEPA) + Covariates,342,0.7406850271564672
+Date of death - visit 0,DXA SSL (LeJEPA) + Covariates,442,0.7101425654537964
+Date of death - visit 0,DXA SSL (LeJEPA) + Covariates,542,0.6896429263253051
+Date of death - visit 0,DXA SSL (LeJEPA) + Covariates,642,0.7127319689688069
+Date of death - visit 0,DXA SSL (LeJEPA) + Covariates,742,0.7290164623163141
+Date of death - visit 0,DXA SSL (LeJEPA) + Covariates,842,0.7134747196400231
+Date of death - visit 0,DXA SSL (LeJEPA) + Covariates,942,0.7220569769616443
+Date of death - visit 0,DXA SSL (DINO) + Covariates,42,0.7261860049473534
+Date of death - visit 0,DXA SSL (DINO) + Covariates,142,0.7454461784535101
+Date of death - visit 0,DXA SSL (DINO) + Covariates,242,0.7244894171793372
+Date of death - visit 0,DXA SSL (DINO) + Covariates,342,0.7624898661155708
+Date of death - visit 0,DXA SSL (DINO) + Covariates,442,0.7141220838369982
+Date of death - visit 0,DXA SSL (DINO) + Covariates,542,0.7142211440009594
+Date of death - visit 0,DXA SSL (DINO) + Covariates,642,0.7520339471173749
+Date of death - visit 0,DXA SSL (DINO) + Covariates,742,0.7232698631923082
+Date of death - visit 0,DXA SSL (DINO) + Covariates,842,0.7356288260634495
+Date of death - visit 0,DXA SSL (DINO) + Covariates,942,0.7402819460152639
+Date M19 first reported (other arthrosis) - visit 0,Covariates,42,0.7137244726640007
+Date M19 first reported (other arthrosis) - visit 0,Covariates,142,0.6436989639159026
+Date M19 first reported (other arthrosis) - visit 0,Covariates,242,0.6434775938511575
+Date M19 first reported (other arthrosis) - visit 0,Covariates,342,0.6150347714822422
+Date M19 first reported (other arthrosis) - visit 0,Covariates,442,0.6864408041254302
+Date M19 first reported (other arthrosis) - visit 0,Covariates,542,0.6462933051461419
+Date M19 first reported (other arthrosis) - visit 0,Covariates,642,0.6092291364335377
+Date M19 first reported (other arthrosis) - visit 0,Covariates,742,0.6760965967581791
+Date M19 first reported (other arthrosis) - visit 0,Covariates,842,0.5888750393375253
+Date M19 first reported (other arthrosis) - visit 0,Covariates,942,0.6127719058779862
+Date M19 first reported (other arthrosis) - visit 0,DXA Tabular + Covariates,42,0.7275802069660247
+Date M19 first reported (other arthrosis) - visit 0,DXA Tabular + Covariates,142,0.639443345551931
+Date M19 first reported (other arthrosis) - visit 0,DXA Tabular + Covariates,242,0.6582329748554071
+Date M19 first reported (other arthrosis) - visit 0,DXA Tabular + Covariates,342,0.6195222437663913
+Date M19 first reported (other arthrosis) - visit 0,DXA Tabular + Covariates,442,0.6856800886062382
+Date M19 first reported (other arthrosis) - visit 0,DXA Tabular + Covariates,542,0.6520683143505267
+Date M19 first reported (other arthrosis) - visit 0,DXA Tabular + Covariates,642,0.6188599029033086
+Date M19 first reported (other arthrosis) - visit 0,DXA Tabular + Covariates,742,0.6798930357501812
+Date M19 first reported (other arthrosis) - visit 0,DXA Tabular + Covariates,842,0.5907447287716202
+Date M19 first reported (other arthrosis) - visit 0,DXA Tabular + Covariates,942,0.6253408645312308
+Date M19 first reported (other arthrosis) - visit 0,DXA SSL (LeJEPA) + Covariates,42,0.7331695106688239
+Date M19 first reported (other arthrosis) - visit 0,DXA SSL (LeJEPA) + Covariates,142,0.6750658061675894
+Date M19 first reported (other arthrosis) - visit 0,DXA SSL (LeJEPA) + Covariates,242,0.6726539128300324
+Date M19 first reported (other arthrosis) - visit 0,DXA SSL (LeJEPA) + Covariates,342,0.6313436402520365
+Date M19 first reported (other arthrosis) - visit 0,DXA SSL (LeJEPA) + Covariates,442,0.6973245441661605
+Date M19 first reported (other arthrosis) - visit 0,DXA SSL (LeJEPA) + Covariates,542,0.6488022423069157
+Date M19 first reported (other arthrosis) - visit 0,DXA SSL (LeJEPA) + Covariates,642,0.6198531482163356
+Date M19 first reported (other arthrosis) - visit 0,DXA SSL (LeJEPA) + Covariates,742,0.6858777951719895
+Date M19 first reported (other arthrosis) - visit 0,DXA SSL (LeJEPA) + Covariates,842,0.5965728530967117
+Date M19 first reported (other arthrosis) - visit 0,DXA SSL (LeJEPA) + Covariates,942,0.6335754930749498
+Date M19 first reported (other arthrosis) - visit 0,DXA SSL (DINO) + Covariates,42,0.7256112823956775
+Date M19 first reported (other arthrosis) - visit 0,DXA SSL (DINO) + Covariates,142,0.6512502407542716
+Date M19 first reported (other arthrosis) - visit 0,DXA SSL (DINO) + Covariates,242,0.64729453998742
+Date M19 first reported (other arthrosis) - visit 0,DXA SSL (DINO) + Covariates,342,0.6290204998986652
+Date M19 first reported (other arthrosis) - visit 0,DXA SSL (DINO) + Covariates,442,0.6965474531661248
+Date M19 first reported (other arthrosis) - visit 0,DXA SSL (DINO) + Covariates,542,0.655809451418663
+Date M19 first reported (other arthrosis) - visit 0,DXA SSL (DINO) + Covariates,642,0.6026709325676165
+Date M19 first reported (other arthrosis) - visit 0,DXA SSL (DINO) + Covariates,742,0.6918351434819422
+Date M19 first reported (other arthrosis) - visit 0,DXA SSL (DINO) + Covariates,842,0.5866227731875429
+Date M19 first reported (other arthrosis) - visit 0,DXA SSL (DINO) + Covariates,942,0.6221080768804796
+Date E03 first reported (other hypothyroidism) - visit 0,Covariates,42,0.7014260951780649
+Date E03 first reported (other hypothyroidism) - visit 0,Covariates,142,0.6621054119262257
+Date E03 first reported (other hypothyroidism) - visit 0,Covariates,242,0.6550509282159478
+Date E03 first reported (other hypothyroidism) - visit 0,Covariates,342,0.6743732455715806
+Date E03 first reported (other hypothyroidism) - visit 0,Covariates,442,0.6419068964099189
+Date E03 first reported (other hypothyroidism) - visit 0,Covariates,542,0.6758087483203306
+Date E03 first reported (other hypothyroidism) - visit 0,Covariates,642,0.62915308010928
+Date E03 first reported (other hypothyroidism) - visit 0,Covariates,742,0.6065457885286165
+Date E03 first reported (other hypothyroidism) - visit 0,Covariates,842,0.6305230859146698
+Date E03 first reported (other hypothyroidism) - visit 0,Covariates,942,0.5264943244529502
+Date E03 first reported (other hypothyroidism) - visit 0,DXA Tabular + Covariates,42,0.7017018594390168
+Date E03 first reported (other hypothyroidism) - visit 0,DXA Tabular + Covariates,142,0.6617167546613635
+Date E03 first reported (other hypothyroidism) - visit 0,DXA Tabular + Covariates,242,0.6542029658493251
+Date E03 first reported (other hypothyroidism) - visit 0,DXA Tabular + Covariates,342,0.6718613880553673
+Date E03 first reported (other hypothyroidism) - visit 0,DXA Tabular + Covariates,442,0.6416601554468068
+Date E03 first reported (other hypothyroidism) - visit 0,DXA Tabular + Covariates,542,0.6711056737730892
+Date E03 first reported (other hypothyroidism) - visit 0,DXA Tabular + Covariates,642,0.6275961340736171
+Date E03 first reported (other hypothyroidism) - visit 0,DXA Tabular + Covariates,742,0.6064271119275144
+Date E03 first reported (other hypothyroidism) - visit 0,DXA Tabular + Covariates,842,0.6296512760568869
+Date E03 first reported (other hypothyroidism) - visit 0,DXA Tabular + Covariates,942,0.5273550229350831
+Date E03 first reported (other hypothyroidism) - visit 0,DXA SSL (LeJEPA) + Covariates,42,0.6975358493539238
+Date E03 first reported (other hypothyroidism) - visit 0,DXA SSL (LeJEPA) + Covariates,142,0.6632108137574577
+Date E03 first reported (other hypothyroidism) - visit 0,DXA SSL (LeJEPA) + Covariates,242,0.6533852878529391
+Date E03 first reported (other hypothyroidism) - visit 0,DXA SSL (LeJEPA) + Covariates,342,0.6860323298809409
+Date E03 first reported (other hypothyroidism) - visit 0,DXA SSL (LeJEPA) + Covariates,442,0.6481371057285027
+Date E03 first reported (other hypothyroidism) - visit 0,DXA SSL (LeJEPA) + Covariates,542,0.6825875935099577
+Date E03 first reported (other hypothyroidism) - visit 0,DXA SSL (LeJEPA) + Covariates,642,0.6347052084251344
+Date E03 first reported (other hypothyroidism) - visit 0,DXA SSL (LeJEPA) + Covariates,742,0.6159934779467916
+Date E03 first reported (other hypothyroidism) - visit 0,DXA SSL (LeJEPA) + Covariates,842,0.6319403857393338
+Date E03 first reported (other hypothyroidism) - visit 0,DXA SSL (LeJEPA) + Covariates,942,0.5327116052532985
+Date E03 first reported (other hypothyroidism) - visit 0,DXA SSL (DINO) + Covariates,42,0.644126221241727
+Date E03 first reported (other hypothyroidism) - visit 0,DXA SSL (DINO) + Covariates,142,0.6946769097204696
+Date E03 first reported (other hypothyroidism) - visit 0,DXA SSL (DINO) + Covariates,242,0.6580995548197576
+Date E03 first reported (other hypothyroidism) - visit 0,DXA SSL (DINO) + Covariates,342,0.6688703900880844
+Date E03 first reported (other hypothyroidism) - visit 0,DXA SSL (DINO) + Covariates,442,0.6157523543200231
+Date E03 first reported (other hypothyroidism) - visit 0,DXA SSL (DINO) + Covariates,542,0.6476805519343776
+Date E03 first reported (other hypothyroidism) - visit 0,DXA SSL (DINO) + Covariates,642,0.6476014218148703
+Date E03 first reported (other hypothyroidism) - visit 0,DXA SSL (DINO) + Covariates,742,0.6132587562692204
+Date E03 first reported (other hypothyroidism) - visit 0,DXA SSL (DINO) + Covariates,842,0.6782875511396844
+Date E03 first reported (other hypothyroidism) - visit 0,DXA SSL (DINO) + Covariates,942,0.5411869538361838
+Date N18 first reported (chronic renal failure) - visit 0,Covariates,42,0.7234533384750992
+Date N18 first reported (chronic renal failure) - visit 0,Covariates,142,0.7328671297212676
+Date N18 first reported (chronic renal failure) - visit 0,Covariates,242,0.7515019176269702
+Date N18 first reported (chronic renal failure) - visit 0,Covariates,342,0.7472499412477177
+Date N18 first reported (chronic renal failure) - visit 0,Covariates,442,0.7736344877999131
+Date N18 first reported (chronic renal failure) - visit 0,Covariates,542,0.7165176279508265
+Date N18 first reported (chronic renal failure) - visit 0,Covariates,642,0.7695328194347115
+Date N18 first reported (chronic renal failure) - visit 0,Covariates,742,0.7111050640590986
+Date N18 first reported (chronic renal failure) - visit 0,Covariates,842,0.7473143005125824
+Date N18 first reported (chronic renal failure) - visit 0,Covariates,942,0.750796626899172
+Date N18 first reported (chronic renal failure) - visit 0,DXA Tabular + Covariates,42,0.7220737843396504
+Date N18 first reported (chronic renal failure) - visit 0,DXA Tabular + Covariates,142,0.7334317024454321
+Date N18 first reported (chronic renal failure) - visit 0,DXA Tabular + Covariates,242,0.7499798850317817
+Date N18 first reported (chronic renal failure) - visit 0,DXA Tabular + Covariates,342,0.746940361914059
+Date N18 first reported (chronic renal failure) - visit 0,DXA Tabular + Covariates,442,0.7708400803160826
+Date N18 first reported (chronic renal failure) - visit 0,DXA Tabular + Covariates,542,0.7178034369136851
+Date N18 first reported (chronic renal failure) - visit 0,DXA Tabular + Covariates,642,0.7697080121466947
+Date N18 first reported (chronic renal failure) - visit 0,DXA Tabular + Covariates,742,0.7101459619571036
+Date N18 first reported (chronic renal failure) - visit 0,DXA Tabular + Covariates,842,0.7445705559822114
+Date N18 first reported (chronic renal failure) - visit 0,DXA Tabular + Covariates,942,0.7503571863182992
+Date N18 first reported (chronic renal failure) - visit 0,DXA SSL (LeJEPA) + Covariates,42,0.7294972087556927
+Date N18 first reported (chronic renal failure) - visit 0,DXA SSL (LeJEPA) + Covariates,142,0.7328963705396505
+Date N18 first reported (chronic renal failure) - visit 0,DXA SSL (LeJEPA) + Covariates,242,0.7514415727223152
+Date N18 first reported (chronic renal failure) - visit 0,DXA SSL (LeJEPA) + Covariates,342,0.7448523961892366
+Date N18 first reported (chronic renal failure) - visit 0,DXA SSL (LeJEPA) + Covariates,442,0.7785061948867895
+Date N18 first reported (chronic renal failure) - visit 0,DXA SSL (LeJEPA) + Covariates,542,0.7212104806265227
+Date N18 first reported (chronic renal failure) - visit 0,DXA SSL (LeJEPA) + Covariates,642,0.7735949544498949
+Date N18 first reported (chronic renal failure) - visit 0,DXA SSL (LeJEPA) + Covariates,742,0.7167213875307805
+Date N18 first reported (chronic renal failure) - visit 0,DXA SSL (LeJEPA) + Covariates,842,0.747816613384294
+Date N18 first reported (chronic renal failure) - visit 0,DXA SSL (LeJEPA) + Covariates,942,0.7476394153412087
+Date N18 first reported (chronic renal failure) - visit 0,DXA SSL (DINO) + Covariates,42,0.7312738724842074
+Date N18 first reported (chronic renal failure) - visit 0,DXA SSL (DINO) + Covariates,142,0.731474816907491
+Date N18 first reported (chronic renal failure) - visit 0,DXA SSL (DINO) + Covariates,242,0.7517321222632468
+Date N18 first reported (chronic renal failure) - visit 0,DXA SSL (DINO) + Covariates,342,0.744255834553573
+Date N18 first reported (chronic renal failure) - visit 0,DXA SSL (DINO) + Covariates,442,0.7724501031710048
+Date N18 first reported (chronic renal failure) - visit 0,DXA SSL (DINO) + Covariates,542,0.7197216491958444
+Date N18 first reported (chronic renal failure) - visit 0,DXA SSL (DINO) + Covariates,642,0.7691567390796543
+Date N18 first reported (chronic renal failure) - visit 0,DXA SSL (DINO) + Covariates,742,0.7167972235109382
+Date N18 first reported (chronic renal failure) - visit 0,DXA SSL (DINO) + Covariates,842,0.7453921165901662
+Date N18 first reported (chronic renal failure) - visit 0,DXA SSL (DINO) + Covariates,942,0.752926223560325
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,Covariates,42,0.6655000604048221
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,Covariates,142,0.6015795429358034
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,Covariates,242,0.6292837951713895
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,Covariates,342,0.5713874092468675
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,Covariates,442,0.5617837230181904
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,Covariates,542,0.6091002029560664
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,Covariates,642,0.6613141332780814
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,Covariates,742,0.6404094815666929
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,Covariates,842,0.6719206703994139
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,Covariates,942,0.5843774894095399
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,DXA Tabular + Covariates,42,0.6480192709687103
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,DXA Tabular + Covariates,142,0.6676310355688805
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,DXA Tabular + Covariates,242,0.5836617780985599
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,DXA Tabular + Covariates,342,0.5773927549144124
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,DXA Tabular + Covariates,442,0.5951012124367187
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,DXA Tabular + Covariates,542,0.659305422473046
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,DXA Tabular + Covariates,642,0.701458133692471
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,DXA Tabular + Covariates,742,0.6837929216395485
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,DXA Tabular + Covariates,842,0.6133691158771333
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,DXA Tabular + Covariates,942,0.5991445737386372
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,DXA SSL (LeJEPA) + Covariates,42,0.7684591645097875
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,DXA SSL (LeJEPA) + Covariates,142,0.7479341895995925
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,DXA SSL (LeJEPA) + Covariates,242,0.784103147401476
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,DXA SSL (LeJEPA) + Covariates,342,0.7357799556423331
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,DXA SSL (LeJEPA) + Covariates,442,0.75582263869084
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,DXA SSL (LeJEPA) + Covariates,542,0.7075848228095457
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,DXA SSL (LeJEPA) + Covariates,642,0.7810949507357267
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,DXA SSL (LeJEPA) + Covariates,742,0.7858757249623001
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,DXA SSL (LeJEPA) + Covariates,842,0.7716807080757414
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,DXA SSL (LeJEPA) + Covariates,942,0.7377213945904898
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,DXA SSL (DINO) + Covariates,42,0.7246748207075052
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,DXA SSL (DINO) + Covariates,142,0.658061229648122
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,DXA SSL (DINO) + Covariates,242,0.6944840173675798
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,DXA SSL (DINO) + Covariates,342,0.6439140901939227
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,DXA SSL (DINO) + Covariates,442,0.6252914148615921
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,DXA SSL (DINO) + Covariates,542,0.6581850144483594
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,DXA SSL (DINO) + Covariates,642,0.672824546668788
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,DXA SSL (DINO) + Covariates,742,0.6870928136095656
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,DXA SSL (DINO) + Covariates,842,0.7056723804112999
+Date M16 first reported (coxarthrosis [arthrosis of hip]) - visit 0,DXA SSL (DINO) + Covariates,942,0.6589871872184874
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,Covariates,42,0.7327760038442711
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,Covariates,142,0.6941275485902695
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,Covariates,242,0.7705609160037777
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,Covariates,342,0.6953353378434811
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,Covariates,442,0.7133831782619358
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,Covariates,542,0.7271130704371747
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,Covariates,642,0.7526106060875598
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,Covariates,742,0.698728099769121
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,Covariates,842,0.7135189815867242
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,Covariates,942,0.7194726540011515
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,DXA Tabular + Covariates,42,0.7298636092136759
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,DXA Tabular + Covariates,142,0.6933737809079432
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,DXA Tabular + Covariates,242,0.7697625283573661
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,DXA Tabular + Covariates,342,0.6910595135350835
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,DXA Tabular + Covariates,442,0.7127932746359947
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,DXA Tabular + Covariates,542,0.7269204232861124
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,DXA Tabular + Covariates,642,0.7498576841655845
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,DXA Tabular + Covariates,742,0.7003437940357014
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,DXA Tabular + Covariates,842,0.7126847010684246
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,DXA Tabular + Covariates,942,0.7187012089810018
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,DXA SSL (LeJEPA) + Covariates,42,0.7684994318921807
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,DXA SSL (LeJEPA) + Covariates,142,0.7172030132209927
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,DXA SSL (LeJEPA) + Covariates,242,0.7894447311283554
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,DXA SSL (LeJEPA) + Covariates,342,0.7338177566190596
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,DXA SSL (LeJEPA) + Covariates,442,0.7462766671139138
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,DXA SSL (LeJEPA) + Covariates,542,0.7620628477729093
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,DXA SSL (LeJEPA) + Covariates,642,0.7832663262946293
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,DXA SSL (LeJEPA) + Covariates,742,0.7334379862574186
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,DXA SSL (LeJEPA) + Covariates,842,0.7433553080245511
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,DXA SSL (LeJEPA) + Covariates,942,0.7495590097869891
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,DXA SSL (DINO) + Covariates,42,0.7796460216734256
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,DXA SSL (DINO) + Covariates,142,0.7202365813167351
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,DXA SSL (DINO) + Covariates,242,0.8045069956283408
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,DXA SSL (DINO) + Covariates,342,0.7393626400141058
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,DXA SSL (DINO) + Covariates,442,0.7378098150709966
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,DXA SSL (DINO) + Covariates,542,0.7645224590736808
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,DXA SSL (DINO) + Covariates,642,0.7880027751587712
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,DXA SSL (DINO) + Covariates,742,0.7087343881246472
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,DXA SSL (DINO) + Covariates,842,0.7389088429188452
+Date E11 first reported (non-insulin-dependent diabetes mellitus) - visit 0,DXA SSL (DINO) + Covariates,942,0.7408036845135291
+Date I50 first reported (heart failure) - visit 0,Covariates,42,0.7501256532454871
+Date I50 first reported (heart failure) - visit 0,Covariates,142,0.766034593739112
+Date I50 first reported (heart failure) - visit 0,Covariates,242,0.7552007165837964
+Date I50 first reported (heart failure) - visit 0,Covariates,342,0.8081691640678482
+Date I50 first reported (heart failure) - visit 0,Covariates,442,0.7528086528630621
+Date I50 first reported (heart failure) - visit 0,Covariates,542,0.7263708762685519
+Date I50 first reported (heart failure) - visit 0,Covariates,642,0.737257519600438
+Date I50 first reported (heart failure) - visit 0,Covariates,742,0.7871284178407113
+Date I50 first reported (heart failure) - visit 0,Covariates,842,0.7632527772364062
+Date I50 first reported (heart failure) - visit 0,Covariates,942,0.7995761608221059
+Date I50 first reported (heart failure) - visit 0,DXA Tabular + Covariates,42,0.7482696185591358
+Date I50 first reported (heart failure) - visit 0,DXA Tabular + Covariates,142,0.7617472849997342
+Date I50 first reported (heart failure) - visit 0,DXA Tabular + Covariates,242,0.7546553573169543
+Date I50 first reported (heart failure) - visit 0,DXA Tabular + Covariates,342,0.8067683375167972
+Date I50 first reported (heart failure) - visit 0,DXA Tabular + Covariates,442,0.7521748748886404
+Date I50 first reported (heart failure) - visit 0,DXA Tabular + Covariates,542,0.7225779735577067
+Date I50 first reported (heart failure) - visit 0,DXA Tabular + Covariates,642,0.7373102168197814
+Date I50 first reported (heart failure) - visit 0,DXA Tabular + Covariates,742,0.7859782116379413
+Date I50 first reported (heart failure) - visit 0,DXA Tabular + Covariates,842,0.7628203566556226
+Date I50 first reported (heart failure) - visit 0,DXA Tabular + Covariates,942,0.7958054128288305
+Date I50 first reported (heart failure) - visit 0,DXA SSL (LeJEPA) + Covariates,42,0.7664787418930948
+Date I50 first reported (heart failure) - visit 0,DXA SSL (LeJEPA) + Covariates,142,0.773900565145243
+Date I50 first reported (heart failure) - visit 0,DXA SSL (LeJEPA) + Covariates,242,0.7534915179877157
+Date I50 first reported (heart failure) - visit 0,DXA SSL (LeJEPA) + Covariates,342,0.8030792829796405
+Date I50 first reported (heart failure) - visit 0,DXA SSL (LeJEPA) + Covariates,442,0.7566292578220758
+Date I50 first reported (heart failure) - visit 0,DXA SSL (LeJEPA) + Covariates,542,0.7221098621471911
+Date I50 first reported (heart failure) - visit 0,DXA SSL (LeJEPA) + Covariates,642,0.7439090797308928
+Date I50 first reported (heart failure) - visit 0,DXA SSL (LeJEPA) + Covariates,742,0.7751615056377983
+Date I50 first reported (heart failure) - visit 0,DXA SSL (LeJEPA) + Covariates,842,0.7760670434613136
+Date I50 first reported (heart failure) - visit 0,DXA SSL (LeJEPA) + Covariates,942,0.7912059290128572
+Date I50 first reported (heart failure) - visit 0,DXA SSL (DINO) + Covariates,42,0.7547793650120809
+Date I50 first reported (heart failure) - visit 0,DXA SSL (DINO) + Covariates,142,0.7707057524344946
+Date I50 first reported (heart failure) - visit 0,DXA SSL (DINO) + Covariates,242,0.7631373696012479
+Date I50 first reported (heart failure) - visit 0,DXA SSL (DINO) + Covariates,342,0.8074402271747674
+Date I50 first reported (heart failure) - visit 0,DXA SSL (DINO) + Covariates,442,0.7648743505270521
+Date I50 first reported (heart failure) - visit 0,DXA SSL (DINO) + Covariates,542,0.7295576347170627
+Date I50 first reported (heart failure) - visit 0,DXA SSL (DINO) + Covariates,642,0.7461165076967217
+Date I50 first reported (heart failure) - visit 0,DXA SSL (DINO) + Covariates,742,0.7881057951321844
+Date I50 first reported (heart failure) - visit 0,DXA SSL (DINO) + Covariates,842,0.7655488696160593
+Date I50 first reported (heart failure) - visit 0,DXA SSL (DINO) + Covariates,942,0.8010619657613715
+Date M51 first reported (other intervertebral disk disorders) - visit 0,Covariates,42,0.5931460380968948
+Date M51 first reported (other intervertebral disk disorders) - visit 0,Covariates,142,0.6411733311437721
+Date M51 first reported (other intervertebral disk disorders) - visit 0,Covariates,242,0.6451145358959186
+Date M51 first reported (other intervertebral disk disorders) - visit 0,Covariates,342,0.6471588351974397
+Date M51 first reported (other intervertebral disk disorders) - visit 0,Covariates,442,0.49008713618397415
+Date M51 first reported (other intervertebral disk disorders) - visit 0,Covariates,542,0.6145004037054079
+Date M51 first reported (other intervertebral disk disorders) - visit 0,Covariates,642,0.5845814361347375
+Date M51 first reported (other intervertebral disk disorders) - visit 0,Covariates,742,0.45753910068426196
+Date M51 first reported (other intervertebral disk disorders) - visit 0,Covariates,842,0.5921482417281015
+Date M51 first reported (other intervertebral disk disorders) - visit 0,Covariates,942,0.6383503259234498
+Date M51 first reported (other intervertebral disk disorders) - visit 0,DXA Tabular + Covariates,42,0.5712185787596764
+Date M51 first reported (other intervertebral disk disorders) - visit 0,DXA Tabular + Covariates,142,0.6654076689383365
+Date M51 first reported (other intervertebral disk disorders) - visit 0,DXA Tabular + Covariates,242,0.6545998747866656
+Date M51 first reported (other intervertebral disk disorders) - visit 0,DXA Tabular + Covariates,342,0.6566516093544247
+Date M51 first reported (other intervertebral disk disorders) - visit 0,DXA Tabular + Covariates,442,0.4870104204096299
+Date M51 first reported (other intervertebral disk disorders) - visit 0,DXA Tabular + Covariates,542,0.5880902563746386
+Date M51 first reported (other intervertebral disk disorders) - visit 0,DXA Tabular + Covariates,642,0.5725518933561683
+Date M51 first reported (other intervertebral disk disorders) - visit 0,DXA Tabular + Covariates,742,0.46816087138667783
+Date M51 first reported (other intervertebral disk disorders) - visit 0,DXA Tabular + Covariates,842,0.604652709093478
+Date M51 first reported (other intervertebral disk disorders) - visit 0,DXA Tabular + Covariates,942,0.6276199231154939
+Date M51 first reported (other intervertebral disk disorders) - visit 0,DXA SSL (LeJEPA) + Covariates,42,0.6129251108984952
+Date M51 first reported (other intervertebral disk disorders) - visit 0,DXA SSL (LeJEPA) + Covariates,142,0.6409967977666475
+Date M51 first reported (other intervertebral disk disorders) - visit 0,DXA SSL (LeJEPA) + Covariates,242,0.639282681966707
+Date M51 first reported (other intervertebral disk disorders) - visit 0,DXA SSL (LeJEPA) + Covariates,342,0.646733785608321
+Date M51 first reported (other intervertebral disk disorders) - visit 0,DXA SSL (LeJEPA) + Covariates,442,0.4888609414301114
+Date M51 first reported (other intervertebral disk disorders) - visit 0,DXA SSL (LeJEPA) + Covariates,542,0.5940025871873453
+Date M51 first reported (other intervertebral disk disorders) - visit 0,DXA SSL (LeJEPA) + Covariates,642,0.592650533960198
+Date M51 first reported (other intervertebral disk disorders) - visit 0,DXA SSL (LeJEPA) + Covariates,742,0.4619117441698087
+Date M51 first reported (other intervertebral disk disorders) - visit 0,DXA SSL (LeJEPA) + Covariates,842,0.6185327094259332
+Date M51 first reported (other intervertebral disk disorders) - visit 0,DXA SSL (LeJEPA) + Covariates,942,0.6239177670065185
+Date M51 first reported (other intervertebral disk disorders) - visit 0,DXA SSL (DINO) + Covariates,42,0.6089153692267548
+Date M51 first reported (other intervertebral disk disorders) - visit 0,DXA SSL (DINO) + Covariates,142,0.6650874456030873
+Date M51 first reported (other intervertebral disk disorders) - visit 0,DXA SSL (DINO) + Covariates,242,0.6510064236155779
+Date M51 first reported (other intervertebral disk disorders) - visit 0,DXA SSL (DINO) + Covariates,342,0.6620272365109263
+Date M51 first reported (other intervertebral disk disorders) - visit 0,DXA SSL (DINO) + Covariates,442,0.4993801652892562
+Date M51 first reported (other intervertebral disk disorders) - visit 0,DXA SSL (DINO) + Covariates,542,0.611565942890878
+Date M51 first reported (other intervertebral disk disorders) - visit 0,DXA SSL (DINO) + Covariates,642,0.5730376859803542
+Date M51 first reported (other intervertebral disk disorders) - visit 0,DXA SSL (DINO) + Covariates,742,0.4727517106549365
+Date M51 first reported (other intervertebral disk disorders) - visit 0,DXA SSL (DINO) + Covariates,842,0.6100634158099022
+Date M51 first reported (other intervertebral disk disorders) - visit 0,DXA SSL (DINO) + Covariates,942,0.6336954704997493
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,Covariates,42,0.7579561542510224
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,Covariates,142,0.7297387923979267
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,Covariates,242,0.7327688271075478
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,Covariates,342,0.7166360564522809
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,Covariates,442,0.717532606067502
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,Covariates,542,0.7441410076927227
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,Covariates,642,0.740385253302027
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,Covariates,742,0.7042360017590898
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,Covariates,842,0.7696798190244605
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,Covariates,942,0.7327951459729574
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,DXA Tabular + Covariates,42,0.7601515377535597
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,DXA Tabular + Covariates,142,0.7295711330362826
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,DXA Tabular + Covariates,242,0.7326254039050483
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,DXA Tabular + Covariates,342,0.7143938463471969
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,DXA Tabular + Covariates,442,0.7180759220014508
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,DXA Tabular + Covariates,542,0.7436185045619634
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,DXA Tabular + Covariates,642,0.7400290180309853
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,DXA Tabular + Covariates,742,0.701238455973103
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,DXA Tabular + Covariates,842,0.77053273121122
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,DXA Tabular + Covariates,942,0.7316394917916412
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,DXA SSL (LeJEPA) + Covariates,42,0.7595210686451388
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,DXA SSL (LeJEPA) + Covariates,142,0.7392129671728653
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,DXA SSL (LeJEPA) + Covariates,242,0.7433483974566285
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,DXA SSL (LeJEPA) + Covariates,342,0.7226486071162321
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,DXA SSL (LeJEPA) + Covariates,442,0.7176890582997909
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,DXA SSL (LeJEPA) + Covariates,542,0.7380441912702221
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,DXA SSL (LeJEPA) + Covariates,642,0.7473989056221714
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,DXA SSL (LeJEPA) + Covariates,742,0.7163552793973699
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,DXA SSL (LeJEPA) + Covariates,842,0.7762997732157331
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,DXA SSL (LeJEPA) + Covariates,942,0.7419551377003181
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,DXA SSL (DINO) + Covariates,42,0.764491642062422
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,DXA SSL (DINO) + Covariates,142,0.7406281258525053
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,DXA SSL (DINO) + Covariates,242,0.7380108045479217
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,DXA SSL (DINO) + Covariates,342,0.7228685436488328
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,DXA SSL (DINO) + Covariates,442,0.7251276507986175
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,DXA SSL (DINO) + Covariates,542,0.7460975547421419
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,DXA SSL (DINO) + Covariates,642,0.7431644653153764
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,DXA SSL (DINO) + Covariates,742,0.7103431643755941
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,DXA SSL (DINO) + Covariates,842,0.7768730883611377
+Date I48 first reported (atrial fibrillation and flutter) - visit 0,DXA SSL (DINO) + Covariates,942,0.7403816593349468
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,Covariates,42,0.6773337115642779
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,Covariates,142,0.6700366808763756
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,Covariates,242,0.6929431849384573
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,Covariates,342,0.6798769097271044
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,Covariates,442,0.663533079432419
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,Covariates,542,0.6486761710794298
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,Covariates,642,0.6602461493229669
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,Covariates,742,0.6708444945721134
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,Covariates,842,0.6766908250658507
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,Covariates,942,0.6722096615869848
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,DXA Tabular + Covariates,42,0.6780988301476699
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,DXA Tabular + Covariates,142,0.6573014771488054
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,DXA Tabular + Covariates,242,0.7073807448794018
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,DXA Tabular + Covariates,342,0.6792662791304942
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,DXA Tabular + Covariates,442,0.6637379678285044
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,DXA Tabular + Covariates,542,0.6605203181068762
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,DXA Tabular + Covariates,642,0.6742849909347794
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,DXA Tabular + Covariates,742,0.678725504018046
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,DXA Tabular + Covariates,842,0.6772487815649595
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,DXA Tabular + Covariates,942,0.6927328902692178
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,DXA SSL (LeJEPA) + Covariates,42,0.7359481876877837
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,DXA SSL (LeJEPA) + Covariates,142,0.745676613462873
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,DXA SSL (LeJEPA) + Covariates,242,0.7710723509584582
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,DXA SSL (LeJEPA) + Covariates,342,0.7544622232577946
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,DXA SSL (LeJEPA) + Covariates,442,0.7325161902007102
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,DXA SSL (LeJEPA) + Covariates,542,0.7512082565544888
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,DXA SSL (LeJEPA) + Covariates,642,0.7055477516619572
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,DXA SSL (LeJEPA) + Covariates,742,0.7322913939296288
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,DXA SSL (LeJEPA) + Covariates,842,0.7514826264569959
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,DXA SSL (LeJEPA) + Covariates,942,0.7566540076919364
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,DXA SSL (DINO) + Covariates,42,0.7178570287029342
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,DXA SSL (DINO) + Covariates,142,0.7119579656984237
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,DXA SSL (DINO) + Covariates,242,0.7506416914389408
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,DXA SSL (DINO) + Covariates,342,0.7333753811419595
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,DXA SSL (DINO) + Covariates,442,0.7104565395555127
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,DXA SSL (DINO) + Covariates,542,0.7021869847735428
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,DXA SSL (DINO) + Covariates,642,0.6923215131568201
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,DXA SSL (DINO) + Covariates,742,0.7063785220841473
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,DXA SSL (DINO) + Covariates,842,0.735122474408921
+Date M17 first reported (gonarthrosis [arthrosis of knee]) - visit 0,DXA SSL (DINO) + Covariates,942,0.702013903416314
+Date E66 first reported (obesity) - visit 0,Covariates,42,0.8499992005926273
+Date E66 first reported (obesity) - visit 0,Covariates,142,0.8520743752684022
+Date E66 first reported (obesity) - visit 0,Covariates,242,0.9015231932916551
+Date E66 first reported (obesity) - visit 0,Covariates,342,0.8427819751753912
+Date E66 first reported (obesity) - visit 0,Covariates,442,0.8675727625928703
+Date E66 first reported (obesity) - visit 0,Covariates,542,0.8629305312317571
+Date E66 first reported (obesity) - visit 0,Covariates,642,0.8658250598416994
+Date E66 first reported (obesity) - visit 0,Covariates,742,0.8518421920355466
+Date E66 first reported (obesity) - visit 0,Covariates,842,0.8567612804804092
+Date E66 first reported (obesity) - visit 0,Covariates,942,0.8392192409958907
+Date E66 first reported (obesity) - visit 0,DXA Tabular + Covariates,42,0.8500125240488384
+Date E66 first reported (obesity) - visit 0,DXA Tabular + Covariates,142,0.8519887583646356
+Date E66 first reported (obesity) - visit 0,DXA Tabular + Covariates,242,0.9014951885121727
+Date E66 first reported (obesity) - visit 0,DXA Tabular + Covariates,342,0.8409929843497032
+Date E66 first reported (obesity) - visit 0,DXA Tabular + Covariates,442,0.8674337127666826
+Date E66 first reported (obesity) - visit 0,DXA Tabular + Covariates,542,0.8609908188717296
+Date E66 first reported (obesity) - visit 0,DXA Tabular + Covariates,642,0.8652583515264693
+Date E66 first reported (obesity) - visit 0,DXA Tabular + Covariates,742,0.8517651637594124
+Date E66 first reported (obesity) - visit 0,DXA Tabular + Covariates,842,0.8564567122261244
+Date E66 first reported (obesity) - visit 0,DXA Tabular + Covariates,942,0.839408589154782
+Date E66 first reported (obesity) - visit 0,DXA SSL (LeJEPA) + Covariates,42,0.8515234039831805
+Date E66 first reported (obesity) - visit 0,DXA SSL (LeJEPA) + Covariates,142,0.8520893242515996
+Date E66 first reported (obesity) - visit 0,DXA SSL (LeJEPA) + Covariates,242,0.9030287835790641
+Date E66 first reported (obesity) - visit 0,DXA SSL (LeJEPA) + Covariates,342,0.841958985429034
+Date E66 first reported (obesity) - visit 0,DXA SSL (LeJEPA) + Covariates,442,0.869424033808193
+Date E66 first reported (obesity) - visit 0,DXA SSL (LeJEPA) + Covariates,542,0.8642201347980683
+Date E66 first reported (obesity) - visit 0,DXA SSL (LeJEPA) + Covariates,642,0.8669072028626865
+Date E66 first reported (obesity) - visit 0,DXA SSL (LeJEPA) + Covariates,742,0.8508137969804915
+Date E66 first reported (obesity) - visit 0,DXA SSL (LeJEPA) + Covariates,842,0.8570928016775512
+Date E66 first reported (obesity) - visit 0,DXA SSL (LeJEPA) + Covariates,942,0.8400907796846883
+Date E66 first reported (obesity) - visit 0,DXA SSL (DINO) + Covariates,42,0.8492370988973508
+Date E66 first reported (obesity) - visit 0,DXA SSL (DINO) + Covariates,142,0.8522714300469126
+Date E66 first reported (obesity) - visit 0,DXA SSL (DINO) + Covariates,242,0.9016285446049459
+Date E66 first reported (obesity) - visit 0,DXA SSL (DINO) + Covariates,342,0.8422584997301673
+Date E66 first reported (obesity) - visit 0,DXA SSL (DINO) + Covariates,442,0.8701520005452934
+Date E66 first reported (obesity) - visit 0,DXA SSL (DINO) + Covariates,542,0.8625298519344053
+Date E66 first reported (obesity) - visit 0,DXA SSL (DINO) + Covariates,642,0.8669935584154835
+Date E66 first reported (obesity) - visit 0,DXA SSL (DINO) + Covariates,742,0.8512732638907657
+Date E66 first reported (obesity) - visit 0,DXA SSL (DINO) + Covariates,842,0.8560092933746971
+Date E66 first reported (obesity) - visit 0,DXA SSL (DINO) + Covariates,942,0.8372948728278677
+Date of death due to cancer (C00-C97) - visit 0,Covariates,42,0.7328508844895469
+Date of death due to cancer (C00-C97) - visit 0,Covariates,142,0.6518183747082538
+Date of death due to cancer (C00-C97) - visit 0,Covariates,242,0.762372507097543
+Date of death due to cancer (C00-C97) - visit 0,Covariates,342,0.7275725274548064
+Date of death due to cancer (C00-C97) - visit 0,Covariates,442,0.723200192299988
+Date of death due to cancer (C00-C97) - visit 0,Covariates,542,0.7689831479057592
+Date of death due to cancer (C00-C97) - visit 0,Covariates,642,0.6907729286777411
+Date of death due to cancer (C00-C97) - visit 0,Covariates,742,0.7083475049803216
+Date of death due to cancer (C00-C97) - visit 0,Covariates,842,0.7234668467823313
+Date of death due to cancer (C00-C97) - visit 0,Covariates,942,0.6688130672152902
+Date of death due to cancer (C00-C97) - visit 0,DXA Tabular + Covariates,42,0.73196758324025
+Date of death due to cancer (C00-C97) - visit 0,DXA Tabular + Covariates,142,0.6509993634627625
+Date of death due to cancer (C00-C97) - visit 0,DXA Tabular + Covariates,242,0.7624688934842803
+Date of death due to cancer (C00-C97) - visit 0,DXA Tabular + Covariates,342,0.7282014481301704
+Date of death due to cancer (C00-C97) - visit 0,DXA Tabular + Covariates,442,0.7236969672689395
+Date of death due to cancer (C00-C97) - visit 0,DXA Tabular + Covariates,542,0.7688236256544503
+Date of death due to cancer (C00-C97) - visit 0,DXA Tabular + Covariates,642,0.6900843412656322
+Date of death due to cancer (C00-C97) - visit 0,DXA Tabular + Covariates,742,0.7083717992323016
+Date of death due to cancer (C00-C97) - visit 0,DXA Tabular + Covariates,842,0.7218840532534748
+Date of death due to cancer (C00-C97) - visit 0,DXA Tabular + Covariates,942,0.669098066458261
+Date of death due to cancer (C00-C97) - visit 0,DXA SSL (LeJEPA) + Covariates,42,0.7328152355602031
+Date of death due to cancer (C00-C97) - visit 0,DXA SSL (LeJEPA) + Covariates,142,0.6520857203479737
+Date of death due to cancer (C00-C97) - visit 0,DXA SSL (LeJEPA) + Covariates,242,0.7641162244576075
+Date of death due to cancer (C00-C97) - visit 0,DXA SSL (LeJEPA) + Covariates,342,0.7290158197739111
+Date of death due to cancer (C00-C97) - visit 0,DXA SSL (LeJEPA) + Covariates,442,0.7239052922559193
+Date of death due to cancer (C00-C97) - visit 0,DXA SSL (LeJEPA) + Covariates,542,0.7705579188481675
+Date of death due to cancer (C00-C97) - visit 0,DXA SSL (LeJEPA) + Covariates,642,0.692034626109866
+Date of death due to cancer (C00-C97) - visit 0,DXA SSL (LeJEPA) + Covariates,742,0.7081126605445152
+Date of death due to cancer (C00-C97) - visit 0,DXA SSL (LeJEPA) + Covariates,842,0.7250170892874581
+Date of death due to cancer (C00-C97) - visit 0,DXA SSL (LeJEPA) + Covariates,942,0.6689822855158041
+Date of death due to cancer (C00-C97) - visit 0,DXA SSL (DINO) + Covariates,42,0.7334648382726905
+Date of death due to cancer (C00-C97) - visit 0,DXA SSL (DINO) + Covariates,142,0.6584426055590918
+Date of death due to cancer (C00-C97) - visit 0,DXA SSL (DINO) + Covariates,242,0.758946409168974
+Date of death due to cancer (C00-C97) - visit 0,DXA SSL (DINO) + Covariates,342,0.7266855880408315
+Date of death due to cancer (C00-C97) - visit 0,DXA SSL (DINO) + Covariates,442,0.7217899923881255
+Date of death due to cancer (C00-C97) - visit 0,DXA SSL (DINO) + Covariates,542,0.7723249345549739
+Date of death due to cancer (C00-C97) - visit 0,DXA SSL (DINO) + Covariates,642,0.6891263066053068
+Date of death due to cancer (C00-C97) - visit 0,DXA SSL (DINO) + Covariates,742,0.7087686053479747
+Date of death due to cancer (C00-C97) - visit 0,DXA SSL (DINO) + Covariates,842,0.7276293089417663
+Date of death due to cancer (C00-C97) - visit 0,DXA SSL (DINO) + Covariates,942,0.6727496192588238

@@ -1,0 +1,939 @@
+lead_snp	gene	assoc_snp	assoc_type	r2	trait	p_value
+rs3753841	COL11A1	rs3753841	lead	1.0	glaucoma	9e-10
+rs3753841	COL11A1	rs3753841	lead	1.0	adolescent idiopathic scoliosis	6.999999999999999e-11
+rs3753841	COL11A1	rs3753841	lead	1.0	primary angle-closure glaucoma	1e-23
+rs3753841	COL11A1	rs3753841	lead	1.0	primary angle-closure glaucoma	4e-21
+rs3753841	COL11A1	rs3753841	lead	1.0	intertrochanteric region size	7e-13
+rs3753841	COL11A1	rs3753841	lead	1.0	carpal tunnel syndrome	2e-09
+rs3753841	COL11A1	rs3753841	lead	1.0	trochanter size	4e-17
+rs3753841	COL11A1	rs3753841	lead	1.0	spine bone size	9e-06
+rs3753841	COL11A1	rs3753841	lead	1.0	hip geometry	5e-18
+rs3753841	COL11A1	rs3753841	lead	1.0	hip bone size	1e-20
+rs3753841	COL11A1	rs141853979	proxy	1.000	body weight	5e-09
+rs3753841	COL11A1	rs141853979	proxy	1.000	glaucoma	5e-09
+rs3753841	COL11A1	rs11576308	proxy	1.000	heel bone mineral density	1e-19
+rs3753841	COL11A1	rs11576308	proxy	1.000	brain attribute	2e-17
+rs3753841	COL11A1	rs11576308	proxy	1.000	heel bone mineral density	2e-16
+rs3753841	COL11A1	rs11576308	proxy	1.000	heel bone mineral density	3e-16
+rs3753841	COL11A1	rs993471	proxy	1.000	developmental dysplasia of the hip	2e-08
+rs3753841	COL11A1	rs993471	proxy	1.000	open-angle glaucoma	3e-11
+rs3753841	COL11A1	rs993471	proxy	1.000	body weight	2e-13
+rs3753841	COL11A1	rs993471	proxy	1.000	open-angle glaucoma	2e-16
+rs3753841	COL11A1	rs993471	proxy	1.000	BMI-adjusted hip circumference	2e-11
+rs3753841	COL11A1	rs993471	proxy	1.000	open-angle glaucoma	2e-08
+rs3753841	COL11A1	rs12756209	proxy	0.996	neutrophil count	9e-12
+rs3753841	COL11A1	rs12756209	proxy	0.996	neutrophil count	5e-12
+rs3753841	COL11A1	rs12756209	proxy	0.996	leukocyte quantity	1e-09
+rs3753841	COL11A1	rs1932350	proxy	0.922	brain attribute	5e-19
+rs3753841	COL11A1	rs1932350	proxy	0.922	body fat percentage	8e-12
+rs3753841	COL11A1	rs1463048	proxy	0.829	size	1e-19
+rs3753841	COL11A1	rs2077569	proxy	0.829	fat pad mass	1e-12
+rs3753841	COL11A1	rs2169608	proxy	0.829	hip geometry	2e-65
+rs3753841	COL11A1	rs11164633	proxy	0.825	BMI-adjusted hip circumference	2e-09
+rs3753841	COL11A1	rs11164633	proxy	0.825	hip circumference	1e-11
+rs3753841	COL11A1	rs11164633	proxy	0.825	health trait	2e-17
+rs3753841	COL11A1	rs11164633	proxy	0.825	forced expiratory volume	1e-09
+rs3753841	COL11A1	rs11164632	proxy	0.825	brain attribute	6e-16
+rs3753841	COL11A1	rs11164632	proxy	0.825	brain attribute	2e-14
+rs12028481	PRRX1	rs12028481	lead	1.0	body height	8e-187
+rs12028481	PRRX1	rs12022896	proxy	1.000	BMI-adjusted hip circumference	2e-12
+rs12028481	PRRX1	rs34502377	proxy	0.949	body shape measurement	3e-16
+rs12028481	PRRX1	rs7418292	proxy	0.940	body height	4e-19
+rs12028481	PRRX1	rs12044055	proxy	0.835	BMI-adjusted waist circumference	6e-11
+rs13417165	AC007319.1	rs13417165	lead	1.0	heel bone mineral density	3.0000000000000004e-09
+rs13417165	AC007319.1	rs13384908	proxy	0.988	heel bone mineral density	2e-11
+rs13417165	AC007319.1	rs13384908	proxy	0.988	heart rate	4e-29
+rs13417165	AC007319.1	rs13384908	proxy	0.988	heel bone mineral density	4e-10
+rs13417165	AC007319.1	rs13384908	proxy	0.988	brain attribute	4e-15
+rs13417165	AC007319.1	rs13384908	proxy	0.988	white matter microstructure measurement	8.999999999999999e-34
+rs13417165	AC007319.1	rs17705966	proxy	0.976	white matter hyperintensity measurement	3e-10
+rs13417165	AC007319.1	rs17705966	proxy	0.976	white matter hyperintensity measurement	1e-09
+rs13417165	AC007319.1	rs17705966	proxy	0.976	body height	1e-19
+rs13417165	AC007319.1	rs62172472	proxy	0.964	brain attribute	8e-21
+rs13417165	AC007319.1	rs62172472	proxy	0.964	white matter hyperintensity measurement	4e-10
+rs13417165	AC007319.1	rs62172472	proxy	0.964	white matter hyperintensity measurement	2e-10
+rs13417165	AC007319.1	rs62172472	proxy	0.964	white matter hyperintensity measurement	1e-09
+rs13417165	AC007319.1	rs62172472	proxy	0.964	BMI-adjusted waist-hip ratio	3e-12
+rs13417165	AC007319.1	rs62172472	proxy	0.964	Eczematoid dermatitis	3.0000000000000004e-08
+rs13417165	AC007319.1	rs62172472	proxy	0.964	hematological measurement	3e-17
+rs13417165	AC007319.1	rs62172472	proxy	0.964	BMI-adjusted waist circumference	3e-17
+rs13417165	AC007319.1	rs62172472	proxy	0.964	white matter hyperintensity measurement	4e-11
+rs13417165	AC007319.1	rs62172472	proxy	0.964	BMI-adjusted waist-hip ratio	3e-12
+rs13417165	AC007319.1	rs62172472	proxy	0.964	hypertensive disorder	2e-10
+rs13417165	AC007319.1	rs62172472	proxy	0.964	white matter hyperintensity measurement	2e-10
+rs13417165	AC007319.1	rs62172472	proxy	0.964	hypertensive disorder	2e-09
+rs13417165	AC007319.1	rs62172472	proxy	0.964	white matter hyperintensity measurement	2e-09
+rs13417165	AC007319.1	rs17576323	proxy	0.958	BMI-adjusted waist circumference	9e-13
+rs13417165	AC007319.1	rs17576323	proxy	0.958	white matter hyperintensity measurement	5e-09
+rs13417165	AC007319.1	rs17576323	proxy	0.958	aspartate aminotransferase measurement	6.000000000000001e-13
+rs13417165	AC007319.1	rs17576323	proxy	0.958	white matter hyperintensity measurement	3.0000000000000004e-08
+rs13417165	AC007319.1	rs17576323	proxy	0.958	high density lipoprotein cholesterol measurement	3e-06
+rs13417165	AC007319.1	rs17576323	proxy	0.958	triglyceride measurement	3e-06
+rs13417165	AC007319.1	rs17576323	proxy	0.958	breast cancer	2e-11
+rs13417165	AC007319.1	rs17576323	proxy	0.958	waist-hip ratio	2e-11
+rs13417165	AC007319.1	rs17576323	proxy	0.958	aspartate aminotransferase measurement	2e-09
+rs13417165	AC007319.1	rs17576323	proxy	0.958	high density lipoprotein cholesterol measurement	3.0000000000000004e-09
+rs13417165	AC007319.1	rs17576323	proxy	0.958	BMI-adjusted waist-hip ratio	2e-12
+rs13417165	AC007319.1	rs17576323	proxy	0.958	breast cancer	2e-12
+rs13417165	AC007319.1	rs62172372	proxy	0.928	triglycerides to total lipids in medium LDL percentage 	6e-11
+rs13417165	AC007319.1	rs62172372	proxy	0.928	lymphocyte count	2e-23
+rs13417165	AC007319.1	rs62172372	proxy	0.928	triglycerides to total lipids in small LDL percentage 	2e-11
+rs13417165	AC007319.1	rs62172372	proxy	0.928	leukocyte quantity	2e-12
+rs13417165	AC007319.1	rs62172372	proxy	0.928	heart rate	6.0000000000000005e-117
+rs13417165	AC007319.1	rs62172372	proxy	0.928	triglycerides to total lipids in IDL percentage 	4e-13
+rs13417165	AC007319.1	rs62172372	proxy	0.928	myeloid leukocyte count	1e-17
+rs13417165	AC007319.1	rs62172372	proxy	0.928	heart rate	7e-122
+rs13417165	AC007319.1	rs62172372	proxy	0.928	cholesterol to total lipids in IDL percentage 	3.0000000000000002e-15
+rs13417165	AC007319.1	rs62172372	proxy	0.928	cholesterol to total lipids in very small VLDL percentage 	1e-10
+rs13417165	AC007319.1	rs62172372	proxy	0.928	cholesteryl esters to total lipids in very small VLDL percentage 	2e-11
+rs13417165	AC007319.1	rs62172372	proxy	0.928	heart rate	6e-16
+rs13417165	AC007319.1	rs62172372	proxy	0.928	heart rate	5e-56
+rs13417165	AC007319.1	rs62172372	proxy	0.928	lymphocyte count	7e-22
+rs13417165	AC007319.1	rs62172372	proxy	0.928	cholesteryl esters to total lipids in IDL percentage 	8e-13
+rs13417165	AC007319.1	rs62172372	proxy	0.928	heart rate	2e-81
+rs13417165	AC007319.1	rs62172372	proxy	0.928	heart rate	1e-71
+rs13417165	AC007319.1	rs62172372	proxy	0.928	triglycerides to total lipids in small HDL percentage 	1e-10
+rs13417165	AC007319.1	rs62172372	proxy	0.928	cancer	1e-08
+rs13417165	AC007319.1	rs62172372	proxy	0.928	triglycerides to total lipids in large LDL percentage 	6e-12
+rs13417165	AC007319.1	rs62172372	proxy	0.928	free cholesterol to total lipids in medium LDL percentage 	9e-11
+rs13417165	AC007319.1	rs62172372	proxy	0.928	myeloid leukocyte count	5.000000000000001e-15
+rs13417165	AC007319.1	rs62172372	proxy	0.928	coronary artery disorder	3.0000000000000004e-08
+rs13417165	AC007319.1	rs62172372	proxy	0.928	heart rate	1e-231
+rs13417165	AC007319.1	rs62172372	proxy	0.928	free cholesterol to total lipids in large LDL percentage 	6e-11
+rs13417165	AC007319.1	rs62172372	proxy	0.928	free cholesterol to total lipids in small LDL percentage 	6e-11
+rs1562502	ARPP21	rs6776685	proxy	0.952	risk-taking behaviour	2e-10
+rs1562502	ARPP21	rs67723420	proxy	0.918	age at first sexual intercourse measurement	1e-11
+rs1562502	ARPP21	rs67723420	proxy	0.918	social inhibition quality	1e-08
+rs1562502	ARPP21	rs67723420	proxy	0.918	substance abuse	1e-08
+rs1562502	ARPP21	rs67723420	proxy	0.918	attention deficit-hyperactivity disorder	1e-08
+rs7433808	ADAMTS9-AS2	rs7433808	lead	1.0	visceral:subcutaneous adipose tissue ratio	2e-07
+rs7433808	ADAMTS9-AS2	rs7433808	lead	1.0	visceral:subcutaneous adipose tissue ratio	2e-07
+rs7433808	ADAMTS9-AS2	rs4411878	proxy	0.927	coronary artery disorder	6e-06
+rs7433808	ADAMTS9-AS2	rs7638389	proxy	0.909	visceral adipose tissue quantity	8e-06
+rs7433808	ADAMTS9-AS2	rs7638389	proxy	0.909	body mass index	8e-06
+rs7433808	ADAMTS9-AS2	rs7638389	proxy	0.909	BMI-adjusted waist circumference	6.000000000000001e-13
+rs7433808	ADAMTS9-AS2	rs7638389	proxy	0.909	BMI-adjusted waist circumference	3e-11
+rs7433808	ADAMTS9-AS2	rs7638389	proxy	0.909	BMI-adjusted waist circumference	2e-12
+rs7433808	ADAMTS9-AS2	rs7638389	proxy	0.909	physical activity measurement	2e-12
+rs7433808	ADAMTS9-AS2	rs4607103	proxy	0.879	type 2 diabetes mellitus	1e-08
+rs7433808	ADAMTS9-AS2	rs4607103	proxy	0.879	type 2 diabetes mellitus	1e-07
+rs7433808	ADAMTS9-AS2	rs4607103	proxy	0.879	type 2 diabetes mellitus	2e-08
+rs7433808	ADAMTS9-AS2	rs6445424	proxy	0.879	type 2 diabetes mellitus	4e-14
+rs7433808	ADAMTS9-AS2	rs6445424	proxy	0.879	leukocyte quantity	9e-11
+rs7433808	ADAMTS9-AS2	rs145842894	proxy	0.845	hip circumference	2e-08
+rs61749613	VCAN	rs61749613	lead	1.0	lean body mass	2e-08
+rs61749613	VCAN	rs61749613	lead	1.0	carpal tunnel syndrome	9e-10
+rs61749613	VCAN	rs61749613	lead	1.0	appendicular lean mass	1e-17
+rs61749613	VCAN	rs61749613	lead	1.0	hematocrit	4e-12
+rs61749613	VCAN	rs61749613	lead	1.0	polyunsaturated fatty acids to monounsaturated fatty acids ratio 	5e-09
+rs61749613	VCAN	rs61749613	lead	1.0	fatty acid amount	4e-08
+rs61749613	VCAN	rs34580448	proxy	1.000	fatty acid amount	3.0000000000000004e-08
+rs61749613	VCAN	rs34580448	proxy	1.000	abnormality of the skeletal system	1e-57
+rs61749613	VCAN	rs34580448	proxy	1.000	triglycerides to phosphoglycerides ratio 	1e-12
+rs61749613	VCAN	rs34580448	proxy	1.000	cholesteryl esters to total lipids in medium HDL percentage 	2e-12
+rs61749613	VCAN	rs34580448	proxy	1.000	glomerular filtration rate	6.000000000000001e-09
+rs61749613	VCAN	rs34580448	proxy	1.000	polyunsaturated fatty acids to total fatty acids percentage 	6.999999999999999e-11
+rs61749613	VCAN	rs34580448	proxy	1.000	triglyceride measurement	1e-13
+rs61749613	VCAN	rs34580448	proxy	1.000	polyunsaturated fatty acids to total fatty acids percentage 	1e-10
+rs61749613	VCAN	rs34580448	proxy	1.000	fatty acid amount	9e-10
+rs61749613	VCAN	rs34580448	proxy	1.000	polyunsaturated fatty acids to monounsaturated fatty acids ratio 	7.000000000000001e-09
+rs61749613	VCAN	rs34580448	proxy	1.000	free cholesterol to total lipids in medium LDL percentage 	3.0000000000000003e-13
+rs61749613	VCAN	rs34580448	proxy	1.000	triglyceride measurement	1e-11
+rs61749613	VCAN	rs34580448	proxy	1.000	body fat percentage	4e-13
+rs61749613	VCAN	rs34580448	proxy	1.000	free cholesterol to total lipids in large LDL percentage 	3e-11
+rs61749613	VCAN	rs34580448	proxy	1.000	abnormality of the skeletal system	1e-51
+rs61749613	VCAN	rs34580448	proxy	1.000	cholesteryl esters to total lipids in large HDL percentage 	1e-11
+rs61749613	VCAN	rs34580448	proxy	1.000	polyunsaturated fatty acids to monounsaturated fatty acids ratio 	1e-13
+rs61749613	VCAN	rs34580448	proxy	1.000	saturated fatty acids to total fatty acids percentage 	2e-14
+rs61749613	VCAN	rs34580448	proxy	1.000	triglycerides in small HDL measurement	1e-10
+rs61749613	VCAN	rs34580448	proxy	1.000	triglycerides to total lipids in medium HDL percentage 	9e-12
+rs61749613	VCAN	rs34580448	proxy	1.000	fatty acid amount	1e-09
+rs61749613	VCAN	rs34580448	proxy	1.000	level of adhesion G-protein coupled receptor G2 in blood	2e-27
+rs61749613	VCAN	rs34580448	proxy	1.000	triglycerides to total lipids in small HDL percentage 	3.0000000000000003e-13
+rs61749613	VCAN	rs34580448	proxy	1.000	polyunsaturated fatty acids to total fatty acids percentage 	4e-13
+rs61749613	VCAN	rs34580448	proxy	1.000	level of adhesion G-protein coupled receptor G2 in blood	4e-25
+rs61749613	VCAN	rs34580448	proxy	1.000	joint hypermobility measurement	3.0000000000000004e-08
+rs61749613	VCAN	rs34580448	proxy	1.000	white matter microstructure measurement	6.999999999999999e-16
+rs61749613	VCAN	rs34580448	proxy	1.000	triglyceride measurement	5e-10
+rs61749613	VCAN	rs34580448	proxy	1.000	diverticular disease	2e-12
+rs61749613	VCAN	rs34580448	proxy	1.000	lean body mass	2e-06
+rs61749613	VCAN	rs34580448	proxy	1.000	lean body mass	3e-07
+rs61749613	VCAN	rs34580448	proxy	1.000	triglyceride measurement	2e-09
+rs61749613	VCAN	rs34580448	proxy	1.000	cholesterol to total lipids in large HDL percentage 	1e-10
+rs61749613	VCAN	rs34580448	proxy	1.000	abdominal aortic aneurysm	1e-12
+rs61749613	VCAN	rs115912456	proxy	1.000	diverticular disease	2e-11
+rs61749613	VCAN	rs115912456	proxy	1.000	cholesterol in large HDL measurement 	1e-10
+rs61749613	VCAN	rs115912456	proxy	1.000	high density lipoprotein cholesterol measurement	1e-13
+rs61749613	VCAN	rs115912456	proxy	1.000	diverticular disease	1e-18
+rs61749613	VCAN	rs115912456	proxy	1.000	triglyceride measurement	5e-10
+rs61749613	VCAN	rs115912456	proxy	1.000	brain attribute	4.999999999999999e-38
+rs61749613	VCAN	rs115912456	proxy	1.000	appendicular lean mass	3.0000000000000004e-09
+rs61749613	VCAN	rs115912456	proxy	1.000	triglyceride:HDL cholesterol ratio	4e-06
+rs61749613	VCAN	rs115912456	proxy	1.000	high density lipoprotein cholesterol measurement	4e-09
+rs61749613	VCAN	rs115912456	proxy	1.000	appendicular lean mass	4e-34
+rs61749613	VCAN	rs115912456	proxy	1.000	cholesterol to total lipids in medium HDL percentage 	3e-14
+rs61749613	VCAN	rs115912456	proxy	1.000	high density lipoprotein cholesterol measurement	1e-10
+rs61749613	VCAN	rs115912456	proxy	1.000	triglyceride:HDL cholesterol ratio	3.0000000000000004e-09
+rs61749613	VCAN	rs115912456	proxy	1.000	whole body water mass	3e-14
+rs61749613	VCAN	rs115912456	proxy	1.000	abnormality of the skeletal system	1e-45
+rs61749613	VCAN	rs115912456	proxy	1.000	serum creatinine amount	4e-08
+rs61749613	VCAN	rs115912456	proxy	1.000	HDL cholesterol change measurement	1e-10
+rs61749613	VCAN	rs115912456	proxy	1.000	high density lipoprotein cholesterol measurement	4e-13
+rs61749613	VCAN	rs115912456	proxy	1.000	body fat distribution	1e-21
+rs61749613	VCAN	rs115912456	proxy	1.000	body fat distribution	8e-21
+rs61749613	VCAN	rs115912456	proxy	1.000	body shape measurement	1e-13
+rs61749613	VCAN	rs115912456	proxy	1.000	BMI-adjusted waist circumference	3.0000000000000002e-15
+rs61749613	VCAN	rs115912456	proxy	1.000	versican core protein measurement	1e-09
+rs61749613	VCAN	rs115912456	proxy	1.000	triglyceride measurement	1e-10
+rs61749613	VCAN	rs115912456	proxy	1.000	Phospholipids:total lipids ratio	3.0000000000000002e-15
+rs61749613	VCAN	rs115912456	proxy	1.000	cholesterol esters in large HDL measurement	3e-11
+rs61749613	VCAN	rs115912456	proxy	1.000	triglyceride measurement	2e-12
+rs61749613	VCAN	rs115912456	proxy	1.000	cholesteryl esters in HDL measurement	3e-11
+rs61749613	VCAN	rs115912456	proxy	1.000	diverticular disease	2e-16
+rs61749613	VCAN	rs115912456	proxy	1.000	body fat distribution	1e-16
+rs61749613	VCAN	rs115912456	proxy	1.000	body fat distribution	8e-19
+rs62432291	FNDC1	rs62432291	lead	1.0	joint hypermobility measurement	1e-12
+rs62432291	FNDC1	rs62432291	lead	1.0	level of fibronectin type III domain-containing protein 1 in blood	5e-87
+rs62432291	FNDC1	rs294914	proxy	0.922	lipoprotein A measurement	2e-11
+rs2057932	RSBN1L-TMEM60	rs6465828	proxy	1.000	body mass index	1e-08
+rs2057932	RSBN1L-TMEM60	rs7953	proxy	0.984	hip circumference	1e-14
+rs2057932	RSBN1L-TMEM60	rs4729727	proxy	0.957	atrial fibrillation	6e-11
+rs2057932	RSBN1L-TMEM60	rs6465867	proxy	0.953	atrial fibrillation	3.0000000000000004e-08
+rs2057932	RSBN1L-TMEM60	rs10272350	proxy	0.945	serum albumin amount	2e-12
+rs2057932	RSBN1L-TMEM60	rs10272350	proxy	0.945	serum albumin amount	1e-16
+rs2057932	RSBN1L-TMEM60	rs10272350	proxy	0.945	cardioembolic stroke	1e-08
+rs2057932	RSBN1L-TMEM60	rs10272350	proxy	0.945	serum albumin amount	1e-15
+rs2057932	RSBN1L-TMEM60	rs848449	proxy	0.933	body mass index	5e-16
+rs2057932	RSBN1L-TMEM60	rs61364263	proxy	0.930	BMI-adjusted waist-hip ratio	6e-11
+rs2057932	RSBN1L-TMEM60	rs61364263	proxy	0.930	colorectal cancer	6e-11
+rs2057932	RSBN1L-TMEM60	rs6966632	proxy	0.930	triglyceride measurement	3e-10
+rs2057932	RSBN1L-TMEM60	rs3764824	proxy	0.930	eosinophil count	2e-13
+rs2057932	RSBN1L-TMEM60	rs3764824	proxy	0.930	eosinophil count	7e-12
+rs2057932	RSBN1L-TMEM60	rs10264590	proxy	0.930	waist-hip ratio	5e-08
+rs2057932	RSBN1L-TMEM60	rs10264590	proxy	0.930	BMI-adjusted waist-hip ratio	4e-23
+rs2057932	RSBN1L-TMEM60	rs1544459	proxy	0.898	body surface area	5e-12
+rs2057932	RSBN1L-TMEM60	rs1544459	proxy	0.898	body mass index	3e-10
+rs2057932	RSBN1L-TMEM60	rs1544459	proxy	0.898	frailty measurement	5e-10
+rs2057932	RSBN1L-TMEM60	rs1544459	proxy	0.898	serum albumin amount	2e-15
+rs2057932	RSBN1L-TMEM60	rs1544459	proxy	0.898	serum creatinine amount	5e-10
+rs2057932	RSBN1L-TMEM60	rs1544459	proxy	0.898	body mass index	7.000000000000001e-09
+rs2057932	RSBN1L-TMEM60	rs1544459	proxy	0.898	lean body mass	2e-07
+rs2057932	RSBN1L-TMEM60	rs1544459	proxy	0.898	lean body mass	4e-08
+rs2057932	RSBN1L-TMEM60	rs13225229	proxy	0.872	BMI-adjusted waist-hip ratio	3e-12
+rs2057932	RSBN1L-TMEM60	rs13225229	proxy	0.872	serum gamma-glutamyl transferase measurement	4e-25
+rs2057932	RSBN1L-TMEM60	rs35673255	proxy	0.864	eosinophil percentage of leukocytes	3e-10
+rs2057932	RSBN1L-TMEM60	rs7801062	proxy	0.852	eosinophil count	2e-11
+rs2057932	RSBN1L-TMEM60	rs6955558	proxy	0.811	serum gamma-glutamyl transferase measurement	4e-23
+rs7816345	AC090453.1	rs7816345	lead	1.0	breast size	2e-14
+rs7816345	AC090453.1	rs7816345	lead	1.0	mammographic density measurement	5e-08
+rs7816345	AC090453.1	rs7816345	lead	1.0	mammographic density percentage	5e-08
+rs7816345	AC090453.1	rs7816345	lead	1.0	mammographic density measurement	2e-23
+rs7816345	AC090453.1	rs7816345	lead	1.0	non-dense area measurement	2e-23
+rs7816345	AC090453.1	rs7816345	lead	1.0	body height	1e-29
+rs7816345	AC090453.1	rs7816345	lead	1.0	abnormality of the skeletal system	8e-12
+rs7816345	AC090453.1	rs7816345	lead	1.0	cholesteryl esters to total lipids in large VLDL percentage 	2e-13
+rs7816345	AC090453.1	rs7816345	lead	1.0	cholesterol to total lipids in very large VLDL percentage 	3.0000000000000002e-15
+rs7816345	AC090453.1	rs7816345	lead	1.0	appendicular lean mass	5.999999999999999e-24
+rs7816345	AC090453.1	rs7816345	lead	1.0	abnormality of the skeletal system	7e-13
+rs7816345	AC090453.1	rs7816345	lead	1.0	reticulocyte count	1e-09
+rs7816345	AC090453.1	rs7816345	lead	1.0	triglyceride measurement	4e-10
+rs7816345	AC090453.1	rs7816345	lead	1.0	cholesterol to total lipids in large VLDL percentage 	3e-11
+rs7816345	AC090453.1	rs7816345	lead	1.0	cholesteryl esters to total lipids in very large VLDL percentage 	1e-14
+rs7816345	AC090453.1	rs28735403	proxy	1.000	sex hormone-binding globulin measurement	5e-10
+rs7816345	AC090453.1	rs10095380	proxy	1.000	sex hormone-binding globulin measurement	1e-08
+rs7816345	AC090453.1	rs10095380	proxy	1.000	sex hormone-binding globulin measurement	4e-07
+rs7816345	AC090453.1	rs10095380	proxy	1.000	sex hormone-binding globulin measurement	8e-13
+rs7816345	AC090453.1	rs10095380	proxy	1.000	sex hormone-binding globulin measurement	5e-08
+rs7816345	AC090453.1	rs16885613	proxy	1.000	high density lipoprotein cholesterol measurement	1e-09
+rs7816345	AC090453.1	rs16885613	proxy	1.000	non-dense area measurement	2e-37
+rs7816345	AC090453.1	rs10096213	proxy	1.000	triglyceride measurement	3e-14
+rs7816345	AC090453.1	rs10096213	proxy	1.000	breast size	6.000000000000001e-09
+rs7816345	AC090453.1	rs10096213	proxy	1.000	breast carcinoma	3.0000000000000004e-09
+rs7816345	AC090453.1	rs10110651	proxy	1.000	breast size	7.000000000000001e-31
+rs7816345	AC090453.1	rs10110651	proxy	1.000	breast size	1e-08
+rs7816345	AC090453.1	rs10110651	proxy	1.000	Breast density	6e-07
+rs7816345	AC090453.1	rs75772194	proxy	0.992	high density lipoprotein cholesterol measurement	4e-08
+rs7816345	AC090453.1	rs75772194	proxy	0.992	type 2 diabetes mellitus	2e-15
+rs7816345	AC090453.1	rs4286946	proxy	0.992	breast carcinoma	9e-22
+rs7816345	AC090453.1	rs4286946	proxy	0.992	triglycerides to total lipids in very small VLDL percentage 	2e-10
+rs7816345	AC090453.1	rs4286946	proxy	0.992	type 2 diabetes mellitus	8e-11
+rs7816345	AC090453.1	rs10087804	proxy	0.953	mammographic density percentage	3e-10
+rs7816345	AC090453.1	rs10087804	proxy	0.953	high density lipoprotein cholesterol measurement	1e-13
+rs7816345	AC090453.1	rs10092900	proxy	0.953	type 2 diabetes mellitus	1e-11
+rs7816345	AC090453.1	rs10092900	proxy	0.953	Abnormality of the breast	3.0000000000000003e-13
+rs7816345	AC090453.1	rs10092900	proxy	0.953	type 2 diabetes mellitus	7e-07
+rs7816345	AC090453.1	rs10092900	proxy	0.953	type 2 diabetes mellitus	2e-12
+rs7816345	AC090453.1	rs10092900	proxy	0.953	breast carcinoma	2e-17
+rs7816345	AC090453.1	rs10092900	proxy	0.953	diabetes mellitus	2e-12
+rs7816345	AC090453.1	rs10092900	proxy	0.953	type 2 diabetes mellitus	3e-27
+rs7816345	AC090453.1	rs10092900	proxy	0.953	glucose measurement	3e-12
+rs7816345	AC090453.1	rs10092900	proxy	0.953	breast hypertrophy	4e-14
+rs7816345	AC090453.1	rs10092900	proxy	0.953	type 2 diabetes mellitus	1e-12
+rs7816345	AC090453.1	rs13365225	proxy	0.953	breast carcinoma	7e-06
+rs7816345	AC090453.1	rs13365225	proxy	0.953	breast carcinoma	1e-23
+rs7816345	AC090453.1	rs13365225	proxy	0.953	breast carcinoma	1e-20
+rs7816345	AC090453.1	rs13365225	proxy	0.953	type 2 diabetes mellitus	2e-12
+rs7816345	AC090453.1	rs13365225	proxy	0.953	breast carcinoma	1e-08
+rs7816345	AC090453.1	rs13365225	proxy	0.953	estrogen-receptor negative breast cancer	1e-10
+rs7816345	AC090453.1	rs13365225	proxy	0.953	breast carcinoma	3.0000000000000004e-08
+rs7816345	AC090453.1	rs146992477	proxy	0.914	breast size	6.000000000000001e-09
+rs7816345	AC090453.1	rs12681990	proxy	0.914	breast carcinoma	3.0000000000000003e-13
+rs7816345	AC090453.1	rs12681990	proxy	0.914	type 2 diabetes mellitus	4e-11
+rs7816345	AC090453.1	rs12681990	proxy	0.914	sex hormone-binding globulin measurement	3e-06
+rs7816345	AC090453.1	rs12681990	proxy	0.914	type 2 diabetes mellitus	3.0000000000000004e-09
+rs7816345	AC090453.1	rs12681990	proxy	0.914	body fat percentage	3.0000000000000004e-09
+rs7816345	AC090453.1	rs12681990	proxy	0.914	high density lipoprotein cholesterol measurement	3.0000000000000004e-09
+rs7816345	AC090453.1	rs12681990	proxy	0.914	sex hormone-binding globulin measurement	3.0000000000000004e-09
+rs7816345	AC090453.1	rs12681990	proxy	0.914	low density lipoprotein triglyceride measurement	3.0000000000000004e-09
+rs7816345	AC090453.1	rs12681990	proxy	0.914	serum alanine aminotransferase amount	3.0000000000000004e-09
+rs7816345	AC090453.1	rs12681990	proxy	0.914	aspartate aminotransferase measurement	3.0000000000000004e-09
+rs7816345	AC090453.1	rs12681990	proxy	0.914	triglyceride measurement	1e-06
+rs7816345	AC090453.1	rs12681990	proxy	0.914	body fat percentage	5e-09
+rs7816345	AC090453.1	rs12681990	proxy	0.914	schizophrenia	3e-10
+rs7816345	AC090453.1	rs12681990	proxy	0.914	type 2 diabetes mellitus	3e-10
+rs7816345	AC090453.1	rs56687477	proxy	0.891	type 2 diabetes mellitus	2e-10
+rs7816345	AC090453.1	rs10090367	proxy	0.845	body fat percentage	3.0000000000000004e-08
+rs7816345	AC090453.1	rs10090367	proxy	0.845	triglyceride measurement	3.0000000000000004e-08
+rs7816345	AC090453.1	rs10090367	proxy	0.845	serum gamma-glutamyl transferase measurement	1e-09
+rs7816345	AC090453.1	rs11987974	proxy	0.845	high density lipoprotein cholesterol measurement	4e-09
+rs7816345	AC090453.1	rs11987974	proxy	0.845	low density lipoprotein cholesterol measurement	4e-09
+rs7816345	AC090453.1	rs11987974	proxy	0.845	total cholesterol measurement	4e-09
+rs7816345	AC090453.1	rs11987974	proxy	0.845	triglyceride measurement	4e-09
+rs2370759	EPC1	rs2370759	lead	1.0	sexual dysfunction	2e-06
+rs2370759	EPC1	rs11597888	proxy	1.000	osteoarthritis, hip	3e-14
+rs2370759	EPC1	rs11597888	proxy	1.000	total hip arthroplasty	3e-14
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	pulse pressure measurement	9.000000000000001e-15
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	myeloid leukocyte count	2e-27
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	diastolic blood pressure	2e-62
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	cataract	5.999999999999999e-24
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	glaucoma	6e-06
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	systolic blood pressure	5e-50
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	body fat percentage	7e-29
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	triglyceride measurement	3e-06
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	cup-to-disc ratio measurement	5e-10
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	hypertensive disorder	5e-14
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	systolic blood pressure	4e-24
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	open-angle glaucoma	2e-17
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	leukocyte quantity	4e-14
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	brain physiology trait	4e-42
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	brain physiology trait	5.9999999999999996e-36
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	systolic blood pressure	2e-18
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	brain physiology trait	2e-28
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	brain physiology trait	1e-37
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	glaucoma	4e-19
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	monocyte count	1e-16
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	brain physiology trait	2e-47
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	aspartate aminotransferase measurement	1e-09
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	body fat percentage	1e-08
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	calcium measurement	3.0000000000000003e-13
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	systolic blood pressure	2e-34
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	heart rate	4e-16
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	calcium measurement	5.000000000000001e-15
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	diastolic blood pressure change measurement	8.999999999999999e-20
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	systolic blood pressure	9e-28
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	brain physiology trait	2e-30
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	brain physiology trait	2e-42
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	birth weight	8e-13
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	migraine disorder	3e-26
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	brain physiology trait	2e-36
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	open-angle glaucoma	5e-20
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	brain connectivity attribute	2e-17
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	venous thromboembolism	1e-10
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	diastolic blood pressure	2.9999999999999996e-39
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	body fat percentage	4e-11
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	body fat percentage	4e-06
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	body fat percentage	4e-15
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	systolic blood pressure	2e-27
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	diastolic blood pressure	2e-08
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	blood urea nitrogen amount	7e-13
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	brain attribute	3.0000000000000003e-13
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	body fat percentage	5.999999999999999e-21
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	birth weight	1e-16
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	metabolic syndrome	4e-13
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	birth weight	1e-08
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	parental genotype effect measurement	1e-08
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	body fat percentage	5e-20
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	neuroimaging measurement	5.0000000000000005e-17
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	serum alanine aminotransferase amount	5e-10
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	cataract	4e-08
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	diastolic blood pressure	9e-16
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	monocyte count	4e-16
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	monocyte count	1e-15
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	brain physiology trait	1e-08
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	blood urea nitrogen amount	6.999999999999999e-16
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	brain physiology trait	9e-53
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	glycine measurement	8e-11
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	Antihypertensive use measurement	1e-12
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	brain physiology trait	1e-20
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	body fat percentage	3e-28
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	high density lipoprotein cholesterol measurement	3e-28
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	sex hormone-binding globulin measurement	3e-28
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	low density lipoprotein triglyceride measurement	3e-28
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	serum alanine aminotransferase amount	3e-28
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	aspartate aminotransferase measurement	3e-28
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	pulse pressure measurement	1e-11
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	neuroimaging measurement	1e-09
+rs2274224	PLCE1-AS1	rs2274224	lead	1.0	diastolic blood pressure	8e-12
+rs2274224	PLCE1-AS1	rs57866767	proxy	1.000	migraine disorder	2e-29
+rs2274224	PLCE1-AS1	rs57866767	proxy	1.000	pulse pressure measurement	2e-29
+rs2274224	PLCE1-AS1	rs57866767	proxy	1.000	serum alanine aminotransferase amount	2e-09
+rs2274224	PLCE1-AS1	rs57866767	proxy	1.000	serum alanine aminotransferase amount	4e-09
+rs2274224	PLCE1-AS1	rs57866767	proxy	1.000	neuroimaging measurement	5e-08
+rs2274224	PLCE1-AS1	rs57866767	proxy	1.000	open-angle glaucoma	2e-20
+rs2274224	PLCE1-AS1	rs57866767	proxy	1.000	diastolic blood pressure	7e-71
+rs2274224	PLCE1-AS1	rs57866767	proxy	1.000	migraine disorder	7e-71
+rs2274224	PLCE1-AS1	rs57866767	proxy	1.000	aspartate aminotransferase measurement	1e-12
+rs2274224	PLCE1-AS1	rs57866767	proxy	1.000	neuroimaging measurement	5e-09
+rs2274224	PLCE1-AS1	rs57866767	proxy	1.000	asthma	2e-09
+rs2274224	PLCE1-AS1	rs57866767	proxy	1.000	diverticular disease	2e-09
+rs2274224	PLCE1-AS1	rs57866767	proxy	1.000	venous thromboembolism	4.9999999999999995e-11
+rs2274224	PLCE1-AS1	rs57866767	proxy	1.000	non-high density lipoprotein cholesterol measurement	2e-08
+rs2274224	PLCE1-AS1	rs57866767	proxy	1.000	systolic blood pressure	8e-21
+rs2274224	PLCE1-AS1	rs57866767	proxy	1.000	brain physiology trait	4e-43
+rs2274224	PLCE1-AS1	rs57866767	proxy	1.000	brain physiology trait	4.999999999999999e-44
+rs2274224	PLCE1-AS1	rs57866767	proxy	1.000	neuroimaging measurement	3.0000000000000004e-09
+rs2274224	PLCE1-AS1	rs57866767	proxy	1.000	migraine disorder	2.9999999999999996e-60
+rs2274224	PLCE1-AS1	rs57866767	proxy	1.000	systolic blood pressure	2.9999999999999996e-60
+rs2274224	PLCE1-AS1	rs57866767	proxy	1.000	brain physiology trait	2e-38
+rs2274224	PLCE1-AS1	rs57866767	proxy	1.000	venous thromboembolism	4e-13
+rs2274224	PLCE1-AS1	rs57866767	proxy	1.000	Calcium channel blocker use measurement	2e-10
+rs2274224	PLCE1-AS1	rs57866767	proxy	1.000	open-angle glaucoma	6e-19
+rs2274224	PLCE1-AS1	rs57866767	proxy	1.000	hypertensive disorder	2.9999999999999996e-24
+rs2274224	PLCE1-AS1	rs57866767	proxy	1.000	brain physiology trait	3.0000000000000003e-30
+rs2274224	PLCE1-AS1	rs57866767	proxy	1.000	brain physiology trait	1e-43
+rs2274224	PLCE1-AS1	rs57866767	proxy	1.000	systolic blood pressure	7e-48
+rs2274224	PLCE1-AS1	rs57866767	proxy	1.000	open-angle glaucoma	3.0000000000000002e-25
+rs2274224	PLCE1-AS1	rs57866767	proxy	1.000	brain physiology trait	9e-54
+rs2274224	PLCE1-AS1	rs57866767	proxy	1.000	total cholesterol measurement	3e-19
+rs2274224	PLCE1-AS1	rs57866767	proxy	1.000	neuroimaging measurement	6.000000000000001e-09
+rs2274224	PLCE1-AS1	rs57866767	proxy	1.000	migraine disorder	1e-14
+rs2274224	PLCE1-AS1	rs57866767	proxy	1.000	open-angle glaucoma	1e-24
+rs2274224	PLCE1-AS1	rs57866767	proxy	1.000	brain physiology trait	4e-34
+rs2274224	PLCE1-AS1	rs57866767	proxy	1.000	leukocyte quantity	6e-12
+rs2274224	PLCE1-AS1	rs57866767	proxy	1.000	serum alanine aminotransferase amount	4e-09
+rs2274224	PLCE1-AS1	rs57866767	proxy	1.000	cervical artery dissection	4.9999999999999995e-11
+rs2274224	PLCE1-AS1	rs3891783	proxy	1.000	cortical thickness	2e-14
+rs2274224	PLCE1-AS1	rs3891783	proxy	1.000	open-angle glaucoma	2e-08
+rs2274224	PLCE1-AS1	rs3891783	proxy	1.000	IgF-1 measurement	2e-30
+rs2274224	PLCE1-AS1	rs3891783	proxy	1.000	metabolic syndrome	5e-13
+rs2274224	PLCE1-AS1	rs3891783	proxy	1.000	cortical thickness	5e-14
+rs2274224	PLCE1-AS1	rs3891783	proxy	1.000	open-angle glaucoma	3e-10
+rs2274224	PLCE1-AS1	rs3891783	proxy	1.000	hypertensive disorder	7e-24
+rs2274224	PLCE1-AS1	rs3891783	proxy	1.000	aspartate aminotransferase measurement	2e-09
+rs2274224	PLCE1-AS1	rs3891783	proxy	1.000	Headache	4e-09
+rs2274224	PLCE1-AS1	rs3891783	proxy	1.000	migraine disorder	4e-09
+rs2274224	PLCE1-AS1	rs3891783	proxy	1.000	triglyceride measurement	5e-09
+rs2274224	PLCE1-AS1	rs3891783	proxy	1.000	triglyceride measurement	9e-13
+rs2274224	PLCE1-AS1	rs3891783	proxy	1.000	brain physiology trait	7e-35
+rs2274224	PLCE1-AS1	rs10786156	proxy	0.996	brain attribute	2e-11
+rs2274224	PLCE1-AS1	rs10786156	proxy	0.996	migraine disorder	2e-14
+rs2274224	PLCE1-AS1	rs10786156	proxy	0.996	cerebral cortex area attribute	1e-08
+rs2274224	PLCE1-AS1	rs10786156	proxy	0.996	brain attribute	5e-24
+rs2274224	PLCE1-AS1	rs10786156	proxy	0.996	blood urea nitrogen amount	4e-13
+rs2274224	PLCE1-AS1	rs10786156	proxy	0.996	body shape measurement	7e-25
+rs2274224	PLCE1-AS1	rs10786156	proxy	0.996	aspartate aminotransferase measurement	4e-11
+rs2274224	PLCE1-AS1	rs10786156	proxy	0.996	cardiovascular disorder	7e-22
+rs2274224	PLCE1-AS1	rs10786156	proxy	0.996	brain attribute	6e-12
+rs2274224	PLCE1-AS1	rs10786156	proxy	0.996	neuroimaging measurement	2e-11
+rs2274224	PLCE1-AS1	rs10786156	proxy	0.996	body mass index	7.000000000000001e-09
+rs2274224	PLCE1-AS1	rs10786156	proxy	0.996	neuroimaging measurement	2e-13
+rs2274224	PLCE1-AS1	rs10786156	proxy	0.996	migraine disorder	6e-19
+rs2274224	PLCE1-AS1	rs10786156	proxy	0.996	BMI-adjusted waist circumference	2e-10
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	glaucoma	5.999999999999999e-24
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	platelet count	5e-13
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	alkaline phosphatase measurement	1e-14
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	brain physiology trait	1e-43
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	platelet crit	3.0000000000000003e-30
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	appendicular lean mass	7.000000000000001e-26
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	brain physiology trait	4e-14
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	language measurement	4e-14
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	brain physiology trait	3e-41
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	brain physiology trait	2e-17
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	brain physiology trait	2e-27
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	retinal degeneration	9e-13
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	abnormality of the skeletal system	5e-56
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	brain physiology trait	1e-57
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	serum alanine aminotransferase amount	1e-21
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	brain aneurysm	2e-08
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	diastolic blood pressure	9e-54
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	brain physiology trait	6e-53
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	brain physiology trait	4e-58
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	abnormality of the skeletal system	4e-81
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	lean body mass	2e-11
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	lean body mass	3e-07
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	lean body mass	2e-06
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	mean arterial pressure	2.9999999999999997e-29
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	non-high density lipoprotein cholesterol measurement	4e-10
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	systolic blood pressure	8e-45
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	abnormality of the skeletal system	1e-60
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	diastolic blood pressure	2e-46
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	hypertensive disorder	1e-12
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	brain physiology trait	4e-44
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	brain physiology trait	1e-48
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	base metabolic rate measurement	1e-18
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	brain physiology trait	6e-62
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	brain physiology trait	2e-22
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	systolic blood pressure	6e-75
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	electrocardiography	4e-20
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	electrocardiography	1e-12
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	electrocardiography	2e-16
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	electrocardiography	2e-18
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	electrocardiography	1e-19
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	electrocardiography	6.999999999999999e-19
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	electrocardiography	1e-16
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	electrocardiography	1e-14
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	electrocardiography	3e-14
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	electrocardiography	4e-14
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	electrocardiography	5e-14
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	electrocardiography	9.000000000000001e-15
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	electrocardiography	1e-15
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	electrocardiography	2e-15
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	electrocardiography	4e-15
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	brain physiology trait	4e-46
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	lean body mass	4e-21
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	retinal vasculature measurement	3e-06
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	diastolic blood pressure	7.000000000000001e-10
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	systolic blood pressure	3.0000000000000003e-31
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	hypertensive disorder	2e-13
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	appendicular lean mass	1e-34
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	pulse pressure measurement	6.0000000000000005e-15
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	Calcium channel blocker use measurement	6.0000000000000005e-15
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	brain physiology trait	2e-37
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	triglyceride measurement	1e-11
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	migraine disorder	1e-09
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	brain physiology trait	3.0000000000000004e-43
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	migraine disorder	1e-14
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	brain physiology trait	1e-47
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	hypertensive disorder	2e-14
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	whole body water mass	1e-29
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	calcium measurement	5e-16
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	brain physiology trait	2.9999999999999996e-39
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	brain physiology trait	9e-47
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	hypertensive disorder	2e-17
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	brain physiology trait	2.9999999999999996e-39
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	neuroimaging measurement	1e-08
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	brain physiology trait	9e-55
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	cervical artery dissection	2e-11
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	platelet crit	2e-22
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	brain physiology trait	9e-29
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	brain physiology trait	3.0000000000000003e-56
+rs2274224	PLCE1-AS1	rs11187838	proxy	0.996	total cholesterol measurement	2e-13
+rs2274224	PLCE1-AS1	rs7080472	proxy	0.968	pulse pressure measurement	7e-17
+rs2274224	PLCE1-AS1	rs7080472	proxy	0.968	lymphocyte count	4e-15
+rs2274224	PLCE1-AS1	rs7080472	proxy	0.968	sex hormone-binding globulin measurement	1e-08
+rs2274224	PLCE1-AS1	rs7080472	proxy	0.968	leukocyte quantity	1e-10
+rs2274224	PLCE1-AS1	rs7080472	proxy	0.968	brain physiology trait	1e-08
+rs2274224	PLCE1-AS1	rs7080472	proxy	0.968	neuroimaging measurement	7.000000000000001e-09
+rs2274224	PLCE1-AS1	rs7080472	proxy	0.968	systolic blood pressure	1e-26
+rs2274224	PLCE1-AS1	rs7080472	proxy	0.968	neuroimaging measurement	8e-10
+rs2274224	PLCE1-AS1	rs7080472	proxy	0.968	open-angle glaucoma	5e-19
+rs2274224	PLCE1-AS1	rs7080472	proxy	0.968	systolic blood pressure	3e-23
+rs2274224	PLCE1-AS1	rs7080472	proxy	0.968	diastolic blood pressure change measurement	2e-14
+rs2274224	PLCE1-AS1	rs7080472	proxy	0.968	systolic blood pressure	4e-08
+rs2274224	PLCE1-AS1	rs7080472	proxy	0.968	platelet count	3e-14
+rs2274224	PLCE1-AS1	rs7080472	proxy	0.968	cup-to-disc ratio measurement	6e-17
+rs2274224	PLCE1-AS1	rs7080472	proxy	0.968	neuroimaging measurement	5e-08
+rs2274224	PLCE1-AS1	rs7080472	proxy	0.968	neuroimaging measurement	9.000000000000001e-09
+rs2274224	PLCE1-AS1	rs7080472	proxy	0.968	brain physiology trait	1e-08
+rs2274224	PLCE1-AS1	rs7080472	proxy	0.968	neuroimaging measurement	3e-16
+rs2274224	PLCE1-AS1	rs7080472	proxy	0.968	pulse pressure measurement	1e-15
+rs2274224	PLCE1-AS1	rs543302184	proxy	0.880	serum urea amount	3.0000000000000004e-09
+rs2274224	PLCE1-AS1	rs543302184	proxy	0.880	neuroimaging measurement	3e-10
+rs2274224	PLCE1-AS1	rs543302184	proxy	0.880	systolic blood pressure	2e-27
+rs2274224	PLCE1-AS1	rs543302184	proxy	0.880	neuroimaging measurement	8e-09
+rs2274224	PLCE1-AS1	rs543302184	proxy	0.880	diastolic blood pressure	2e-19
+rs2274224	PLCE1-AS1	rs543302184	proxy	0.880	neuroimaging measurement	1e-10
+rs2274224	PLCE1-AS1	rs543302184	proxy	0.880	brain physiology trait	3.0000000000000004e-09
+rs2274224	PLCE1-AS1	rs543302184	proxy	0.880	neuroimaging measurement	4e-10
+rs2274224	PLCE1-AS1	rs543302184	proxy	0.880	monocyte count	6.000000000000001e-13
+rs2274224	PLCE1-AS1	rs543302184	proxy	0.880	neuroimaging measurement	4e-10
+rs2274224	PLCE1-AS1	rs543302184	proxy	0.880	brain physiology trait	4e-10
+rs7949030	GANAB	rs7949030	lead	1.0	abnormality of the skeletal system	6.0000000000000005e-15
+rs7949030	GANAB	rs7949030	lead	1.0	BMI-adjusted waist-hip ratio	5e-08
+rs7949030	GANAB	rs7949030	lead	1.0	physical activity measurement	5e-08
+rs7949030	GANAB	rs7949030	lead	1.0	BMI-adjusted waist-hip ratio	8e-08
+rs7949030	GANAB	rs7949030	lead	1.0	physical activity measurement	8e-08
+rs7949030	GANAB	rs2956993	proxy	0.965	BMI-adjusted waist-hip ratio	2e-06
+rs7949030	GANAB	rs2956993	proxy	0.965	age at assessment	5e-07
+rs7949030	GANAB	rs2956993	proxy	0.965	BMI-adjusted waist-hip ratio	5e-07
+rs7949030	GANAB	rs2956993	proxy	0.965	sex interaction measurement	5e-07
+rs7949030	GANAB	rs3017666	proxy	0.944	irritable bowel syndrome	2e-11
+rs7949030	GANAB	rs3017666	proxy	0.944	vital capacity	2e-11
+rs7949030	GANAB	rs3017666	proxy	0.944	25-hydroxyvitamin D3 measurement	4.9999999999999995e-11
+rs7949030	GANAB	rs3017666	proxy	0.944	forced expiratory volume	4.9999999999999995e-11
+rs585522	PITPNM2	rs585522	lead	1.0	insomnia	2e-23
+rs585522	PITPNM2	rs883263	proxy	0.951	tinnitus	2e-08
+rs585522	PITPNM2	rs937564	proxy	0.951	cerebral cortex area attribute	9.000000000000001e-15
+rs585522	PITPNM2	rs1463877	proxy	0.951	body height	1e-300
+rs585522	PITPNM2	rs4148856	proxy	0.912	amount of serine protease 27 (human) in blood	3e-06
+rs585522	PITPNM2	rs4148856	proxy	0.912	type 2 diabetes mellitus	7e-20
+rs585522	PITPNM2	rs4148856	proxy	0.912	type 2 diabetes mellitus	2e-10
+rs585522	PITPNM2	rs4148856	proxy	0.912	venous thromboembolism	2e-07
+rs585522	PITPNM2	rs1260294	proxy	0.908	Eczematoid dermatitis	6e-10
+rs585522	PITPNM2	rs1260294	proxy	0.908	allergic rhinitis	2e-08
+rs585522	PITPNM2	rs1260294	proxy	0.908	Eczematoid dermatitis	2e-08
+rs585522	PITPNM2	rs12811109	proxy	0.902	eosinophil percentage of leukocytes	2e-16
+rs585522	PITPNM2	rs12811109	proxy	0.902	type 2 diabetes mellitus	3.0000000000000004e-09
+rs585522	PITPNM2	rs1106241	proxy	0.885	intelligence	1e-13
+rs585522	PITPNM2	rs7975763	proxy	0.880	age of onset of childhood onset asthma	3e-10
+rs585522	PITPNM2	rs7975763	proxy	0.880	multiple sclerosis	4e-08
+rs585522	PITPNM2	rs7975763	proxy	0.880	multiple sclerosis	3.0000000000000003e-13
+rs585522	PITPNM2	rs2695481	proxy	0.880	brain attribute	5e-12
+rs585522	PITPNM2	rs2510885	proxy	0.880	brain attribute	1e-11
+rs585522	PITPNM2	rs2510885	proxy	0.880	blood protein amount	9e-06
+rs585522	PITPNM2	rs1790116	proxy	0.880	type 2 diabetes mellitus	6e-11
+rs585522	PITPNM2	rs1790116	proxy	0.880	type 2 diabetes mellitus	1e-10
+rs585522	PITPNM2	rs1790116	proxy	0.880	type 2 diabetes mellitus	3.0000000000000004e-08
+rs585522	PITPNM2	rs1727294	proxy	0.880	BMI-adjusted hip circumference	6e-14
+rs585522	PITPNM2	rs1727294	proxy	0.880	BMI-adjusted hip circumference	8e-14
+rs585522	PITPNM2	rs1790100	proxy	0.880	multiple sclerosis	7e-07
+rs585522	PITPNM2	rs1727323	proxy	0.874	BMI-adjusted hip circumference	8e-14
+rs585522	PITPNM2	rs10744149	proxy	0.874	brain attribute	2e-23
+rs585522	PITPNM2	rs1790120	proxy	0.869	hematological measurement	5e-54
+rs585522	PITPNM2	rs1790120	proxy	0.869	osteoarthritis	3.0000000000000004e-09
+rs585522	PITPNM2	rs1790120	proxy	0.869	osteoarthritis	2e-06
+rs585522	PITPNM2	rs1619561	proxy	0.864	Tourette syndrome	2e-06
+rs585522	PITPNM2	rs1619561	proxy	0.864	brain attribute	2e-13
+rs585522	PITPNM2	rs1619561	proxy	0.864	educational attainment	6.0000000000000005e-15
+rs585522	PITPNM2	rs1619561	proxy	0.864	Tourette syndrome	6.0000000000000005e-15
+rs585522	PITPNM2	rs1716177	proxy	0.863	attention deficit-hyperactivity disorder	2e-08
+rs585522	PITPNM2	rs2049114	proxy	0.858	diastolic blood pressure	3e-14
+rs585522	PITPNM2	rs6488864	proxy	0.858	cortical thickness	6.999999999999999e-16
+rs585522	PITPNM2	rs6488864	proxy	0.858	uterine corpus leiomyoma	3.0000000000000004e-09
+rs585522	PITPNM2	rs6488864	proxy	0.858	cortical thickness	3e-12
+rs585522	PITPNM2	rs1727313	proxy	0.858	type 2 diabetes mellitus	1e-08
+rs585522	PITPNM2	rs1790132	proxy	0.854	uterine corpus leiomyoma	4e-09
+rs585522	PITPNM2	rs1790132	proxy	0.854	osteoarthritis, knee	3.0000000000000004e-09
+rs585522	PITPNM2	rs1790132	proxy	0.854	osteoarthritis, knee	8e-07
+rs585522	PITPNM2	rs1790105	proxy	0.853	mathematical ability	4e-16
+rs585522	PITPNM2	rs1790105	proxy	0.853	diastolic blood pressure	9.000000000000001e-15
+rs585522	PITPNM2	rs2851436	proxy	0.853	venous thromboembolism	2e-10
+rs585522	PITPNM2	rs2851436	proxy	0.853	venous thromboembolism	4e-08
+rs585522	PITPNM2	rs2851436	proxy	0.853	venous thromboembolism	2e-07
+rs585522	PITPNM2	rs2695480	proxy	0.852	eosinophil count	6.999999999999999e-16
+rs585522	PITPNM2	rs2695478	proxy	0.852	eosinophil count	6.999999999999999e-19
+rs585522	PITPNM2	rs1727324	proxy	0.852	platelet count	2e-34
+rs585522	PITPNM2	rs1727324	proxy	0.852	platelet count	1e-27
+rs585522	PITPNM2	rs940904	proxy	0.844	BMI-adjusted waist-hip ratio	2.9999999999999995e-21
+rs585522	PITPNM2	rs940904	proxy	0.844	type 2 diabetes mellitus	2e-09
+rs585522	PITPNM2	rs940904	proxy	0.844	BMI-adjusted waist circumference	3e-12
+rs585522	PITPNM2	rs940904	proxy	0.844	BMI-adjusted waist-hip ratio	1e-22
+rs585522	PITPNM2	rs940904	proxy	0.844	BMI-adjusted hip circumference	2e-09
+rs585522	PITPNM2	rs10654220	proxy	0.842	osteoarthritis	7.000000000000001e-09
+rs585522	PITPNM2	rs10654220	proxy	0.842	platelet crit	4e-36
+rs585522	PITPNM2	rs10654220	proxy	0.842	platelet count	8e-13
+rs585522	PITPNM2	rs2851435	proxy	0.842	venous thromboembolism	1e-10
+rs585522	PITPNM2	rs2851435	proxy	0.842	platelet count	6e-33
+rs585522	PITPNM2	rs7299943	proxy	0.838	schizophrenia	2e-08
+rs585522	PITPNM2	rs1727310	proxy	0.837	body height	2e-19
+rs585522	PITPNM2	rs1727310	proxy	0.837	body height	5e-24
+rs585522	PITPNM2	rs1727310	proxy	0.837	body height	2e-22
+rs585522	PITPNM2	rs1790123	proxy	0.831	health trait	2e-16
+rs585522	PITPNM2	rs11614406	proxy	0.816	cerebral cortex area attribute	3e-14
+rs585522	PITPNM2	rs1727311	proxy	0.815	diastolic blood pressure	7e-18
+rs585522	PITPNM2	rs1727311	proxy	0.815	lean body mass	1e-17
+rs585522	PITPNM2	rs1716174	proxy	0.815	osteoarthritis	2e-08
+rs585522	PITPNM2	rs1716174	proxy	0.815	socioeconomic status	4e-09
+rs585522	PITPNM2	rs4268544	proxy	0.806	mathematical ability	5e-10
+rs585522	PITPNM2	rs63406760	proxy	0.806	allergic disease	3.0000000000000003e-13
+rs585522	PITPNM2	rs63406760	proxy	0.806	allergic rhinitis	2.9999999999999996e-24
+rs585522	PITPNM2	rs34339938	proxy	0.804	uterine corpus leiomyoma	2e-09
+rs585522	PITPNM2	rs34339938	proxy	0.804	platelet crit	1e-12
+rs585522	PITPNM2	rs4759409	proxy	0.801	hematological measurement	2e-78
+rs585522	PITPNM2	rs4759417	proxy	0.801	reaction time measurement	3.0000000000000004e-08
+rs585522	PITPNM2	rs11057204	proxy	0.801	asthma	6e-12
+rs585522	PITPNM2	rs7313483	proxy	0.801	type 2 diabetes mellitus	4e-09
+rs17184313	RIN3	rs17184313	lead	1.0	glomerular filtration rate	2e-11
+rs17184313	RIN3	rs17184313	lead	1.0	forced expiratory volume	2e-23
+rs17184313	RIN3	rs17184313	lead	1.0	FEV/FVC ratio	1e-07
+rs17184313	RIN3	rs17184313	lead	1.0	response to bronchodilator	1e-07
+rs17184313	RIN3	rs17184313	lead	1.0	25-hydroxyvitamin D3 measurement	6e-11
+rs17184313	RIN3	rs17184313	lead	1.0	forced expiratory volume	6e-11
+rs17184313	RIN3	rs10498635	proxy	1.000	bone Paget disease	3e-11
+rs17184313	RIN3	rs10498635	proxy	1.000	pulse pressure measurement	3.0000000000000004e-09
+rs17184313	RIN3	rs10498635	proxy	1.000	systolic blood pressure	6e-07
+rs17184313	RIN3	rs10498635	proxy	1.000	pulse pressure measurement	1e-08
+rs17184313	RIN3	rs10498635	proxy	1.000	pulse pressure measurement	3.0000000000000004e-08
+rs17184313	RIN3	rs10498635	proxy	1.000	myeloid leukocyte count	7e-39
+rs17184313	RIN3	rs10498635	proxy	1.000	vital capacity	4e-26
+rs17184313	RIN3	rs10498635	proxy	1.000	breast cancer	9e-13
+rs17184313	RIN3	rs10498635	proxy	1.000	ovarian carcinoma	9e-13
+rs17184313	RIN3	rs10498635	proxy	1.000	neutrophil count	8.999999999999999e-34
+rs17184313	RIN3	rs10498635	proxy	1.000	leukocyte quantity	1e-19
+rs17184313	RIN3	rs10498635	proxy	1.000	FEV/FVC ratio	3e-07
+rs17184313	RIN3	rs10498635	proxy	1.000	response to bronchodilator	3e-07
+rs17184313	RIN3	rs10498635	proxy	1.000	breast cancer	5e-12
+rs17184313	RIN3	rs10498635	proxy	1.000	lung cancer	5e-12
+rs17184313	RIN3	rs11627441	proxy	1.000	chronic obstructive pulmonary disease	1e-14
+rs17184313	RIN3	rs11627441	proxy	1.000	FEV/FVC ratio	4e-06
+rs17184313	RIN3	rs11627441	proxy	1.000	response to bronchodilator	4e-06
+rs17184313	RIN3	rs7146689	proxy	1.000	FEV/FVC ratio	2e-06
+rs17184313	RIN3	rs7146689	proxy	1.000	response to bronchodilator	2e-06
+rs17184313	RIN3	rs7143806	proxy	1.000	leukocyte quantity	7e-28
+rs17184313	RIN3	rs7143806	proxy	1.000	sclerostin measurement	3.0000000000000004e-08
+rs17184313	RIN3	rs7143806	proxy	1.000	FEV/FVC ratio	9e-08
+rs17184313	RIN3	rs7143806	proxy	1.000	response to bronchodilator	9e-08
+rs17184313	RIN3	rs7143806	proxy	1.000	neutrophil count	2e-24
+rs17184313	RIN3	rs72699846	proxy	0.993	primary biliary cholangitis	9e-10
+rs17184313	RIN3	rs72699846	proxy	0.993	B-cell acute lymphoblastic leukemia	9e-10
+rs17184313	RIN3	rs72699846	proxy	0.993	FEV/FVC ratio	3e-07
+rs17184313	RIN3	rs72699846	proxy	0.993	response to bronchodilator	3e-07
+rs17184313	RIN3	rs7141996	proxy	0.993	cerebral cortex area attribute	3.0000000000000004e-08
+rs17184313	RIN3	rs7141996	proxy	0.993	FEV/FVC ratio	3e-07
+rs17184313	RIN3	rs7141996	proxy	0.993	response to bronchodilator	3e-07
+rs17184313	RIN3	rs11623779	proxy	0.993	25-hydroxyvitamin D3 measurement	2e-09
+rs17184313	RIN3	rs11623779	proxy	0.993	forced expiratory volume	2e-09
+rs17184313	RIN3	rs11623779	proxy	0.993	Preserved ratio impaired spirometry	2e-08
+rs17184313	RIN3	rs11623779	proxy	0.993	serum albumin amount	1e-15
+rs17184313	RIN3	rs11623779	proxy	0.993	FEV/FVC ratio	2e-07
+rs17184313	RIN3	rs11623779	proxy	0.993	response to bronchodilator	2e-07
+rs17184313	RIN3	rs11621587	proxy	0.980	neutrophil count	4e-11
+rs17184313	RIN3	rs11621587	proxy	0.980	myeloid leukocyte count	1e-35
+rs17184313	RIN3	rs11621587	proxy	0.980	leukocyte quantity	6e-16
+rs17184313	RIN3	rs11621587	proxy	0.980	serum albumin amount	4.9999999999999995e-11
+rs17184313	RIN3	rs11621587	proxy	0.980	serum albumin amount	7e-15
+rs17184313	RIN3	rs11621587	proxy	0.980	endometriosis	2e-11
+rs17184313	RIN3	rs11621587	proxy	0.980	forced expiratory volume	2e-33
+rs17184313	RIN3	rs11621587	proxy	0.980	vital capacity	2e-30
+rs17184313	RIN3	rs11621587	proxy	0.980	neutrophil count	1e-30
+rs17184313	RIN3	rs11621587	proxy	0.980	serum albumin amount	2e-15
+rs17184313	RIN3	rs11621587	proxy	0.980	neutrophil count	8e-12
+rs17184313	RIN3	rs11621587	proxy	0.980	vital capacity	3e-35
+rs17184313	RIN3	rs11621587	proxy	0.980	vital capacity	3e-35
+rs17184313	RIN3	rs11621587	proxy	0.980	vital capacity	1e-32
+rs17184313	RIN3	rs11621587	proxy	0.980	forced expiratory volume	2.9999999999999996e-24
+rs17184313	RIN3	rs11621587	proxy	0.980	vital capacity	2e-26
+rs17184313	RIN3	rs11621587	proxy	0.980	FEV/FVC ratio	1e-07
+rs17184313	RIN3	rs11621587	proxy	0.980	response to bronchodilator	1e-07
+rs17184313	RIN3	rs11621587	proxy	0.980	forced expiratory volume	1e-29
+rs17184313	RIN3	rs11621587	proxy	0.980	endometriosis	4e-13
+rs17184313	RIN3	rs11621587	proxy	0.980	serum albumin amount	1e-22
+rs17184313	RIN3	rs11621587	proxy	0.980	endometriosis	1e-09
+rs17184313	RIN3	rs11621587	proxy	0.980	forced expiratory volume	1e-24
+rs17184313	RIN3	rs8010344	proxy	0.980	lymphocyte percentage of leukocytes	6e-19
+rs17184313	RIN3	rs8010344	proxy	0.980	eosinophil count	3e-16
+rs17184313	RIN3	rs8010344	proxy	0.980	eosinophil count	1e-16
+rs17184313	RIN3	rs8010344	proxy	0.980	FEV/FVC ratio	2e-07
+rs17184313	RIN3	rs8010344	proxy	0.980	response to bronchodilator	2e-07
+rs17184313	RIN3	rs11624512	proxy	0.967	myeloid leukocyte count	4e-15
+rs17184313	RIN3	rs11624512	proxy	0.967	leukocyte quantity	8e-14
+rs17184313	RIN3	rs11624512	proxy	0.967	eosinophil count	4e-14
+rs17184313	RIN3	rs11624512	proxy	0.967	basophil count	4e-14
+rs17184313	RIN3	rs11624512	proxy	0.967	FEV/FVC ratio	2e-07
+rs17184313	RIN3	rs11624512	proxy	0.967	response to bronchodilator	2e-07
+rs17184313	RIN3	rs11624512	proxy	0.967	granulocyte count	2e-13
+rs17184313	RIN3	rs112560164	proxy	0.961	platelet crit	3e-14
+rs17184313	RIN3	rs112560164	proxy	0.961	FEV/FVC ratio	2e-07
+rs17184313	RIN3	rs112560164	proxy	0.961	response to bronchodilator	2e-07
+rs17184313	RIN3	rs112560164	proxy	0.961	base metabolic rate measurement	2e-12
+rs17184313	RIN3	rs112560164	proxy	0.961	monocyte count	5e-19
+rs17184313	RIN3	rs72699855	proxy	0.954	chronic obstructive pulmonary disease	5e-09
+rs17184313	RIN3	rs72699855	proxy	0.954	FEV/FVC ratio	2e-07
+rs17184313	RIN3	rs72699855	proxy	0.954	response to bronchodilator	2e-07
+rs17184313	RIN3	rs72699866	proxy	0.954	appendicular lean mass	2e-20
+rs17184313	RIN3	rs72699866	proxy	0.954	primary biliary cholangitis	3e-11
+rs17184313	RIN3	rs72699866	proxy	0.954	bone density	1e-08
+rs17184313	RIN3	rs72699866	proxy	0.954	eosinophil count	9.000000000000001e-18
+rs17184313	RIN3	rs72699866	proxy	0.954	brain attribute	5.000000000000001e-15
+rs17184313	RIN3	rs72699866	proxy	0.954	FEV/FVC ratio	1e-07
+rs17184313	RIN3	rs72699866	proxy	0.954	response to bronchodilator	1e-07
+rs17184313	RIN3	rs72699866	proxy	0.954	eosinophil count	3.0000000000000003e-13
+rs17184313	RIN3	rs72699866	proxy	0.954	neutrophil count	3.0000000000000003e-13
+rs17184313	RIN3	rs72699866	proxy	0.954	neutrophil count	9e-12
+rs17184313	RIN3	rs1075472	proxy	0.941	neuroimaging measurement	7.000000000000001e-09
+rs17184313	RIN3	rs1075472	proxy	0.941	brain attribute	7.000000000000001e-09
+rs17184313	RIN3	rs1075472	proxy	0.941	glomerular filtration rate	6.999999999999999e-16
+rs17184313	RIN3	rs1075472	proxy	0.941	platelet volume	8e-19
+rs17184313	RIN3	rs1075472	proxy	0.941	brain volume	2e-09
+rs17184313	RIN3	rs1075472	proxy	0.941	neuroimaging measurement	2e-09
+rs17184313	RIN3	rs1075472	proxy	0.941	FEV/FVC ratio	9e-08
+rs17184313	RIN3	rs1075472	proxy	0.941	response to bronchodilator	9e-08
+rs17184313	RIN3	rs1075472	proxy	0.941	glomerular filtration rate	4e-22
+rs17184313	RIN3	rs754388	proxy	0.935	emphysema pattern measurement	3e-07
+rs17184313	RIN3	rs754388	proxy	0.935	emphysema pattern measurement	2e-07
+rs17184313	RIN3	rs754388	proxy	0.935	chronic obstructive pulmonary disease	5e-09
+rs17184313	RIN3	rs754388	proxy	0.935	chronic obstructive pulmonary disease	7e-08
+rs17184313	RIN3	rs754388	proxy	0.935	bone density	5e-08
+rs17184313	RIN3	rs754388	proxy	0.935	bone density	3.0000000000000004e-09
+rs17184313	RIN3	rs754388	proxy	0.935	bone density	2e-09
+rs17184313	RIN3	rs754388	proxy	0.935	bone density	1e-10
+rs17184313	RIN3	rs754388	proxy	0.935	chronic obstructive pulmonary disease	1e-06
+rs17184313	RIN3	rs754388	proxy	0.935	body height	2e-08
+rs17184313	RIN3	rs754388	proxy	0.935	25-hydroxyvitamin D3 measurement	1e-08
+rs17184313	RIN3	rs754388	proxy	0.935	forced expiratory volume	1e-08
+rs17184313	RIN3	rs754388	proxy	0.935	hypothyroidism	3e-11
+rs17184313	RIN3	rs754388	proxy	0.935	bone density	3e-06
+rs17184313	RIN3	rs754388	proxy	0.935	monocyte count	5.9999999999999996e-36
+rs17184313	RIN3	rs754388	proxy	0.935	chronic obstructive pulmonary disease	1e-11
+rs17184313	RIN3	rs754388	proxy	0.935	heart rate	1e-11
+rs17184313	RIN3	rs754388	proxy	0.935	monocyte count	8.999999999999999e-34
+rs17184313	RIN3	rs754388	proxy	0.935	BMI-adjusted hip circumference	1e-11
+rs17184313	RIN3	rs754388	proxy	0.935	body shape measurement	6.0000000000000004e-18
+rs17184313	RIN3	rs754388	proxy	0.935	FEV/FVC ratio	6.000000000000001e-09
+rs17184313	RIN3	rs754388	proxy	0.935	response to bronchodilator	6.000000000000001e-09
+rs17184313	RIN3	rs754388	proxy	0.935	monocyte count	9e-28
+rs17184313	RIN3	rs754388	proxy	0.935	monocyte count	1e-20
+rs17184313	RIN3	rs754388	proxy	0.935	chronic obstructive pulmonary disease	5e-14
+rs17184313	RIN3	rs754388	proxy	0.935	bone density	3.0000000000000004e-08
+rs17184313	RIN3	rs754388	proxy	0.935	lean body mass	3.0000000000000004e-08
+rs17184313	RIN3	rs72697295	proxy	0.920	FEV/FVC ratio	1e-07
+rs17184313	RIN3	rs72697295	proxy	0.920	response to bronchodilator	1e-07
+rs17184313	RIN3	rs72697295	proxy	0.920	basophil count	8e-11
+rs17184313	RIN3	rs72699804	proxy	0.920	FEV/FVC ratio	1e-07
+rs17184313	RIN3	rs72699804	proxy	0.920	response to bronchodilator	1e-07
+rs17184313	RIN3	rs35629566	proxy	0.920	glomerular filtration rate	2e-10
+rs17184313	RIN3	rs35629566	proxy	0.920	FEV/FVC ratio	1e-07
+rs17184313	RIN3	rs35629566	proxy	0.920	response to bronchodilator	1e-07
+rs17184313	RIN3	rs72699818	proxy	0.920	eosinophil count	4e-13
+rs17184313	RIN3	rs72699818	proxy	0.920	monocyte count	8e-14
+rs17184313	RIN3	rs72699818	proxy	0.920	FEV/FVC ratio	7e-08
+rs17184313	RIN3	rs72699818	proxy	0.920	response to bronchodilator	7e-08
+rs17184313	RIN3	rs75662783	proxy	0.920	FEV/FVC ratio	1e-07
+rs17184313	RIN3	rs75662783	proxy	0.920	response to bronchodilator	1e-07
+rs17184313	RIN3	rs79596128	proxy	0.920	FEV/FVC ratio	8e-07
+rs17184313	RIN3	rs79596128	proxy	0.920	response to bronchodilator	8e-07
+rs17184313	RIN3	rs72697299	proxy	0.920	serum albumin amount	2e-09
+rs17184313	RIN3	rs75070309	proxy	0.920	FEV/FVC ratio	1e-07
+rs17184313	RIN3	rs75070309	proxy	0.920	response to bronchodilator	1e-07
+rs17184313	RIN3	rs72697297	proxy	0.920	body fat percentage	8e-15
+rs17184313	RIN3	rs72697297	proxy	0.920	level of protein AMBP in blood	2e-08
+rs17184313	RIN3	rs72697297	proxy	0.920	FEV/FVC ratio	1e-07
+rs17184313	RIN3	rs72697297	proxy	0.920	response to bronchodilator	1e-07
+rs17184313	RIN3	rs72697297	proxy	0.920	body fat percentage	6e-11
+rs17184313	RIN3	rs72697297	proxy	0.920	high density lipoprotein cholesterol measurement	6e-11
+rs17184313	RIN3	rs72697297	proxy	0.920	sex hormone-binding globulin measurement	6e-11
+rs17184313	RIN3	rs72697297	proxy	0.920	low density lipoprotein triglyceride measurement	6e-11
+rs17184313	RIN3	rs72697297	proxy	0.920	serum alanine aminotransferase amount	6e-11
+rs17184313	RIN3	rs72697297	proxy	0.920	aspartate aminotransferase measurement	6e-11
+rs17184313	RIN3	rs77503186	proxy	0.920	FEV/FVC ratio	1e-07
+rs17184313	RIN3	rs77503186	proxy	0.920	response to bronchodilator	1e-07
+rs17184313	RIN3	rs112370326	proxy	0.914	FEV/FVC ratio	9e-08
+rs17184313	RIN3	rs112370326	proxy	0.914	response to bronchodilator	9e-08
+rs17184313	RIN3	rs117068593	proxy	0.909	amount of collagen alpha-1(I) chain (human) in blood	1e-30
+rs17184313	RIN3	rs117068593	proxy	0.909	appendicular lean mass	2e-33
+rs17184313	RIN3	rs117068593	proxy	0.909	abnormality of the skeletal system	5.999999999999999e-21
+rs17184313	RIN3	rs117068593	proxy	0.909	rheumatoid arthritis	2e-09
+rs17184313	RIN3	rs117068593	proxy	0.909	platelet crit	5e-24
+rs17184313	RIN3	rs117068593	proxy	0.909	serum albumin amount	6e-28
+rs17184313	RIN3	rs117068593	proxy	0.909	brain attribute	3e-11
+rs17184313	RIN3	rs117068593	proxy	0.909	amount of osteopontin (human) in blood	5e-42
+rs17184313	RIN3	rs117068593	proxy	0.909	platelet crit	2e-29
+rs17184313	RIN3	rs117068593	proxy	0.909	appendicular lean mass	9e-62
+rs17184313	RIN3	rs117068593	proxy	0.909	brain volume	1e-09
+rs17184313	RIN3	rs117068593	proxy	0.909	neuroimaging measurement	1e-09
+rs17184313	RIN3	rs117068593	proxy	0.909	wnt inhibitory factor 1 measurement	3e-23
+rs17184313	RIN3	rs117068593	proxy	0.909	body fat percentage	8e-14
+rs17184313	RIN3	rs117068593	proxy	0.909	serum albumin amount	1e-28
+rs17184313	RIN3	rs117068593	proxy	0.909	vital capacity	8e-08
+rs17184313	RIN3	rs117068593	proxy	0.909	osteopontin measurement	2.9999999999999997e-29
+rs17184313	RIN3	rs117068593	proxy	0.909	abnormality of the skeletal system	5e-19
+rs17184313	RIN3	rs117068593	proxy	0.909	whole body water mass	2e-18
+rs17184313	RIN3	rs117068593	proxy	0.909	abnormality of the skeletal system	2e-34
+rs17184313	RIN3	rs117068593	proxy	0.909	forced expiratory volume	2e-08
+rs17184313	RIN3	rs117068593	proxy	0.909	BMI-adjusted hip circumference	6e-11
+rs17184313	RIN3	rs117068593	proxy	0.909	dentin matrix acidic phosphoprotein 1 amount	2e-13
+rs17184313	RIN3	rs117068593	proxy	0.909	platelet component distribution width	4e-14
+rs17184313	RIN3	rs117068593	proxy	0.909	response to bronchodilator	3e-06
+rs17184313	RIN3	rs117068593	proxy	0.909	forced expiratory volume	3e-06
+rs17184313	RIN3	rs117068593	proxy	0.909	endothelial cell-specific molecule 1 measurement	1e-13
+rs17184313	RIN3	rs117068593	proxy	0.909	leukocyte quantity	5.0000000000000005e-17
+rs17184313	RIN3	rs117068593	proxy	0.909	serum albumin amount	4e-28
+rs17184313	RIN3	rs117068593	proxy	0.909	endothelial cell-specific molecule 1 measurement	1e-13
+rs17184313	RIN3	rs117068593	proxy	0.909	appendicular lean mass	6e-34
+rs17184313	RIN3	rs117068593	proxy	0.909	body fat percentage	4e-16
+rs17184313	RIN3	rs117068593	proxy	0.909	platelet volume	5e-20
+rs17184313	RIN3	rs117068593	proxy	0.909	alkaline phosphatase measurement	9e-21
+rs17184313	RIN3	rs117068593	proxy	0.909	FEV/FVC ratio	2e-08
+rs17184313	RIN3	rs117068593	proxy	0.909	response to bronchodilator	2e-08
+rs17184313	RIN3	rs117068593	proxy	0.909	eosinophil count	1e-22
+rs17184313	RIN3	rs117068593	proxy	0.909	white matter microstructure measurement	1e-14
+rs17184313	RIN3	rs117068593	proxy	0.909	body fat percentage	3.0000000000000002e-15
+rs17184313	RIN3	rs117068593	proxy	0.909	leukocyte quantity	4e-13
+rs17184313	RIN3	rs117068593	proxy	0.909	neutrophil count	1e-18
+rs17184313	RIN3	rs117068593	proxy	0.909	eosinophil count	6e-14
+rs17184313	RIN3	rs117068593	proxy	0.909	wnt inhibitory factor 1 measurement	4e-20
+rs17184313	RIN3	rs78440108	proxy	0.907	neutrophil measurement	6.999999999999999e-11
+rs17184313	RIN3	rs78440108	proxy	0.907	lymphocyte amount	6.999999999999999e-11
+rs17184313	RIN3	rs78440108	proxy	0.907	platelet volume	5.999999999999999e-21
+rs17184313	RIN3	rs78440108	proxy	0.907	monocyte count	2e-12
+rs17184313	RIN3	rs78440108	proxy	0.907	basophil count	2e-09
+rs17184313	RIN3	rs78440108	proxy	0.907	body fat percentage	2e-09
+rs17184313	RIN3	rs578113254	proxy	0.881	size	3e-14
+rs17184313	RIN3	rs578113254	proxy	0.881	platelet volume	7e-15
+rs17184313	RIN3	rs578113254	proxy	0.881	health trait	2e-15
+rs17184313	RIN3	rs72699870	proxy	0.868	lymphocyte percentage of leukocytes	5e-16
+rs17184313	RIN3	rs72699870	proxy	0.868	alkaline phosphatase measurement	1e-15
+rs17184313	RIN3	rs72699870	proxy	0.868	neutrophil count	8e-22
+rs35874463	SMAD3	rs35874463	lead	1.0	abnormality of the skeletal system	7e-14
+rs35874463	SMAD3	rs35874463	lead	1.0	cardiovascular measurement	4.9999999999999995e-11
+rs35874463	SMAD3	rs35874463	lead	1.0	body height	8e-230
+rs35874463	SMAD3	rs35874463	lead	1.0	body height	2e-55
+rs35874463	SMAD3	rs35874463	lead	1.0	body height	2e-49
+rs35874463	SMAD3	rs35874463	lead	1.0	appendicular lean mass	9e-06
+rs35874463	SMAD3	rs35874463	lead	1.0	body height	3e-100
+rs35874463	SMAD3	rs35874463	lead	1.0	body height	1e-55
+rs35874463	SMAD3	rs35874463	lead	1.0	cardiovascular measurement	1e-10
+rs35874463	SMAD3	rs35874463	lead	1.0	body fat distribution	1e-15
+rs35874463	SMAD3	rs35874463	lead	1.0	body fat distribution	6e-16
+rs35874463	SMAD3	rs35874463	lead	1.0	size	4e-30
+rs35874463	SMAD3	rs35874463	lead	1.0	breast cancer	3.0000000000000004e-09
+rs35874463	SMAD3	rs35874463	lead	1.0	body fat distribution	3.0000000000000004e-09
+rs35874463	SMAD3	rs35874463	lead	1.0	aortic stenosis	1e-09
+rs35874463	SMAD3	rs35874463	lead	1.0	ankylosing spondylitis	1e-11
+rs35874463	SMAD3	rs35874463	lead	1.0	Crohn disease	1e-11
+rs35874463	SMAD3	rs35874463	lead	1.0	psoriasis	1e-11
+rs35874463	SMAD3	rs35874463	lead	1.0	sclerosing cholangitis	1e-11
+rs35874463	SMAD3	rs35874463	lead	1.0	ulcerative colitis	1e-11
+rs35874463	SMAD3	rs35874463	lead	1.0	abnormality of the skeletal system	6.0000000000000005e-15
+rs35874463	SMAD3	rs35874463	lead	1.0	body height	4e-101
+rs35874463	SMAD3	rs35874463	lead	1.0	lean body mass	1e-13
+rs35874463	SMAD3	rs35874463	lead	1.0	base metabolic rate measurement	2e-12
+rs35874463	SMAD3	rs35874463	lead	1.0	body fat distribution	2.9999999999999995e-21
+rs35874463	SMAD3	rs35874463	lead	1.0	body fat distribution	2e-18
+rs35874463	SMAD3	rs35874463	lead	1.0	health trait	2e-31
+rs35874463	SMAD3	rs35874463	lead	1.0	breast cancer	1e-11
+rs35874463	SMAD3	rs35874463	lead	1.0	body fat distribution	1e-11
+rs35874463	SMAD3	rs35874463	lead	1.0	BMI-adjusted waist circumference	1e-23
+rs35874463	SMAD3	rs35874463	lead	1.0	BMI-adjusted hip circumference	2.9999999999999997e-20
+rs35874463	SMAD3	rs35874463	lead	1.0	body surface area	2.9999999999999997e-29
+rs35874463	SMAD3	rs35874463	lead	1.0	atrial fibrillation	2e-10
+rs35874463	SMAD3	rs35874463	lead	1.0	atrial fibrillation	3e-10
+rs35874463	SMAD3	rs35874463	lead	1.0	body height	4e-117
+rs35874463	SMAD3	rs35874463	lead	1.0	appendicular lean mass	7e-08
+rs35874463	SMAD3	rs35874463	lead	1.0	body height	1e-115
+rs35874463	SMAD3	rs35874463	lead	1.0	anthropometric measurement	8e-13
+rs35874463	SMAD3	rs35874463	lead	1.0	sexual dimorphism measurement	8e-09
+rs35874463	SMAD3	rs35874463	lead	1.0	body height	2e-101
+rs35874463	SMAD3	rs35874463	lead	1.0	anthropometric measurement	1e-09
+rs35874463	SMAD3	rs35874463	lead	1.0	body height	3e-70
+rs35874463	SMAD3	rs35874463	lead	1.0	sexual dimorphism measurement	8e-18
+rs35874463	SMAD3	rs35874463	lead	1.0	BMI-adjusted hip circumference	4e-25
+rs35874463	SMAD3	rs35874463	lead	1.0	body height	2e-35
+rs35874463	SMAD3	rs35874463	lead	1.0	body height	5.999999999999999e-93
+rs35874463	SMAD3	rs35874463	lead	1.0	body shape measurement	7e-14
+rs35874463	SMAD3	rs35874463	lead	1.0	body height	9e-07
+rs35874463	SMAD3	rs35874463	lead	1.0	BMI-adjusted waist circumference	1e-30
+rs35874463	SMAD3	rs35874463	lead	1.0	appendicular lean mass	3e-12
+rs35874463	SMAD3	rs35874463	lead	1.0	FEV/FVC ratio	4.9999999999999995e-11
+rs35874463	SMAD3	rs35874463	lead	1.0	body height	6.999999999999999e-240
+rs35874463	SMAD3	rs35874463	lead	1.0	body height	1e-203
+rs35874463	SMAD3	rs35874463	lead	1.0	cardiovascular measurement	8e-11
+rs35874463	SMAD3	rs35874463	lead	1.0	body shape measurement	2e-79
+rs6123685	BMP7	rs6123685	lead	1.0	high density lipoprotein cholesterol measurement	3.0000000000000003e-13
+rs6123685	BMP7	rs6123685	lead	1.0	high density lipoprotein cholesterol measurement	4e-14
+rs6123685	BMP7	rs6123685	lead	1.0	apolipoprotein a 1 measurement	2e-12
+rs6123685	BMP7	rs6123685	lead	1.0	sex hormone-binding globulin measurement	4e-09
+rs6123685	BMP7	rs6123685	lead	1.0	triglyceride:HDL cholesterol ratio	8e-06
+rs6123685	BMP7	rs6123685	lead	1.0	cholesterol esters in large HDL measurement	2e-10
+rs6123685	BMP7	rs6123685	lead	1.0	triglyceride:HDL cholesterol ratio	1e-06
+rs6123685	BMP7	rs6123685	lead	1.0	sex hormone-binding globulin measurement	2e-06
+rs6123685	BMP7	rs6123685	lead	1.0	high density lipoprotein cholesterol measurement	4e-09
+rs6123685	BMP7	rs6123685	lead	1.0	cholesteryl esters in HDL measurement	4.9999999999999995e-11
+rs6123685	BMP7	rs6123685	lead	1.0	high density lipoprotein cholesterol measurement	4e-13
+rs6123685	BMP7	rs6123685	lead	1.0	apolipoprotein a 1 measurement	1e-09
+rs6123685	BMP7	rs6123685	lead	1.0	high density lipoprotein cholesterol measurement	2e-09
+rs6123685	BMP7	rs6123685	lead	1.0	hernia of the abdominal wall	1e-12
+rs6123685	BMP7	rs6123685	lead	1.0	high density lipoprotein cholesterol measurement	8e-09
+rs6123685	BMP7	rs6123685	lead	1.0	inguinal hernia	6e-14
+rs6123685	BMP7	rs6123685	lead	1.0	inguinal hernia	1e-12
+rs6123685	BMP7	rs6123685	lead	1.0	triglyceride:HDL cholesterol ratio	1e-10

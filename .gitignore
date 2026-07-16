@@ -1,4 +1,45 @@
-job_manager.py
-multi_gpu_bash_autoresume.sh
-submit_training_autoresume.sh
-ukbb/__pycache__/downstream.cpython-311.pyc
+# --- Data: participant-level data must NEVER be committed ---
+data/*
+!data/.gitkeep
+!data/README.md
+*.h5
+*.hdf5
+*.dcm
+*.nii
+*.nii.gz
+*.parquet
+*.feather
+
+# Model weights / embeddings / cached arrays
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.pkl
+*.npy
+*.npz
+
+# --- Caches & build artifacts ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.ipynb_checkpoints/
+.DS_Store
+
+# --- Experiment tracking & job logs ---
+wandb/
+*.out
+*.err
+*.log
+
+# --- Environments ---
+.venv/
+venv/
+.env
+
+# --- Editor / tooling ---
+.idea/
+.vscode/
+.claude/

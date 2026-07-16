@@ -1,0 +1,319 @@
+Index,Feature_Name,Measurement_Category
+1,body_arm_left_area,Bone Structure
+2,body_arm_left_bmc,Bone Mineral Content
+3,body_arm_left_bmd,Bone Mineral Density
+4,body_arm_right_area,Bone Structure
+5,body_arm_right_bmc,Bone Mineral Content
+6,body_arm_right_bmd,Bone Mineral Density
+7,body_arms_area,Bone Structure
+8,body_arms_bmc,Bone Mineral Content
+9,body_arms_bmd,Bone Mineral Density
+10,body_head_area,Bone Structure
+11,body_head_bmc,Bone Mineral Content
+12,body_head_bmd,Bone Mineral Density
+13,body_leg_left_area,Bone Structure
+14,body_leg_left_bmc,Bone Mineral Content
+15,body_leg_left_bmd,Bone Mineral Density
+16,body_leg_right_area,Bone Structure
+17,body_leg_right_bmc,Bone Mineral Content
+18,body_leg_right_bmd,Bone Mineral Density
+19,body_legs_area,Bone Structure
+20,body_legs_bmc,Bone Mineral Content
+21,body_legs_bmd,Bone Mineral Density
+22,body_pelvis_area,Bone Structure
+23,body_pelvis_bmc,Bone Mineral Content
+24,body_pelvis_bmd,Bone Mineral Density
+25,body_ribs_area,Bone Structure
+26,body_ribs_bmc,Bone Mineral Content
+27,body_ribs_bmd,Bone Mineral Density
+28,body_spine_area,Bone Structure
+29,body_spine_bmc,Bone Mineral Content
+30,body_spine_bmd,Bone Mineral Density
+31,body_total_area,Bone Structure
+32,body_total_bmc,Bone Mineral Content
+33,body_total_bmd,Bone Mineral Density
+34,body_total_left_area,Bone Structure
+35,body_total_left_bmc,Bone Mineral Content
+36,body_total_left_bmd,Bone Mineral Density
+37,body_total_right_area,Bone Structure
+38,body_total_right_bmc,Bone Mineral Content
+39,body_total_right_bmd,Bone Mineral Density
+40,body_trunk_area,Bone Structure
+41,body_trunk_bmc,Bone Mineral Content
+42,body_trunk_bmd,Bone Mineral Density
+43,body_trunk_left_area,Bone Structure
+44,body_trunk_left_bmc,Bone Mineral Content
+45,body_trunk_left_bmd,Bone Mineral Density
+46,body_trunk_right_area,Bone Structure
+47,body_trunk_right_bmc,Bone Mineral Content
+48,body_trunk_right_bmd,Bone Mineral Density
+49,femur_left_lower_neck_area,Bone Structure
+50,femur_left_lower_neck_bmc,Bone Mineral Content
+51,femur_left_lower_neck_bmd,Bone Mineral Density
+52,femur_left_neck_area,Bone Structure
+53,femur_left_neck_bmc,Bone Mineral Content
+54,femur_left_neck_bmd,Bone Mineral Density
+55,femur_left_shaft_area,Bone Structure
+56,femur_left_shaft_bmc,Bone Mineral Content
+57,femur_left_shaft_bmd,Bone Mineral Density
+58,femur_left_total_area,Bone Structure
+59,femur_left_total_bmc,Bone Mineral Content
+60,femur_left_total_bmd,Bone Mineral Density
+61,femur_left_troch_area,Bone Structure
+62,femur_left_troch_bmc,Bone Mineral Content
+63,femur_left_troch_bmd,Bone Mineral Density
+64,femur_left_upper_neck_area,Bone Structure
+65,femur_left_upper_neck_bmc,Bone Mineral Content
+66,femur_left_upper_neck_bmd,Bone Mineral Density
+67,femur_left_wards_area,Bone Structure
+68,femur_left_wards_bmc,Bone Mineral Content
+69,femur_left_wards_bmd,Bone Mineral Density
+70,femur_lower_neck_diff_area,Bone Structure
+71,femur_lower_neck_diff_bmc,Bone Mineral Content
+72,femur_lower_neck_diff_bmd,Bone Mineral Density
+73,femur_lower_neck_mean_area,Bone Structure
+74,femur_lower_neck_mean_bmc,Bone Mineral Content
+75,femur_lower_neck_mean_bmd,Bone Mineral Density
+76,femur_neck_diff_area,Bone Structure
+77,femur_neck_diff_bmc,Bone Mineral Content
+78,femur_neck_diff_bmd,Bone Mineral Density
+79,femur_neck_mean_area,Bone Structure
+80,femur_neck_mean_bmc,Bone Mineral Content
+81,femur_neck_mean_bmd,Bone Mineral Density
+82,femur_right_lower_neck_area,Bone Structure
+83,femur_right_lower_neck_bmc,Bone Mineral Content
+84,femur_right_lower_neck_bmd,Bone Mineral Density
+85,femur_right_neck_area,Bone Structure
+86,femur_right_neck_bmc,Bone Mineral Content
+87,femur_right_neck_bmd,Bone Mineral Density
+88,femur_right_shaft_area,Bone Structure
+89,femur_right_shaft_bmc,Bone Mineral Content
+90,femur_right_shaft_bmd,Bone Mineral Density
+91,femur_right_total_area,Bone Structure
+92,femur_right_total_bmc,Bone Mineral Content
+93,femur_right_total_bmd,Bone Mineral Density
+94,femur_right_troch_area,Bone Structure
+95,femur_right_troch_bmc,Bone Mineral Content
+96,femur_right_troch_bmd,Bone Mineral Density
+97,femur_right_upper_neck_area,Bone Structure
+98,femur_right_upper_neck_bmc,Bone Mineral Content
+99,femur_right_upper_neck_bmd,Bone Mineral Density
+100,femur_right_wards_area,Bone Structure
+101,femur_right_wards_bmc,Bone Mineral Content
+102,femur_right_wards_bmd,Bone Mineral Density
+103,femur_shaft_diff_area,Bone Structure
+104,femur_shaft_diff_bmc,Bone Mineral Content
+105,femur_shaft_diff_bmd,Bone Mineral Density
+106,femur_shaft_mean_area,Bone Structure
+107,femur_shaft_mean_bmc,Bone Mineral Content
+108,femur_shaft_mean_bmd,Bone Mineral Density
+109,femur_total_diff_area,Bone Structure
+110,femur_total_diff_bmc,Bone Mineral Content
+111,femur_total_diff_bmd,Bone Mineral Density
+112,femur_total_mean_area,Bone Structure
+113,femur_total_mean_bmc,Bone Mineral Content
+114,femur_total_mean_bmd,Bone Mineral Density
+115,femur_troch_diff_area,Bone Structure
+116,femur_troch_diff_bmc,Bone Mineral Content
+117,femur_troch_diff_bmd,Bone Mineral Density
+118,femur_troch_mean_area,Bone Structure
+119,femur_troch_mean_bmc,Bone Mineral Content
+120,femur_troch_mean_bmd,Bone Mineral Density
+121,femur_upper_neck_diff_area,Bone Structure
+122,femur_upper_neck_diff_bmc,Bone Mineral Content
+123,femur_upper_neck_diff_bmd,Bone Mineral Density
+124,femur_upper_neck_mean_area,Bone Structure
+125,femur_upper_neck_mean_bmc,Bone Mineral Content
+126,femur_upper_neck_mean_bmd,Bone Mineral Density
+127,femur_wards_diff_area,Bone Structure
+128,femur_wards_diff_bmc,Bone Mineral Content
+129,femur_wards_diff_bmd,Bone Mineral Density
+130,femur_wards_mean_area,Bone Structure
+131,femur_wards_mean_bmc,Bone Mineral Content
+132,femur_wards_mean_bmd,Bone Mineral Density
+133,spine_l1_area,Bone Structure
+134,spine_l1_average_height,Bone Structure
+135,spine_l1_average_width,Bone Structure
+136,spine_l1_bmc,Bone Mineral Content
+137,spine_l1_bmd,Bone Mineral Density
+138,spine_l1_l2_area,Bone Structure
+139,spine_l1_l2_average_height,Bone Structure
+140,spine_l1_l2_average_width,Bone Structure
+141,spine_l1_l2_bmc,Bone Mineral Content
+142,spine_l1_l2_bmd,Bone Mineral Density
+143,spine_l1_l3_area,Bone Structure
+144,spine_l1_l3_average_height,Bone Structure
+145,spine_l1_l3_average_width,Bone Structure
+146,spine_l1_l3_bmc,Bone Mineral Content
+147,spine_l1_l3_bmd,Bone Mineral Density
+148,spine_l1_l4_area,Bone Structure
+149,spine_l1_l4_average_height,Bone Structure
+150,spine_l1_l4_average_width,Bone Structure
+151,spine_l1_l4_bmc,Bone Mineral Content
+152,spine_l1_l4_bmd,Bone Mineral Density
+153,spine_l2_area,Bone Structure
+154,spine_l2_average_height,Bone Structure
+155,spine_l2_average_width,Bone Structure
+156,spine_l2_bmc,Bone Mineral Content
+157,spine_l2_bmd,Bone Mineral Density
+158,spine_l2_l3_area,Bone Structure
+159,spine_l2_l3_average_height,Bone Structure
+160,spine_l2_l3_average_width,Bone Structure
+161,spine_l2_l3_bmc,Bone Mineral Content
+162,spine_l2_l3_bmd,Bone Mineral Density
+163,spine_l2_l4_area,Bone Structure
+164,spine_l2_l4_average_height,Bone Structure
+165,spine_l2_l4_average_width,Bone Structure
+166,spine_l2_l4_bmc,Bone Mineral Content
+167,spine_l2_l4_bmd,Bone Mineral Density
+168,spine_l3_area,Bone Structure
+169,spine_l3_average_height,Bone Structure
+170,spine_l3_average_width,Bone Structure
+171,spine_l3_bmc,Bone Mineral Content
+172,spine_l3_bmd,Bone Mineral Density
+173,spine_l3_l4_area,Bone Structure
+174,spine_l3_l4_average_height,Bone Structure
+175,spine_l3_l4_average_width,Bone Structure
+176,spine_l3_l4_bmc,Bone Mineral Content
+177,spine_l3_l4_bmd,Bone Mineral Density
+178,spine_l4_area,Bone Structure
+179,spine_l4_average_height,Bone Structure
+180,spine_l4_average_width,Bone Structure
+181,spine_l4_bmc,Bone Mineral Content
+182,spine_l4_bmd,Bone Mineral Density
+183,total_scan_dose,Other
+184,total_scan_sat_area,Bone Structure
+185,total_scan_sat_mass,Other
+186,total_scan_sat_volume,Other
+187,total_scan_vat_area,Bone Structure
+188,total_scan_vat_mass,Other
+189,total_scan_vat_volume,Other
+190,body_comp_leg_left_fat_free_mass,Composition
+191,body_comp_leg_right_region_percent_fat,Composition
+192,body_comp_trunk_fat_free_mass,Composition
+193,body_comp_total_right_tissue_mass,Other
+194,body_comp_gynoid_total_mass,Other
+195,body_comp_trunk_left_bone_mass,Other
+196,body_comp_leg_right_lean_mass,Composition
+197,body_comp_android_tissue_mass,Other
+198,body_comp_trunk_lean_mass,Composition
+199,body_comp_total_lean_mass,Composition
+200,body_comp_trunk_right_fat_mass,Composition
+201,body_comp_arms_lean_mass,Composition
+202,body_comp_legs_total_mass,Other
+203,body_comp_total_right_fat_mass,Composition
+204,body_comp_arms_fat_free_mass,Composition
+205,body_comp_trunk_tissue_mass,Other
+206,body_comp_android_bone_mass,Other
+207,body_comp_total_total_mass,Other
+208,body_comp_trunk_region_percent_fat,Composition
+209,body_comp_arm_left_region_percent_fat,Composition
+210,body_comp_leg_right_bone_mass,Other
+211,body_comp_arms_diff_total_mass,Other
+212,body_comp_trunk_right_tissue_percent_fat,Composition
+213,body_comp_trunk_left_tissue_percent_fat,Composition
+214,body_comp_arm_right_tissue_mass,Other
+215,body_comp_leg_left_total_mass,Other
+216,body_comp_legs_bone_mass,Other
+217,body_comp_total_diff_total_mass,Other
+218,body_comp_arm_right_total_mass,Other
+219,body_comp_total_diff_bone_mass,Other
+220,body_comp_arms_diff_bone_mass,Other
+221,body_comp_trunk_diff_lean_mass,Composition
+222,body_comp_arm_left_fat_mass,Composition
+223,body_comp_trunk_left_fat_mass,Composition
+224,body_comp_leg_left_lean_mass,Composition
+225,body_comp_leg_left_tissue_mass,Other
+226,body_comp_trunk_right_fat_free_mass,Composition
+227,body_comp_arms_bone_mass,Other
+228,body_comp_arm_right_fat_mass,Composition
+229,body_comp_trunk_fat_mass,Composition
+230,body_comp_arms_diff_fat_free_mass,Composition
+231,body_comp_arms_tissue_mass,Other
+232,body_comp_total_left_fat_mass,Composition
+233,body_comp_trunk_diff_tissue_percent_fat,Composition
+234,body_comp_arm_right_region_percent_fat,Composition
+235,body_comp_legs_tissue_mass,Other
+236,body_comp_leg_left_region_percent_fat,Composition
+237,body_comp_android_fat_free_mass,Composition
+238,body_comp_total_fat_mass,Composition
+239,body_comp_trunk_diff_tissue_mass,Other
+240,body_comp_arm_left_tissue_percent_fat,Composition
+241,body_comp_total_tissue_mass,Other
+242,body_comp_total_left_bone_mass,Other
+243,body_comp_legs_tissue_percent_fat,Composition
+244,body_comp_leg_right_tissue_percent_fat,Composition
+245,body_comp_legs_diff_lean_mass,Composition
+246,body_comp_trunk_right_tissue_mass,Other
+247,body_comp_arm_left_total_mass,Other
+248,body_comp_leg_right_fat_mass,Composition
+249,body_comp_total_diff_lean_mass,Composition
+250,body_comp_arms_fat_mass,Composition
+251,body_comp_total_diff_tissue_mass,Other
+252,body_comp_trunk_diff_total_mass,Other
+253,body_comp_trunk_left_region_percent_fat,Composition
+254,body_comp_trunk_left_total_mass,Other
+255,body_comp_total_diff_fat_free_mass,Composition
+256,body_comp_gynoid_fat_mass,Composition
+257,body_comp_leg_left_fat_mass,Composition
+258,body_comp_leg_left_tissue_percent_fat,Composition
+259,body_comp_total_right_lean_mass,Composition
+260,body_comp_arms_diff_fat_mass,Composition
+261,body_comp_total_right_bone_mass,Other
+262,body_comp_arm_right_bone_mass,Other
+263,body_comp_total_right_fat_free_mass,Composition
+264,body_comp_arm_left_fat_free_mass,Composition
+265,body_comp_android_total_mass,Other
+266,body_comp_arm_right_fat_free_mass,Composition
+267,body_comp_arm_left_tissue_mass,Other
+268,body_comp_total_diff_fat_mass,Composition
+269,body_comp_dose,Other
+270,body_comp_arm_left_bone_mass,Other
+271,body_comp_trunk_left_lean_mass,Composition
+272,body_comp_trunk_right_total_mass,Other
+273,body_comp_arms_diff_lean_mass,Composition
+274,body_comp_legs_diff_region_percent_fat,Composition
+275,body_comp_arm_right_lean_mass,Composition
+276,body_comp_gynoid_lean_mass,Composition
+277,body_comp_trunk_diff_fat_free_mass,Composition
+278,body_comp_android_fat_mass,Composition
+279,body_comp_total_fat_free_mass,Composition
+280,body_comp_trunk_left_fat_free_mass,Composition
+281,body_comp_legs_diff_fat_mass,Composition
+282,body_comp_leg_right_total_mass,Other
+283,body_comp_legs_lean_mass,Composition
+284,body_comp_trunk_total_mass,Other
+285,body_comp_gynoid_tissue_mass,Other
+286,body_comp_leg_right_tissue_mass,Other
+287,body_comp_android_lean_mass,Composition
+288,body_comp_trunk_tissue_percent_fat,Composition
+289,body_comp_total_left_tissue_mass,Other
+290,body_comp_trunk_bone_mass,Other
+291,body_comp_gynoid_fat_free_mass,Composition
+292,body_comp_arms_diff_tissue_mass,Other
+293,body_comp_arm_left_lean_mass,Composition
+294,body_comp_trunk_right_region_percent_fat,Composition
+295,body_comp_total_left_total_mass,Other
+296,body_comp_trunk_right_bone_mass,Other
+297,body_comp_trunk_left_tissue_mass,Other
+298,body_comp_total_left_lean_mass,Composition
+299,body_comp_legs_diff_fat_free_mass,Composition
+300,body_comp_legs_fat_free_mass,Composition
+301,body_comp_total_bone_mass,Other
+302,body_comp_total_left_fat_free_mass,Composition
+303,body_comp_leg_left_bone_mass,Other
+304,body_comp_gynoid_bone_mass,Other
+305,body_comp_trunk_right_lean_mass,Composition
+306,body_comp_total_right_total_mass,Other
+307,body_comp_leg_right_fat_free_mass,Composition
+308,body_comp_arms_total_mass,Other
+309,body_comp_legs_fat_mass,Composition
+310,body_comp_legs_diff_tissue_percent_fat,Composition
+311,body_comp_trunk_diff_fat_mass,Composition
+312,body_comp_legs_region_percent_fat,Composition
+313,body_comp_legs_diff_total_mass,Other
+314,body_comp_trunk_diff_region_percent_fat,Composition
+315,body_comp_trunk_diff_bone_mass,Other
+316,body_comp_arm_right_tissue_percent_fat,Composition
+317,body_comp_legs_diff_bone_mass,Other
+318,body_comp_legs_diff_tissue_mass,Other
