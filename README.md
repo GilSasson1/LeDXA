@@ -90,7 +90,7 @@ Dependencies are declared in `pyproject.toml`; `requirements.txt` is provided fo
 LeDXA/
 ├── model/          architecture, datasets, augmentation, training, embedding extraction
 ├── downstream/     portable disease, survival, biological-age, and genetics templates
-├── plotting/       manuscript figure generation
+├── plotting/       quantitative manuscript figure generation (Figures 2–6)
 ├── tables/         de-identified supplementary result tables
 ├── figures/        rendered manuscript figures
 └── sample_data/    participant-free synthetic smoke test
@@ -98,8 +98,7 @@ LeDXA/
 
 Shared utilities support these main directories, while paths for controlled data and outputs are
 configured through [`config.py`](config.py). Detailed descriptions are in
-[`downstream/README.md`](downstream/README.md), [`tables/README.md`](tables/README.md), and
-[`figures/README.md`](figures/README.md).
+[`downstream/README.md`](downstream/README.md) and [`tables/README.md`](tables/README.md).
 
 
 ## Figures and reproducibility
@@ -116,11 +115,12 @@ preview above or use the links below for the complete publication-quality PDF.
 | [Figure 5](figures/fig5_biological_age.pdf) | Biological age, health, and mortality |
 | [Figure 6](figures/fig6_female_clusters.pdf) | Body-composition phenotype discovery |
 
-The `model/`, `downstream/`, and `plotting/` packages provide the full training, analysis, and
-figure-generation code as a reference implementation. The figures themselves are shipped as rendered
-PDFs and the supplementary results as de-identified tables in [`tables/`](tables/); regenerating the
-figures end-to-end requires the controlled UK Biobank / HPP cohort data, which cannot be distributed
-here. Any aggregate table added later must contain no participant-level rows — run
+The `model/` and `downstream/` packages provide training and analysis reference implementations.
+The `plotting/` package contains the quantitative plotting code for Figures 2–6; Figure 1 is a
+manually assembled study-design schematic and is supplied only as a rendered PDF. Regenerating the
+quantitative figures end-to-end requires controlled UK Biobank / HPP cohort data, which cannot be
+distributed here. Supplementary results are provided as de-identified tables in [`tables/`](tables/).
+Any aggregate table added later must contain no participant-level rows — run
 `python tools/check_no_pii.py` before publishing new outputs.
 
 ## Data and model availability
