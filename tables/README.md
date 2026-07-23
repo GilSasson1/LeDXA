@@ -33,23 +33,11 @@ split (matched body-composition vs. a separately-computed "multi-system summary"
 to one table (7): the dropped one was computed on the *unmatched* cohort, contradicting the
 paper's own matching methodology, and didn't contain the non-DXA phenotypes its title promised.
 
-## Figure-pipeline inputs (not themselves numbered supp tables)
+## Everything else here
 
-| File | Used by |
-|---|---|
-| `age_mae_imaging_only.csv` | `plotting/fig5_bioage.py`, `downstream/bioage/age_mae.py` |
-| `age_mae_imaging_only_wholebody.csv` | `plotting/fig2_heatmap.py` (Fig. 2a) |
-| `age_prediction_analysis/medication_sexsplit_paired_gap.csv` | `plotting/fig5_bioage.py` (Fig. 5h) |
-| `cox_ttest_results_bp_logsweep_nodxapca_perseed.csv` | `plotting/fig3_cox.py` |
-| `disease_pairwise_diffpentuned.csv` | `plotting/fig2_heatmap.py`; written by `downstream/disease/topset.py` |
-| `fig4c/fig4c_associations.tsv`, `fig4c/fig4c_primary.tsv` | `plotting/fig4_genetics.py`, `downstream/genetics/build_fig4c.py` |
-| `tableD_bioage_disease_prevalence_extended.csv` | `plotting/fig5_bioage.py` (Fig. 5g) |
-| `tableD_bioage_medication_paired_atc3.csv` | `plotting/fig5_bioage.py` |
-| `tableD_bioage_phenotype_female.csv`, `tableD_bioage_phenotype_male.csv` | `plotting/fig5_bioage.py` (Fig. 5c, d) |
-| `tableD_cluster_all_results.csv` | `plotting/fig6_clustering.py` |
-| `tableE_bioage_gap_mortality_cox.csv` | `plotting/fig5_bioage.py` (Fig. 5e, f) |
-
-Note: many of these files back specific numbers quoted in the main text (e.g. bio-age medication
-or mortality figures) beyond just feeding a plot — that's incidental to why they're kept here,
-which is strictly that a script reads them. Anything not read by a script and not a numbered
-Supplementary Table was removed, even where it was the only source for a reported number.
+The remaining files (`age_mae_imaging_only*.csv`, `disease_pairwise_diffpentuned.csv`,
+`cox_ttest_results_bp_logsweep_nodxapca_perseed.csv`, the `tableD_bioage_*`/`tableD_cluster_all_results`/
+`tableE_bioage_gap_mortality_cox` files, `fig4c/*.tsv`, `age_prediction_analysis/medication_sexsplit_paired_gap.csv`)
+are each read directly by one of the `plotting/*.py` figure scripts — grep the filename if you need
+to know which one. Anything not read by a script and not a numbered Supplementary Table was removed,
+even where it was the only source for a specific reported number.
