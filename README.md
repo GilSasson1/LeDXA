@@ -1,142 +1,166 @@
 # LeDXA
 
-**A self-supervised foundation model for whole-body DXA scans.**
-Code accompanying the paper *"[LeDXA: a self-supervised foundation model for dual-energy X-ray
-absorptiometry]"* — 📄 *manuscript link / DOI: TBD*.
+**A self-supervised foundation model for whole-body dual-energy X-ray absorptiometry (DXA) scans**
 
-![Figure 1 — LeDXA study overview](assets/figure1.png)
+Code accompanying *LeDXA: a self-supervised foundation model for dual-energy X-ray
+absorptiometry* — manuscript and DOI forthcoming.
 
-The print-quality version is available as [PDF](assets/figure1.pdf).
+[![LeDXA pretraining and downstream applications](assets/readme/overview.png)](assets/figure1.pdf)
+
+*LeDXA learns a compact representation of whole-body DXA anatomy without labels and transfers it
+across cohorts and clinical tasks. Click the overview for the complete Figure 1.*
 
 ## Overview
 
-Whole-body DXA scans are routinely acquired to measure bone density and regional body composition,
-leaving their spatial structure largely unused. **LeDXA** shows that self-supervised learning can
-convert raw DXA images into general representations of systemic health. It is a vision model based on
-a **joint-embedding predictive architecture (JEPA)**, trained by predicting image features in latent
-space (rather than reconstructing pixels) and regularized with **SIGReg**. It was trained from scratch
-on **11,540 unlabeled DXA scans** from the Human Phenotype Project (HPP) and evaluated internally and
-on **47,400 external UK Biobank (UKBB)** scans.
+LeDXA uses a joint-embedding predictive architecture (**LeJEPA**) with **SIGReg** to learn from the
+spatial structure of whole-body DXA scans. It was pretrained from scratch on **11,540 unlabeled HPP
+scans** and evaluated externally on **47,400 UK Biobank scans**.
 
-Despite using ~5 orders of magnitude fewer training images and ~40× fewer parameters than DINOv3, the
-frozen LeDXA embedding improves cross-cohort prediction of prevalent disease and physiological
-biomarkers over scanner-derived DXA readouts and DINOv3; improves longitudinal prediction of incident
-disease (notably hip/knee arthrosis and type-2 diabetes); yields a biological-age gap that tracks
-disease burden and mortality; and produces an embedding space whose GWAS recovers known
-body-composition and bone-density loci with higher SNP-heritability than DINOv3's.
+The frozen representation supports prevalent-disease and biomarker prediction, incident-disease
+survival analysis, biological-age estimation, embedding GWAS, and unsupervised body-composition
+phenotyping. This repository provides the model and training code, embedding extraction, a synthetic
+smoke test, de-identified aggregate results, plotting code, and rendered manuscript figures.
 
-## Architecture
+## Model at a glance
 
-| | |
+| Property | Value |
 |---|---|
-| Backbone | ViT-Small/16 (`vit_small_patch16_384`, ~22M params) |
-| Objective | LeJEPA (joint-embedding predictive) + SIGReg regularizer |
-| Input | Whole-body DXA image, 384 × 128 |
-| Embedding | 384-dimensional, used **frozen** for all downstream tasks |
-| Pretraining corpus | 11,540 HPP DXA scans (unlabeled) |
-| Baselines | DINOv3 (ViT-Huge) · scanner-derived tabular DXA measures |
+| Backbone | ViT-Small/16 (`vit_small_patch16_384`, approximately 22M parameters) |
+| Objective | LeJEPA with SIGReg regularization |
+| Input | Three-channel whole-body DXA, 384 × 128 pixels |
+| Representation | 384-dimensional frozen embedding |
+| Pretraining data | 11,540 unlabeled HPP scans |
+| External evaluation | 47,400 UK Biobank scans |
+| Main baselines | DINOv3, scanner-derived DXA measurements, age/sex/BMI |
 
-## Repository structure
+## Research highlights
 
-| Path | Function |
-|------|----------|
-| `model/` | Model architecture, SIGReg loss, image augmentations, HDF5 datasets, pretraining, and frozen-embedding extraction. |
-| `common/` | Code shared by analyses: model factories, statistical helpers, Cox metadata, and the paper-wide plotting style. |
-| `downstream/disease/` | Linear probes and fine-tuning for prevalent disease and continuous biomarker prediction. |
-| `downstream/survival/` | Incident-event construction and Cox proportional-hazards analyses. |
-| `downstream/bioage/` | Biological-age prediction, age-gap/aging-rate analyses, mortality, and medication associations. |
-| `downstream/clustering/` | Unsupervised embedding clusters and body-composition phenotype characterization. |
-| `downstream/genetics/` | GWAS phenotype preparation, lead-locus annotation, and Figure 4 inputs. |
-| `plotting/` | Scripts that convert aggregate tables into main, supplementary, and extended-data figures. |
-| `tables/` | De-identified aggregate results and figure inputs. No participant-level rows should be committed here. |
-| `figures/` | Rendered paper figures. These are outputs; generation code remains in `plotting/`. |
-| `assets/` | Documentation assets used by this README, including the inline Figure 1 PNG and print PDF. |
-| `data/` | Git-ignored location for authorized local cohort data, checkpoints, embeddings, and caches. |
-| `sample_data/` | Synthetic, participant-free smoke test for the encoder interface. |
-| `tools/` | Repository safety utilities, currently the participant-data/PII guard. |
-| `csvs/` | Small, non-participant metadata mappings such as disease groups and display names. |
-| `config.py` | Central environment-variable-based paths and optional W&B configuration. |
+### Cross-cohort disease prediction
 
-### Reproducibility boundary
+LeDXA representations retain strong discrimination across an internal HPP test set and the external
+UK Biobank cohort, including cardiometabolic, musculoskeletal, hematological, and endocrine
+conditions.
 
-The installable model, synthetic smoke test, HPP/UKBB training entry points, and embedding extractor
-do not require the authors' private Python packages. Some participant-level cohort-construction
-scripts under `downstream/` are retained as analysis provenance and still expect authorized,
-institution-specific data adapters (for example medication and raw UKBB field loaders). Those
-adapters cannot be distributed with this repository; the committed aggregate tables and rendered
-figures remain usable without them.
+[![Selected HPP and UK Biobank disease-prediction results](assets/readme/cross_cohort_prediction.png)](figures/fig2_disease_heatmap.pdf)
 
-## Setup
+### Prospective disease risk
+
+Frozen LeDXA embeddings improve incident-disease prediction beyond demographic covariates and
+scanner-derived DXA measurements, with particularly strong gains for hip and knee arthrosis and
+type-2 diabetes.
+
+[![Incident-disease Cox model comparison](assets/readme/incident_disease.png)](figures/fig3_cox_survival.pdf)
+
+### Unsupervised phenotype discovery
+
+The representation organizes participants by body-composition phenotype without phenotype labels.
+The resulting female clusters differ across body composition, lifestyle, physiological measures,
+and circulating proteins.
+
+[![Unsupervised body-composition phenotype discovery](assets/readme/phenotype_discovery.png)](figures/fig6_female_clusters.pdf)
+
+## Quick start
+
+LeDXA requires Python 3.10 or newer.
 
 ```bash
-git clone git@github.com:GilSasson1/LeDXA.git && cd LeDXA
-python -m venv .venv && source .venv/bin/activate     # Python >= 3.10
+git clone https://github.com/GilSasson1/LeDXA.git
+cd LeDXA
+python -m venv .venv
+source .venv/bin/activate
 pip install -e .
+python -m sample_data.demo
 ```
 
-Runtime dependencies have a single source of truth in `pyproject.toml`; `requirements.txt` installs
-that project for compatibility with tools that expect a requirements file. `timm>=1.0.20` is required
-for the DINOv3 model names used here. DINO weights are downloaded on first use and cached under
-`data/hf_cache/` by default; override that with `LEDXA_HF_CACHE`.
+The smoke test uses only synthetic noise and should finish with:
 
-## Quick check
-
-```bash
-python -m sample_data.demo     # builds the encoder, embeds a synthetic DXA batch
+```text
+input (2, 3, 384, 128) -> features (2, 384) -> projections (2, 128)
 ```
 
-Expected output ends with `features (2, 384) -> projections (2, 128)`.
+Runtime dependencies are declared in `pyproject.toml`; `requirements.txt` is a compatibility entry
+point for tools that expect it. The DINOv3 baseline requires `timm>=1.0.20` and downloads its weights
+on first use.
 
-## Training
+## Repository layout
 
-Pretrain from scratch on your own DXA scans:
-
-```bash
-python model/train.py          # LeJEPA, ViT-Small/16, 384×128 inputs
+```text
+LeDXA/
+├── model/          architecture, datasets, augmentation, training, embedding extraction
+├── downstream/     disease, survival, biological-age, clustering, and genetics analyses
+├── plotting/       manuscript and supplementary figure generation
+├── tables/         de-identified aggregate results and figure inputs
+├── figures/        rendered manuscript figures
+├── common/         shared statistical, model, Cox, and plotting utilities
+├── sample_data/    participant-free synthetic smoke test
+├── assets/         README visuals and the complete Figure 1
+├── data/           git-ignored location for authorized local data and model outputs
+└── config.py       environment-variable-based path and W&B configuration
 ```
 
-DXA images are read from an HDF5 store (see `model/datasets.py` for the expected format) and
-augmented per `model/augmentations.py`. Frozen embeddings are then extracted with
-`model/extract_embeddings.py` for the downstream analyses.
+The `downstream/` package is divided into `disease/`, `survival/`, `bioage/`, `clustering/`, and
+`genetics/`. More detailed data and output descriptions are available in
+[`data/README.md`](data/README.md), [`tables/README.md`](tables/README.md), and
+[`figures/README.md`](figures/README.md).
 
-Paths are configured without editing source code:
+## Training and embedding extraction
+
+Participant-level DXA data are not distributed. To train on authorized HPP-formatted data, configure
+the input paths and start pretraining:
 
 ```bash
-export LEDXA_HPP_DXA_H5=/path/to/hpp_dxa_dataset.h5
-export LEDXA_HPP_TARGETS_CSV=/path/to/hpp_age_targets.csv
-export LEDXA_UKBB_DXA_H5=/path/to/ukbb_dexa_dataset.h5
-export LEDXA_UKBB_TARGETS_CSV=/path/to/ukbb_age_targets.csv
+export LEDXA_HPP_DXA_H5=/path/to/dxa_dataset.h5
+export LEDXA_HPP_TARGETS_CSV=/path/to/age_targets.csv
 export LEDXA_CHECKPOINTS=/path/to/checkpoints
-export LEDXA_EMBEDDINGS=/path/to/embeddings
+
+python -m model.train
 ```
 
-HPP targets used by `model/train.py` follow the dataset index expected by `model/datasets.py`.
-UKBB targets used by `model/train_ukbb.py` must contain `eid`, `visit`, and `age` columns. W&B is
-disabled by default; set `WANDB_ENTITY` (and optionally `WANDB_PROJECT`/`WANDB_MODE`) to enable it.
+The expected HDF5 and target layout is documented in [`data/README.md`](data/README.md). All paths
+can be overridden through [`config.py`](config.py). W&B logging is disabled by default; set
+`WANDB_ENTITY` and optionally `WANDB_PROJECT` or `WANDB_MODE` to enable it.
 
-## Reproducing the figures
+Extract frozen representations from a trained checkpoint with:
 
-Analyses read **de-identified aggregate tables** from `tables/` (no participant-level data). Main
-figures and their scripts:
+```bash
+python -m model.extract_embeddings \
+  --models lejepa \
+  --lejepa-checkpoint /path/to/checkpoint.pth \
+  --hdf5-path /path/to/dxa_dataset.h5 \
+  --output-dir /path/to/embeddings
+```
 
-| Figure | Script | Key inputs (in `tables/`) |
-|--------|--------|---------------------------|
-| **Fig 2** – disease & trait prediction | `plotting/fig2_heatmap.py` | `supp_tableA_disease_auc_4arm_diffpentuned.csv`, `ukbb_pca0_diffpen_summary.csv`, `disease_pairwise_diffpentuned.csv`, `age_mae_imaging_only_wholebody.csv` |
-| **Fig 3** – incident-disease Cox | `plotting/fig3_cox.py` | `cox_ttest_results_bp_logsweep_nodxapca.csv` (+ `_perseed`) |
-| **Fig 4** – embedding GWAS | `plotting/fig4_genetics.py`, `downstream/genetics/build_fig4c.py` | `fig4c/*.tsv`; GWAS summary stats *(external)* |
-| **Fig 5** – biological age | `plotting/fig5_bioage.py` (via `downstream/bioage/run_section.py`) | `tableD_bioage_*`, `tableE_bioage_gap_mortality_cox.csv` |
-| **Fig 6** – body-composition clusters | `plotting/fig6_clustering.py` (via `downstream/clustering/run_section.py`) | `tableD_cluster_*` |
-| Fig 1 (schematic) | `plotting/fig1_model_panel.py`, `plotting/fig1_downstream_panel.py` | illustrative |
+## Figures and reproducibility
 
-Disease-classification AUROC tables (Supplementary Tables 1–2) are `tables/tableA_hpp_disease_auc_4arm.csv`
-and `tables/tableB_ukbb_disease_auc_4arm.csv`. Embedding-GWAS lead loci (genome-wide + suggestive,
-P < 1×10⁻⁶) are in `tables/tableS_gwas_lejepa_hits.tsv`.
+The repository includes de-identified aggregate tables and the rendered main figures. Click any
+preview above or use the links below for the complete publication-quality PDF.
 
-## Data availability
+| Figure | Scientific result | Public reproduction |
+|---|---|---|
+| [Figure 1](assets/figure1.pdf) | Study design and model overview | Rendered asset included |
+| [Figure 2](figures/fig2_disease_heatmap.pdf) | Disease and physiological-trait prediction | Aggregate inputs included in `tables/` |
+| [Figure 3](figures/fig3_cox_survival.pdf) | Incident-disease survival analysis | Render included; curves require participant-level follow-up data |
+| [Figure 4](figures/fig4_genetics.pdf) | Embedding GWAS and SNP heritability | Render included; full regeneration requires external GWAS outputs |
+| [Figure 5](figures/fig5_biological_age.pdf) | Biological age, health, and mortality | Render included; full regeneration requires participant-level predictions |
+| [Figure 6](figures/fig6_female_clusters.pdf) | Body-composition phenotype discovery | Render included; UMAP regeneration requires participant-level embeddings |
 
-No participant-level data is included. Access is via the data owners:
-**UK Biobank** (https://www.ukbiobank.ac.uk/) and the **Human Phenotype Project**
-(https://humanphenotypeproject.org/). Place your data as described in [`data/README.md`](data/README.md).
+Figure 2 can be regenerated from the committed aggregate inputs:
+
+```bash
+python -m plotting.fig2_heatmap
+```
+
+The remaining plotting scripts are retained as analysis provenance, but some require controlled
+cohort inputs or institution-specific data adapters that cannot be distributed publicly. Aggregate
+result tables contain no participant-level rows; run `python tools/check_no_pii.py` before publishing
+new outputs.
+
+## Data and model availability
+
+No participant-level data or pretrained checkpoint is distributed in this repository. Researchers
+can request data access from [UK Biobank](https://www.ukbiobank.ac.uk/) and the
+[Human Phenotype Project](https://humanphenotypeproject.org/) and then train LeDXA using the provided
+architecture and pipeline.
 
 ## Citation
 
@@ -151,4 +175,4 @@ No participant-level data is included. Access is via the data owners:
 
 ## License
 
-[MIT](LICENSE).
+This project is released under the [MIT License](LICENSE).

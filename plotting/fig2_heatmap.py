@@ -689,8 +689,9 @@ def main():
 
     # Nature-style output: 18 cm wide, 10 pt main text, 8 pt only where the
     # heatmaps are dense, 12 pt bold panel letters, dpi=400, pdf.fonttype=42.
-    _style_dir = Path.home() / ".claude/skills/nature-plot-style/style_files"
-    plt.style.use(str(_style_dir / "nature_double.mplstyle"))
+    _style_file = Path.home() / ".claude/skills/nature-plot-style/style_files/nature_double.mplstyle"
+    if _style_file.exists():
+        plt.style.use(str(_style_file))
     plt.rcParams.update({'font.size': PT_MAIN, 'axes.labelsize': PT_MAIN,
                          'xtick.labelsize': PT_MAIN, 'ytick.labelsize': PT_MAIN})
     fig = plt.figure(figsize=(FIG_WIDTH_CM / 2.54, 11.4))
