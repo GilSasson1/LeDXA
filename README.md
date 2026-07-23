@@ -7,10 +7,10 @@ absorptiometry* — **Sasson et al. (2026)**
 
 📄 **Paper:** coming soon <!-- Replace with: [Paper](MANUSCRIPT_URL) --> · [Citation](#citation)
 
-[![LeDXA pretraining and downstream applications](assets/readme/overview.png)](assets/figure1.pdf)
+[![LeDXA pretraining and downstream applications](assets/readme/model_and_applications.png)](assets/figure1.pdf)
 
 
-## About
+## Overview
 
 LeDXA uses **LeJEPA**, a joint-embedding predictive architecture, to learn from the spatial
 structure of whole-body DXA scans. It was pretrained from scratch on **11,540 unlabeled HPP
@@ -40,7 +40,7 @@ LeDXA representations retain strong discrimination across an internal HPP test s
 UK Biobank cohort, including cardiometabolic, musculoskeletal, hematological, and endocrine
 conditions.
 
-[![Selected HPP and UK Biobank disease-prediction results](assets/readme/cross_cohort_prediction.png)](figures/fig2_disease_heatmap.pdf)
+[![Selected HPP and UK Biobank disease-prediction results](assets/readme/disease_prediction.png)](figures/fig2_disease_heatmap.pdf)
 
 ### Prospective disease risk
 
@@ -49,7 +49,7 @@ scanner-derived DXA measurements, with particularly strong gains for hip and kne
 type-2 diabetes. The preview shows these selected headline outcomes; click it for all evaluated
 endpoints in Figure 3.
 
-[![Selected incident hip arthrosis, knee arthrosis, and type-2 diabetes outcomes](assets/readme/incident_disease.png)](figures/fig3_cox_survival.pdf)
+[![Selected incident hip arthrosis, knee arthrosis, and type-2 diabetes outcomes](assets/readme/incident_risk.png)](figures/fig3_cox_survival.pdf)
 
 ### Biological age and mortality
 
@@ -57,7 +57,7 @@ LeDXA predicts chronological age across HPP and UK Biobank. The resulting biolog
 stratifies subsequent mortality: participants in the oldest-appearing quartile have higher adjusted
 mortality risk than those in the youngest-appearing quartile.
 
-[![Biological-age prediction and mortality association](assets/readme/biological_age.png)](figures/fig5_biological_age.pdf)
+[![Biological-age prediction and mortality association](assets/readme/biological_age_mortality.png)](figures/fig5_biological_age.pdf)
 
 ## Quick start
 
