@@ -15,11 +15,9 @@ Output (one per model): {EMBEDDINGS_DIR}/{model}_regionpool.pkl
   DataFrame(n_subjects, embed_dim), MultiIndex(RegistrationCode, research_stage).
 Subjects with 0 crops get an all-NaN row (imputed downstream, per-split).
 
-Run on GPU (SLURM segal.q / conda gilenv); see sbatch_region_embeddings.sh.
-
 Usage:
-  python extract_region_embeddings.py --models lejepa dino
-  python extract_region_embeddings.py --models dino --ukbb   # (Phase 2; crops incl. knee)
+  python -m model.extract_region_embeddings --models lejepa dino
+  python -m model.extract_region_embeddings --models dino --ukbb
 """
 
 import argparse
@@ -33,10 +31,11 @@ from torch.utils.data import DataLoader, Dataset
 from tqdm import tqdm
 
 import common.utils as U
+from config import EMBEDDINGS_DIR, UKBB_DXA_H5
 
 # ── UKBB DEFAULTS (Phase 2) ───────────────────────────────────────────────────
-UKBB_HDF5_PATH  = "/data/ukbb_data/ukbb_dexa_dataset_v3.h5"
-UKBB_OUTPUT_DIR = "/data/hpp_labdata/Analyses/gilsa/embeddings/ukbb_comparison"
+UKBB_HDF5_PATH = str(UKBB_DXA_H5)
+UKBB_OUTPUT_DIR = str(EMBEDDINGS_DIR / "ukbb")
 
 
 # ── DATASET ───────────────────────────────────────────────────────────────────

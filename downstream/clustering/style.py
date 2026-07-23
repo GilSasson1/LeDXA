@@ -7,9 +7,6 @@ Cluster colours adopt the paper-wide MODEL_COLORS palette:
 apply_paper_rcparams() and add_panel_letter() are re-exported from the bioage
 style module so there is exactly one source of truth for Fig 2/3/5/6 styling.
 """
-import sys, os
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..')))
-
 from downstream.bioage.style import apply_paper_rcparams, add_panel_letter  # noqa: F401
 from common.plot_style import MODEL_COLORS                           # noqa: F401
 

@@ -1,17 +1,10 @@
-"""
-Build main Figure 4 from the GWAS analysis outputs.
-
-The source panel images were copied into:
-  /data/embeddings/big_gil
-
-The tabular inputs used by the source scripts live in:
-  /data/gwas_analysis
-"""
+"""Build main Figure 4 from GWAS summary outputs."""
 
 from __future__ import annotations
 
 from collections import Counter
 from pathlib import Path
+import argparse
 import re
 
 import matplotlib
@@ -24,15 +17,15 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from scipy.stats import ttest_ind
+from config import FIGURES_DIR, GWAS_DIR
 
 
 ROOT = Path(__file__).resolve().parent.parent  # repo root
-OUT_DIR = ROOT / "figures"
+OUT_DIR = FIGURES_DIR
 OUT_DIR.mkdir(exist_ok=True)
 
-BIG_GIL_DIR = Path("/data/embeddings/big_gil")
-ANALYSIS_DIR = Path("/data/gwas_analysis")
-EMBEDDING_DIR = Path("/data/embeddings_qc")
+ANALYSIS_DIR = GWAS_DIR
+EMBEDDING_DIR = GWAS_DIR / "summary_statistics"
 
 ANNOTATED_HITS_PATH = ANALYSIS_DIR / "annotated_hits.tsv"
 CATALOG_HITS_PATH = ANALYSIS_DIR / "gwas_catalog_hits.tsv"
@@ -656,6 +649,26 @@ def build_figure() -> plt.Figure:
 
 
 def main() -> None:
+    global ANALYSIS_DIR, EMBEDDING_DIR, ANNOTATED_HITS_PATH
+    global CATALOG_HITS_PATH, HERITABILITY_PATH, OUT_DIR
+
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--analysis-dir", type=Path, default=ANALYSIS_DIR,
+                        help="Directory containing annotated_hits.tsv, "
+                             "gwas_catalog_hits.tsv, and heritability.tsv.")
+    parser.add_argument("--summary-stats-dir", type=Path, default=EMBEDDING_DIR,
+                        help="Directory containing gwas_results.JEPA_<PC>.glm.linear files.")
+    parser.add_argument("--out-dir", type=Path, default=OUT_DIR)
+    args = parser.parse_args()
+
+    ANALYSIS_DIR = args.analysis_dir
+    EMBEDDING_DIR = args.summary_stats_dir
+    OUT_DIR = args.out_dir
+    ANNOTATED_HITS_PATH = ANALYSIS_DIR / "annotated_hits.tsv"
+    CATALOG_HITS_PATH = ANALYSIS_DIR / "gwas_catalog_hits.tsv"
+    HERITABILITY_PATH = ANALYSIS_DIR / "heritability.tsv"
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+
     fig = build_figure()
     for ext in ("png", "pdf"):
         out_path = OUT_DIR / f"fig4_genetics.{ext}"

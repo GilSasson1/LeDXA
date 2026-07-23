@@ -61,6 +61,7 @@ from sklearn.model_selection import StratifiedKFold
 _HERE = os.path.dirname(os.path.abspath(__file__))
 _ROOT = os.path.dirname(_HERE)  # repo root
 sys.path.insert(0, _ROOT)
+from config import DATA_ROOT, EMBEDDINGS_DIR
 
 
 def _load(mod_name, path):
@@ -83,17 +84,17 @@ _prettify_event = _cmp._prettify_event
 _EVENT_CATEGORIES = _cmp._EVENT_CATEGORIES
 _CATEGORY_NAMES = _cmp._CATEGORY_NAMES
 
-EVENTS_PATH  = os.environ.get("FIG3_EVENTS", "/path/to/project/ukbb_osteo_data_expanded_aligned.csv")
+EVENTS_PATH = os.environ.get("FIG3_EVENTS", str(DATA_ROOT / "ukbb" / "incident_events.csv"))
 # Canonical Fig 3 regime = bp_logsweep: BONE-POOL fusion, PCA(100 emb / 30 dxa), per-endpoint
 # SYMMETRIC penalty SELECTION over a log grid {0.1,0.3,1,3,10,30} (grid search) — both the
 # embedding and tabular block penalties chosen per endpoint by the same procedure (fair). cov=0.1.
 # Panel a reads the grid-search per-seed CSV; panel b recomputes risk with the same per-endpoint
 # selectors (FIG3_FIXED_PEN unset) over the matching SWEEP_GRID. NB panel-a CSV is the fast
 # lean/holdout grid-search run; panel-b recompute is 5-fold OOF — protocols differ.
-_BONEPOOL = os.environ.get("FIG3_BONEPOOL", "/path/to/embeddings/bonepool")
+_BONEPOOL = os.environ.get("FIG3_BONEPOOL", str(EMBEDDINGS_DIR / "ukbb" / "bonepool"))
 LEJEPA_PATH  = f"{_BONEPOOL}/lejepa_fusion.pkl"
 REGION_PATH  = None
-TABULAR_PATH = os.environ.get("FIG3_TABULAR", "/path/to/project/ukbb_tabular_data_for_cox_with_baseline.csv")
+TABULAR_PATH = os.environ.get("FIG3_TABULAR", str(DATA_ROOT / "ukbb" / "dxa_tabular.csv"))
 PERSEED_CSV  = os.environ.get("FIG3_PERSEED",
     os.path.join(_ROOT, "tables", "cox_ttest_results_bp_logsweep_nodxapca_perseed.csv"))
 # Main (non-perseed) summary output from the same run — has per-arm mean/SE and
@@ -675,8 +676,6 @@ def main():
         common = common.intersection(reg_df.index)
     print(f"  cohort: {len(common):,}")
 
-    _style = os.path.join(os.path.expanduser('~'), '.claude/skills/nature-plot-style/style_files/nature_double.mplstyle')
-    plt.style.use(_style)
     plt.rcParams.update({
         'font.size': 10,
         'axes.titlesize': 10,

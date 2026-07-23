@@ -1,8 +1,7 @@
-"""Figure 5 — Biological-age axis (DEXA paper, Nature Medicine).
+"""Figure 5 — biological-age results.
 
-Composes the eight-panel main figure consumed by the biological-age results
-subsection of ``paper_draft.md`` (lines 26–34), pulling every input from the
-canonical ``dexa_fm/tables/`` artifacts produced by ``run_section.py``.
+Composes the main figure from aggregate tables in ``tables/`` and controlled
+participant-level prediction/event inputs configured in ``config.py``.
 
 Layout (4 rows × 2 cols)
 ------------------------
@@ -20,14 +19,10 @@ widths 2.2/1.4, PercentFormatter y-axis on KM panels.
 from __future__ import annotations
 
 import os
-from pathlib import Path
 
 import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
-
-_STYLE_DIR = Path.home() / '.claude/skills/nature-plot-style/style_files'
-_DOUBLE_STYLE = str(_STYLE_DIR / 'nature_double.mplstyle')
 
 # Set2 palette — used wherever colours are not already semantically fixed
 # (PALETTE_QUARTILE and MODEL_COLORS remain their canonical values).
@@ -330,9 +325,8 @@ def _medication_panel(ax, paired_csv: str) -> None:
 
     N06A (antidepressants) is shown restricted to men, not pooled across sexes:
     the pooled estimate is the weaker, sex-diluted signal, whereas the
-    male-specific effect (matching the text) is confirmed to survive FDR
-    correction across every drug×sex cell in the dedicated sex-split
-    re-analysis (run_medication_sexsplit.py / medication_sexsplit_paired_gap.csv).
+    male-specific effect (matching the text) survives FDR correction across
+    the drug-by-sex tests in the committed aggregate analysis table.
     """
     df = pd.read_csv(paired_csv)
     sig = df[df['adjusted_p_value'] < 0.05].copy()
@@ -440,8 +434,6 @@ def compose_figure(*, save: bool = True):
     # Load the nature_double mplstyle as the base (thin strokes, embedded fonts,
     # dpi=400), then apply_paper_rcparams() overrides font sizes upward so the
     # panels stay legible at this figure's 18×26 in dimensions.
-    if _STYLE_DIR.exists():
-        plt.style.use(_DOUBLE_STYLE)
     apply_paper_rcparams()
 
     # ── load inputs ─────────────────────────────────────────────────────────

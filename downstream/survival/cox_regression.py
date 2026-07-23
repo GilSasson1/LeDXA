@@ -15,6 +15,7 @@ from scipy import stats
 from typing import Dict, List, Tuple, Optional
 from statsmodels.stats.multitest import multipletests
 from sklearn.decomposition import PCA
+from config import DATA_ROOT, EMBEDDINGS_DIR
 
 try:
     from sksurv.metrics import concordance_index_ipcw
@@ -23,10 +24,10 @@ except ImportError:
     _HAS_SKSURV = False
 
 # --- Configuration ---
-DEFAULT_EVENTS_PATH = "/path/to/project/ukbb_osteo_data_expanded_aligned.csv"
-DEFAULT_TABULAR_PATH = "/path/to/project/ukbb_tabular_data_for_cox_with_baseline.csv"
-DEFAULT_LEJEPA_PATH = "/data/hpp_labdata/Analyses/gilsa/embeddings/ukbb_comparison/lejepa_fusion.pkl"
-DEFAULT_DINO_PATH = "/data/hpp_labdata/Analyses/gilsa/embeddings/ukbb_comparison/dino_fusion.pkl"
+DEFAULT_EVENTS_PATH = str(DATA_ROOT / "ukbb" / "incident_events.csv")
+DEFAULT_TABULAR_PATH = str(DATA_ROOT / "ukbb" / "dxa_tabular.csv")
+DEFAULT_LEJEPA_PATH = str(EMBEDDINGS_DIR / "ukbb" / "lejepa_fusion.pkl")
+DEFAULT_DINO_PATH = str(EMBEDDINGS_DIR / "ukbb" / "dino_fusion.pkl")
 
 def load_clean_data(filepath: str, name: str) -> pd.DataFrame:
     print(f"Loading {name}...")

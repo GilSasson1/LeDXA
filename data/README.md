@@ -13,11 +13,18 @@ data/
 ├── hpp/downstream_targets.csv      # HPP probe targets (LEDXA_HPP_DOWNSTREAM_TARGETS_CSV)
 ├── ukbb/ukbb_dexa_dataset_v3.h5    # UK Biobank DXA images (LEDXA_UKBB_DXA_H5)
 ├── ukbb/age_targets.csv             # columns: eid, visit, age (LEDXA_UKBB_TARGETS_CSV)
+├── ukbb/dxa_tabular.csv             # DXA measurements and analysis covariates
+├── ukbb/incident_events.csv         # prepared baseline and endpoint dates
+├── ukbb/baseline_disease_targets.csv # prepared dis__ classification outcomes
 ├── checkpoints/                    # trained model weights (LEDXA_CHECKPOINTS)
 ├── embeddings/                     # extracted frozen embeddings (LEDXA_EMBEDDINGS)
-├── hf_cache/                       # downloaded DINO weights (LEDXA_HF_CACHE)
+├── results/                        # local analysis outputs (LEDXA_RESULTS)
 └── gwas_analysis/                  # GWAS summary stats / annotations (LEDXA_GWAS)
 ```
+
+The prepared cohort tables are inputs to the public analysis templates; the
+source-specific extraction and data-release process is deliberately not
+included.
 
 Data access:
 - **UK Biobank** — via approved application at https://www.ukbiobank.ac.uk/

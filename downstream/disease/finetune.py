@@ -1,25 +1,22 @@
-"""
-compare_ft.py
+"""Fine-tuning comparison: LeDXA vs DINOv3.
 
-Fine-tuning comparison: LeJEPA vs DINOv3.
 Full end-to-end fine-tuning with cosine LR schedule and linear warmup.
 Best checkpoint is saved per run; embeddings are extracted from best model.
 
 Usage:
-  python compare_ft.py                          # all targets, both models, late fusion
-  python compare_ft.py --targets age bmi        # specific targets
-  python compare_ft.py --fusions late concat    # both fusion strategies
-  python compare_ft.py --num-seeds 3            # use first 3 seeds from pool
-  python compare_ft.py --epochs-ft 30           # fewer epochs
+  python -m downstream.disease.finetune --targets age bmi
+  python -m downstream.disease.finetune --fusions late concat
 """
 
 import argparse
+import os
 import h5py
 import pandas as pd
 
 import common.utils as U
+from config import RESULTS_DIR
 
-_RESULTS_DIR = "/data/hpp_labdata/Analyses/gilsa/results/comparison"
+_RESULTS_DIR = str(RESULTS_DIR)
 _DEFAULT_SUMMARY_CSV = f"{_RESULTS_DIR}/ft_summary.csv"
 _DEFAULT_RAW_CSV     = f"{_RESULTS_DIR}/ft_raw.csv"
 _DEFAULT_TTEST_CSV   = f"{_RESULTS_DIR}/ft_ttest.csv"
@@ -46,6 +43,10 @@ def main():
     parser.add_argument("--cls-auto-detect", action="store_true",
                         help="Auto-detect classification targets: columns with only {0,1} values")
     args  = parser.parse_args()
+    for path in (args.results_csv, args.results_raw_csv, args.results_ttest_csv):
+        directory = os.path.dirname(path)
+        if directory:
+            os.makedirs(directory, exist_ok=True)
     seeds = args.seeds if args.seeds is not None else U.make_seeds(args.num_seeds)
 
     U.NUM_EPOCHS_FT = args.epochs_ft

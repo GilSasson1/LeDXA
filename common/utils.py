@@ -1,9 +1,4 @@
-"""
-compare_utils.py
-
-Shared dataset, backbone factories, training logic, and orchestration
-used by compare_lp.py and compare_ft.py.
-"""
+"""Shared datasets, model factories, metrics, and fitting utilities."""
 
 import os
 import re
@@ -184,9 +179,32 @@ def make_lejepa(ckpt_path: str):
     ).to(DEVICE)
 
     ckpt = torch.load(ckpt_path, map_location=DEVICE)
-    state = ckpt["encoder"] if isinstance(ckpt, dict) and "encoder" in ckpt else ckpt
+    swa_state = ckpt.get("swa_encoder") if isinstance(ckpt, dict) else None
+    n_averaged = (
+        int(swa_state.get("n_averaged", 0))
+        if isinstance(swa_state, dict)
+        else 0
+    )
+    if n_averaged > 0:
+        # torch.optim.swa_utils.AveragedModel stores the wrapped model under a
+        # ``module.`` prefix and adds a scalar ``n_averaged`` buffer.
+        state = {
+            key.removeprefix("module."): value
+            for key, value in swa_state.items()
+            if key != "n_averaged"
+        }
+        source = "SWA encoder"
+    elif isinstance(ckpt, dict) and "encoder" in ckpt:
+        state = ckpt["encoder"]
+        source = "encoder"
+    else:
+        state = ckpt
+        source = "checkpoint"
     missing, unexpected = encoder.load_state_dict(state, strict=False)
-    print(f"[LeJEPA] Loaded checkpoint. missing={len(missing)}, unexpected={len(unexpected)}")
+    print(
+        f"[LeJEPA] Loaded {source}. "
+        f"missing={len(missing)}, unexpected={len(unexpected)}"
+    )
 
     train_tf = transforms.Compose([
         transforms.RandomResizedCrop(

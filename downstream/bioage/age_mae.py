@@ -9,7 +9,9 @@ is rendered imaging-only.
 
 Output: tables/age_mae_imaging_only.csv (cohort, model, n_seeds, pearson_mean/se, mae_yr_mean/se)
 """
-import os, sys
+import argparse
+import os
+import sys
 import numpy as np
 import pandas as pd
 from sklearn.linear_model import RidgeCV
@@ -18,11 +20,11 @@ from sklearn.model_selection import train_test_split
 
 sys.path.insert(0, os.path.dirname(__file__))
 import common.utils as U
+from config import TABLES_DIR
 from downstream.disease.linear_probe import _COV_COLS, _TABULAR_LEAKAGE_EXCLUSIONS, _impute, load_embeddings
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-HPP_TABULAR = "/path/to/dxa_filtered.csv"
-OUT_CSV = os.path.join(HERE, "tables", "age_mae_imaging_only.csv")
+HPP_TABULAR = None
+OUT_CSV = str(TABLES_DIR / "age_mae_imaging_only.csv")
 ARMS = ["covariates", "lejepa", "dino", "tabular"]
 
 
@@ -150,11 +152,19 @@ def run_hpp(n_seeds=10, bone_pool=False, first_scan=False):
 
 
 if __name__ == "__main__":
-    bone_pool = "--bone-pool" in sys.argv
-    first_scan = "--first-scan-only" in sys.argv
-    out = run_hpp(10, bone_pool=bone_pool, first_scan=first_scan)
-    sfx = ("_bonepool" if bone_pool else "") + ("_firstscan" if first_scan else "")
-    out_csv = OUT_CSV.replace(".csv", f"{sfx}.csv") if sfx else OUT_CSV
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--tabular-csv", required=True)
+    parser.add_argument("--out-csv", default=OUT_CSV)
+    parser.add_argument("--num-seeds", type=int, default=10)
+    parser.add_argument("--bone-pool", action="store_true")
+    parser.add_argument("--first-scan-only", action="store_true")
+    args = parser.parse_args()
+    HPP_TABULAR = args.tabular_csv
+    out = run_hpp(args.num_seeds, bone_pool=args.bone_pool,
+                  first_scan=args.first_scan_only)
+    sfx = ("_bonepool" if args.bone_pool else "") + (
+        "_firstscan" if args.first_scan_only else "")
+    out_csv = args.out_csv.replace(".csv", f"{sfx}.csv") if sfx else args.out_csv
     os.makedirs(os.path.dirname(out_csv), exist_ok=True)
     pd.DataFrame(out).to_csv(out_csv, index=False)
     print(f"\nSaved → {out_csv}")

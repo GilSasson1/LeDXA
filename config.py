@@ -4,9 +4,8 @@ All participant-level data lives OUTSIDE this repository and is **not** distribu
 (UK Biobank and Human Phenotype Project data are access-controlled). Point the paths
 below at your own data via environment variables, or edit the defaults.
 
-Scripts in this repo contain placeholder absolute paths (e.g. ``/data/...`` and
-``/path/to/...``) left over from the original cluster environment; prefer importing
-from this module, or set the environment variables listed here.
+Public scripts read paths from this module or explicit command-line arguments; no
+machine-specific study paths are required.
 """
 import os
 from pathlib import Path
@@ -27,6 +26,7 @@ HPP_DOWNSTREAM_TARGETS_CSV = Path(
 CHECKPOINTS_DIR = Path(os.environ.get("LEDXA_CHECKPOINTS", DATA_ROOT / "checkpoints"))
 EMBEDDINGS_DIR  = Path(os.environ.get("LEDXA_EMBEDDINGS",  DATA_ROOT / "embeddings"))
 GWAS_DIR        = Path(os.environ.get("LEDXA_GWAS",        DATA_ROOT / "gwas_analysis"))
+RESULTS_DIR     = Path(os.environ.get("LEDXA_RESULTS",     DATA_ROOT / "results"))
 LEJEPA_CHECKPOINT = Path(
     os.environ.get("LEDXA_CHECKPOINT", CHECKPOINTS_DIR / "hpp" / "best_model.pth")
 )

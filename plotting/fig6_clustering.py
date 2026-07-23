@@ -9,12 +9,7 @@ Four-panel main figure for the female-cluster results section:
        the similar-size women that age+BMI matching draws on
     c  Multi-system forest: what differs at matched age and BMI — lean, bone, grip,
        autonomic, haematology, liver, diet, activity (Cohen's d, B − A)
-    d  Proteomics volcano (matched cohort): external DE, BH q<0.10 discovery
-       (q<0.05 reference line)
-
-Supplement: cluster-defining full-DXA profile (compose_supp_defining); composite
-anchors ALMI/lean-to-fat/android:gynoid (compose_supp_composite);
-microbiome/metabolite omics volcanoes (compose_supp_omics).
+    d  Proteomics volcano (matched cohort): external DE, BH q<0.05
 
 Visual conventions match Figs 2, 3, 5: nature_double style as base,
 apply_paper_rcparams() font overrides, 26 pt bold panel letters via
@@ -24,28 +19,18 @@ add_panel_letter(), dashed y-grid (#CCCCCC, alpha=0.7), alternating
 from __future__ import annotations
 
 import re
-import sys
+import argparse
 import os
 from pathlib import Path
 
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from scipy.stats import norm
-
-sys.path.extend([
-    '/path/to/LabData',
-    '/path/to/LabUtils',
-    '/path/to/LabQueue',
-])
-
-_STYLE_DIR = Path.home() / '.claude/skills/nature-plot-style/style_files'
-_DOUBLE_STYLE = str(_STYLE_DIR / 'nature_double.mplstyle')
+from config import DATA_ROOT
 
 from downstream.clustering import paths
 from downstream.clustering.style import (
-    CLUSTER_COLORS, CLUSTER_NAMES,
-    MODEL_COLORS, apply_paper_rcparams, add_panel_letter,
+    CLUSTER_COLORS, MODEL_COLORS, apply_paper_rcparams, add_panel_letter,
 )
 
 ROW_SHADE = '#F5F5F5'
@@ -58,35 +43,12 @@ except ImportError:
     _HAS_ADJUST = False
 
 QSIG_OMICS = 0.05   # primary significance threshold (colour + solid sig line + labels)
-QREF_OMICS = 0.10   # faint discovery reference line (matched, low-power)
 C_NS = '#b8b8b8'
-_OMICS_DIR = os.path.join(paths.DEXA_ROOT, 'volcano_plots')
-OMICS_LAYERS = [   # RNA dropped (0 hits at q<0.05)
-    ('Proteomics (Olink)', 'mw_results_olink_matched_slim.csv'),
-    ('Microbiome',         'mw_results_microbiome_matched_slim.csv'),
-    ('Metabolites (NMR)',  'mw_results_nightingale_matched_slim.csv'),
-]
+FEMALE_UMAP_CSV = DATA_ROOT / "clustering" / "female_umap.csv"
+FULL_UMAP_CSV = DATA_ROOT / "clustering" / "full_cohort_umap.csv"
+OMICS_CSV = DATA_ROOT / "clustering" / "matched_proteomics.csv"
 
-# Continuous colormap built from the paper cluster palette:
-# low → Cluster B blue (lean), high → Cluster A green (adipose).
 from matplotlib.colors import LinearSegmentedColormap
-PAPER_CMAP = LinearSegmentedColormap.from_list(
-    'paper_bluegreen', [CLUSTER_COLORS['B'], '#eeede3', CLUSTER_COLORS['A']])
-
-# Systems shown in the forest panel, in display order (top → bottom).
-# Chosen for effect size, n_significant, and narrative relevance.
-FOREST_SYSTEMS = [
-    ('body_composition',    'Body composition'),
-    ('bone_density',        'Bone density'),
-    ('liver',               'Liver'),
-    ('cardiovascular_system', 'Cardiovascular'),
-    ('sleep',               'Sleep'),
-    ('frailty',             'Frailty'),
-    ('hematopoietic_system','Blood counts'),
-    ('renal_function',      'Renal'),
-]
-
-MAX_PER_SYSTEM = 2  # top hits per system in forest panel
 
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
@@ -146,30 +108,13 @@ def _prettify(feature: str) -> str:
     return label[:38]
 
 
-def _wilson_ci(p: float, n: int, alpha: float = 0.05):
-    z = norm.ppf(1 - alpha / 2)
-    denom = 1 + z**2 / n
-    centre = (p + z**2 / (2 * n)) / denom
-    half = z * np.sqrt(p * (1 - p) / n + z**2 / (4 * n**2)) / denom
-    return max(0, centre - half), centre + half
-
-
 def _load_umap():
-    """Female-only UMAP (the clustering space) for panels b/c/d, with BMI + cluster.
-
-    Panel a uses a separate FULL-COHORT UMAP (see _load_fullcohort_umap); the old
-    behaviour of overlaying two independently-fit per-sex UMAPs could not show sex
-    separation (different coordinate systems) and is no longer used.
-    """
-    from characterize_female_clusters import load_and_prepare_data, BODY_SYSTEMS_DIR
-    bmi = pd.read_csv(os.path.join(BODY_SYSTEMS_DIR, 'Age_Gender_BMI.csv'),
-                      index_col=[0, 1])[['bmi']]
-    print('  Loading HPP female UMAP …')
-    df_f = load_and_prepare_data(gender=0)
-    df_f = df_f.rename(columns={'Cluster_ID': 'cluster'}).join(bmi, how='left')
-    # Canonicalise cluster IDs by BMI so the live K-means labels match the saved
-    # matched-cohort convention (0 = A/adipose = higher mean BMI, 1 = B/lean),
-    # independent of the non-deterministic raw label order across runs.
+    """Load participant-level female UMAP coordinates, BMI, and cluster labels."""
+    required = {"UMAP1", "UMAP2", "cluster", "bmi"}
+    df_f = pd.read_csv(FEMALE_UMAP_CSV)
+    missing = required.difference(df_f.columns)
+    if missing:
+        raise ValueError(f"{FEMALE_UMAP_CSV} is missing columns: {sorted(missing)}")
     if df_f.groupby('cluster')['bmi'].mean().idxmax() != 0:
         df_f['cluster'] = 1 - df_f['cluster']
     df_f['sex_label'] = 'Female'
@@ -177,26 +122,13 @@ def _load_umap():
 
 
 def _load_fullcohort_umap(female_cluster: pd.DataFrame | None = None):
-    """Single PCA→UMAP fit over ALL subjects (both sexes), coloured by sex — panel a.
-    One shared coordinate system, so the dominant sex axis separates as expected.
-
-    drop_outliers=False: this loader's own DBSCAN-based outlier filter keeps only
-    the two largest density blobs, tuned for the male/female split. Applied
-    naively it also discards ~97% of the female lean/Cluster-B women (they form a
-    third, smaller island in the joint embedding) before we ever get to plot them,
-    which is why panel a previously looked like a single female blob with no A/B
-    structure. Keeping every subject and overlaying the female-only A/B labels
-    (from _load_umap) reveals the true separation (silhouette ≈ 0.68).
-    """
-    from characterize_female_clusters import load_and_prepare_data, TARGETS_PATH
-    print('  Loading HPP full-cohort UMAP (both sexes) …')
-    df = load_and_prepare_data(gender=None, drop_outliers=False)
-    g = pd.read_csv(TARGETS_PATH, index_col=[0, 1])[['gender']]
-    df = df.join(g, how='left')
-    df['sex_label'] = df['gender'].map({0: 'Female', 1: 'Male'})
+    """Load a shared full-cohort UMAP with a ``sex_label`` column."""
+    required = {"UMAP1", "UMAP2", "sex_label"}
+    df = pd.read_csv(FULL_UMAP_CSV)
+    missing = required.difference(df.columns)
+    if missing:
+        raise ValueError(f"{FULL_UMAP_CSV} is missing columns: {sorted(missing)}")
     df = df.dropna(subset=['sex_label'])
-    if female_cluster is not None:
-        df = df.join(female_cluster[['cluster']], how='left')
     return df
 
 
@@ -222,23 +154,6 @@ def _panel_a_fullcohort_umap(ax, umap_all: pd.DataFrame) -> None:
     ax.set_xticks([])
     ax.set_yticks([])
     ax.grid(False)
-
-
-def _panel_b_female_clusters(ax, umap_female: pd.DataFrame) -> None:
-    """Female UMAP coloured by cluster A / B (legacy; kept for the supplement)."""
-    cluster_map = {0: 'A', 1: 'B'}
-    n_total = {0: 0, 1: 0}
-    for cid, label in cluster_map.items():
-        sub = umap_female[umap_female['cluster'] == cid]
-        n_total[cid] = len(sub)
-        samp = sub.sample(min(600, len(sub)), random_state=42)
-        ax.scatter(samp['UMAP1'], samp['UMAP2'], c=CLUSTER_COLORS[label],
-                   s=5, alpha=0.55, rasterized=True, linewidths=0,
-                   label=f'{CLUSTER_NAMES[label]} (n={len(sub):,})')
-    ax.set_xlabel('UMAP 1')
-    ax.set_ylabel('UMAP 2')
-    ax.legend(frameon=False, markerscale=2.5, loc='upper right')
-    ax.set_aspect('equal', adjustable='datalim')
 
 
 def _panel_b_female_bmi(ax, umap_female: pd.DataFrame) -> None:
@@ -285,54 +200,6 @@ def _panel_b_female_bmi(ax, umap_female: pd.DataFrame) -> None:
     ax.set_yticks([])
     ax.set_aspect('equal', adjustable='datalim')
     ax.grid(False)
-
-
-def _panel_b_best_separator(ax, best_csv: str) -> None:
-    """Female UMAP coloured by the single strongest cluster separator (panel b).
-
-    Shows HOW the clusters split: the 2D projection coloured by the top DXA
-    feature by |Cohen's d| (legs fat mass), annotated with the group effect
-    size and p in original units.
-    """
-    from scipy.stats import mannwhitneyu
-    df = pd.read_csv(best_csv)
-    feat = df['feature'].iloc[0]
-    label = _prettify(feat)
-    a = df.loc[df['Cluster_ID'] == 0, 'value'].to_numpy()   # adipose
-    b = df.loc[df['Cluster_ID'] == 1, 'value'].to_numpy()   # lean
-    p = mannwhitneyu(a, b, alternative='two-sided').pvalue
-    va, vb, na, nb = a.var(ddof=1), b.var(ddof=1), len(a), len(b)
-    sp = np.sqrt(((na - 1) * va + (nb - 1) * vb) / (na + nb - 2))
-    d = (b.mean() - a.mean()) / sp
-
-    dd = df.sort_values('value')                            # high values on top
-    vmin, vmax = dd['value'].quantile(0.02), dd['value'].quantile(0.98)
-    sc = ax.scatter(dd['UMAP1'], dd['UMAP2'], c=dd['value'], cmap=PAPER_CMAP,
-                    s=6, alpha=0.85, vmin=vmin, vmax=vmax, linewidths=0, rasterized=True)
-    cb = ax.figure.colorbar(sc, ax=ax, fraction=0.046, pad=0.04)
-    cb.set_label(f'{label} (kg)')
-    ax.set_xlabel('UMAP 1')
-    ax.set_ylabel('UMAP 2')
-    ax.set_xticks([])
-    ax.set_yticks([])
-    ax.grid(False)
-    import matplotlib.patheffects as pe
-    halo = [pe.withStroke(linewidth=3.0, foreground='white')]
-    y_mid = df['UMAP2'].median()
-    x_lo, x_hi = df['UMAP1'].quantile(0.08), df['UMAP1'].quantile(0.92)
-    info = {0: ('Cluster A', a.mean(), CLUSTER_COLORS['A']),
-            1: ('Cluster B', b.mean(), CLUSTER_COLORS['B'])}
-    for cid, (name, mean_v, col) in info.items():
-        s = df[df['Cluster_ID'] == cid]
-        cx = min(max(s['UMAP1'].median(), x_lo), x_hi)
-        if s['UMAP2'].median() >= y_mid:
-            cy, va = s['UMAP2'].quantile(0.96) + 1.1, 'bottom'
-        else:
-            cy, va = s['UMAP2'].quantile(0.04) - 1.1, 'top'
-        ax.text(cx, cy, f"{name}\nmean {mean_v:.1f}", ha='center', va=va,
-                fontweight='bold', color=col, path_effects=halo, zorder=5)
-    ax.set_ylim(df['UMAP2'].min() - 2.2, df['UMAP2'].max() + 2.2)
-    pass  # separation stats omitted — reported in panel c forest
 
 
 def _panel_c_diverging(ax, all_results_csv: str) -> None:
@@ -455,136 +322,6 @@ def _panel_c_diverging(ax, all_results_csv: str) -> None:
     return handles
 
 
-def _panel_e_composite_anchors(ax, composite_csv: str) -> None:
-    """Composite body-composition anchors: Cohen's d in the full cohort vs the
-    age/BMI-matched cohort (panel c).
-
-    One dumbbell per metric (open marker = full cohort → filled marker =
-    matched). The appendicular lean-mass index flips sign once age and BMI are
-    matched ('leaner = smaller' reverses to 'more muscle at equal BMI'); the
-    lean-to-fat ratio stays positive; the android:gynoid ratio shifts upward (the
-    remaining fat sits more centrally). Matching reveals body-composition
-    structure beyond overall size.
-    """
-    df = pd.read_csv(composite_csv)
-    META = [   # top → bottom
-        ('almi',                     'Appendicular\nlean-mass index'),
-        ('lean_to_fat_ratio',        'Lean-to-fat\nratio'),
-        ('android_gynoid_fat_ratio', 'Android:gynoid\nfat ratio'),
-    ]
-    UNM, MAT = 'unmatched', 'matched'
-
-    def _stat(feat, cohort):
-        row = df[(df['feature'] == feat) & (df['cohort'] == cohort)]
-        if row.empty:
-            return np.nan, np.nan
-        return float(row['delta_z'].iloc[0]), float(row['adj_p_value'].iloc[0])
-
-    c_b, c_a = CLUSTER_COLORS['B'], CLUSTER_COLORS['A']
-    n = len(META)
-    ys = list(range(n - 1, -1, -1))   # first metric at top
-    all_d = []
-
-    for (feat, _), y in zip(META, ys):
-        d_u, _ = _stat(feat, UNM)
-        d_m, q_m = _stat(feat, MAT)
-        all_d += [d_u, d_m]
-        sig = q_m < 0.05
-        mc = c_b if d_m > 0 else c_a
-        # shift arrow: full cohort → matched
-        ax.annotate('', xy=(d_m, y), xytext=(d_u, y),
-                    arrowprops=dict(arrowstyle='-|>', color='#999', lw=1.8,
-                                    shrinkA=5, shrinkB=5), zorder=3)
-        ax.scatter(d_u, y, s=55, facecolors='white', edgecolors='#888',
-                   linewidths=1.5, zorder=4)
-        ax.scatter(d_m, y, s=72, facecolors=mc if sig else 'white',
-                   edgecolors=mc, linewidths=1.8, zorder=5)
-        ax.text(d_m, y + 0.18, f'{d_m:+.2f}' + ('' if sig else ' (n.s.)'),
-                ha='center', va='bottom', fontsize=9, fontweight='bold',
-                color=mc if sig else '#888')
-        ax.text(d_u, y - 0.20, f'{d_u:+.2f}', ha='center', va='top',
-                fontsize=8, color='#888')
-
-    ax.axvline(0, color='#555', lw=1.0, zorder=2)
-    ax.set_yticks(ys)
-    ax.set_yticklabels([lbl for _, lbl in META])
-    ax.set_ylim(-0.7, n - 0.3)
-    pad = 0.28 * (max(all_d) - min(all_d))
-    ax.set_xlim(min(all_d) - pad, max(all_d) + pad)
-    ax.set_xlabel("Cohen's $d$  (Cluster B − Cluster A)")
-    ax.grid(axis='x', linestyle='--', color='#CCCCCC', alpha=0.7)
-    ax.grid(axis='y', visible=False)
-
-    from matplotlib.lines import Line2D
-    leg = [
-        Line2D([0], [0], marker='o', linestyle='none', markerfacecolor='white',
-               markeredgecolor='#888', markersize=8, label='Full cohort'),
-        Line2D([0], [0], marker='o', linestyle='none', markerfacecolor=c_b,
-               markeredgecolor=c_b, markersize=8, label='Matched (age, BMI)'),
-    ]
-    ax.legend(handles=leg, frameon=False, fontsize=8.5, loc='lower right',
-              handletextpad=0.3)
-
-
-def _panel_defining_bodycomp(ax, defining_csv: str) -> None:
-    """Pre-matching cluster-defining DXA profile (panel c).
-
-    Cohen's d (B − A) on the FULL clustered cohort, across a representative
-    spread of the COMPLETE DXA feature set (regional fat, SAT/VAT, lean mass,
-    bone density) — computed over all 141 DXA features (see
-    tableD_cluster_defining_bodycomp.csv) and displayed as a readable subset.
-    Every measure tracks adiposity/body size → ↑ Cluster A.
-    """
-    DISPLAY = [
-        ('body_comp_total_fat_mass',   'Total fat mass'),
-        ('body_comp_legs_fat_mass',    'Legs fat mass'),
-        ('body_comp_gynoid_fat_mass',  'Gynoid fat mass'),
-        ('body_comp_android_fat_mass', 'Android fat mass'),
-        ('body_comp_trunk_fat_mass',   'Trunk fat mass'),
-        ('total_scan_sat_area',        'SAT area'),
-        ('total_scan_vat_area',        'VAT area'),
-        ('body_comp_legs_lean_mass',   'Legs lean mass'),
-        ('body_comp_total_lean_mass',  'Total lean mass'),
-        ('body_total_bmd',             'Total BMD'),
-        ('spine_l1_l4_bmd',            'Spine BMD'),
-        ('femur_neck_mean_bmd',        'Femur BMD'),
-    ]
-    tbl = pd.read_csv(defining_csv).set_index('feature')
-    entries = []
-    for feat, label in DISPLAY:
-        if feat not in tbl.index:
-            continue
-        r = tbl.loc[feat]
-        entries.append({'label': label, 'd': float(r['effect_size']),
-                        'lo': float(r['effect_ci_low']), 'hi': float(r['effect_ci_high']),
-                        'q': float(r['fdr_q_value']), 'sig': bool(r['significant_at_q05'])})
-    entries.sort(key=lambda e: e['d'], reverse=True)  # biggest |d| (most −) on top
-    c_b, c_a = CLUSTER_COLORS['B'], CLUSTER_COLORS['A']
-    for i, e in enumerate(entries):
-        c = c_b if e['d'] > 0 else c_a
-        ax.plot([e['lo'], e['hi']], [i, i], color=c, lw=1.6, alpha=0.55, zorder=2)
-        ax.plot([0, e['d']], [i, i], color=c, lw=2.0, solid_capstyle='round',
-                zorder=3, alpha=0.85)
-        ax.scatter(e['d'], i, color=c, s=50, zorder=4, edgecolors='none')
-    # All displayed measures are significant (q < 0.05) by construction, so no
-    # per-row significance stars are shown.
-    ax.axvline(0, color='#555', lw=1.0, zorder=3)
-    ax.set_yticks(np.arange(len(entries)))
-    ax.set_yticklabels([e['label'] for e in entries], fontsize=10)
-    ax.set_ylim(-0.7, len(entries) - 0.3)
-    xabs = max(abs(e['lo']) for e in entries) * 1.12
-    ax.set_xlim(-xabs, xabs * 0.30)
-    ax.set_xlabel("Cohen's $d$  (Cluster B − Cluster A, full cohort)")
-    ax.grid(axis='x', linestyle='--', color='#CCCCCC', alpha=0.7)
-    ax.grid(axis='y', visible=False)
-    # No per-panel legend: the shared B/A colour legend at the figure foot covers
-    # both c and d (and panel c is single-colour — all measures ↑ Cluster A).
-
-
-def _clean_microbe(name: str) -> str:
-    return str(name).split('|')[0].strip()
-
-
 def _panel_omics_volcano(ax, layer_csv: str, title: str, label_fn,
                          n_label: int = 8, xlabel: str = 'Mean difference (B − A)') -> None:
     """Volcano for one omics layer (matched cohort, mean_diff = B − A)."""
@@ -617,8 +354,6 @@ def _panel_omics_volcano(ax, layer_csv: str, title: str, label_fn,
 # ── Composer ──────────────────────────────────────────────────────────────────
 
 def compose_figure(*, save: bool = True, use_cached_umap: bool = True):
-    if _STYLE_DIR.exists():
-        plt.style.use(_DOUBLE_STYLE)
     apply_paper_rcparams()
     # Fig 6 has only 4 large panels — larger fonts fill the space and stay legible.
     plt.rcParams.update({
@@ -639,8 +374,7 @@ def compose_figure(*, save: bool = True, use_cached_umap: bool = True):
 
     fig = plt.figure(figsize=(7.09, 6.84))   # Nature double-column width (180 mm); authored at final scale
     # 2×2: UMAPs on top (a = sex, b = female coloured by BMI), then the matched
-    # multi-system forest (c) and the proteomics volcano (d) below. The
-    # cluster-defining DXA profile and composite anchors live in the supplement.
+    # multi-system forest (c) and the proteomics volcano (d) below.
     gs = fig.add_gridspec(2, 2, hspace=0.26, wspace=0.22,
                           height_ratios=[1.0, 1.7])
 
@@ -652,7 +386,7 @@ def compose_figure(*, save: bool = True, use_cached_umap: bool = True):
     _panel_a_fullcohort_umap(ax_a, umap_all)
     _panel_b_female_bmi(ax_b, umap_female)
     legend_handles = _panel_c_diverging(ax_c, paths.out_table('tableD_cluster_all_results.csv'))
-    _panel_omics_volcano(ax_d, os.path.join(_OMICS_DIR, 'mw_results_olink_matched_slim.csv'),
+    _panel_omics_volcano(ax_d, str(OMICS_CSV),
                          '', lambda f: f, n_label=5, xlabel='log$_2$ fold-change (B − A)')
 
     for ax, letter in zip([ax_a, ax_b, ax_c, ax_d], 'abcd'):
@@ -677,61 +411,16 @@ def compose_figure(*, save: bool = True, use_cached_umap: bool = True):
     return fig
 
 
-def compose_supp_defining(*, save: bool = True):
-    """Supplementary: the full-cohort cluster-defining DXA profile (the raw
-    adiposity/size axis separating A and B before matching)."""
-    if _STYLE_DIR.exists():
-        plt.style.use(_DOUBLE_STYLE)
-    apply_paper_rcparams()
-    fig, ax = plt.subplots(figsize=(7.09, 5))
-    _panel_defining_bodycomp(ax, paths.out_table('tableD_cluster_defining_bodycomp.csv'))
-    if save:
-        for ext in ('pdf', 'png'):
-            p = paths.out_figure(f'supp_fig6_defining_dxa.{ext}')
-            fig.savefig(p, dpi=400, facecolor='white', transparent=False, bbox_inches='tight')
-            print(f'Saved  →  {p}')
-    return fig
-
-
-def compose_supp_composite(*, save: bool = True):
-    """Supplementary: composite body-composition anchors (ALMI / lean-to-fat /
-    android:gynoid), full cohort vs age/BMI-matched."""
-    if _STYLE_DIR.exists():
-        plt.style.use(_DOUBLE_STYLE)
-    apply_paper_rcparams()
-    fig, ax = plt.subplots(figsize=(5.5, 3.2))
-    _panel_e_composite_anchors(ax, paths.out_table('tableS_cluster_composite_metrics.csv'))
-    if save:
-        for ext in ('pdf', 'png'):
-            p = paths.out_figure(f'supp_fig6_composite_anchors.{ext}')
-            fig.savefig(p, dpi=400, facecolor='white', transparent=False, bbox_inches='tight')
-            print(f'Saved  →  {p}')
-    return fig
-
-
-def compose_supp_omics(*, save: bool = True):
-    """Supplementary: full omics volcano grid (proteomics + the sparse/null
-    microbiome, metabolite and transcriptome layers), q<0.10 with q<0.05 ref."""
-    if _STYLE_DIR.exists():
-        plt.style.use(_DOUBLE_STYLE)
-    apply_paper_rcparams()
-    layers = list(OMICS_LAYERS) + [('RNA', 'mw_results_rna_matched_slim.csv')]
-    fig, axes = plt.subplots(2, 2, figsize=(7.09, 5))
-    label_fns = {'Microbiome': _clean_microbe}
-    for ax, (name, fname) in zip(axes.flat, layers):
-        _panel_omics_volcano(ax, os.path.join(_OMICS_DIR, fname), name,
-                             label_fns.get(name, lambda f: f))
-    fig.subplots_adjust(hspace=0.35, wspace=0.3)
-    if save:
-        for ext in ('pdf', 'png'):
-            p = paths.out_figure(f'supp_fig6_omics_volcanoes.{ext}')
-            fig.savefig(p, dpi=400, facecolor='white', transparent=False, bbox_inches='tight')
-            print(f'Saved  →  {p}')
-    return fig
-
-
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--female-umap", type=Path, default=FEMALE_UMAP_CSV,
+                        help="CSV with UMAP1, UMAP2, cluster, and bmi columns.")
+    parser.add_argument("--full-umap", type=Path, default=FULL_UMAP_CSV,
+                        help="CSV with UMAP1, UMAP2, and sex_label columns.")
+    parser.add_argument("--omics", type=Path, default=OMICS_CSV,
+                        help="Matched proteomics results with feature, mean_diff, qval, neg_log10q.")
+    args = parser.parse_args()
+    FEMALE_UMAP_CSV = args.female_umap
+    FULL_UMAP_CSV = args.full_umap
+    OMICS_CSV = args.omics
     compose_figure()
-    compose_supp_defining()
-    compose_supp_composite()
-    compose_supp_omics()

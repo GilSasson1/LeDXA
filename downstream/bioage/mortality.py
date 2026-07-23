@@ -18,12 +18,14 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from lifelines import CoxPHFitter, KaplanMeierFitter
 from scipy.stats import pearsonr
+from config import DATA_ROOT, RESULTS_DIR
 
-PRED_CSV   = os.environ.get('BIOAGE_PRED_CSV', '/path/to/project/age_prediction_ukbb/ukbb_age_predictions_with_visits.csv')
+PRED_CSV = os.environ.get(
+    'BIOAGE_PRED_CSV', str(DATA_ROOT / 'ukbb' / 'age_predictions_with_visits.csv'))
 SUFFIX     = os.environ.get('BIOAGE_SUFFIX', '')
-EVENTS_CSV = '/path/to/project/ukbb_osteo_data_expanded_aligned.csv'
-TABULAR_CSV = '/path/to/project/ukbb_tabular_data_for_cox_with_baseline.csv'
-OUTPUT_DIR = '/path/to/project/age_prediction_ukbb'
+EVENTS_CSV = str(DATA_ROOT / 'ukbb' / 'incident_events.csv')
+TABULAR_CSV = str(DATA_ROOT / 'ukbb' / 'dxa_tabular.csv')
+OUTPUT_DIR = str(RESULTS_DIR / 'bioage')
 
 BASELINE_VISIT = 2
 N_QUANTILES    = 4
@@ -137,11 +139,17 @@ def main():
     print(f"\nSaved → ukbb_bioage_mortality_cox{SUFFIX}.csv + ukbb_bioage_mortality_km{SUFFIX}.{{pdf,png}} in {OUTPUT_DIR}")
 
 if __name__ == '__main__':
-    ap = argparse.ArgumentParser()
-    ap.add_argument('--pred-csv', default=None, help='Override age-prediction CSV (e.g. bone-pool v2).')
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument('--pred-csv', default=PRED_CSV)
+    ap.add_argument('--events-csv', default=EVENTS_CSV)
+    ap.add_argument('--tabular-csv', default=TABULAR_CSV)
+    ap.add_argument('--output-dir', default=OUTPUT_DIR)
     ap.add_argument('--suffix', default='', help='Suffix for output files (avoid clobbering canonical).')
     a = ap.parse_args()
-    if a.pred_csv:
-        PRED_CSV = a.pred_csv
+    PRED_CSV = a.pred_csv
+    EVENTS_CSV = a.events_csv
+    TABULAR_CSV = a.tabular_csv
+    OUTPUT_DIR = a.output_dir
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
     SUFFIX = a.suffix
     main()

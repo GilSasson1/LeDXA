@@ -1,14 +1,4 @@
-# LIVE — generates the Figure-2 HPP 4-arm raw scores. Run with
-#   --targets-csv csvs/disease_targets_with_covs.csv  -> lp_cov_disease_4arm_raw.csv
-# which is consumed by export_supplementary_tables_4arm.py (supp_tableA) and
-# compute_disease_topset.py (disease_pairwise.csv → heatmap significance).
-# NOTE: an earlier header called this "deprecated, superseded by compare_lp.py" —
-# that is INACCURATE: compare_lp.py feeds a different figure (plot_combined_figure.py)
-# and does NOT produce the 4-arm raw file this script does.
-"""
-compare_lp_cov.py
-
-Covariate-adjusted LP comparison for LP regression and disease classification.
+"""Covariate-adjusted linear probes for regression and classification.
 
 Covariates are incorporated by EARLY FUSION: concatenated directly into the
 design matrix alongside the embedding / tabular feature block, then a single
@@ -23,8 +13,9 @@ Three covariate-adjusted arms (+ a covariates-only baseline):
   tab_cov    : [DXA tabular]           + covariates
 
 Usage:
-  python compare_lp_cov.py --targets age ahi --num-seeds 20
-  python compare_lp_cov.py --targets-csv csvs/disease_targets.csv --num-seeds 20
+  python -m downstream.disease.linear_probe_cov --targets age ahi --no-tab-cov
+  python -m downstream.disease.linear_probe_cov --targets-csv targets.csv \
+    --tabular-csv dxa_tabular.csv
 """
 import argparse
 import os
@@ -37,12 +28,13 @@ from sklearn.preprocessing import StandardScaler
 
 sys.path.insert(0, os.path.dirname(__file__))
 import common.utils as U
+from config import RESULTS_DIR
 from downstream.disease.linear_probe import (
     _COV_COLS, _SEX_FILTER_MAP, _SSL_MODELS,
     _TABULAR_LEAKAGE_EXCLUSIONS, _impute, load_embeddings, _fit_predict_blocks,
 )
 
-_RESULTS_DIR = "/data/hpp_labdata/Analyses/gilsa/results/comparison"
+_RESULTS_DIR = str(RESULTS_DIR)
 
 
 DIFF_PEN    = False   # --diff-pen: per-block penalisation (covariate block loosened vs feature block)
@@ -422,7 +414,8 @@ def main():
     p.add_argument("--min-prevalence", type=float, default=0.02,
                    help="Minimum disease prevalence in intersected cohort (default 0.02 = 2%%)")
     p.add_argument("--embeddings-dir", default=U.EMBEDDINGS_DIR)
-    p.add_argument("--tabular-csv", default="/path/to/dxa_filtered.csv")
+    p.add_argument("--tabular-csv",
+                   help="DXA tabular feature CSV; required unless --no-tab-cov is set.")
     p.add_argument("--no-tab-cov", action="store_true",
                    help="Skip tab_cov (e.g. for cohorts without tabular)")
     p.add_argument("--no-dino-cov", action="store_true",
@@ -459,6 +452,8 @@ def main():
                         "standardization instead of tuning it. Large values approximate "
                         "unpenalized covariates; try 100.")
     args = p.parse_args()
+    if not args.no_tab_cov and not args.tabular_csv:
+        p.error("--tabular-csv is required unless --no-tab-cov is set")
 
     global DIFF_PEN, REGION_POOL, SINGLE_PEN, TWO_PEN, GROUP_LASSO, BONE_POOL, COV_FREE_SCALE
     GROUP_LASSO = args.group_lasso

@@ -1,8 +1,6 @@
-"""
-compare_lp.py
+"""Ridge linear-probe comparison on pre-extracted embeddings.
 
-Ridge LP comparison: LeJEPA vs DINOv3 on pre-extracted embeddings.
-Requires extract_embeddings.py to have been run first.
+Requires ``python -m model.extract_embeddings`` to have been run first.
 
 Protocol per (target × model × seed):
   - 80/20 subject-level train/val split (per seed)
@@ -17,11 +15,8 @@ Outputs:
   lp_ttest.csv    — paired t-test: lejepa vs dino per target
 
 Usage:
-  python compare_lp.py                          # all targets, both models
-  python compare_lp.py --targets age bmi        # specific targets
-  python compare_lp.py --models lejepa          # single model
-  python compare_lp.py --models lejepa dino covariates ensemble
-  python compare_lp.py --num-seeds 3            # use first 3 seeds from pool
+  python -m downstream.disease.linear_probe --targets age bmi
+  python -m downstream.disease.linear_probe --models lejepa dino
 """
 
 import argparse
@@ -36,8 +31,9 @@ from sklearn.preprocessing import StandardScaler
 from scipy.stats import ttest_rel, loguniform
 
 import common.utils as U
+from config import RESULTS_DIR
 
-_RESULTS_DIR     = "/data/hpp_labdata/Analyses/gilsa/results/comparison"
+_RESULTS_DIR     = str(RESULTS_DIR)
 _DEFAULT_SUMMARY = f"{_RESULTS_DIR}/lp_summary.csv"
 _DEFAULT_RAW     = f"{_RESULTS_DIR}/lp_raw.csv"
 _DEFAULT_TTEST   = f"{_RESULTS_DIR}/lp_ttest.csv"
@@ -89,7 +85,7 @@ def load_embeddings(embeddings_dir: str, models: list[str]) -> dict[str, dict[st
         if not os.path.exists(bone_path) or not os.path.exists(tissue_path):
             raise FileNotFoundError(
                 f"Embeddings not found for '{model}' in {embeddings_dir}.\n"
-                f"Run: python extract_embeddings.py --models {model}"
+                f"Run: python -m model.extract_embeddings --models {model}"
             )
         bone_df   = pd.read_pickle(bone_path)
         tissue_df = pd.read_pickle(tissue_path)
@@ -608,6 +604,10 @@ def main():
                         help="Use only the mean-pooled femur+lumbar regional-scan embedding for "
                              "SSL arms. Excludes all-NaN failed regional crops.")
     args  = parser.parse_args()
+    for path in (args.results_csv, args.results_raw_csv, args.results_ttest_csv):
+        directory = os.path.dirname(path)
+        if directory:
+            os.makedirs(directory, exist_ok=True)
     seeds = U.make_seeds(args.num_seeds)
 
     global _RAND_N_ITER, _N_CS, BONE_ONLY, BMD_ONLY, REGION_POOL, REGION_ONLY, PER_BLOCK
@@ -673,7 +673,9 @@ def main():
     # Load DXA tabular features if tabular model requested
     tabular_df = None
     if "tabular" in args.models:
-        tab_path = args.tabular_csv or "/path/to/dxa_filtered.csv"
+        if not args.tabular_csv:
+            parser.error("--tabular-csv is required when the tabular arm is requested")
+        tab_path = args.tabular_csv
         print(f"Loading tabular features from: {tab_path}")
         tabular_df = pd.read_csv(tab_path).set_index(["RegistrationCode", "research_stage"])
         tabular_df = tabular_df[~tabular_df.index.duplicated(keep="first")]

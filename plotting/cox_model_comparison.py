@@ -9,6 +9,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
+from config import FIGURES_DIR, RESULTS_DIR
 
 matplotlib.rcParams.update({
     "font.family":       "sans-serif",
@@ -344,8 +345,8 @@ def plot_pairwise_scatter(df: pd.DataFrame, model_a: str, model_b: str, out_path
     print(f"  Saved: {out_path}")
 
 # --- Main ---
-DEFAULT_RESULTS_CSV = Path('/path/to/cox_ttest_results.csv')
-DEFAULT_OUTPUT_DIR  = Path('/path/to/project/results/cox_plots')
+DEFAULT_RESULTS_CSV = RESULTS_DIR / 'cox_ttest_results.csv'
+DEFAULT_OUTPUT_DIR = FIGURES_DIR / 'cox_diagnostics'
 
 def main() -> None:
     import argparse

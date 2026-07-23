@@ -1,8 +1,4 @@
-"""
-ukbb_disease_classification_4arm.py
-
-4-arm covariate-adjusted disease classification on UKBB visit-2 DXA,
-mirroring the HPP analysis in compare_lp_cov.py / supp_tableA_disease_auc_4arm.csv.
+"""Four-arm covariate-adjusted disease classification on UKBB visit-2 DXA.
 
 Arms:
   Arm 1: Covariates only          (age / sex / BMI)
@@ -44,6 +40,7 @@ from sklearn.model_selection import train_test_split, RandomizedSearchCV, Strati
 from sklearn.preprocessing import StandardScaler
 from scipy.stats import loguniform
 from lightgbm import LGBMClassifier
+from config import DATA_ROOT, EMBEDDINGS_DIR, RESULTS_DIR
 
 import sys as _sys
 _sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
@@ -54,12 +51,12 @@ REGIONPOOL = False   # set by --region-pool: add femur+lumbar block to SSL+cov a
 # ── Paths ──────────────────────────────────────────────────────────────────────
 _HERE = os.path.dirname(os.path.abspath(__file__))
 
-DISEASE_LABELS = os.path.join(_HERE, "ukbb_baseline_disease_targets.csv")
-EMB_DIR = "/data/hpp_labdata/Analyses/gilsa/embeddings/ukbb_comparison"
-TABULAR_CSV = "/path/to/project/ukbb_tabular_data_for_cox_with_baseline.csv"
+DISEASE_LABELS = str(DATA_ROOT / "ukbb" / "baseline_disease_targets.csv")
+EMB_DIR = str(EMBEDDINGS_DIR / "ukbb")
+TABULAR_CSV = str(DATA_ROOT / "ukbb" / "dxa_tabular.csv")
 
-DEFAULT_OUT_SEEDS   = os.path.join(_HERE, "ukbb_disease_4arm_seeds.csv")
-DEFAULT_OUT_SUMMARY = os.path.join(_HERE, "ukbb_disease_4arm_summary.csv")
+DEFAULT_OUT_SEEDS = str(RESULTS_DIR / "ukbb_disease_4arm_seeds.csv")
+DEFAULT_OUT_SUMMARY = str(RESULTS_DIR / "ukbb_disease_4arm_summary.csv")
 DEFAULT_N_SEEDS = 10
 DEFAULT_PCA = 50
 _SEED_POOL = [42, 73, 99, 123, 2024, 7, 17, 31, 137, 256,
@@ -280,6 +277,10 @@ def main(n_seeds: int = DEFAULT_N_SEEDS,
          region_pool: bool = False,
          two_pen: bool = False,
          targets: "list | None" = None) -> None:
+    for path in (out_seeds, out_summary):
+        directory = os.path.dirname(path)
+        if directory:
+            os.makedirs(directory, exist_ok=True)
     label = "covariate-adjusted" if use_covariates else "no-covariates"
     print(f"=== UKBB Disease Classification — 4-arm {label} ===\n")
     if n_seeds > len(_SEED_POOL):
@@ -596,9 +597,15 @@ if __name__ == "__main__":
                              "vs [cov] (implies --region-pool). Matches the Fig 2 two-pen regime.")
     parser.add_argument("--emb-dir", default=None,
                         help="Override the embeddings directory (e.g. the bone-pool fusion dir).")
+    parser.add_argument("--disease-labels", default=DISEASE_LABELS,
+                        help="CSV containing eid-indexed dis__ outcome columns.")
+    parser.add_argument("--tabular-csv", default=TABULAR_CSV,
+                        help="UK Biobank DXA tabular and covariate CSV.")
     parser.add_argument("--targets", nargs="+", default=None,
                         help="Subset of dis__ targets to run (for parallel array jobs).")
     args = parser.parse_args()
+    DISEASE_LABELS = args.disease_labels
+    TABULAR_CSV = args.tabular_csv
     if args.emb_dir:
         EMB_DIR = args.emb_dir
         print(f"[emb-dir override] {EMB_DIR}")

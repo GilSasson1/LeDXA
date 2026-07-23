@@ -3,7 +3,16 @@ import timm
 import torch
 
 class LeJEPA_Encoder(nn.Module):
-    def __init__(self, model_name='resnet50', img_size=(224, 224), proj_out_dim=256, pretrained=False, drop_path_rate=0.0):
+    """LeDXA encoder and pretraining projection head."""
+
+    def __init__(
+        self,
+        model_name='vit_small_patch16_384',
+        img_size=(384, 128),
+        proj_out_dim=64,
+        pretrained=False,
+        drop_path_rate=0.0,
+    ):
         super().__init__()
 
         # ViTs usually use the [CLS] token.

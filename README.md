@@ -89,7 +89,7 @@ Dependencies are declared in `pyproject.toml`; `requirements.txt` is provided fo
 ```text
 LeDXA/
 ├── model/          architecture, datasets, augmentation, training, embedding extraction
-├── downstream/     disease, survival, biological-age, clustering, and genetics
+├── downstream/     portable disease, survival, biological-age, and genetics templates
 ├── plotting/       manuscript figure generation
 ├── tables/         de-identified aggregate results and figure inputs
 ├── figures/        rendered manuscript figures
@@ -98,7 +98,8 @@ LeDXA/
 
 Shared utilities and metadata support these main directories, while paths for controlled data and
 outputs are configured through [`config.py`](config.py). Detailed data and output descriptions are in
-[`data/README.md`](data/README.md), [`tables/README.md`](tables/README.md), and
+[`data/README.md`](data/README.md), [`downstream/README.md`](downstream/README.md),
+[`tables/README.md`](tables/README.md), and
 [`figures/README.md`](figures/README.md).
 
 ## Adapting LeDXA to other data
@@ -128,10 +129,10 @@ Figure 2 can be regenerated from the committed aggregate inputs:
 python -m plotting.fig2_heatmap
 ```
 
-The remaining plotting scripts are retained as analysis provenance, but some require controlled
-cohort inputs or institution-specific data adapters that cannot be distributed publicly. Aggregate
-result tables contain no participant-level rows; run `python tools/check_no_pii.py` before publishing
-new outputs.
+The `plotting/` package contains only code used for the main figures. Figure 2 is reproducible from
+the included aggregate inputs; the other generators require controlled cohort inputs or external
+analysis outputs that cannot be distributed publicly. Aggregate result tables contain no
+participant-level rows; run `python tools/check_no_pii.py` before publishing new outputs.
 
 ## Data and model availability
 

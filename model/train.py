@@ -68,28 +68,12 @@ class OnlineLinearProbe(nn.Module):
 
 
 def lejepa_collate_fn(batch):
-    data, targets = zip(*batch)
-    
-    if isinstance(targets[0], torch.Tensor):
-        collated_targets = torch.stack(targets)
-    else:
-        collated_targets = targets
-
-    if isinstance(data[0], tuple) and len(data[0]) == 2:
-        bone_lists, tissue_lists = zip(*data)
-        num_views = len(bone_lists[0])
-        collated_bone = [torch.stack([b[i] for b in bone_lists]) for i in range(num_views)]
-        collated_tissue = [torch.stack([t[i] for t in tissue_lists]) for i in range(num_views)]
-        return (collated_bone, collated_tissue), collated_targets
-    else:
-        views_lists = data
-        num_views = len(views_lists[0])
-        collated_views = [torch.stack([v[i] for v in views_lists]) for i in range(num_views)]
-        return collated_views, collated_targets
-    views_lists = data
+    views_lists, targets = zip(*batch)
+    collated_targets = torch.stack(targets)
     num_views = len(views_lists[0])
     collated_views = [torch.stack([v[i] for v in views_lists]) for i in range(num_views)]
     return collated_views, collated_targets
+
 
 def extract_and_save_embeddings(encoder, dataset, batch_size, filename_prefix):
     encoder.eval()
@@ -100,36 +84,15 @@ def extract_and_save_embeddings(encoder, dataset, batch_size, filename_prefix):
     print("Extracting embeddings for entire dataset...")
     with torch.no_grad():
         for i, (views_data, _) in enumerate(loader):
-            is_dual = isinstance(views_data, tuple) and len(views_data) == 2
             if len(views_data) < 2:
                 raise ValueError("Extraction requires at least 2 global views (bone and tissue).")
 
-            if is_dual:
-                bone_views, tissue_views = views_data
-            else:
-                # Current dataset may return a single view list where global view 0 is bone and 1 is tissue.
-                if not isinstance(views_data, list) or len(views_data) < 2:
-                    raise ValueError(
-                        "Late-fusion extraction requires either dual-modality tuple views or at least 2 global views in list mode."
-                    )
-                bone_views = [views_data[0]]
-                tissue_views = [views_data[1]]
             bone_view = views_data[0].to(DEVICE)
             tissue_view = views_data[1].to(DEVICE)
 
-            # Process Bone
-            b_stacked = torch.stack(bone_views).to(DEVICE)
-            n_v, bs, c, h, w = b_stacked.shape
-            f_b, _ = encoder(b_stacked.view(-1, c, h, w))
-            f_b = f_b.view(n_v, bs, -1).mean(dim=0)
             f_b, _ = encoder(bone_view)
             embs_bone.extend(f_b.cpu().numpy())
             
-            # Process Tissue
-            t_stacked = torch.stack(tissue_views).to(DEVICE)
-            n_t, bs_t, c_t, h_t, w_t = t_stacked.shape
-            f_t, _ = encoder(t_stacked.view(-1, c_t, h_t, w_t))
-            f_t = f_t.view(n_t, bs_t, -1).mean(dim=0)
             f_t, _ = encoder(tissue_view)
             embs_tissue.extend(f_t.cpu().numpy())
 
@@ -376,12 +339,6 @@ def main():
 
             n_globals = config["global_views"]
             n_locals = config["local_views"]
-
-            is_dual = isinstance(views_data, tuple) and len(views_data) == 2
-            if is_dual:
-                bone_views, tissue_views = views_data
-            else:
-                bone_views, tissue_views = views_data, None
                 
             def compute_ssl(views):
                 global_views = torch.cat(views[:n_globals], dim=0).to(DEVICE)
@@ -406,16 +363,6 @@ def main():
                 return l_ssl, l_pred, l_sig, g_feats.view(n_globals, bs, -1)
 
             opt_enc.zero_grad()
-            
-            if is_dual:
-                l_ssl_b, l_pred_b, l_sig_b, g_feats_b = compute_ssl(bone_views)
-                l_ssl_t, l_pred_t, l_sig_t, g_feats_t = compute_ssl(tissue_views)
-                loss_ssl = (l_ssl_b + l_ssl_t) / 2.0
-                loss_pred = (l_pred_b + l_pred_t) / 2.0
-                loss_sigreg = (l_sig_b + l_sig_t) / 2.0
-            else:
-                loss_ssl, loss_pred, loss_sigreg, g_feats_b = compute_ssl(bone_views)
-                g_feats_t = None
             loss_ssl, loss_pred, loss_sigreg, g_feats_all = compute_ssl(views_data)
                 
             loss_ssl.backward()
@@ -428,20 +375,8 @@ def main():
 
             if label_mask.sum() > 0:
                 target_labeled = age_targets[label_mask]
-                
-                feat_pooled_b = g_feats_b.mean(dim=0).detach()
-                age_pred_b = probe_bone(feat_pooled_b[label_mask]).view(-1)
                 feat_b = g_feats_all[0].detach()  # Global view 1 (Bone)
                 feat_t = g_feats_all[1].detach()  # Global view 2 (Tissue)
-                
-                if is_dual:
-                    feat_pooled_t = g_feats_t.mean(dim=0).detach()
-                    age_pred_t = probe_tissue(feat_pooled_t[label_mask]).view(-1)
-                    age_pred = (age_pred_b + age_pred_t) / 2.0
-                else:
-                    age_pred = age_pred_b
-                    
-                loss_probe = mse_crit(age_pred, target_labeled)
                 age_pred_b = probe_bone(feat_b[label_mask]).view(-1)
                 age_pred_t = probe_tissue(feat_t[label_mask]).view(-1)
                 
@@ -477,27 +412,7 @@ def main():
 
         with torch.no_grad():
             for views_data, age_targets in val_loader:
-                is_dual = isinstance(views_data, tuple) and len(views_data) == 2
                 age_targets = age_targets.to(DEVICE).view(-1)
-                
-                if is_dual:
-                    bone_views, tissue_views = views_data
-                    
-                    b_stacked = torch.stack(bone_views).to(DEVICE)
-                    n_v, bs, c, h, w = b_stacked.shape
-                    f_b, _ = encoder(b_stacked.view(-1, c, h, w))
-                    pred_b = probe_bone(f_b.view(n_v, bs, -1).mean(dim=0)).view(-1)
-                    
-                    t_stacked = torch.stack(tissue_views).to(DEVICE)
-                    f_t, _ = encoder(t_stacked.view(-1, c, h, w))
-                    pred_t = probe_tissue(f_t.view(n_v, bs, -1).mean(dim=0)).view(-1)
-                    
-                    pred = (pred_b + pred_t) / 2.0
-                else:
-                    b_stacked = torch.stack(views_data).to(DEVICE)
-                    n_v, bs, c, h, w = b_stacked.shape
-                    f_b, _ = encoder(b_stacked.view(-1, c, h, w))
-                    pred = probe_bone(f_b.view(n_v, bs, -1).mean(dim=0)).view(-1)
                 bone_view = views_data[0].to(DEVICE)
                 tissue_view = views_data[1].to(DEVICE)
                 

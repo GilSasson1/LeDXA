@@ -15,6 +15,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from scipy.stats import ttest_rel
+from config import FIGURES_DIR as _CONFIG_FIGURES_DIR
+from config import RESULTS_DIR as _CONFIG_RESULTS_DIR
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "ukbb"))
 from common.cox_utils import (COX_EVENT_SHORT_NAMES  as _COX_EVENT_SHORT_NAMES_IMPORTED,
                        COX_EVENT_CATEGORIES   as _COX_EVENT_CATEGORIES_IMPORTED,
@@ -24,8 +26,8 @@ from common.cox_utils import (COX_EVENT_SHORT_NAMES  as _COX_EVENT_SHORT_NAMES_I
 _HERE       = os.path.dirname(__file__)
 _REPO_ROOT  = os.path.dirname(_HERE)
 _METADATA_DIR = os.path.join(_REPO_ROOT, "metadata")
-RESULTS_DIR = "/data/hpp_labdata/Analyses/gilsa/results/comparison"
-FIGURES_DIR = "/data/hpp_labdata/Analyses/gilsa/figures/comparison"
+RESULTS_DIR = str(_CONFIG_RESULTS_DIR)
+FIGURES_DIR = str(_CONFIG_FIGURES_DIR)
 
 LP_CSV              = os.path.join(RESULTS_DIR, "lp_summary.csv")
 LP_EXTENDED_CSV     = os.path.join(RESULTS_DIR, "lp_extended_summary.csv")

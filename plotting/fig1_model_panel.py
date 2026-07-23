@@ -11,6 +11,7 @@ Schematic of the pretraining architecture:
         global projections
       * SIGReg loss: sliced empirical characteristic function matched to N(0,I)
 """
+import argparse
 import os
 import h5py
 import numpy as np
@@ -18,10 +19,9 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 from matplotlib.patches import FancyArrowPatch, FancyBboxPatch
 
-HDF5_PATH = '/data/hpp_labdata/Data/10K/aws_lab_files/dxa/dxa_dataset.h5'
-SAMPLE_KEY = '10K_1001201093_02_00_visit'
-OUT_PDF = 'fig1_model_panel.pdf'
-OUT_PNG = 'fig1_model_panel.png'
+HDF5_PATH = None
+SAMPLE_KEY = None
+OUT_PREFIX = 'fig1_model_panel'
 
 # ── Style ───────────────────────────────────────────────────────────────────
 PUB_FS = 8
@@ -362,7 +362,17 @@ def build_figure():
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--hdf5", required=True,
+                        help="HDF5 containing one representative bone/tissue scan pair.")
+    parser.add_argument("--sample-key", required=True,
+                        help="HDF5 group key to draw in the schematic.")
+    parser.add_argument("--out-prefix", default=OUT_PREFIX,
+                        help="Output path without extension.")
+    args = parser.parse_args()
+    HDF5_PATH = args.hdf5
+    SAMPLE_KEY = args.sample_key
     fig = build_figure()
-    fig.savefig(OUT_PDF, bbox_inches='tight', pad_inches=0.1)
-    fig.savefig(OUT_PNG, bbox_inches='tight', pad_inches=0.1, dpi=300)
-    print(f'Saved {OUT_PDF} and {OUT_PNG}')
+    fig.savefig(f"{args.out_prefix}.pdf", bbox_inches='tight', pad_inches=0.1)
+    fig.savefig(f"{args.out_prefix}.png", bbox_inches='tight', pad_inches=0.1, dpi=300)
+    print(f"Saved {args.out_prefix}.pdf and {args.out_prefix}.png")

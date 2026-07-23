@@ -1,9 +1,7 @@
 """
 extract_embeddings.py
 
-One-time GPU extraction of bone and tissue embeddings for all HDF5 subjects.
-Run this before compare_lp.py. compare_ft.py extracts its own embeddings
-from the best fine-tuned checkpoint.
+GPU extraction of frozen bone and tissue embeddings for all HDF5 subjects.
 
 Outputs (one pair per model):
   {EMBEDDINGS_DIR}/{model}_bone.pkl    — DataFrame(n_subjects, embed_dim)
@@ -12,10 +10,10 @@ Both are indexed by MultiIndex(RegistrationCode, research_stage).
 
 Usage:
   python extract_embeddings.py --models lejepa dino
-  python extract_embeddings.py --models lejepa --lejepa-checkpoint /path/to/ckpt.pth
+  python -m model.extract_embeddings --models lejepa --lejepa-checkpoint checkpoint.pth
 
-  # UKBB mode (reads fullbody scan, indexes by eid/visit_index):
-  python extract_embeddings.py --models dino --ukbb
+  # UKBB mode (reads bone/tissue views and indexes by eid/visit_index):
+  python -m model.extract_embeddings --models lejepa dino --ukbb
 """
 
 import argparse
@@ -41,7 +39,7 @@ class AllHDF5Dataset(Dataset):
     """Returns (bone_tensor, tissue_tensor, id_tuple) for every key in the file.
 
     10K mode (default): reads 'bone' and 'tissue' sub-datasets; identity from HDF5 attrs.
-    UKBB mode (ukbb=True): reads 'fullbody' for both views; identity parsed from key string.
+    UKBB mode (ukbb=True): reads the same views; identity is parsed from the key string.
     """
 
     def __init__(self, hdf5_path, keys, transform, ukbb=False):
@@ -180,7 +178,7 @@ def main():
                         help="Index level names, 2 or 3 values. 2 values drops Date. "
                              "E.g. --index-names eid visit_index")
     parser.add_argument("--ukbb", action="store_true",
-                        help="UKBB mode: reads fullbody scan, indexes by eid/visit_index, "
+                        help="UKBB mode: reads bone/tissue views, indexes by eid/visit_index, "
                              "saves to UKBB embeddings dir")
     args = parser.parse_args()
 
