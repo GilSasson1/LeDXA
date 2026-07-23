@@ -51,13 +51,13 @@ type-2 diabetes.
 
 [![Incident-disease Cox model comparison](assets/readme/incident_disease.png)](figures/fig3_cox_survival.pdf)
 
-### Unsupervised phenotype discovery
+### Biological age and mortality
 
-The representation organizes participants by body-composition phenotype without phenotype labels.
-The resulting female clusters differ across body composition, lifestyle, physiological measures,
-and circulating proteins.
+LeDXA predicts chronological age across HPP and UK Biobank. The resulting biological-age gap
+stratifies subsequent mortality: participants in the oldest-appearing quartile have higher adjusted
+mortality risk than those in the youngest-appearing quartile.
 
-[![Unsupervised body-composition phenotype discovery](assets/readme/phenotype_discovery.png)](figures/fig6_female_clusters.pdf)
+[![Biological-age prediction and mortality association](assets/readme/biological_age.png)](figures/fig5_biological_age.pdf)
 
 ## Quick start
 
