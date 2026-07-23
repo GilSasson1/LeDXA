@@ -10,10 +10,10 @@ absorptiometry* — **Sasson et al. (2026)**
 [![LeDXA pretraining and downstream applications](assets/readme/overview.png)](assets/figure1.pdf)
 
 
-## Overview
+## About
 
-LeDXA uses a joint-embedding predictive architecture (**JEPA**) with **SIGReg** to learn from the
-spatial structure of whole-body DXA scans. It was pretrained from scratch on **11,540 unlabeled HPP
+LeDXA uses **LeJEPA**, a joint-embedding predictive architecture, to learn from the spatial
+structure of whole-body DXA scans. It was pretrained from scratch on **11,540 unlabeled HPP
 scans** and evaluated externally on **47,400 UK Biobank scans**.
 
 The frozen representation supports prevalent-disease and biomarker prediction, incident-disease
@@ -21,17 +21,16 @@ survival analysis, biological-age estimation, embedding GWAS, and unsupervised b
 phenotyping. This repository provides the model and training code, embedding extraction, a synthetic
 smoke test, de-identified aggregate results, plotting code, and rendered manuscript figures.
 
-## Model
+## Model architecture
 
 | Property | Value |
 |---|---|
-| Backbone | ViT-Small/16 (`vit_small_patch16_384`, approximately 22M parameters) |
-| Objective | LeJEPA with SIGReg regularization |
-| Input | Three-channel whole-body DXA, 384 × 128 pixels |
-| Representation | 384-dimensional frozen embedding |
-| Pretraining data | 11,540 unlabeled HPP scans |
-| External evaluation | 47,400 UK Biobank scans |
-| Main baselines | DINOv3, scanner-derived DXA measurements, age/sex/BMI |
+| Encoder | ViT-Small/16 (`vit_small_patch16_384`) |
+| Parameters | **21,664,128** in the deployed encoder; **26,788,288** during pretraining with the projection head |
+| Input | Bone and tissue DXA views processed separately at 384 × 128 pixels; each grayscale view is replicated across three channels |
+| Patch sequence | 192 image patches (24 × 8) plus one class token |
+| Projection head | 384 → 2,048 → 2,048 → 64; used only during pretraining |
+| Representation | 384 dimensions per view; 768 dimensions when bone and tissue embeddings are concatenated for late fusion |
 
 ## Results
 
@@ -73,64 +72,41 @@ pip install -e .
 python -m sample_data.demo
 ```
 
-The smoke test uses only synthetic noise and should finish with:
+This command builds a randomly initialized encoder and runs a synthetic batch through it. It checks
+that the installation and tensor shapes are correct; it does **not** produce trained LeDXA
+embeddings. No pretrained checkpoint is currently distributed with the repository.
+
+Expected output:
 
 ```text
 input (2, 3, 384, 128) -> features (2, 384) -> projections (2, 128)
 ```
 
-Runtime dependencies are declared in `pyproject.toml`; `requirements.txt` is a compatibility entry
-point for tools that expect it. The DINOv3 baseline requires `timm>=1.0.20` and downloads its weights
-on first use.
+Dependencies are declared in `pyproject.toml`; `requirements.txt` is provided for compatibility.
 
 ## Repository layout
 
 ```text
 LeDXA/
 ├── model/          architecture, datasets, augmentation, training, embedding extraction
-├── downstream/     disease, survival, biological-age, clustering, and genetics analyses
-├── plotting/       manuscript and supplementary figure generation
+├── downstream/     disease, survival, biological-age, clustering, and genetics
+├── plotting/       manuscript figure generation
 ├── tables/         de-identified aggregate results and figure inputs
 ├── figures/        rendered manuscript figures
-├── common/         shared statistical, model, Cox, and plotting utilities
-├── metadata/       disease display names and analysis grouping rules
-├── sample_data/    participant-free synthetic smoke test
-├── assets/         README visuals and the complete Figure 1
-├── data/           git-ignored location for authorized local data and model outputs
-└── config.py       environment-variable-based path and W&B configuration
+└── sample_data/    participant-free synthetic smoke test
 ```
 
-The `downstream/` package is divided into `disease/`, `survival/`, `bioage/`, `clustering/`, and
-`genetics/`. More detailed data and output descriptions are available in
+Shared utilities and metadata support these main directories, while paths for controlled data and
+outputs are configured through [`config.py`](config.py). Detailed data and output descriptions are in
 [`data/README.md`](data/README.md), [`tables/README.md`](tables/README.md), and
 [`figures/README.md`](figures/README.md).
 
-## Training and embedding extraction
+## Adapting LeDXA to other data
 
-Participant-level DXA data are not distributed. To train on authorized HPP-formatted data, configure
-the input paths and start pretraining:
-
-```bash
-export LEDXA_HPP_DXA_H5=/path/to/dxa_dataset.h5
-export LEDXA_HPP_TARGETS_CSV=/path/to/age_targets.csv
-export LEDXA_CHECKPOINTS=/path/to/checkpoints
-
-python -m model.train
-```
-
-The expected HDF5 and target layout is documented in [`data/README.md`](data/README.md). All paths
-can be overridden through [`config.py`](config.py). W&B logging is disabled by default; set
-`WANDB_ENTITY` and optionally `WANDB_PROJECT` or `WANDB_MODE` to enable it.
-
-Extract frozen representations from a trained checkpoint with:
-
-```bash
-python -m model.extract_embeddings \
-  --models lejepa \
-  --lejepa-checkpoint /path/to/checkpoint.pth \
-  --hdf5-path /path/to/dxa_dataset.h5 \
-  --output-dir /path/to/embeddings
-```
+The included data loader reflects the HDF5 structure used for this study and is not intended as a
+universal DXA format. For another dataset, adapt [`model/datasets.py`](model/datasets.py) to provide
+separate bone and tissue views; the encoder, pretraining loop, and embedding-extraction code can then
+be reused. The study-specific pipeline is retained as a reference implementation in `model/`.
 
 ## Figures and reproducibility
 
@@ -161,8 +137,8 @@ new outputs.
 
 No participant-level data or pretrained checkpoint is distributed in this repository. Researchers
 can request data access from [UK Biobank](https://www.ukbiobank.ac.uk/) and the
-[Human Phenotype Project](https://humanphenotypeproject.org/) and then train LeDXA using the provided
-architecture and pipeline.
+[Human Phenotype Project](https://humanphenotypeproject.org/). The model and analysis code are
+provided for adaptation to authorized DXA datasets.
 
 ## Citation
 

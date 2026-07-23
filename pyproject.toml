@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "ledxa"
 version = "0.1.0"
-description = "LeDXA: a self-supervised (LeJEPA + SIGReg) foundation model for DXA scans"
+description = "LeDXA: a self-supervised LeJEPA foundation model for DXA scans"
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
