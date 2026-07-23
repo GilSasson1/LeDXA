@@ -1,3 +1,0 @@
-analysis,n,silhouette_pca,dip_p_between_centroids,ari_vs_original_deepdxa_cluster,ami_vs_original_deepdxa_cluster,cluster_0_n,cluster_1_n
-original_embeddings_reclustered,4185,0.11050793528556824,0.9113452620200766,0.9970214516293029,0.9902267358479011,3015,1170
-age_bmi_vat_residualized_embeddings,4185,0.09199461843356027,0.0,0.7976664534003088,0.7118773026420082,2822,1363

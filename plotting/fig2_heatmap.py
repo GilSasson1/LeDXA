@@ -64,8 +64,8 @@ DEXA  = os.environ.get('DEXA_ROOT', os.path.dirname(_ROOT))  # parent dir holds 
 # ablations and must be opted into explicitly via FIG2_ALLOW_ABLATION=1.
 FIG2_SOURCE_REGIME = 'diffpentuned'
 # In-repo canonical inputs (repo-relative):
-SUPP_A    = os.environ.get('FIG2_HPP_TABLE', os.path.join(_ROOT, 'tables', 'supp_tableA_disease_auc_4arm_diffpentuned.csv'))
-UKBB_AUC  = os.environ.get('FIG2_UKBB_TABLE', os.path.join(_ROOT, 'tables', 'ukbb_pca0_diffpen_summary.csv'))
+SUPP_A    = os.environ.get('FIG2_HPP_TABLE', os.path.join(_ROOT, 'tables', 'supp_table_1_hpp_prevalent_disease_classification_auroc.csv'))
+UKBB_AUC  = os.environ.get('FIG2_UKBB_TABLE', os.path.join(_ROOT, 'tables', 'supp_table_2_ukbb_prevalent_disease_classification_auroc.csv'))
 AGE_MAE_CSV  = os.environ.get('FIG2_AGE_MAE', os.path.join(_ROOT, 'tables', 'age_mae_imaging_only_wholebody.csv'))  # per-model age (imaging-only, multi-visit)
 OUT_DEF   = os.path.join(_ROOT, 'figures', 'fig2_disease_heatmap.png')
 # External inputs (participant-level or not distributed — supply via env / DEXA_ROOT):

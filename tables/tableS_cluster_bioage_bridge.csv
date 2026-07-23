@@ -1,3 +1,0 @@
-analysis,n,n_clusterA,n_clusterB,mean_clusterA,mean_clusterB,effect,p_value,note,ci_low,ci_high
-matched_cluster_difference,1814,908.0,906.0,-0.16389328739859063,0.04518555362444033,0.049370136991895505,,"Cohen d, Cluster B minus Cluster A; p not tested here because matching pairs are not persisted.",,
-axis_association_adjusted_age_bmi_vat,4175,,,,,-0.017168562627050896,0.5080135543899428,Standardized beta for biological-age gap per 1 SD Cluster B-axis score.,-0.06801446990815083,0.03367734465404903
