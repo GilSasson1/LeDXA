@@ -9,12 +9,10 @@ absorptiometry* — **Sasson et al. (2026)**
 
 [![LeDXA pretraining and downstream applications](assets/readme/overview.png)](assets/figure1.pdf)
 
-*LeDXA learns a compact representation of whole-body DXA anatomy without labels and transfers it
-across cohorts and clinical tasks. Click the overview for the complete Figure 1.*
 
 ## Overview
 
-LeDXA uses a joint-embedding predictive architecture (**LeJEPA**) with **SIGReg** to learn from the
+LeDXA uses a joint-embedding predictive architecture (**JEPA**) with **SIGReg** to learn from the
 spatial structure of whole-body DXA scans. It was pretrained from scratch on **11,540 unlabeled HPP
 scans** and evaluated externally on **47,400 UK Biobank scans**.
 
