@@ -21,7 +21,7 @@ survival analysis, biological-age estimation, embedding GWAS, and unsupervised b
 phenotyping. This repository provides the model and training code, embedding extraction, a synthetic
 smoke test, de-identified aggregate results, plotting code, and rendered manuscript figures.
 
-## Model at a glance
+## Model
 
 | Property | Value |
 |---|---|
@@ -33,7 +33,7 @@ smoke test, de-identified aggregate results, plotting code, and rendered manuscr
 | External evaluation | 47,400 UK Biobank scans |
 | Main baselines | DINOv3, scanner-derived DXA measurements, age/sex/BMI |
 
-## Research highlights
+## Results
 
 ### Cross-cohort disease prediction
 
