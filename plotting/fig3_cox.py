@@ -643,17 +643,11 @@ def draw_panel_b(axes, events, cov_df, dxa_df, emb_df, common, reg_df=None):
             print(f"    {label} {lbl}: Δ={r['diff']*100:+.1f}pp "
                   f"[{r['lo']*100:+.1f},{r['hi']*100:+.1f}] "
                   f"p={r['p']:.4f} q={r.get('q', np.nan):.4f} (events={r['n_events']})")
-        # Header names the metric: the X/Y numbers are the sensitivity (recall) of
-        # the top-25%-risk rule at each horizon — DeepDXA / Tabular.
-        header = "Sensitivity, top-25%\n(DeepDXA/Tab)"
-        ann = "\n".join([header] +
-                        [_annot_row(f"Y{tc}" if tc is not None else "End", boot[tc])
+        ann = "\n".join([_annot_row(f"Y{tc}" if tc is not None else "End", boot[tc])
                          for tc in CAPTURE_TIMEPOINTS_YR])
-        # Lower-right: these cumulative curves are monotonic, so the space below
-        # them at late follow-up is always empty — the box never occludes a curve
-        # (top-left would, now that the header makes the box taller).
-        ax.text(0.97, 0.03, ann,
-                transform=ax.transAxes, ha="right", va="bottom",
+        # Upper-left: per-horizon top-25%-risk sensitivity (LeDXA / Tabular).
+        ax.text(0.03, 0.97, ann,
+                transform=ax.transAxes, ha="left", va="top",
                 fontsize=8, color="#333333", family="monospace",
                 bbox=dict(boxstyle="round,pad=0.25", fc="white", ec="#cccccc",
                           lw=0.4, alpha=1.0))
