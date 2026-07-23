@@ -735,9 +735,8 @@ def main():
     fig.legend(handles=b_leg, ncol=2, frameon=False, fontsize=8,
                loc="lower center", bbox_to_anchor=(0.54, 0.03))
 
-    fig.savefig(OUT_PATH + ".png", dpi=400, facecolor='white', transparent=False)
     fig.savefig(OUT_PATH + ".pdf", dpi=400, facecolor='white', transparent=False)
-    print(f"Saved {OUT_PATH}.png / .pdf")
+    print(f"Saved {OUT_PATH}.pdf")
 
 
 if __name__ == "__main__":
