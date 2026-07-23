@@ -26,14 +26,21 @@ from tqdm import tqdm
 
 from model.dinov3_baseline import DINOv3
 from model.model import LeJEPA_Encoder
+from config import (
+    CHECKPOINTS_DIR,
+    EMBEDDINGS_DIR as CONFIG_EMBEDDINGS_DIR,
+    HPP_DOWNSTREAM_TARGETS_CSV,
+    HPP_DXA_H5,
+    LEJEPA_CHECKPOINT as CONFIG_LEJEPA_CHECKPOINT,
+)
 
 # ── CONFIGURATION ─────────────────────────────────────────────────────────────
-HDF5_PATH = "/data/hpp_labdata/Data/10K/aws_lab_files/dxa/dxa_dataset.h5"
-TARGETS_CSV = "csvs/targets_for_downstream.csv"
-LEJEPA_CHECKPOINT = "/data/hpp_labdata/Analyses/gilsa/checkpoints/lejepa_dexa/hpp/best_model_late_fusion_4_10.pth"
+HDF5_PATH = str(HPP_DXA_H5)
+TARGETS_CSV = str(HPP_DOWNSTREAM_TARGETS_CSV)
+LEJEPA_CHECKPOINT = str(CONFIG_LEJEPA_CHECKPOINT)
 
-CHECKPOINT_DIR = "/data/hpp_labdata/Analyses/gilsa/checkpoints/comparison"
-EMBEDDINGS_DIR = "/data/hpp_labdata/Analyses/gilsa/embeddings/comparison"
+CHECKPOINT_DIR = str(CHECKPOINTS_DIR / "comparison")
+EMBEDDINGS_DIR = str(CONFIG_EMBEDDINGS_DIR / "comparison")
 
 BATCH_SIZE = 32
 DINO_7B_BATCH_SIZE = 8  # 7B model needs ~14GB weights + activations; fits on L40S (48GB)

@@ -12,10 +12,12 @@ license = { text = "MIT" }
 dependencies = [
     "numpy", "pandas", "scipy", "scikit-learn", "statsmodels", "lifelines",
     "lightgbm", "h5py", "pydicom", "pillow", "tqdm", "matplotlib", "seaborn",
-    "torch", "torchvision", "timm", "transformers", "wandb",
+    "torch", "torchvision", "timm>=1.0.20", "transformers", "wandb",
+    "huggingface-hub", "safetensors",
 ]
 
 # Installed as importable packages; top-level analysis/plotting scripts are run
 # from the repository root (or with the repo root on PYTHONPATH).
 [tool.setuptools]
-packages = ["common", "model", "downstream", "downstream.disease", "downstream.survival", "downstream.bioage", "downstream.clustering", "downstream.genetics", "plotting"]
+py-modules = ["config"]
+packages = ["common", "model", "downstream", "downstream.disease", "downstream.survival", "downstream.bioage", "downstream.clustering", "downstream.genetics", "plotting", "sample_data"]

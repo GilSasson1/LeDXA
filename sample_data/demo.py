@@ -20,8 +20,11 @@ def main():
     encoder.eval()
     x = torch.randn(*INPUT_SHAPE)  # synthetic stand-in for a batch of DXA scans
     with torch.no_grad():
-        emb = encoder(x)
-    print(f"input {tuple(x.shape)} -> embedding {tuple(emb.shape)}  (embed_dim={encoder.embed_dim})")
+        features, projections = encoder(x)
+    print(
+        f"input {tuple(x.shape)} -> features {tuple(features.shape)} "
+        f"-> projections {tuple(projections.shape)}"
+    )
 
 
 if __name__ == "__main__":

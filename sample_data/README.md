@@ -7,8 +7,8 @@ like a whole-body DXA scan (`384 × 128`):
 
 ```bash
 pip install -e .
-python sample_data/demo.py
-# input (2, 3, 384, 128) -> embedding (2, 384)  (embed_dim=384)
+python -m sample_data.demo
+# input (2, 3, 384, 128) -> features (2, 384) -> projections (2, 128)
 ```
 
 Point the training/extraction code (`model/`) at your own DXA data to produce real embeddings.

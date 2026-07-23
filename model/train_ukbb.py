@@ -18,6 +18,14 @@ from model.augmentations import train_transforms, val_transforms
 from sklearn.model_selection import train_test_split
 from common.helpers import *
 import random
+from config import (
+    CHECKPOINTS_DIR,
+    UKBB_DXA_H5,
+    UKBB_TARGETS_CSV,
+    WANDB_ENTITY,
+    WANDB_MODE,
+    WANDB_PROJECT,
+)
 
 UKBB_MEAN = [0.18899241089820862, 0.18899241089820862, 0.18899241089820862]
 UKBB_STD  = [0.2798040509223938, 0.2798040509223938, 0.2798040509223938]
@@ -40,13 +48,10 @@ config = {
     "workers": 6
 }
 
-from LabData.DataLoaders import UkbbLoader
-ukb_loader = UkbbLoader.UkbbLoader()
+HDF5_PATH = str(UKBB_DXA_H5)
+CHECKPOINTS = str(CHECKPOINTS_DIR)
 
-HDF5_PATH = '/data/ukbb_data/ukbb_dexa_dataset_v3.h5'
-CHECKPOINTS = os.getenv('CHECKPOINTS_DIR', '/data/hpp_labdata/Analyses/gilsa/checkpoints/lejepa_dexa/')
-
-run_name = os.getenv('RUN_NAME')
+run_name = os.getenv('RUN_NAME', 'ledxa_ukbb')
 RESUME_FROM =  os.path.join(CHECKPOINTS, f"{run_name}.pth")
 
 class OnlineLinearProbe(nn.Module):
@@ -72,34 +77,31 @@ def main():
     # ONLY Rank 0 initializes WandB now!
     if is_main_process():
         wandb.init(
-            entity="your-wandb-entity", 
-            project="LeJEPA_DEXA_Scratch", 
+            entity=WANDB_ENTITY,
+            project=WANDB_PROJECT,
+            mode=WANDB_MODE,
             name=run_name,
             resume="allow",
             id=run_name
         )
 
     # --- DATA PREPARATION ---
-    targets_wide = ukb_loader.load_ukbb(by='field_name', which=['Age when attended assessment centre'], instances=[2, 3])
-    
-    if 'eid - visit 2' in targets_wide.columns:
-        targets_wide['eid'] = targets_wide['eid - visit 2']
-    elif 'eid' in targets_wide.index.names or targets_wide.index.name == 'eid':
-        targets_wide.reset_index(inplace=True)
-    
-    col_v2 = 'Age when attended assessment centre - visit 2'
-    col_v3 = 'Age when attended assessment centre - visit 3'
-
-    df_v2 = targets_wide[['eid', col_v2]].dropna().copy()
-    df_v2.columns = ['eid', 'age']
-    df_v2['visit'] = '2'
-
-    df_v3 = targets_wide[['eid', col_v3]].dropna().copy()
-    df_v3.columns = ['eid', 'age']
-    df_v3['visit'] = '3'
-
-    targets_orig = pd.concat([df_v2, df_v3])
+    if not UKBB_TARGETS_CSV.exists():
+        raise FileNotFoundError(
+            f"UKBB age targets not found: {UKBB_TARGETS_CSV}. "
+            "Set LEDXA_UKBB_TARGETS_CSV to a CSV with eid, visit, and age columns."
+        )
+    targets_orig = pd.read_csv(UKBB_TARGETS_CSV)
+    required_columns = {"eid", "visit", "age"}
+    missing_columns = required_columns.difference(targets_orig.columns)
+    if missing_columns:
+        raise ValueError(
+            f"{UKBB_TARGETS_CSV} is missing required columns: "
+            f"{', '.join(sorted(missing_columns))}"
+        )
+    targets_orig = targets_orig.loc[:, ["eid", "visit", "age"]].dropna().copy()
     targets_orig['eid'] = targets_orig['eid'].apply(lambda x: str(x).split('.')[0].strip())
+    targets_orig['visit'] = targets_orig['visit'].astype(str)
     targets_orig.set_index(['eid', 'visit'], inplace=True)
     targets_orig.index.names = ['RegistrationCode', 'research_stage']
 

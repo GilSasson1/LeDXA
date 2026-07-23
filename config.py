@@ -19,12 +19,22 @@ DATA_ROOT = Path(os.environ.get("LEDXA_DATA", REPO_ROOT / "data"))
 # Key inputs — override via environment variables to match your setup.
 HPP_DXA_H5      = Path(os.environ.get("LEDXA_HPP_DXA_H5",  DATA_ROOT / "hpp"  / "dxa_dataset.h5"))
 UKBB_DXA_H5     = Path(os.environ.get("LEDXA_UKBB_DXA_H5", DATA_ROOT / "ukbb" / "ukbb_dexa_dataset_v3.h5"))
+HPP_TARGETS_CSV = Path(os.environ.get("LEDXA_HPP_TARGETS_CSV", DATA_ROOT / "hpp" / "age_targets.csv"))
+UKBB_TARGETS_CSV = Path(os.environ.get("LEDXA_UKBB_TARGETS_CSV", DATA_ROOT / "ukbb" / "age_targets.csv"))
+HPP_DOWNSTREAM_TARGETS_CSV = Path(
+    os.environ.get("LEDXA_HPP_DOWNSTREAM_TARGETS_CSV", DATA_ROOT / "hpp" / "downstream_targets.csv")
+)
 CHECKPOINTS_DIR = Path(os.environ.get("LEDXA_CHECKPOINTS", DATA_ROOT / "checkpoints"))
 EMBEDDINGS_DIR  = Path(os.environ.get("LEDXA_EMBEDDINGS",  DATA_ROOT / "embeddings"))
 GWAS_DIR        = Path(os.environ.get("LEDXA_GWAS",        DATA_ROOT / "gwas_analysis"))
+LEJEPA_CHECKPOINT = Path(
+    os.environ.get("LEDXA_CHECKPOINT", CHECKPOINTS_DIR / "hpp" / "best_model.pth")
+)
 
 # Weights & Biases (optional) — set to your own entity/project or disable logging.
 WANDB_ENTITY = os.environ.get("WANDB_ENTITY")  # None -> W&B default
+WANDB_PROJECT = os.environ.get("WANDB_PROJECT", "LeDXA")
+WANDB_MODE = os.environ.get("WANDB_MODE", "disabled" if WANDB_ENTITY is None else "online")
 
 # Repo-relative outputs (curated, de-identified aggregate results — safe to commit).
 TABLES_DIR  = REPO_ROOT / "tables"

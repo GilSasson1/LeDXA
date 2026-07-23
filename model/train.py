@@ -13,6 +13,15 @@ from transformers import get_cosine_schedule_with_warmup
 from model.datasets import LeJEPAHDF5Dataset
 from model.model import LeJEPA_Encoder, SIGReg
 from model.augmentations import train_transforms, val_transforms
+from config import (
+    CHECKPOINTS_DIR,
+    EMBEDDINGS_DIR,
+    HPP_DXA_H5,
+    HPP_TARGETS_CSV,
+    WANDB_ENTITY,
+    WANDB_MODE,
+    WANDB_PROJECT,
+)
 
 
 config = {
@@ -36,11 +45,10 @@ config = {
 }
 
 
-# NEW PATH CONFIGURATION
-HDF5_PATH = '/data/hpp_labdata/Data/10K/aws_lab_files/dxa/dxa_dataset.h5'
-TARGETS_CSV = "/data/hpp_labdata/Analyses/10K_Trajectories/body_systems/Age_Gender_BMI.csv"
-CHECKPOINTS = '/data/hpp_labdata/Analyses/gilsa/checkpoints/lejepa_dexa/hpp'
-EMBEDDINGS_PREFIX = '/data/hpp_labdata/Analyses/gilsa/embeddings/vits_s_4_10'
+HDF5_PATH = str(HPP_DXA_H5)
+TARGETS_CSV = str(HPP_TARGETS_CSV)
+CHECKPOINTS = str(CHECKPOINTS_DIR / "hpp")
+EMBEDDINGS_PREFIX = str(EMBEDDINGS_DIR / "ledxa_hpp")
 
 
 RESUME_FROM = None
@@ -146,7 +154,13 @@ def extract_and_save_embeddings(encoder, dataset, batch_size, filename_prefix):
 
 
 def main():
-    wandb.init(entity="your-wandb-entity", project="LeJEPA_DEXA_Scratch", name=run_name, resume="allow")
+    wandb.init(
+        entity=WANDB_ENTITY,
+        project=WANDB_PROJECT,
+        mode=WANDB_MODE,
+        name=run_name,
+        resume="allow",
+    )
 
     print(f"Loading targets from {TARGETS_CSV}...")
     targets_orig = pd.read_csv(TARGETS_CSV)

@@ -2,10 +2,11 @@ import os
 
 from torch import nn
 import timm
+from config import DATA_ROOT
 
 
-# Large model weights go here to avoid filling up home directory
-_NETWORK_HF_CACHE = "/data/hpp_labdata/Analyses/gilsa/hf_cache"
+# Keep downloaded model weights with the other external/cache data by default.
+_NETWORK_HF_CACHE = os.environ.get("LEDXA_HF_CACHE", str(DATA_ROOT / "hf_cache"))
 
 
 class DINOv3(nn.Module):

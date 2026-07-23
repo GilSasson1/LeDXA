@@ -4,19 +4,9 @@
 Code accompanying the paper *"[LeDXA: a self-supervised foundation model for dual-energy X-ray
 absorptiometry]"* — 📄 *manuscript link / DOI: TBD*.
 
-**Study overview — [Figure 1](assets/figure1.pdf)**
- [Figure 1 — study overview](assets/figure1.png)
+![Figure 1 — LeDXA study overview](assets/figure1.png)
 
-```mermaid
-flowchart LR
-    A[Whole-body DXA scans<br/>HPP, 11,540 unlabeled] --> B[LeJEPA + SIGReg<br/>pretraining · ViT-Small/16]
-    B --> C[Frozen 384-d<br/>embedding]
-    C --> D[Disease & biomarker<br/>prediction]
-    C --> E[Incident-disease<br/>Cox survival]
-    C --> F[Biological-age gap<br/>· mortality]
-    C --> G[Embedding GWAS<br/>· heritability]
-    C --> H[Unsupervised<br/>body-composition clusters]
-```
+The print-quality version is available as [PDF](assets/figure1.pdf).
 
 ## Overview
 
@@ -48,22 +38,33 @@ body-composition and bone-density loci with higher SNP-heritability than DINOv3'
 
 ## Repository structure
 
-```
-model/         LeJEPA pretraining, datasets, augmentations, embedding extraction
-common/        shared utilities (probing helpers, plotting style, Cox helpers)
-downstream/    frozen-embedding analyses
-  disease/       prevalent-disease & biomarker probing
-  survival/      incident-disease Cox models
-  bioage/        biological-age gap, mortality, medication
-  clustering/    unsupervised body-composition phenotyping
-  genetics/      embedding-GWAS phenotype prep & locus annotation
-plotting/      figure-generation scripts (fig1–fig6, supplementary, extended data)
-tables/        de-identified aggregate result tables (supplementary tables, figure inputs)
-figures/       rendered main figures
-config.py      central path configuration (override via env vars)
-sample_data/   synthetic smoke-test (no real data needed)
-tools/         data-safety guard (check_no_pii.py)
-```
+| Path | Function |
+|------|----------|
+| `model/` | Model architecture, SIGReg loss, image augmentations, HDF5 datasets, pretraining, and frozen-embedding extraction. |
+| `common/` | Code shared by analyses: model factories, statistical helpers, Cox metadata, and the paper-wide plotting style. |
+| `downstream/disease/` | Linear probes and fine-tuning for prevalent disease and continuous biomarker prediction. |
+| `downstream/survival/` | Incident-event construction and Cox proportional-hazards analyses. |
+| `downstream/bioage/` | Biological-age prediction, age-gap/aging-rate analyses, mortality, and medication associations. |
+| `downstream/clustering/` | Unsupervised embedding clusters and body-composition phenotype characterization. |
+| `downstream/genetics/` | GWAS phenotype preparation, lead-locus annotation, and Figure 4 inputs. |
+| `plotting/` | Scripts that convert aggregate tables into main, supplementary, and extended-data figures. |
+| `tables/` | De-identified aggregate results and figure inputs. No participant-level rows should be committed here. |
+| `figures/` | Rendered paper figures. These are outputs; generation code remains in `plotting/`. |
+| `assets/` | Documentation assets used by this README, including the inline Figure 1 PNG and print PDF. |
+| `data/` | Git-ignored location for authorized local cohort data, checkpoints, embeddings, and caches. |
+| `sample_data/` | Synthetic, participant-free smoke test for the encoder interface. |
+| `tools/` | Repository safety utilities, currently the participant-data/PII guard. |
+| `csvs/` | Small, non-participant metadata mappings such as disease groups and display names. |
+| `config.py` | Central environment-variable-based paths and optional W&B configuration. |
+
+### Reproducibility boundary
+
+The installable model, synthetic smoke test, HPP/UKBB training entry points, and embedding extractor
+do not require the authors' private Python packages. Some participant-level cohort-construction
+scripts under `downstream/` are retained as analysis provenance and still expect authorized,
+institution-specific data adapters (for example medication and raw UKBB field loaders). Those
+adapters cannot be distributed with this repository; the committed aggregate tables and rendered
+figures remain usable without them.
 
 ## Setup
 
@@ -73,16 +74,18 @@ python -m venv .venv && source .venv/bin/activate     # Python >= 3.10
 pip install -e .
 ```
 
-`timm` must be recent enough to provide the DINOv3 baseline weights (`vit_*_dinov3.lvd1689m`);
-if the baseline fails to load, upgrade `timm`. Run scripts from the repo root (or with the repo root
-on `PYTHONPATH`). Data locations are configured in [`config.py`](config.py) / via environment variables;
-some scripts contain placeholder paths to point at your own data.
+Runtime dependencies have a single source of truth in `pyproject.toml`; `requirements.txt` installs
+that project for compatibility with tools that expect a requirements file. `timm>=1.0.20` is required
+for the DINOv3 model names used here. DINO weights are downloaded on first use and cached under
+`data/hf_cache/` by default; override that with `LEDXA_HF_CACHE`.
 
 ## Quick check
 
 ```bash
-python sample_data/demo.py     # builds the encoder, embeds a synthetic DXA batch
+python -m sample_data.demo     # builds the encoder, embeds a synthetic DXA batch
 ```
+
+Expected output ends with `features (2, 384) -> projections (2, 128)`.
 
 ## Training
 
@@ -95,6 +98,21 @@ python model/train.py          # LeJEPA, ViT-Small/16, 384×128 inputs
 DXA images are read from an HDF5 store (see `model/datasets.py` for the expected format) and
 augmented per `model/augmentations.py`. Frozen embeddings are then extracted with
 `model/extract_embeddings.py` for the downstream analyses.
+
+Paths are configured without editing source code:
+
+```bash
+export LEDXA_HPP_DXA_H5=/path/to/hpp_dxa_dataset.h5
+export LEDXA_HPP_TARGETS_CSV=/path/to/hpp_age_targets.csv
+export LEDXA_UKBB_DXA_H5=/path/to/ukbb_dexa_dataset.h5
+export LEDXA_UKBB_TARGETS_CSV=/path/to/ukbb_age_targets.csv
+export LEDXA_CHECKPOINTS=/path/to/checkpoints
+export LEDXA_EMBEDDINGS=/path/to/embeddings
+```
+
+HPP targets used by `model/train.py` follow the dataset index expected by `model/datasets.py`.
+UKBB targets used by `model/train_ukbb.py` must contain `eid`, `visit`, and `age` columns. W&B is
+disabled by default; set `WANDB_ENTITY` (and optionally `WANDB_PROJECT`/`WANDB_MODE`) to enable it.
 
 ## Reproducing the figures
 
