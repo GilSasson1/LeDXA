@@ -290,7 +290,7 @@ def draw_manhattan_panel(ax: plt.Axes) -> None:
                 textcoords="offset points",
                 ha=ha,
                 va="bottom",
-                fontsize=16,
+                fontsize=10,
                 color="#222222",
                 linespacing=1.1,
             )
@@ -303,7 +303,7 @@ def draw_manhattan_panel(ax: plt.Axes) -> None:
                 placed_bboxes.append(bbox)
                 break
             ann.remove()
-            dy += 16  # one label-line's worth of vertical space per bump, matched to the new fontsize
+            dy += 10  # one label-line's worth of vertical space per bump, matched to the new fontsize
 
     # Safety net: the bump loop above only avoids label-vs-label overlap, not overlap
     # with the axes' own top edge — a few stacked labels near the tallest peak(s) can
