@@ -26,8 +26,8 @@ smoke test, de-identified aggregate results, plotting code, and rendered manuscr
 | Property | Value |
 |---|---|
 | Encoder | ViT-Small/16 (`vit_small_patch16_384`) |
-| Parameters | **21,664,128** in the deployed encoder; **26,788,288** during pretraining with the projection head |
-| Input | Bone and tissue DXA views processed separately at 384 × 128 pixels; each grayscale view is replicated across three channels |
+| Parameters | **21,664,128** in the backbone encoder; **26,788,288** with the projection head |
+| Input | Bone and tissue DXA scans processed separately at 384 × 128 pixels; each grayscale view is replicated across three channels |
 | Patch sequence | 192 image patches (24 × 8) plus one class token |
 | Projection head | 384 → 2,048 → 2,048 → 64; used only during pretraining |
 | Representation | 384 dimensions per view; 768 dimensions when bone and tissue embeddings are concatenated for late fusion |
@@ -74,7 +74,7 @@ python -m sample_data.demo
 
 This command builds a randomly initialized encoder and runs a synthetic batch through it. It checks
 that the installation and tensor shapes are correct; it does **not** produce trained LeDXA
-embeddings. No pretrained checkpoint is currently distributed with the repository.
+embeddings.
 
 Expected output:
 
@@ -102,12 +102,6 @@ outputs are configured through [`config.py`](config.py). Detailed data and outpu
 [`tables/README.md`](tables/README.md), and
 [`figures/README.md`](figures/README.md).
 
-## Adapting LeDXA to other data
-
-The included data loader reflects the HDF5 structure used for this study and is not intended as a
-universal DXA format. For another dataset, adapt [`model/datasets.py`](model/datasets.py) to provide
-separate bone and tissue views; the encoder, pretraining loop, and embedding-extraction code can then
-be reused. The study-specific pipeline is retained as a reference implementation in `model/`.
 
 ## Figures and reproducibility
 
@@ -116,12 +110,12 @@ preview above or use the links below for the complete publication-quality PDF.
 
 | Figure | Scientific result | Public reproduction |
 |---|---|---|
-| [Figure 1](assets/figure1.pdf) | Study design and model overview | Rendered asset included |
-| [Figure 2](figures/fig2_disease_heatmap.pdf) | Disease and physiological-trait prediction | Aggregate inputs included in `tables/` |
-| [Figure 3](figures/fig3_cox_survival.pdf) | Incident-disease survival analysis | Render included; curves require participant-level follow-up data |
-| [Figure 4](figures/fig4_genetics.pdf) | Embedding GWAS and SNP heritability | Render included; full regeneration requires external GWAS outputs |
-| [Figure 5](figures/fig5_biological_age.pdf) | Biological age, health, and mortality | Render included; full regeneration requires participant-level predictions |
-| [Figure 6](figures/fig6_female_clusters.pdf) | Body-composition phenotype discovery | Render included; UMAP regeneration requires participant-level embeddings |
+| [Figure 1](assets/figure1.pdf) | Study design and model overview |
+| [Figure 2](figures/fig2_disease_heatmap.pdf) | Disease and physiological-trait prediction |
+| [Figure 3](figures/fig3_cox_survival.pdf) | Incident-disease survival analysis |
+| [Figure 4](figures/fig4_genetics.pdf) | Embedding GWAS and SNP heritability |
+| [Figure 5](figures/fig5_biological_age.pdf) | Biological age, health, and mortality |
+| [Figure 6](figures/fig6_female_clusters.pdf) | Body-composition phenotype discovery |
 
 Figure 2 can be regenerated from the committed aggregate inputs:
 
@@ -136,8 +130,7 @@ participant-level rows; run `python tools/check_no_pii.py` before publishing new
 
 ## Data and model availability
 
-No participant-level data or pretrained checkpoint is distributed in this repository. Researchers
-can request data access from [UK Biobank](https://www.ukbiobank.ac.uk/) and the
+Researchers can request data access from [UK Biobank](https://www.ukbiobank.ac.uk/) and the
 [Human Phenotype Project](https://humanphenotypeproject.org/). The model and analysis code are
 provided for adaptation to authorized DXA datasets.
 
