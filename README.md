@@ -4,9 +4,8 @@
 Code accompanying the paper *"[LeDXA: a self-supervised foundation model for dual-energy X-ray
 absorptiometry]"* — 📄 *manuscript link / DOI: TBD*.
 
-**Study overview — [Figure 1](assets/figure1.pdf)** (conceptual schematic; PDF). To show it inline on
-GitHub, export it to `assets/figure1.png` and uncomment the next line:
-![Figure 1 — study overview](assets/figure1.png)
+**Study overview — [Figure 1](assets/figure1.pdf)**
+ [Figure 1 — study overview](assets/figure1.png)
 
 ```mermaid
 flowchart LR
