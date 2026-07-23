@@ -16,7 +16,7 @@ PRED_CSV = os.environ.get('BIOAGE_PRED_CSV', os.path.join(DEXA_ROOT, 'age_predic
 EVENTS_CSV = os.path.join(DEXA_ROOT, 'ukbb_osteo_data_expanded_aligned.csv')
 TABULAR_CSV = os.path.join(DEXA_ROOT, 'ukbb_tabular_data_for_cox_with_baseline.csv')
 TARGETS_CSV = os.path.join(DEXA_FM_ROOT, 'ukbb', 'ukbb_targets_slim.csv')
-HPP_ANALYSIS_DIR = os.path.join(DEXA_FM_ROOT, 'age_prediction_analysis')
+HPP_ANALYSIS_DIR = os.path.join(DEXA_FM_ROOT, 'tables', 'age_prediction_analysis')
 PAPER_DRAFT = os.path.join(DEXA_ROOT, 'paper_draft.md')
 
 # Working / cache files (large, not part of paper outputs)

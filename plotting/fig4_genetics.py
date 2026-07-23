@@ -34,7 +34,7 @@ BIG_GIL_DIR = Path("/data/embeddings/big_gil")
 ANALYSIS_DIR = Path("/data/gwas_analysis")
 EMBEDDING_DIR = Path("/data/embeddings_qc")
 
-MANHATTAN_PATH = ROOT / "fig4_assets" / "fig_manhattan_ledxa.png"
+MANHATTAN_PATH = ROOT / "figures" / "fig_manhattan_ledxa.png"
 ANNOTATED_HITS_PATH = ANALYSIS_DIR / "annotated_hits.tsv"
 CATALOG_HITS_PATH = ANALYSIS_DIR / "gwas_catalog_hits.tsv"
 HERITABILITY_PATH = ANALYSIS_DIR / "heritability.tsv"
@@ -469,7 +469,7 @@ def draw_overlap_panel(ax: plt.Axes, annotated: pd.DataFrame) -> None:
 # the pipeline and fig4c/fig4c_associations.tsv for the full multi-domain
 # evidence (Supplement). Loci with no catalogued association in any domain are
 # shown as their own "Catalog-absent" bar rather than being dropped.
-PRIMARY_TSV = ROOT / "fig4c" / "fig4c_primary.tsv"
+PRIMARY_TSV = ROOT / "tables" / "fig4c" / "fig4c_primary.tsv"
 # on-target (musculoskeletal / body-composition) domains, pinned to the top of
 # the panel in this order; all remaining domains follow, sorted by descending count.
 ON_TARGET_TOP = [

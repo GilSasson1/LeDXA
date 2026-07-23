@@ -61,17 +61,17 @@ CSV_PUBLISH_MAP = {
     # mortality (dedicated script)
     'age_prediction_ukbb/ukbb_bioage_mortality_cox.csv':         'tableE_bioage_mortality_cox_dedicated.csv',
     # medication HPP outputs (canonical for Fig 5h)
-    'dexa_fm/age_prediction_analysis/medications_atc3_paired_before_after.csv':       'tableD_bioage_medication_paired_atc3.csv',
-    'dexa_fm/age_prediction_analysis/medications_significant_hits_phenotype_changes_by_sex.csv': 'tableD_bioage_medication_hits_by_sex.csv',
-    'dexa_fm/age_prediction_analysis/medications_crosssectional_users_vs_nonusers.csv': 'tableD_bioage_medication_users_vs_nonusers.csv',
-    'dexa_fm/age_prediction_analysis/drug_bodycomp_G03F_female.csv':                    'tableD_bioage_medication_G03F_female.csv',
-    'dexa_fm/age_prediction_analysis/drug_bodycomp_N06A_female.csv':                    'tableD_bioage_medication_N06A_female.csv',
-    'dexa_fm/age_prediction_analysis/drug_bodycomp_N06A_male.csv':                      'tableD_bioage_medication_N06A_male.csv',
-    'dexa_fm/age_prediction_analysis/drug_bodycomp_pcorr_G03F_female.csv':              'tableD_bioage_medication_pcorr_G03F_female.csv',
-    'dexa_fm/age_prediction_analysis/drug_bodycomp_pcorr_N06A_female.csv':              'tableD_bioage_medication_pcorr_N06A_female.csv',
-    'dexa_fm/age_prediction_analysis/drug_bodycomp_pcorr_N06A_male.csv':                'tableD_bioage_medication_pcorr_N06A_male.csv',
+    'tables/age_prediction_analysis/medications_atc3_paired_before_after.csv':       'tableD_bioage_medication_paired_atc3.csv',
+    'tables/age_prediction_analysis/medications_significant_hits_phenotype_changes_by_sex.csv': 'tableD_bioage_medication_hits_by_sex.csv',
+    'tables/age_prediction_analysis/medications_crosssectional_users_vs_nonusers.csv': 'tableD_bioage_medication_users_vs_nonusers.csv',
+    'tables/age_prediction_analysis/drug_bodycomp_G03F_female.csv':                    'tableD_bioage_medication_G03F_female.csv',
+    'tables/age_prediction_analysis/drug_bodycomp_N06A_female.csv':                    'tableD_bioage_medication_N06A_female.csv',
+    'tables/age_prediction_analysis/drug_bodycomp_N06A_male.csv':                      'tableD_bioage_medication_N06A_male.csv',
+    'tables/age_prediction_analysis/drug_bodycomp_pcorr_G03F_female.csv':              'tableD_bioage_medication_pcorr_G03F_female.csv',
+    'tables/age_prediction_analysis/drug_bodycomp_pcorr_N06A_female.csv':              'tableD_bioage_medication_pcorr_N06A_female.csv',
+    'tables/age_prediction_analysis/drug_bodycomp_pcorr_N06A_male.csv':                'tableD_bioage_medication_pcorr_N06A_male.csv',
     # HPP age predictions (Fig 5a)
-    'dexa_fm/age_prediction_analysis/age_prediction_rate_partitions.csv':               'tableD_bioage_predictions_hpp.csv',
+    'tables/age_prediction_analysis/age_prediction_rate_partitions.csv':               'tableD_bioage_predictions_hpp.csv',
 }
 
 # Supplementary figures from existing scripts; the *main* fig5 is built by plot_fig5.py.

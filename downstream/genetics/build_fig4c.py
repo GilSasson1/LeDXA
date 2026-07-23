@@ -17,7 +17,7 @@ Outputs (in this directory):
 import json, os, sys, time, subprocess
 
 R2_MIN = 0.8
-HERE = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'fig4c'))
+HERE = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'tables', 'fig4c'))
 ASSOC_TSV = os.path.join(HERE, "fig4c_associations.tsv")
 
 # (lead rsID, gene label as used in the figure)  -- GRCh37 leads

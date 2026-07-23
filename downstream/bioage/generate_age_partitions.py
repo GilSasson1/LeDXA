@@ -68,7 +68,7 @@ LEJEPA_PATH   = "/data/hpp_labdata/Analyses/gilsa/embeddings/embeddings_with_dat
 TARGETS_PATH  = "/path/to/project/targets_for_downstream_full.csv"
 GLP1_PATH     = "/data/hpp_labdata/Analyses/nastya/GLP1/all_glp1_meds_logged.csv"
 
-OUTPUT_DIR = "age_prediction_analysis"
+OUTPUT_DIR = "tables/age_prediction_analysis"
 if not os.path.exists(OUTPUT_DIR): os.makedirs(OUTPUT_DIR)
 PARTITIONS_OUT = os.path.join(OUTPUT_DIR, "age_prediction_rate_partitions.csv")
 
