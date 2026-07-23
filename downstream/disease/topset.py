@@ -1,5 +1,5 @@
 """
-compute_disease_topset.py — two-tailed "statistically-tied top set" per disease.
+topset.py — two-tailed "statistically-tied top set" per disease.
 
 For Fig 2 (Virchow Fig 2a idiom): for each disease, the best-AUROC model and any
 model NOT significantly different from it (two-tailed paired Wilcoxon across seeds,
@@ -10,23 +10,27 @@ Two-tailed is required: it correctly flags a competitor that is significantly BE
 (e.g. DINOv3 > DeepDXA on COPD), which a one-tailed DeepDXA>X test would mask.
 
 Inputs : HPP  raw  = {RESULTS_DIR}/lp_cov_disease_4arm_raw.csv  (per-seed 'score')
-         UKBB seeds = ukbb/ukbb_disease_4arm_seeds.csv          (per-seed 'auc')
-Output : tables/disease_top_set.csv  (cohort, key, raw_key, arm, mean, in_top_set,
-                                      sole_winner, argmax)
+         UKBB seeds = tables/ukbb_disease_4arm_seeds.csv        (per-seed 'auc')
+         Neither raw per-seed file is distributed in this repo (participant-level
+         provenance); point --hpp-raw/--ukbb-seeds at your own reproduction of them.
+Output : tables/disease_pairwise_diffpentuned.csv and tables/disease_top_set.csv
+         (cohort, key, raw_key, arm, mean, in_top_set, sole_winner, argmax) — named
+         to match the canonical inputs plotting/fig2_heatmap.py reads by default.
 """
 import os, sys, json, argparse, itertools
 import numpy as np
 import pandas as pd
 from scipy.stats import wilcoxon
 
-sys.path.insert(0, os.path.dirname(__file__))
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, REPO_ROOT)
 from common.plot_style import _dis_label, _DISEASE_NAMES_JSON, RESULTS_DIR
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 HPP_RAW_DEFAULT = os.path.join(RESULTS_DIR, 'lp_cov_disease_4arm_raw.csv')
-UKBB_SEEDS = os.path.join(HERE, 'ukbb', 'ukbb_disease_4arm_seeds.csv')
-OUT        = os.path.join(HERE, 'tables', 'disease_top_set.csv')
-OUT_PAIRS  = os.path.join(HERE, 'tables', 'disease_pairwise.csv')
+UKBB_SEEDS = os.path.join(REPO_ROOT, 'tables', 'ukbb_disease_4arm_seeds.csv')
+OUT        = os.path.join(REPO_ROOT, 'tables', 'disease_top_set.csv')
+OUT_PAIRS  = os.path.join(REPO_ROOT, 'tables', 'disease_pairwise_diffpentuned.csv')
 
 ARM_MAP = {'lejepa_cov': 'lejepa', 'dino_cov': 'dino', 'tab_cov': 'tabular', 'covariates': 'covariates'}
 ARMS = ['lejepa', 'dino', 'tabular', 'covariates']

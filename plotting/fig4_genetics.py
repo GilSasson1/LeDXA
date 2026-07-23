@@ -34,7 +34,6 @@ BIG_GIL_DIR = Path("/data/embeddings/big_gil")
 ANALYSIS_DIR = Path("/data/gwas_analysis")
 EMBEDDING_DIR = Path("/data/embeddings_qc")
 
-MANHATTAN_PATH = ROOT / "figures" / "fig_manhattan_ledxa.png"
 ANNOTATED_HITS_PATH = ANALYSIS_DIR / "annotated_hits.tsv"
 CATALOG_HITS_PATH = ANALYSIS_DIR / "gwas_catalog_hits.tsv"
 HERITABILITY_PATH = ANALYSIS_DIR / "heritability.tsv"
@@ -146,15 +145,6 @@ def _jepa_pc_files() -> list[Path]:
     return [path for _, path in sorted(files)]
 
 
-def _plot_manhattan_from_image(ax: plt.Axes) -> None:
-    import matplotlib.image as mpimg
-
-    image = mpimg.imread(MANHATTAN_PATH)
-    cropped = image[105:, :, :]
-    ax.imshow(cropped, aspect="auto")
-    ax.axis("off")
-
-
 # Canonical gene symbol (or None) for the top LeDXA-PC lead loci, matching the
 # published annotated Manhattan plot. rsID -> gene symbol, derived from
 # annotated_hits.tsv (lead SNP per 500kb-clumped locus, in_jepa==True, sorted
@@ -181,11 +171,10 @@ MANHATTAN_LOCUS_LABELS: dict[str, str | None] = {
 def draw_manhattan_panel(ax: plt.Axes) -> None:
     files = _jepa_pc_files()
     if not files:
-        if MANHATTAN_PATH.exists():
-            _plot_manhattan_from_image(ax)
-            _panel_label(ax, "a", x=-0.045, y=1.02)
-            return
-        raise FileNotFoundError(f"Missing Figure 4 Manhattan input: {MANHATTAN_PATH}")
+        raise FileNotFoundError(
+            f"No LeDXA-PC GWAS result files found in {EMBEDDING_DIR}; "
+            "Figure 4 expects gwas_results.JEPA_<PC>.glm.linear inputs."
+        )
 
     base = pd.read_csv(files[0], sep="\t", usecols=["#CHROM", "POS", "ID", "P"])
     chrom = pd.to_numeric(base["#CHROM"], errors="coerce").to_numpy(dtype=float)
@@ -270,8 +259,11 @@ def draw_manhattan_panel(ax: plt.Axes) -> None:
 
     # xlim/ylim must be set before placing labels below — collision avoidance
     # needs the final data->pixel transform to measure rendered label boxes.
+    # Extra headroom (vs. the pre-bump 1.16) leaves room for the larger label
+    # boxes at the bigger annotation fontsize to stack near the tallest peaks
+    # without clipping against the axis top.
     ax.set_xlim(-running * 0.005, running * 1.005)
-    ax.set_ylim(0, log_p.max() * 1.16)
+    ax.set_ylim(0, log_p.max() * 1.22)
 
     id_to_idx = {sid: i for i, sid in enumerate(snp_id)}
     label_points = []
@@ -296,7 +288,7 @@ def draw_manhattan_panel(ax: plt.Axes) -> None:
             ha, dx = "center", 0
 
         dy = 4
-        for _ in range(6):  # a handful of vertical bumps resolves any nearby-locus overlap
+        for _ in range(8):  # bigger label boxes at the larger fontsize need more bump room
             ann = ax.annotate(
                 label,
                 xy=(x, y),
@@ -304,7 +296,7 @@ def draw_manhattan_panel(ax: plt.Axes) -> None:
                 textcoords="offset points",
                 ha=ha,
                 va="bottom",
-                fontsize=9,
+                fontsize=13,
                 color="#222222",
                 linespacing=1.1,
             )
@@ -313,9 +305,19 @@ def draw_manhattan_panel(ax: plt.Axes) -> None:
                 placed_bboxes.append(bbox)
                 break
             ann.remove()
-            dy += 9  # one label-line's worth of vertical space per bump
+            dy += 13  # one label-line's worth of vertical space per bump, matched to the new fontsize
         else:
             placed_bboxes.append(bbox)
+
+    # Safety net: the bump loop above only avoids label-vs-label overlap, not overlap
+    # with the axes' own top edge — a few stacked labels near the tallest peak(s) can
+    # still end up above the ylim set earlier. Re-check post hoc and extend ylim (not
+    # just re-guess the headroom constant) so nothing renders clipped.
+    ax_top_display = ax.get_window_extent(renderer=renderer).y1
+    max_label_top_display = max((b.y1 for b in placed_bboxes), default=ax_top_display)
+    if max_label_top_display > ax_top_display:
+        _, max_label_top_data = ax.transData.inverted().transform((0, max_label_top_display))
+        ax.set_ylim(0, max_label_top_data * 1.03)
 
     ax.set_xticks(tick_positions)
     ax.set_xticklabels(tick_labels)
