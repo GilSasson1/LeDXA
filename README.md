@@ -50,17 +50,17 @@ body-composition and bone-density loci with higher SNP-heritability than DINOv3'
 ## Repository structure
 
 ```
-model/         LeJEPA + SIGReg pretraining, datasets, augmentations, embedding extraction
+model/         LeJEPA pretraining, datasets, augmentations, embedding extraction
 common/        shared utilities (probing helpers, plotting style, Cox helpers)
 downstream/    frozen-embedding analyses
-  disease/       prevalent-disease & biomarker probing (Fig 2, ED Fig 3/4)
-  survival/      incident-disease Cox models (Fig 3)
-  bioage/        biological-age gap, mortality, medication (Fig 5)
-  clustering/    unsupervised body-composition phenotyping (Fig 6)
-  genetics/      embedding-GWAS phenotype prep & locus annotation (Fig 4)
+  disease/       prevalent-disease & biomarker probing
+  survival/      incident-disease Cox models
+  bioage/        biological-age gap, mortality, medication
+  clustering/    unsupervised body-composition phenotyping
+  genetics/      embedding-GWAS phenotype prep & locus annotation
 plotting/      figure-generation scripts (fig1–fig6, supplementary, extended data)
 tables/        de-identified aggregate result tables (supplementary tables, figure inputs)
-figures/       rendered manuscript figures
+figures/       rendered main figures
 config.py      central path configuration (override via env vars)
 sample_data/   synthetic smoke-test (no real data needed)
 tools/         data-safety guard (check_no_pii.py)
@@ -90,7 +90,7 @@ python sample_data/demo.py     # builds the encoder, embeds a synthetic DXA batc
 Pretrain from scratch on your own DXA scans:
 
 ```bash
-python model/train.py          # LeJEPA + SIGReg, ViT-Small/16, 384×128 inputs
+python model/train.py          # LeJEPA, ViT-Small/16, 384×128 inputs
 ```
 
 DXA images are read from an HDF5 store (see `model/datasets.py` for the expected format) and
