@@ -91,13 +91,13 @@ LeDXA/
 ├── model/          architecture, datasets, augmentation, training, embedding extraction
 ├── downstream/     portable disease, survival, biological-age, and genetics templates
 ├── plotting/       manuscript figure generation
-├── tables/         de-identified aggregate results and figure inputs
+├── tables/         de-identified supplementary result tables
 ├── figures/        rendered manuscript figures
 └── sample_data/    participant-free synthetic smoke test
 ```
 
-Shared utilities and metadata support these main directories, while paths for controlled data and
-outputs are configured through [`config.py`](config.py). Detailed descriptions are in
+Shared utilities support these main directories, while paths for controlled data and outputs are
+configured through [`config.py`](config.py). Detailed descriptions are in
 [`downstream/README.md`](downstream/README.md), [`tables/README.md`](tables/README.md), and
 [`figures/README.md`](figures/README.md).
 
@@ -107,8 +107,8 @@ outputs are configured through [`config.py`](config.py). Detailed descriptions a
 The repository includes de-identified aggregate tables and the rendered main figures. Click any
 preview above or use the links below for the complete publication-quality PDF.
 
-| Figure | Scientific result | Public reproduction |
-|---|---|---|
+| Figure | Scientific result |
+|---|---|
 | [Figure 1](assets/figure1.pdf) | Study design and model overview |
 | [Figure 2](figures/fig2_disease_heatmap.pdf) | Disease and physiological-trait prediction |
 | [Figure 3](figures/fig3_cox_survival.pdf) | Incident-disease survival analysis |
@@ -116,16 +116,12 @@ preview above or use the links below for the complete publication-quality PDF.
 | [Figure 5](figures/fig5_biological_age.pdf) | Biological age, health, and mortality |
 | [Figure 6](figures/fig6_female_clusters.pdf) | Body-composition phenotype discovery |
 
-Figure 2 can be regenerated from the committed aggregate inputs:
-
-```bash
-python -m plotting.fig2_heatmap
-```
-
-The `plotting/` package contains only code used for the main figures. Figure 2 is reproducible from
-the included aggregate inputs; the other generators require controlled cohort inputs or external
-analysis outputs that cannot be distributed publicly. Aggregate result tables contain no
-participant-level rows; run `python tools/check_no_pii.py` before publishing new outputs.
+The `model/`, `downstream/`, and `plotting/` packages provide the full training, analysis, and
+figure-generation code as a reference implementation. The figures themselves are shipped as rendered
+PDFs and the supplementary results as de-identified tables in [`tables/`](tables/); regenerating the
+figures end-to-end requires the controlled UK Biobank / HPP cohort data, which cannot be distributed
+here. Any aggregate table added later must contain no participant-level rows — run
+`python tools/check_no_pii.py` before publishing new outputs.
 
 ## Data and model availability
 

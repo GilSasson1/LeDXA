@@ -57,17 +57,9 @@ def _agg(rows):
     return out
 
 
-def run_hpp(n_seeds=10, bone_pool=False, first_scan=False):
-    print(f"\n=== HPP age (imaging-only, bone+tissue{'; BONE-POOL' if bone_pool else ''}) ===")
+def run_hpp(n_seeds=10, first_scan=False):
+    print("\n=== HPP age (imaging-only, bone+tissue) ===")
     embs = load_embeddings(U.EMBEDDINGS_DIR, ["lejepa", "dino"])
-    if bone_pool:
-        for m in ["lejepa", "dino"]:
-            if "regionpool" in embs[m]:
-                bone = embs[m]["bone"]; rg = embs[m]["regionpool"].reindex(bone.index)
-                ok = rg.notna().all(axis=1); enr = bone.copy()
-                enr.loc[ok] = (bone.loc[ok].values + rg.loc[ok].values) / 2.0
-                embs[m]["bone"] = enr
-                print(f"  [{m}] bone-pool: enriched bone with regional on {int(ok.sum())}/{len(bone)}")
     tab = (pd.read_csv(HPP_TABULAR).set_index(["RegistrationCode", "research_stage"]))
     tab = tab[~tab.index.duplicated(keep="first")].sort_index().select_dtypes(include="number")
     tdf_full = pd.read_csv(U.TARGETS_CSV, index_col=[0, 1]).sort_index()
@@ -156,14 +148,11 @@ if __name__ == "__main__":
     parser.add_argument("--tabular-csv", required=True)
     parser.add_argument("--out-csv", default=OUT_CSV)
     parser.add_argument("--num-seeds", type=int, default=10)
-    parser.add_argument("--bone-pool", action="store_true")
     parser.add_argument("--first-scan-only", action="store_true")
     args = parser.parse_args()
     HPP_TABULAR = args.tabular_csv
-    out = run_hpp(args.num_seeds, bone_pool=args.bone_pool,
-                  first_scan=args.first_scan_only)
-    sfx = ("_bonepool" if args.bone_pool else "") + (
-        "_firstscan" if args.first_scan_only else "")
+    out = run_hpp(args.num_seeds, first_scan=args.first_scan_only)
+    sfx = "_firstscan" if args.first_scan_only else ""
     out_csv = args.out_csv.replace(".csv", f"{sfx}.csv") if sfx else args.out_csv
     os.makedirs(os.path.dirname(out_csv), exist_ok=True)
     pd.DataFrame(out).to_csv(out_csv, index=False)

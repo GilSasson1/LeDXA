@@ -39,21 +39,8 @@ def load_age_sex(tabular_csv: str) -> pd.DataFrame:
     return tab
 
 
-def _v2_by_eid(path: str):
-    """Load an (eid, visit[_index]) embedding pkl, keep visit 2, index by eid(str)."""
-    df = pd.read_pickle(path)
-    vlvl = df.index.names[1]
-    v2 = df.loc[df.index.get_level_values(vlvl).astype(str) == "2"].copy()
-    v2.index = v2.index.get_level_values(0).astype(str)
-    v2.index.name = "eid"
-    return v2[~v2.index.duplicated(keep="first")]
-
-
-def embeddings_to_gwas(emb_path: str, age_sex: pd.DataFrame, out_path: str, name: str,
-                       region_path: str = None):
-    """Load fusion embeddings pickle, filter to visit 2, join age/sex, save.
-    If region_path given, append the mean-pooled regional (femur+lumbar) block
-    (columns r*) so the GWAS PCA sees bone+tissue+regional."""
+def embeddings_to_gwas(emb_path: str, age_sex: pd.DataFrame, out_path: str, name: str):
+    """Load fusion embeddings pickle, filter to visit 2, join age/sex, save."""
     print(f"\n{'='*60}\nProcessing {name}\n{'='*60}")
     df = pd.read_pickle(emb_path)
     print(f"  Loaded: {df.shape}, index names: {df.index.names}")
@@ -70,14 +57,6 @@ def embeddings_to_gwas(emb_path: str, age_sex: pd.DataFrame, out_path: str, name
     # Join age/sex
     merged = age_sex[["sex", "age"]].join(v2, how="inner")
     print(f"  After joining age/sex: {len(merged)} rows, {merged.shape[1]} columns")
-
-    if region_path:
-        rg = _v2_by_eid(region_path).reindex(merged.index)
-        n_nan = int(rg.isna().all(axis=1).sum())
-        rg = rg.fillna(rg.mean())                      # impute missing-regional eids (PCA needs no NaN)
-        merged = pd.concat([merged, rg], axis=1)
-        print(f"  + regional block: +{rg.shape[1]} cols -> {merged.shape[1]} total "
-              f"({n_nan} eids w/o regional, mean-imputed)")
 
     merged.to_pickle(out_path)
     csv_path = out_path.replace(".pkl", ".csv")
@@ -137,59 +116,25 @@ def main():
                     help="Cohort table containing eid, visit-2 age/sex, and DXA measurements.")
     ap.add_argument("--out-dir", required=True,
                     help="Directory for GWAS-ready pickle and CSV files.")
-    ap.add_argument("--region-dir",
-                    help="Directory containing optional *_regionpool.pkl or bonepool fusion files.")
-    ap.add_argument("--region-pool", action="store_true",
-                    help="Append the femur+lumbar regional block (r*) to the embedding GWAS "
-                         "phenotypes; writes _regionpool-suffixed files. Tabular has no regional "
-                         "block and is left as-is.")
-    ap.add_argument("--bone-pool", action="store_true",
-                    help="Use the bone-pool fusion (regional mean-pooled INTO the bone view, no "
-                         "separate block; same dim as whole-body). Writes _bonepool-suffixed files. "
-                         "Tabular has no embedding pooling and is left as-is.")
     args = ap.parse_args()
-    if args.region_pool and args.bone_pool:
-        raise SystemExit("--region-pool and --bone-pool are mutually exclusive")
     os.makedirs(args.out_dir, exist_ok=True)
-    if (args.region_pool or args.bone_pool) and not args.region_dir:
-        ap.error("--region-dir is required with --region-pool or --bone-pool")
-
-    # Resolve source fusion paths + suffix by regime.
-    bonepool_dir = os.path.join(args.region_dir, "bonepool") if args.region_dir else None
-    if args.bone_pool:
-        sfx = "_bonepool"
-        dino_path = os.path.join(bonepool_dir, "dino_fusion.pkl")
-        lej_path  = os.path.join(bonepool_dir, "lejepa_fusion.pkl")
-        rp_dino = rp_lej = None        # regional already folded into the bone view
-    else:
-        sfx = "_regionpool" if args.region_pool else ""
-        dino_path = args.dino_embeddings
-        lej_path  = args.lejepa_embeddings
-        rp_dino = os.path.join(args.region_dir, "dino_regionpool.pkl") if args.region_pool else None
-        rp_lej = os.path.join(args.region_dir, "lejepa_regionpool.pkl") if args.region_pool else None
 
     # Step 1: Load age & sex
     age_sex = load_age_sex(args.tabular_csv)
 
     # Step 2: Process DINO → GWAS format
     dino_gwas = embeddings_to_gwas(
-        dino_path, age_sex,
-        os.path.join(args.out_dir, f"dino_huge_plus_gwas{sfx}.pkl"),
-        "DINO Huge+", region_path=rp_dino,
+        args.dino_embeddings, age_sex,
+        os.path.join(args.out_dir, "dino_huge_plus_gwas.pkl"),
+        "DINO Huge+",
     )
 
     # Step 3: Process LeJEPA → GWAS format
     lejepa_gwas = embeddings_to_gwas(
-        lej_path, age_sex,
-        os.path.join(args.out_dir, f"lejepa_gwas{sfx}.pkl"),
-        "LeJEPA", region_path=rp_lej,
+        args.lejepa_embeddings, age_sex,
+        os.path.join(args.out_dir, "lejepa_gwas.pkl"),
+        "LeJEPA",
     )
-
-    if args.region_pool or args.bone_pool:
-        regime = "region-pool" if args.region_pool else "bone-pool"
-        print(f"\n[{regime}] DINO + LeJEPA embedding GWAS phenotypes written ({sfx}); "
-              "tabular is embedding-agnostic, existing dxa_tabular_gwas stands.")
-        return
 
     # Step 4: Process Tabular → GWAS format
     tabular_gwas = tabular_to_gwas(

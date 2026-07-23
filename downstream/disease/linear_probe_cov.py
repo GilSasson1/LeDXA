@@ -38,12 +38,6 @@ _RESULTS_DIR = str(RESULTS_DIR)
 
 
 DIFF_PEN    = False   # --diff-pen: per-block penalisation (covariate block loosened vs feature block)
-SINGLE_PEN  = False   # --single-pen: include regional block but fit ONE shared penalty (no per-block)
-TWO_PEN     = False   # --two-pen: 2 blocks only — [bone+tissue+regional] | [cov], one penalty each
-GROUP_LASSO = False   # --group-lasso: block-level L1 (whole-block selection) + within-block L2
-BONE_POOL   = False   # --bone-pool: pool regional INTO the bone view (no extra block), then [fm|cov]
-REGION_POOL = False   # --region-pool: split SSL arm into bone | tissue | regional | cov blocks,
-                      #                each separately penalised (coordinate-descent scale sweep)
 COV_FREE_SCALE = None # --cov-free-scale: sensitivity mode; fix last/covariate block scale
                       #                   after standardization instead of CV-tuning it.
 
@@ -97,20 +91,15 @@ def _cov_adjusted_score(base_specs, y_tr, y_val, is_cls):
     feature dimensions jointly — unlike meta-learner stacking, which can only
     blend two frozen per-block prediction scores.
 
-    base_specs: list of (name, X_train_block, X_val_block) — e.g. [bone, tissue,
-    regional, cov]. Under --diff-pen or --region-pool each block is separately
-    penalised via coordinate-descent scale selection; otherwise a single shared fit.
+    base_specs: list of (name, X_train_block, X_val_block) — e.g. [fm, cov].
+    Under --diff-pen each block is separately penalised via coordinate-descent
+    scale selection; otherwise a single shared fit.
     Returns (score, None, None) — the trailing Nones keep the call-site
     signature unchanged from the previous stacking implementation.
     """
-    if GROUP_LASSO:
-        block_sizes = [X.shape[1] for _, X, _ in base_specs]
-        val_pred = _fit_group_lasso(base_specs, y_tr, y_val, is_cls, block_sizes)
-        return float(U.metric(y_val, val_pred, is_cls)), None, None
     X_tr  = np.concatenate([X for _, X, _ in base_specs], axis=1)
     X_val = np.concatenate([X for _, _, X in base_specs], axis=1)
-    sizes = ([X.shape[1] for _, X, _ in base_specs]
-             if ((DIFF_PEN or REGION_POOL or TWO_PEN) and not SINGLE_PEN) else None)
+    sizes = [X.shape[1] for _, X, _ in base_specs] if DIFF_PEN else None
     fixed_scales = None
     if COV_FREE_SCALE is not None and sizes is not None and len(sizes) >= 2:
         fixed_scales = [1.0] * len(sizes)
@@ -123,71 +112,13 @@ def _cov_adjusted_score(base_specs, y_tr, y_val, is_cls):
     return float(U.metric(y_val, val_pred, is_cls)), None, None
 
 
-def _fit_group_lasso(base_specs, y_tr, y_val, is_cls, block_sizes):
-    """Group lasso: block-level L1 (zero out whole blocks) + within-block L2.
-    Groups = the feature blocks (bone|tissue|regional|cov). scale_reg='group_size'
-    applies the canonical sqrt(block size) weighting so a big embedding block is not
-    cheaper to switch on than the 3-dim covariate block. group_reg is inner-CV-tuned."""
-    from group_lasso import LogisticGroupLasso, GroupLasso
-    from sklearn.model_selection import StratifiedKFold, KFold
-    X_tr = np.concatenate([X for _, X, _ in base_specs], axis=1)
-    X_val = np.concatenate([X for _, _, X in base_specs], axis=1)
-    sc = StandardScaler().fit(X_tr)
-    X_tr, X_val = sc.transform(X_tr), sc.transform(X_val)
-    groups = np.concatenate([[gi] * b for gi, b in enumerate(block_sizes)])
-    grid = [0.003, 0.01, 0.03]
-
-    def _mk(gr):
-        kw = dict(groups=groups, group_reg=gr, l1_reg=0.0, scale_reg="group_size",
-                  n_iter=600, tol=3e-3, supress_warning=True)
-        return LogisticGroupLasso(**kw) if is_cls else GroupLasso(**kw)
-
-    def _pred(m, X):
-        if is_cls:
-            p = np.asarray(m.predict_proba(X)); return p[:, 1] if p.ndim == 2 else p
-        return np.asarray(m.predict(X)).ravel()
-
-    # inner CV to pick group_reg
-    splitter = (StratifiedKFold(3, shuffle=True, random_state=0) if is_cls
-                else KFold(3, shuffle=True, random_state=0))
-    best_gr, best_cv = grid[0], -np.inf
-    for gr in grid:
-        sc_folds = []
-        for itr, ite in splitter.split(X_tr, y_tr if is_cls else None):
-            try:
-                m = _mk(gr).fit(X_tr[itr], y_tr[itr])
-                sc_folds.append(U.metric(y_tr[ite], _pred(m, X_tr[ite]), is_cls))
-            except Exception:
-                sc_folds.append(np.nan)
-        mcv = np.nanmean(sc_folds)
-        if np.isfinite(mcv) and mcv > best_cv:
-            best_cv, best_gr = mcv, gr
-    m = _mk(best_gr).fit(X_tr, y_tr)
-    return _pred(m, X_val)
-
-
 def _ssl_cov_specs(embs, model, tr_idx, val_idx, cov_tr, cov_val):
-    """Build the (name, X_tr, X_val) blocks for an SSL+covariate arm.
-    Region-pool → [bone | tissue | regional | cov] (each separately penalised);
-    otherwise → [fused bone+tissue | cov] (the published 2-block layout)."""
+    """Build the (name, X_tr, X_val) blocks for an SSL+covariate arm:
+    [fused bone+tissue | cov] (the published 2-block layout)."""
     bone_tr  = embs[model]["bone"].loc[tr_idx].values
     bone_val = embs[model]["bone"].loc[val_idx].values
     tis_tr   = embs[model]["tissue"].loc[tr_idx].values
     tis_val  = embs[model]["tissue"].loc[val_idx].values
-    has_region = REGION_POOL and "regionpool" in embs[model]
-    if has_region:
-        rp_tr, rp_val = _impute(embs[model]["regionpool"].reindex(tr_idx).values.astype(float),
-                                embs[model]["regionpool"].reindex(val_idx).values.astype(float))
-    if TWO_PEN:
-        # 2 blocks only: [bone+tissue(+regional)] | [cov]. One penalty per block.
-        parts_tr = [bone_tr, tis_tr] + ([rp_tr] if has_region else [])
-        parts_val = [bone_val, tis_val] + ([rp_val] if has_region else [])
-        emb_tr = np.concatenate(parts_tr, axis=1)
-        emb_val = np.concatenate(parts_val, axis=1)
-        return [("emb", emb_tr, emb_val), ("cov", cov_tr, cov_val)]
-    if has_region:
-        return [("bone", bone_tr, bone_val), ("tissue", tis_tr, tis_val),
-                ("regional", rp_tr, rp_val), ("cov", cov_tr, cov_val)]
     fm_tr  = np.concatenate([bone_tr, tis_tr], axis=1)
     fm_val = np.concatenate([bone_val, tis_val], axis=1)
     return [("fm", fm_tr, fm_val), ("cov", cov_tr, cov_val)]
@@ -429,24 +360,6 @@ def main():
     p.add_argument("--diff-pen", action="store_true",
                    help="Differential per-block penalisation: leave the age/sex/BMI covariate "
                         "block unpenalised; tune the penalty only on the feature block.")
-    p.add_argument("--region-pool", action="store_true",
-                   help="Split SSL+cov arms into bone | tissue | regional | cov blocks, each "
-                        "separately penalised (coordinate-descent scale sweep). Implies per-block. "
-                        "Requires {model}_regionpool.pkl.")
-    p.add_argument("--single-pen", action="store_true",
-                   help="Include the regional block (like --region-pool) but fit ONE shared "
-                        "penalty over [bone+tissue+regional+cov] instead of per-block scaling. "
-                        "Isolates the regional information from the per-block regularisation change.")
-    p.add_argument("--two-pen", action="store_true",
-                   help="Two penalizers only: [bone+tissue+regional] | [cov], each block one "
-                        "penalty (no bone/tissue/regional sub-splitting). Regional included.")
-    p.add_argument("--group-lasso", action="store_true",
-                   help="Group lasso over blocks [bone|tissue|regional|cov]: block-level L1 "
-                        "(can zero a whole block) + within-block L2. sqrt(size)-weighted; "
-                        "group_reg inner-CV-tuned. Includes the regional block.")
-    p.add_argument("--bone-pool", action="store_true",
-                   help="Pool regional INTO the bone view (bone* = mean(bone, regional)); no "
-                        "separate block. Fits [bone*+tissue | cov] two-pen (decoupled cov penalty).")
     p.add_argument("--cov-free-scale", type=float, default=None,
                    help="Sensitivity analysis: fix the last/covariate block scale after "
                         "standardization instead of tuning it. Large values approximate "
@@ -455,25 +368,10 @@ def main():
     if not args.no_tab_cov and not args.tabular_csv:
         p.error("--tabular-csv is required unless --no-tab-cov is set")
 
-    global DIFF_PEN, REGION_POOL, SINGLE_PEN, TWO_PEN, GROUP_LASSO, BONE_POOL, COV_FREE_SCALE
-    GROUP_LASSO = args.group_lasso
-    BONE_POOL = args.bone_pool
-    TWO_PEN = args.two_pen
-    REGION_POOL = args.region_pool or args.single_pen or args.two_pen or args.group_lasso
-    SINGLE_PEN = args.single_pen
+    global DIFF_PEN, COV_FREE_SCALE
     COV_FREE_SCALE = args.cov_free_scale
-    DIFF_PEN = (args.diff_pen or args.region_pool or args.bone_pool) and not args.single_pen and not args.two_pen and not args.group_lasso
-    if BONE_POOL:
-        print("Bone-pool ON: bone* = mean(bone, regional); fit [bone*+tissue | cov], decoupled cov.")
-    elif GROUP_LASSO:
-        print("Group-lasso ON: blocks = [bone|tissue|regional|cov], block-L1 + within-block-L2.")
-    elif TWO_PEN:
-        print("Two-pen ON: blocks = [bone+tissue+regional] | [cov], one penalty each.")
-    elif SINGLE_PEN:
-        print("Single-pen region-pool ON: blocks = bone+tissue+regional+cov, ONE shared penalty.")
-    elif REGION_POOL:
-        print("Region-pool ON: SSL arms = bone | tissue | regional | cov, per-block penalised.")
-    elif DIFF_PEN:
+    DIFF_PEN = args.diff_pen
+    if DIFF_PEN:
         print("Differential penalisation ON: covariate block left unpenalised.")
     if COV_FREE_SCALE is not None:
         print(f"Covariate-free sensitivity ON: last block fixed scale = {COV_FREE_SCALE:g}.")
@@ -484,20 +382,6 @@ def main():
     ssl_models = ["lejepa"] + ([] if args.no_dino_cov else ["dino"])
     print(f"Loading {ssl_models} embeddings from {args.embeddings_dir}")
     embs = load_embeddings(args.embeddings_dir, ssl_models)
-
-    if BONE_POOL:
-        # Pool the regional (femur+lumbar) scans INTO the bone view rather than as a
-        # separate block: bone* = mean(whole-body bone, regional-pooled). Same dim,
-        # no extra block — enriches the bone channel without inflating capacity.
-        for m in [mm for mm in ssl_models if mm in embs and "regionpool" in embs[mm]]:
-            bone = embs[m]["bone"]
-            rg = embs[m].pop("regionpool").reindex(bone.index)
-            ok = rg.notna().all(axis=1)
-            enriched = bone.copy()
-            enriched.loc[ok] = (bone.loc[ok].values + rg.loc[ok].values) / 2.0
-            embs[m]["bone"] = enriched
-            print(f"  [{m}] bone-pool: enriched bone with regional on {int(ok.sum())}/{len(bone)} "
-                  f"subjects (rest keep whole-body bone)")
 
     tabular_df = None
     if not args.no_tab_cov:

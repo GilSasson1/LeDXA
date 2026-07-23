@@ -1,5 +1,0 @@
-cohort,model,n_seeds,pearson_mean,pearson_se,mae_yr_mean,mae_yr_se
-HPP,covariates,10,0.1369,0.0091,7.701,0.031
-HPP,lejepa,10,0.8945,0.0019,3.532,0.014
-HPP,dino,10,0.8436,0.0025,4.274,0.016
-HPP,tabular,10,0.7581,0.0044,5.119,0.033

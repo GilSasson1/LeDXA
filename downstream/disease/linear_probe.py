@@ -66,11 +66,8 @@ _SEX_FILTER_MAP = {
 # ── LOAD PRE-EXTRACTED EMBEDDINGS ─────────────────────────────────────────────
 BONE_ONLY   = False   # --bone-only: use only the bone-view embedding (skip tissue)
 BMD_ONLY    = False   # --bmd-only: restrict the tabular arm to *_bmd columns
-REGION_POOL = False   # --region-pool: add the mean-pooled regional-scan block to SSL arms
-REGION_ONLY = False   # --region-only: use only the mean-pooled femur+lumbar regional embedding
-PER_BLOCK   = False   # --per-block: treat bone / tissue / regional as separate penalized
-                      #              blocks (per-block scale sweep; see _fit_predict_blocks).
-                      #              Auto-on under --region-pool.
+PER_BLOCK   = False   # --per-block: treat bone / tissue as separate penalized blocks
+                      #              (per-block scale sweep; see _fit_predict_blocks).
 
 
 def load_embeddings(embeddings_dir: str, models: list[str]) -> dict[str, dict[str, pd.DataFrame]]:
@@ -97,17 +94,6 @@ def load_embeddings(embeddings_dir: str, models: list[str]) -> dict[str, dict[st
         embs[model] = {"bone": bone_df, "tissue": tissue_df}
         n, d = bone_df.shape
         print(f"  [{model}] bone: {n} × {d}  |  tissue: {tissue_df.shape[0]} × {tissue_df.shape[1]}")
-
-        # Optional mean-pooled regional-scan (femur+lumbar) view — loaded when present.
-        region_path = os.path.join(embeddings_dir, f"{model}_regionpool.pkl")
-        if os.path.exists(region_path):
-            region_df = pd.read_pickle(region_path)
-            if region_df.index.nlevels == 3:
-                region_df = region_df.reset_index(level="Date", drop=True)
-            embs[model]["regionpool"] = region_df
-            n_nan = int(region_df.isna().all(axis=1).sum())
-            print(f"  [{model}] regionpool: {region_df.shape[0]} × {region_df.shape[1]}  "
-                  f"({n_nan} all-NaN / 0-crop)")
     return embs
 
 
@@ -160,8 +146,8 @@ def _fit_predict_blocks(X_tr, X_val, y_tr, y_val, is_cls: bool, seed: int = 0,
     """Early fusion with TUNED per-block penalization across ≥2 column blocks, selected
     by COORDINATE DESCENT over discrete scale factors (linear in #blocks, not Cartesian).
 
-    `block_sizes` gives each block's column count in order (e.g. bone | tissue | regional
-    | cov). The first block is the reference (scale 1); every later block is scaled by a
+    `block_sizes` gives each block's column count in order (e.g. bone | tissue | cov).
+    The first block is the reference (scale 1); every later block is scaled by a
     factor s ∈ {1,4,16,64} (standardized columns ×s ⇒ ridge penalty 1/s² as hard, so s>1
     trusts that block more). Starting from all-1, each free block's scale is greedily set
     to its inner-CV-score argmax in turn (one pass). One block ⇒ a plain single fit.
@@ -297,13 +283,7 @@ def run_target(
 
     # Filter subjects by SSL embedding presence
     for model in ssl_models_needed:
-        if REGION_ONLY:
-            if "regionpool" not in embs[model]:
-                raise FileNotFoundError(f"--region-only set but '{model}' has no regionpool embeddings")
-            region_df = embs[model]["regionpool"]
-            usable_idx = set(region_df.index[~region_df.isna().all(axis=1)])
-        else:
-            usable_idx = set(embs[model]["bone"].index)
+        usable_idx = set(embs[model]["bone"].index)
         labeled_subjects = {
             s: rows for s, rows in labeled_subjects.items()
             if any(r in usable_idx for r in rows)
@@ -381,52 +361,32 @@ def run_target(
 
         # ── SSL models (lejepa, dino) ──────────────────────────────────────
         for model in [m for m in models if m in _SSL_MODELS]:
-            if REGION_ONLY:
-                region_df = embs[model]["regionpool"]
-                usable_idx = set(region_df.index[~region_df.isna().all(axis=1)])
-                tr_in_emb  = [r for r in train_idx if r in usable_idx]
-                val_in_emb = [r for r in val_idx   if r in usable_idx]
+            bone_df   = embs[model]["bone"]
+            tissue_df = embs[model]["tissue"]
 
-                early_tr, early_val = _impute(region_df.loc[tr_in_emb].values.astype(float),
-                                              region_df.loc[val_in_emb].values.astype(float))
-                block_sizes = [early_tr.shape[1]]
-                y_tr_m  = target_df.loc[tr_in_emb,  target_col].values.astype(float)
-                y_val_m = target_df.loc[val_in_emb, target_col].values.astype(float)
-                tissue_tr = tissue_val = None
-            else:
-                bone_df   = embs[model]["bone"]
-                tissue_df = embs[model]["tissue"]
+            tr_in_emb  = [r for r in train_idx if r in bone_df.index]
+            val_in_emb = [r for r in val_idx   if r in bone_df.index]
 
-                tr_in_emb  = [r for r in train_idx if r in bone_df.index]
-                val_in_emb = [r for r in val_idx   if r in bone_df.index]
+            bone_tr   = bone_df.loc[tr_in_emb].values
+            bone_val  = bone_df.loc[val_in_emb].values
+            tissue_tr = tissue_df.loc[tr_in_emb].values
+            tissue_val= tissue_df.loc[val_in_emb].values
 
-                bone_tr   = bone_df.loc[tr_in_emb].values
-                bone_val  = bone_df.loc[val_in_emb].values
-                tissue_tr = tissue_df.loc[tr_in_emb].values
-                tissue_val= tissue_df.loc[val_in_emb].values
+            y_tr_m  = target_df.loc[tr_in_emb,  target_col].values.astype(float)
+            y_val_m = target_df.loc[val_in_emb, target_col].values.astype(float)
 
-                y_tr_m  = target_df.loc[tr_in_emb,  target_col].values.astype(float)
-                y_val_m = target_df.loc[val_in_emb, target_col].values.astype(float)
+            # View blocks for (optional) per-block penalization: bone and tissue as
+            # separately penalized blocks.
+            blocks_tr  = [bone_tr]
+            blocks_val = [bone_val]
+            block_sizes = [bone_tr.shape[1]]
+            if not BONE_ONLY:
+                blocks_tr.append(tissue_tr);  blocks_val.append(tissue_val)
+                block_sizes.append(tissue_tr.shape[1])
+            early_tr  = np.concatenate(blocks_tr,  axis=1)
+            early_val = np.concatenate(blocks_val, axis=1)
 
-                # View blocks for (optional) per-block penalization: bone, tissue, and the
-                # mean-pooled regional-scan block (femur+lumbar) — the dedicated scans the
-                # tabular BMD readout is derived from. Each is a separately penalized block.
-                blocks_tr  = [bone_tr]
-                blocks_val = [bone_val]
-                block_sizes = [bone_tr.shape[1]]
-                if not BONE_ONLY:
-                    blocks_tr.append(tissue_tr);  blocks_val.append(tissue_val)
-                    block_sizes.append(tissue_tr.shape[1])
-                if REGION_POOL and "regionpool" in embs[model]:
-                    rp_df = embs[model]["regionpool"]
-                    rp_tr, rp_val = _impute(rp_df.reindex(tr_in_emb).values.astype(float),
-                                            rp_df.reindex(val_in_emb).values.astype(float))
-                    blocks_tr.append(rp_tr); blocks_val.append(rp_val)
-                    block_sizes.append(rp_tr.shape[1])
-                early_tr  = np.concatenate(blocks_tr,  axis=1)
-                early_val = np.concatenate(blocks_val, axis=1)
-
-            if (PER_BLOCK or REGION_POOL) and len(block_sizes) >= 2:
+            if PER_BLOCK and len(block_sizes) >= 2:
                 pred_f, alpha_f = _fit_predict_blocks(early_tr, early_val, y_tr_m, y_val_m,
                                                       is_cls, seed=seed, block_sizes=block_sizes)
             else:
@@ -437,7 +397,7 @@ def run_target(
             print(f"    [{model}] fusion={score:.4f}")
             _append_result(results, raw_rows, model, score, target_col, metric_name, seed)
 
-            if model == "lejepa" and not REGION_ONLY:
+            if model == "lejepa":
                 lejepa_tr  = (bone_tr,  tissue_tr,  tr_in_emb,  y_tr_m)
                 lejepa_val = (bone_val, tissue_val, val_in_emb, y_val_m)
 
@@ -589,20 +549,9 @@ def main():
                         help="Use only the bone-view embedding (skip tissue) for SSL arms")
     parser.add_argument("--bmd-only", action="store_true",
                         help="Restrict the tabular arm to *_bmd columns (clinical BMD readout)")
-    parser.add_argument("--region-pool", action="store_true",
-                        help="Append the mean-pooled regional-scan ({model}_regionpool.pkl) block "
-                             "to the SSL arms (separately penalized). Implies --per-block. Requires "
-                             "extract_region_embeddings.py to have been run.")
     parser.add_argument("--per-block", action="store_true",
-                        help="Treat bone / tissue / regional as separate penalized blocks "
-                             "(per-block scale sweep). Use without --region-pool for the matched "
-                             "bone|tissue baseline that isolates the regional contribution.")
-    parser.add_argument("--bone-pool", action="store_true",
-                        help="Pool regional INTO the bone view (bone* = mean(bone, regional)); no "
-                             "separate block. SSL arm = [bone*+tissue], single fit (imaging-only).")
-    parser.add_argument("--region-only", action="store_true",
-                        help="Use only the mean-pooled femur+lumbar regional-scan embedding for "
-                             "SSL arms. Excludes all-NaN failed regional crops.")
+                        help="Treat bone and tissue as separate penalized blocks "
+                             "(per-block scale sweep).")
     args  = parser.parse_args()
     for path in (args.results_csv, args.results_raw_csv, args.results_ttest_csv):
         directory = os.path.dirname(path)
@@ -610,14 +559,10 @@ def main():
             os.makedirs(directory, exist_ok=True)
     seeds = U.make_seeds(args.num_seeds)
 
-    global _RAND_N_ITER, _N_CS, BONE_ONLY, BMD_ONLY, REGION_POOL, REGION_ONLY, PER_BLOCK
+    global _RAND_N_ITER, _N_CS, BONE_ONLY, BMD_ONLY, PER_BLOCK
     BONE_ONLY   = args.bone_only
     BMD_ONLY    = args.bmd_only
-    REGION_POOL = args.region_pool
-    REGION_ONLY = args.region_only
-    PER_BLOCK   = args.per_block or args.region_pool
-    if sum(bool(x) for x in (args.region_only, args.region_pool, args.bone_pool)) > 1:
-        raise SystemExit("Use only one of --region-only, --region-pool, or --bone-pool.")
+    PER_BLOCK   = args.per_block
     _N_CS = args.n_cs
     if args.rand_search:
         _RAND_N_ITER = args.rand_n_iter
@@ -631,32 +576,6 @@ def main():
 
     print(f"Loading embeddings from: {args.embeddings_dir}")
     embs = load_embeddings(args.embeddings_dir, ssl_to_load)
-
-    if args.bone_pool:
-        # Pool regional INTO bone (bone* = mean(bone, regional)); no separate block.
-        for m in [mm for mm in ssl_to_load if mm in embs and "regionpool" in embs[mm]]:
-            bone = embs[m]["bone"]; rg = embs[m].pop("regionpool").reindex(bone.index)
-            ok = rg.notna().all(axis=1); enriched = bone.copy()
-            enriched.loc[ok] = (bone.loc[ok].values + rg.loc[ok].values) / 2.0
-            embs[m]["bone"] = enriched
-            print(f"  [{m}] bone-pool: enriched bone with regional on {int(ok.sum())}/{len(bone)} subjects")
-
-    if REGION_POOL:
-        missing = [m for m in ssl_to_load if "regionpool" not in embs.get(m, {})]
-        if missing:
-            raise FileNotFoundError(
-                f"--region-pool set but {missing} lack {{model}}_regionpool.pkl in "
-                f"{args.embeddings_dir}. Run: python extract_region_embeddings.py "
-                f"--models {' '.join(missing)}")
-        print("[region-pool] enabled — SSL arms = [whole-body | regional-pool], per-block penalized")
-
-    if REGION_ONLY:
-        missing = [m for m in ssl_to_load if "regionpool" not in embs.get(m, {})]
-        if missing:
-            raise FileNotFoundError(
-                f"--region-only set but {missing} lack {{model}}_regionpool.pkl in "
-                f"{args.embeddings_dir}.")
-        print("[region-only] enabled — SSL arms = mean-pooled femur+lumbar regional embeddings only")
 
     if args.pca > 0:
         from sklearn.decomposition import PCA as _PCA

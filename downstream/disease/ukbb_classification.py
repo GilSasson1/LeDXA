@@ -44,9 +44,6 @@ from config import DATA_ROOT, EMBEDDINGS_DIR, RESULTS_DIR
 
 import sys as _sys
 _sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
-from downstream.disease.linear_probe import _fit_predict_blocks as _RPB   # shared multi-block coordinate-descent fitter
-
-REGIONPOOL = False   # set by --region-pool: add femur+lumbar block to SSL+cov arms
 
 # ── Paths ──────────────────────────────────────────────────────────────────────
 _HERE = os.path.dirname(os.path.abspath(__file__))
@@ -196,23 +193,6 @@ def _fit_classify(X_tr, X_va, y_tr, y_va, rand_n_iter=None, seed=0,
         return {"auc": float("nan"), "pr": float("nan")}
 
 
-def _classify_blocks(blocks_tr, blocks_va, y_tr, y_va) -> dict:
-    """AUC/PR from the shared multi-block coordinate-descent fitter (region-pool):
-    blocks = [embedding | regional | covariates], each separately penalised."""
-    Xtr = np.concatenate(blocks_tr, axis=1)
-    Xva = np.concatenate(blocks_va, axis=1)
-    sizes = [b.shape[1] for b in blocks_tr]
-    Xtr, Xva = _impute_median(Xtr, Xva)
-    with warnings.catch_warnings():
-        warnings.simplefilter("ignore")
-        pred, _ = _RPB(Xtr, Xva, y_tr, y_va, is_cls=True, block_sizes=sizes)
-    try:
-        return {"auc": float(roc_auc_score(y_va, pred)),
-                "pr":  float(average_precision_score(y_va, pred))}
-    except ValueError:
-        return {"auc": float("nan"), "pr": float("nan")}
-
-
 # ── Data loading ───────────────────────────────────────────────────────────────
 
 def _load_embedding(pkl_path: str) -> pd.DataFrame:
@@ -274,8 +254,6 @@ def main(n_seeds: int = DEFAULT_N_SEEDS,
          c_lo: int = -3,
          c_hi: int = 3,
          diff_pen: bool = False,
-         region_pool: bool = False,
-         two_pen: bool = False,
          targets: "list | None" = None) -> None:
     for path in (out_seeds, out_summary):
         directory = os.path.dirname(path)
@@ -321,17 +299,6 @@ def main(n_seeds: int = DEFAULT_N_SEEDS,
 
     if not embeddings:
         raise FileNotFoundError(f"No embedding files found in {EMB_DIR}")
-
-    # Optional regional-pool block (femur+lumbar) for the SSL+cov arms.
-    region_emb: dict[str, pd.DataFrame] = {}
-    if region_pool:
-        for name, fname in [("lejepa", "lejepa_regionpool.pkl"), ("dino", "dino_regionpool.pkl")]:
-            path = os.path.join(EMB_DIR, fname)
-            if os.path.exists(path):
-                region_emb[name] = _load_embedding(path)
-                print(f"  region[{name}]: {region_emb[name].shape}")
-        if not region_emb:
-            raise FileNotFoundError(f"--region-pool set but no *_regionpool.pkl in {EMB_DIR}")
 
     # Optional PCA on embeddings (fit on full cohort — unsupervised, no label leakage).
     if pca_components is not None:
@@ -422,22 +389,12 @@ def main(n_seeds: int = DEFAULT_N_SEEDS,
             if "lejepa" in embeddings:
                 emb_tr = embeddings["lejepa"].reindex(tr_eids).values.astype(float)
                 emb_va = embeddings["lejepa"].reindex(va_eids).values.astype(float)
-                if region_emb.get("lejepa") is not None:   # [fusion | regional | cov] per-block
-                    rg_tr = region_emb["lejepa"].reindex(tr_eids).values.astype(float)
-                    rg_va = region_emb["lejepa"].reindex(va_eids).values.astype(float)
-                    if two_pen:   # strict 2-block: [fusion+regional | cov]
-                        et = np.concatenate([emb_tr, rg_tr], axis=1)
-                        ev = np.concatenate([emb_va, rg_va], axis=1)
-                        m_lc = _classify_blocks([et, cov_tr], [ev, cov_va], y_tr, y_va)
-                    else:
-                        m_lc = _classify_blocks([emb_tr, rg_tr, cov_tr], [emb_va, rg_va, cov_va], y_tr, y_va)
+                if use_covariates:
+                    X_tr = np.concatenate([emb_tr, cov_tr], axis=1)
+                    X_va = np.concatenate([emb_va, cov_va], axis=1)
                 else:
-                    if use_covariates:
-                        X_tr = np.concatenate([emb_tr, cov_tr], axis=1)
-                        X_va = np.concatenate([emb_va, cov_va], axis=1)
-                    else:
-                        X_tr, X_va = emb_tr, emb_va
-                    m_lc = _fit_classify(X_tr, X_va, y_tr, y_va, rand_n_iter=rand_n_iter, seed=seed, model=model, n_cs=n_cs, inner_cv=inner_cv, c_lo=c_lo, c_hi=c_hi, diff_pen=diff_pen, n_cov=cov_tr.shape[1])
+                    X_tr, X_va = emb_tr, emb_va
+                m_lc = _fit_classify(X_tr, X_va, y_tr, y_va, rand_n_iter=rand_n_iter, seed=seed, model=model, n_cs=n_cs, inner_cv=inner_cv, c_lo=c_lo, c_hi=c_hi, diff_pen=diff_pen, n_cov=cov_tr.shape[1])
                 seed_rows.append({"disease": dis_col, "model": "lejepa_cov",
                                    "seed": seed, "auc": m_lc["auc"], "pr": m_lc["pr"]})
 
@@ -445,22 +402,12 @@ def main(n_seeds: int = DEFAULT_N_SEEDS,
             if "dino" in embeddings:
                 emb_tr_d = embeddings["dino"].reindex(tr_eids).values.astype(float)
                 emb_va_d = embeddings["dino"].reindex(va_eids).values.astype(float)
-                if region_emb.get("dino") is not None:
-                    rg_tr = region_emb["dino"].reindex(tr_eids).values.astype(float)
-                    rg_va = region_emb["dino"].reindex(va_eids).values.astype(float)
-                    if two_pen:   # strict 2-block: [fusion+regional | cov]
-                        et = np.concatenate([emb_tr_d, rg_tr], axis=1)
-                        ev = np.concatenate([emb_va_d, rg_va], axis=1)
-                        m_dc = _classify_blocks([et, cov_tr], [ev, cov_va], y_tr, y_va)
-                    else:
-                        m_dc = _classify_blocks([emb_tr_d, rg_tr, cov_tr], [emb_va_d, rg_va, cov_va], y_tr, y_va)
+                if use_covariates:
+                    X_tr = np.concatenate([emb_tr_d, cov_tr], axis=1)
+                    X_va = np.concatenate([emb_va_d, cov_va], axis=1)
                 else:
-                    if use_covariates:
-                        X_tr = np.concatenate([emb_tr_d, cov_tr], axis=1)
-                        X_va = np.concatenate([emb_va_d, cov_va], axis=1)
-                    else:
-                        X_tr, X_va = emb_tr_d, emb_va_d
-                    m_dc = _fit_classify(X_tr, X_va, y_tr, y_va, rand_n_iter=rand_n_iter, seed=seed, model=model, n_cs=n_cs, inner_cv=inner_cv, c_lo=c_lo, c_hi=c_hi, diff_pen=diff_pen, n_cov=cov_tr.shape[1])
+                    X_tr, X_va = emb_tr_d, emb_va_d
+                m_dc = _fit_classify(X_tr, X_va, y_tr, y_va, rand_n_iter=rand_n_iter, seed=seed, model=model, n_cs=n_cs, inner_cv=inner_cv, c_lo=c_lo, c_hi=c_hi, diff_pen=diff_pen, n_cov=cov_tr.shape[1])
                 seed_rows.append({"disease": dis_col, "model": "dino_cov",
                                    "seed": seed, "auc": m_dc["auc"], "pr": m_dc["pr"]})
 
@@ -589,14 +536,8 @@ if __name__ == "__main__":
     parser.add_argument("--diff-pen", action="store_true",
                         help="Differential per-block penalisation: leave the age/sex/BMI "
                              "covariate block unpenalised; tune L2 only on the imaging/tabular block")
-    parser.add_argument("--region-pool", action="store_true",
-                        help="Add the mean-pooled regional-scan ({model}_regionpool.pkl) block to the "
-                             "SSL+cov arms as [fusion | regional | cov], per-block coordinate descent.")
-    parser.add_argument("--two-pen", action="store_true",
-                        help="Strict 2-block region-pool: merge [fusion+regional] into one block "
-                             "vs [cov] (implies --region-pool). Matches the Fig 2 two-pen regime.")
     parser.add_argument("--emb-dir", default=None,
-                        help="Override the embeddings directory (e.g. the bone-pool fusion dir).")
+                        help="Override the embeddings directory.")
     parser.add_argument("--disease-labels", default=DISEASE_LABELS,
                         help="CSV containing eid-indexed dis__ outcome columns.")
     parser.add_argument("--tabular-csv", default=TABULAR_CSV,
@@ -620,8 +561,7 @@ if __name__ == "__main__":
                           or args.c_lo != -3 or args.c_hi != 3))
                  else "")
     _dp_tag = "_diffpen" if args.diff_pen else ""
-    _rp_tag = "_twopen" if args.two_pen else ("_regionpool" if args.region_pool else "")
-    _suffix  = _cov_tag + _pca_tag + _rs_tag + _model_tag + _grid_tag + _dp_tag + _rp_tag
+    _suffix  = _cov_tag + _pca_tag + _rs_tag + _model_tag + _grid_tag + _dp_tag
     out_seeds   = args.out_seeds   if args.out_seeds   != DEFAULT_OUT_SEEDS   else DEFAULT_OUT_SEEDS.replace(".csv",   f"{_suffix}.csv") if _suffix else DEFAULT_OUT_SEEDS
     out_summary = args.out_summary if args.out_summary != DEFAULT_OUT_SUMMARY else DEFAULT_OUT_SUMMARY.replace(".csv", f"{_suffix}.csv") if _suffix else DEFAULT_OUT_SUMMARY
     rand_n_iter = args.rand_n_iter if args.rand_search else None
@@ -631,5 +571,4 @@ if __name__ == "__main__":
          rand_n_iter=rand_n_iter,
          model=args.model, n_cs=args.n_cs, inner_cv=args.inner_cv,
          c_lo=args.c_lo, c_hi=args.c_hi, diff_pen=args.diff_pen,
-         region_pool=args.region_pool or args.two_pen, two_pen=args.two_pen,
          targets=args.targets)
