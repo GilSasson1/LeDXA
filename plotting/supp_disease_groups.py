@@ -24,12 +24,20 @@ from common.plot_style import MODEL_COLORS
 
 # ── Paths ─────────────────────────────────────────────────────────────────────
 _RESULTS_DIR = "/data/hpp_labdata/Analyses/gilsa/results/comparison"
+_ROOT = Path(__file__).resolve().parents[1]
+_METADATA_DIR = _ROOT / "metadata"
 SUMMARY_CSV  = os.environ.get("GRP_SUMMARY", os.path.join(_RESULTS_DIR, "lp_disease_4arm_group_summary.csv"))
 WILCOX_CSV   = os.environ.get("GRP_WILCOX",  os.path.join(_RESULTS_DIR, "lp_disease_4arm_group_wilcoxon.csv"))
-TARGETS_CSV  = "csvs/disease_targets_group_with_covs.csv"
-INDIVIDUAL_TARGETS_CSV = "csvs/disease_targets_with_covs.csv"
-INDIVIDUAL_NAMES_JSON  = "csvs/disease_display_names.json"
-INDIVIDUAL_GROUPS_JSON = "csvs/disease_groups.json"
+TARGETS_CSV = os.environ.get(
+    "LEDXA_GROUP_DISEASE_TARGETS_CSV",
+    str(_ROOT / "data" / "hpp" / "disease_targets_group_with_covs.csv"),
+)
+INDIVIDUAL_TARGETS_CSV = os.environ.get(
+    "LEDXA_DISEASE_TARGETS_WITH_COVS_CSV",
+    str(_ROOT / "data" / "hpp" / "disease_targets_with_covs.csv"),
+)
+INDIVIDUAL_NAMES_JSON  = str(_METADATA_DIR / "disease_display_names.json")
+INDIVIDUAL_GROUPS_JSON = str(_METADATA_DIR / "disease_groups.json")
 CONDITIONS_CSV = "/data/hpp_labdata/Data/10K/for_review/baseline_conditions_all.csv"
 OUT_DIR      = "figures"
 OUT_NAME     = os.environ.get("GRP_OUT_NAME", "supp_disease_groups")

@@ -10,8 +10,8 @@ considered sick at all their visits. Labels are replicated across all visits a
 subject has in the embedding pool. Both baseline_conditions_all.csv and
 follow_up_conditions_all.csv are used (matching disease_classfication.py).
 
-Also saves csvs/disease_display_names.json mapping sanitized column names
-→ original disease names for use in plot labels.
+Also saves display-name and grouping metadata under the repository's `metadata/`
+directory for use in plot labels.
 
 Usage:
     python prepare_disease_targets.py
@@ -48,7 +48,8 @@ _LEVEL = _ARGS.level
 _LEVEL_TAG = "" if _LEVEL == "Consolidated name" else f"_{_LEVEL.lower().replace(' ', '_')}"
 OUT_CSV        = os.path.join(os.path.dirname(__file__), "csvs", f"disease_targets{_LEVEL_TAG}.csv")
 OUT_WITH_COV   = os.path.join(os.path.dirname(__file__), "csvs", f"disease_targets{_LEVEL_TAG}_with_covs.csv")
-OUT_NAMES_JSON = os.path.join(os.path.dirname(__file__), "csvs", f"disease_display_names{_LEVEL_TAG}.json")
+_METADATA_DIR  = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "metadata"))
+OUT_NAMES_JSON = os.path.join(_METADATA_DIR, f"disease_display_names{_LEVEL_TAG}.json")
 
 # gender=1 → male, gender=0 → female (verified via creatinine/hemoglobin means)
 # These diseases are biologically exclusive to one sex — evaluate within that sex only
@@ -187,6 +188,7 @@ def main():
 
     # ── Save ───────────────────────────────────────────────────────────────
     os.makedirs(os.path.dirname(OUT_CSV), exist_ok=True)
+    os.makedirs(_METADATA_DIR, exist_ok=True)
     disease_df.to_csv(OUT_CSV)
     print(f"\nSaved: {OUT_CSV}  ({disease_df.shape})")
 

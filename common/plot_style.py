@@ -22,6 +22,8 @@ from common.cox_utils import (COX_EVENT_SHORT_NAMES  as _COX_EVENT_SHORT_NAMES_I
 
 # ── PATHS ─────────────────────────────────────────────────────────────────────
 _HERE       = os.path.dirname(__file__)
+_REPO_ROOT  = os.path.dirname(_HERE)
+_METADATA_DIR = os.path.join(_REPO_ROOT, "metadata")
 RESULTS_DIR = "/data/hpp_labdata/Analyses/gilsa/results/comparison"
 FIGURES_DIR = "/data/hpp_labdata/Analyses/gilsa/figures/comparison"
 
@@ -41,7 +43,10 @@ DISEASE_CSV         = os.path.join(RESULTS_DIR, "lp_disease_summary.csv")
 DISEASE_COV_ENS_CSV     = os.path.join(RESULTS_DIR, "lp_disease_cov_ens_summary.csv")
 DISEASE_COV_ENS_RAW_CSV = os.path.join(RESULTS_DIR, "lp_disease_cov_ens_raw.csv")
 TABULAR_DIS_CSV     = os.path.join(RESULTS_DIR, "tabular_disease_summary.csv")
-DISEASE_TARGETS_CSV = os.path.join(os.path.dirname(__file__), "csvs", "disease_targets.csv")
+DISEASE_TARGETS_CSV = os.environ.get(
+    "LEDXA_DISEASE_TARGETS_CSV",
+    os.path.join(_REPO_ROOT, "data", "hpp", "disease_targets.csv"),
+)
 _COX_CSV_ENS  = "ukbb/cox_ttest_results_min48_ensemble.csv"
 _COX_CSV_ORIG = "ukbb/cox_ttest_results_min48.csv"
 COX_CSV = _COX_CSV_ENS if os.path.exists(_COX_CSV_ENS) else _COX_CSV_ORIG
@@ -124,8 +129,8 @@ _DIS_CATEGORY_NAMES = {
     10: "Urology",  11: "GI (other)",
 }
 
-_DISEASE_NAMES_JSON  = os.path.join(_HERE, "csvs", "disease_display_names.json")
-_DISEASE_GROUPS_JSON = os.path.join(_HERE, "csvs", "disease_groups.json")
+_DISEASE_NAMES_JSON  = os.path.join(_METADATA_DIR, "disease_display_names.json")
+_DISEASE_GROUPS_JSON = os.path.join(_METADATA_DIR, "disease_groups.json")
 
 # ── STYLE ─────────────────────────────────────────────────────────────────────
 MODEL_ORDER  = ["ensemble", "lejepa", "dino", "tabular", "covariates"]

@@ -2,8 +2,10 @@
 
 **A self-supervised foundation model for whole-body dual-energy X-ray absorptiometry (DXA) scans**
 
-Code accompanying *LeDXA: a self-supervised foundation model for dual-energy X-ray
-absorptiometry* — manuscript and DOI forthcoming.
+Official implementation of *LeDXA: a self-supervised foundation model for dual-energy X-ray
+absorptiometry* — **Sasson et al. (2026)**
+
+📄 **Paper:** coming soon <!-- Replace with: [Paper](MANUSCRIPT_URL) --> · [Citation](#citation)
 
 [![LeDXA pretraining and downstream applications](assets/readme/overview.png)](assets/figure1.pdf)
 
@@ -92,6 +94,7 @@ LeDXA/
 ├── tables/         de-identified aggregate results and figure inputs
 ├── figures/        rendered manuscript figures
 ├── common/         shared statistical, model, Cox, and plotting utilities
+├── metadata/       disease display names and analysis grouping rules
 ├── sample_data/    participant-free synthetic smoke test
 ├── assets/         README visuals and the complete Figure 1
 ├── data/           git-ignored location for authorized local data and model outputs
@@ -167,7 +170,7 @@ architecture and pipeline.
 ```bibtex
 @article{ledxa,
   title  = {LeDXA: a self-supervised foundation model for dual-energy X-ray absorptiometry},
-  author = {TBD},
+  author = {Sasson, Gil and others},
   year   = {2026},
   note   = {Manuscript in preparation}
 }
