@@ -49,9 +49,10 @@ conditions.
 
 Frozen LeDXA embeddings improve incident-disease prediction beyond demographic covariates and
 scanner-derived DXA measurements, with particularly strong gains for hip and knee arthrosis and
-type-2 diabetes.
+type-2 diabetes. The preview shows these selected headline outcomes; click it for all evaluated
+endpoints in Figure 3.
 
-[![Incident-disease Cox model comparison](assets/readme/incident_disease.png)](figures/fig3_cox_survival.pdf)
+[![Selected incident hip arthrosis, knee arthrosis, and type-2 diabetes outcomes](assets/readme/incident_disease.png)](figures/fig3_cox_survival.pdf)
 
 ### Biological age and mortality
 
