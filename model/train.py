@@ -26,7 +26,7 @@ from config import (
 
 config = {
     "img_size": (384, 128),
-    "batch_size": 64,
+    "batch_size": 256,
     "lr": 5e-4,
     "probe_lr": 1e-3,
     "weight_decay": 5e-2,
