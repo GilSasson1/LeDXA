@@ -9,7 +9,6 @@ PRED_CSV = os.environ.get(
     'BIOAGE_PRED_CSV', str(DATA_ROOT / 'ukbb' / 'age_predictions_with_visits.csv'))
 EVENTS_CSV = os.environ.get(
     'BIOAGE_EVENTS_CSV', str(DATA_ROOT / 'ukbb' / 'incident_events.csv'))
-HPP_ANALYSIS_DIR = os.path.join(TABLES_DIR, 'age_prediction_analysis')
 
 
 def out_table(name: str) -> str:

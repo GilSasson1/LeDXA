@@ -10,18 +10,20 @@ and `model/`.
 
 | File | Supplementary Table |
 |---|---|
-| `supp_table_1_hpp_prevalent_disease_classification_auroc.csv` | 1 — HPP prevalent-disease classification (AUROC) |
-| `supp_table_2_ukbb_prevalent_disease_classification_auroc.csv` | 2 — UKBB prevalent-disease classification (AUROC) |
-| `supp_table_3_hpp_disease_organ_system_grouping_PENDING.csv` | 3 — HPP disease organ-system grouping **[PENDING]** |
-| `supp_table_4_ukbb_incident_disease_cox_discrimination_c_index.csv` | 4 — UKBB incident-disease Cox discrimination (C-index) |
-| `supp_table_5_ledxa_embedding_gwas_hits.csv` | 5 — LeDXA embedding GWAS hits (genome-wide and suggestive) |
-| `supp_table_6_atc3_medication_response_PENDING.csv` | 6 — Paired biological-age-gap change by ATC-3 medication class and sex **[PENDING]** |
-| `supp_table_7_female_embedding_cluster_matched_phenotypic_differences.csv` | 7 — Female embedding-cluster matched phenotypic differences (DXA body-composition + bone-density, 299 rows) |
-| `supp_table_8_female_embedding_cluster_multi_omics_hits.csv` | 8 — Female embedding-cluster multi-omics hits |
-| `supp_table_9_dxa_tabular_feature_dictionary_hpp_and_uk_biobank.csv` | 9 — DXA tabular feature dictionary (HPP and UK Biobank) |
+| `table_1_hpp_disease.csv` | 1 — HPP prevalent-disease classification (AUROC) |
+| `table_2_ukbb_disease.csv` | 2 — UKBB prevalent-disease classification (AUROC) |
+| — | 3 — HPP disease organ-system grouping; not included because the source mapping is unavailable |
+| `table_4_incident_disease.csv` | 4 — UKBB incident-disease discrimination (C-index) |
+| `table_5_gwas_hits.csv` | 5 — LeDXA embedding GWAS hits |
+| `table_6_medications.csv` | 6 — Paired biological-age-gap changes by ATC-3 medication group |
+| `table_7_cluster_phenotypes.csv` | 7 — Matched female-cluster phenotypic differences |
+| `table_8_cluster_omics.csv` | 8 — Female-cluster multi-omics hits |
+| `table_9_dxa_features.csv` | 9 — HPP and UK Biobank DXA feature dictionary |
 
-Tables 3 and 6 are pending — the diagnosis→organ-system-category mapping (3) and the reconciled
-ATC-3 medication run (6) are not available yet; those files are stubs, not data.
+Table 3 remains an open manuscript item. No placeholder file is kept: it should be added only when
+the diagnosis-to-organ-system mapping and case counts are available. Table 6 contains the complete
+paired ATC-3 analysis (27 medication groups), including the HRT result in women and the pooled
+antidepressant result.
 
 Every file here is cohort-level aggregate with no participant rows. Run `python tools/check_no_pii.py`
 before adding new outputs.

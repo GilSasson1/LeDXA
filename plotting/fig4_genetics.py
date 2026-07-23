@@ -281,7 +281,8 @@ def draw_manhattan_panel(ax: plt.Axes) -> None:
             ha, dx = "center", 0
 
         dy = 4
-        for _ in range(8):  # bigger label boxes at the larger fontsize need more bump room
+        max_attempts = 8  # bigger label boxes at the larger fontsize need more bump room
+        for attempt in range(max_attempts):
             ann = ax.annotate(
                 label,
                 xy=(x, y),
@@ -289,18 +290,20 @@ def draw_manhattan_panel(ax: plt.Axes) -> None:
                 textcoords="offset points",
                 ha=ha,
                 va="bottom",
-                fontsize=13,
+                fontsize=16,
                 color="#222222",
                 linespacing=1.1,
             )
             bbox = ann.get_window_extent(renderer=renderer).expanded(1.05, 1.15)
-            if not any(bbox.overlaps(prev) for prev in placed_bboxes):
+            overlaps = any(bbox.overlaps(prev) for prev in placed_bboxes)
+            # Keep the label on the last attempt even if still overlapping — every
+            # locus must stay visible; removing it here (as a prior version did)
+            # silently drops the label instead of just accepting imperfect placement.
+            if not overlaps or attempt == max_attempts - 1:
                 placed_bboxes.append(bbox)
                 break
             ann.remove()
-            dy += 13  # one label-line's worth of vertical space per bump, matched to the new fontsize
-        else:
-            placed_bboxes.append(bbox)
+            dy += 16  # one label-line's worth of vertical space per bump, matched to the new fontsize
 
     # Safety net: the bump loop above only avoids label-vs-label overlap, not overlap
     # with the axes' own top edge — a few stacked labels near the tallest peak(s) can

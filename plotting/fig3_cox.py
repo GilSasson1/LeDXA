@@ -106,7 +106,7 @@ MAIN_CSV = os.environ.get("FIG3_MAIN_CSV", PERSEED_CSV.replace("_perseed.csv", "
 # SWEEP_GRID (matches the grid-search panel a). Set the env var to a number to force a fixed pen.
 FIG3_FIXED_PEN = os.environ.get("FIG3_FIXED_PEN", "") or None
 OUT_PATH        = os.path.join(_ROOT, "figures", "fig3_cox_survival")
-SUPP_TABLE_PATH = os.path.join(_ROOT, "tables", "supp_table_4_ukbb_incident_disease_cox_discrimination_c_index.csv")
+SUPP_TABLE_PATH = os.path.join(_ROOT, "tables", "table_4_incident_disease.csv")
 
 BASELINE_COL = "Date of attending assessment centre - visit 2"
 DEATH_COL    = "Date of death - visit 0"

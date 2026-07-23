@@ -321,27 +321,9 @@ def _disease_panel(ax, disease_csv: str, *, top_n: int = DISEASE_TOP_N) -> None:
 
 
 def _medication_panel(ax, paired_csv: str) -> None:
-    """Δgap before → after for FDR-sig medications (panel h).
-
-    N06A (antidepressants) is shown restricted to men, not pooled across sexes:
-    the pooled estimate is the weaker, sex-diluted signal, whereas the
-    male-specific effect (matching the text) survives FDR correction across
-    the drug-by-sex tests in the committed aggregate analysis table.
-    """
+    """Δgap before → after for FDR-significant ATC-3 groups (panel h)."""
     df = pd.read_csv(paired_csv)
     sig = df[df['adjusted_p_value'] < 0.05].copy()
-    sig = sig[sig['drug'] != 'N06A']
-
-    sexsplit = pd.read_csv(os.path.join(paths.HPP_ANALYSIS_DIR, 'medication_sexsplit_paired_gap.csv'))
-    n06a_male = sexsplit[(sexsplit['drug'] == 'N06A') & (sexsplit['sex'] == 'Male')].iloc[0]
-    sig = pd.concat([sig, pd.DataFrame([{
-        'drug': 'N06A', 'demo': 'Male',
-        'N_paired': int(n06a_male['n']),
-        'mean_before': n06a_male['mean_before'],
-        'mean_after': n06a_male['mean_after'],
-        'mean_delta': n06a_male['delta_gap'],
-        'adjusted_p_value': n06a_male['p_fdr'],
-    }])], ignore_index=True)
 
     sig = sig.sort_values('mean_delta')
 
@@ -479,7 +461,7 @@ def compose_figure(*, save: bool = True):
     gap_df = _load_mortality_followup()
     _km_panel(ax_f, gap_df)
     _disease_panel(ax_g, paths.out_table('tableD_bioage_disease_prevalence_extended.csv'))
-    _medication_panel(ax_h, paths.out_table('tableD_bioage_medication_paired_atc3.csv'))
+    _medication_panel(ax_h, paths.out_table('table_6_medications.csv'))
 
     # ── panel letters ────────────────────────────────────────────────────────
     for ax, letter in zip([ax_a, ax_b, ax_c, ax_d, ax_e, ax_f, ax_g, ax_h],

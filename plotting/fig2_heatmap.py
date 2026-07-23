@@ -64,8 +64,10 @@ DEXA  = os.environ.get('DEXA_ROOT', os.path.dirname(_ROOT))  # parent dir holds 
 # ablations and must be opted into explicitly via FIG2_ALLOW_ABLATION=1.
 FIG2_SOURCE_REGIME = 'diffpentuned'
 # In-repo canonical inputs (repo-relative):
-SUPP_A    = os.environ.get('FIG2_HPP_TABLE', os.path.join(_ROOT, 'tables', 'supp_table_1_hpp_prevalent_disease_classification_auroc.csv'))
-UKBB_AUC  = os.environ.get('FIG2_UKBB_TABLE', os.path.join(_ROOT, 'tables', 'supp_table_2_ukbb_prevalent_disease_classification_auroc.csv'))
+SUPP_A = os.environ.get(
+    'FIG2_HPP_TABLE', os.path.join(_ROOT, 'tables', 'table_1_hpp_disease.csv'))
+UKBB_AUC = os.environ.get(
+    'FIG2_UKBB_TABLE', os.path.join(_ROOT, 'tables', 'table_2_ukbb_disease.csv'))
 AGE_MAE_CSV  = os.environ.get('FIG2_AGE_MAE', os.path.join(_ROOT, 'tables', 'age_mae_imaging_only_wholebody.csv'))  # per-model age (imaging-only, multi-visit)
 OUT_DEF   = os.path.join(_ROOT, 'figures', 'fig2_disease_heatmap.png')
 # External inputs (participant-level or not distributed — supply via env / DEXA_ROOT):
@@ -198,13 +200,18 @@ def _assert_canonical_sources():
         'FIG2_UKBB_TABLE': UKBB_AUC,
         'FIG2_PAIRS': _PAIRS_CSV,
     }
+    canonical_public = {
+        'FIG2_HPP_TABLE': 'table_1_hpp_disease.csv',
+        'FIG2_UKBB_TABLE': 'table_2_ukbb_disease.csv',
+    }
     banned = ('regionpool', 'twopen')
     problems = []
     for name, path in checked.items():
         base = os.path.basename(path).lower()
         if any(token in base for token in banned):
             problems.append(f'{name}={path}')
-        if 'diffpen' not in base and 'bonepool' not in base and 'lsw' not in base:
+        if (base != canonical_public.get(name)
+                and 'diffpen' not in base and 'bonepool' not in base and 'lsw' not in base):
             problems.append(f'{name}={path} (missing regime marker)')
     if problems:
         joined = '\n  '.join(problems)
