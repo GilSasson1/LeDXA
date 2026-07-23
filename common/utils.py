@@ -179,22 +179,7 @@ def make_lejepa(ckpt_path: str):
     ).to(DEVICE)
 
     ckpt = torch.load(ckpt_path, map_location=DEVICE)
-    swa_state = ckpt.get("swa_encoder") if isinstance(ckpt, dict) else None
-    n_averaged = (
-        int(swa_state.get("n_averaged", 0))
-        if isinstance(swa_state, dict)
-        else 0
-    )
-    if n_averaged > 0:
-        # torch.optim.swa_utils.AveragedModel stores the wrapped model under a
-        # ``module.`` prefix and adds a scalar ``n_averaged`` buffer.
-        state = {
-            key.removeprefix("module."): value
-            for key, value in swa_state.items()
-            if key != "n_averaged"
-        }
-        source = "SWA encoder"
-    elif isinstance(ckpt, dict) and "encoder" in ckpt:
+    if isinstance(ckpt, dict) and "encoder" in ckpt:
         state = ckpt["encoder"]
         source = "encoder"
     else:

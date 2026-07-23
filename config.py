@@ -31,11 +31,6 @@ LEJEPA_CHECKPOINT = Path(
     os.environ.get("LEDXA_CHECKPOINT", CHECKPOINTS_DIR / "hpp" / "best_model.pth")
 )
 
-# Weights & Biases (optional) — set to your own entity/project or disable logging.
-WANDB_ENTITY = os.environ.get("WANDB_ENTITY")  # None -> W&B default
-WANDB_PROJECT = os.environ.get("WANDB_PROJECT", "LeDXA")
-WANDB_MODE = os.environ.get("WANDB_MODE", "disabled" if WANDB_ENTITY is None else "online")
-
 # Repo-relative outputs (curated, de-identified aggregate results — safe to commit).
 TABLES_DIR  = REPO_ROOT / "tables"
 FIGURES_DIR = REPO_ROOT / "figures"

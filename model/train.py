@@ -1,12 +1,9 @@
 import numpy as np
 import pandas as pd
 import torch
-import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import r2_score
-import wandb
 import os
 import h5py
 from transformers import get_cosine_schedule_with_warmup
@@ -18,9 +15,6 @@ from config import (
     EMBEDDINGS_DIR,
     HPP_DXA_H5,
     HPP_TARGETS_CSV,
-    WANDB_ENTITY,
-    WANDB_MODE,
-    WANDB_PROJECT,
 )
 
 
@@ -28,7 +22,6 @@ config = {
     "img_size": (384, 128),
     "batch_size": 256,
     "lr": 5e-4,
-    "probe_lr": 1e-3,
     "weight_decay": 5e-2,
     "epochs": 400,
     "lambda": 0.05,
@@ -38,10 +31,6 @@ config = {
     "local_views": 8,
     "model_name": 'vit_small_patch16_384',
     "drop_path": 0.1,
-    # [EXPERIMENTAL] SWA — per LeJEPA Table 4, small ViT boost
-    "use_swa": True,
-    "swa_start_epoch": 100,  # start averaging at 75% of training
-    "swa_lr": 1e-4,
 }
 
 
@@ -55,16 +44,7 @@ RESUME_FROM = None
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
 
-run_name = f"late_fusion_2_8_withSWA"
-
-
-class OnlineLinearProbe(nn.Module):
-    def __init__(self, input_dim):
-        super().__init__()
-        self.probe = nn.Linear(input_dim, 1)
-
-    def forward(self, x):
-        return self.probe(x)
+run_name = "ledxa_late_fusion"
 
 
 def lejepa_collate_fn(batch):
@@ -117,14 +97,6 @@ def extract_and_save_embeddings(encoder, dataset, batch_size, filename_prefix):
 
 
 def main():
-    wandb.init(
-        entity=WANDB_ENTITY,
-        project=WANDB_PROJECT,
-        mode=WANDB_MODE,
-        name=run_name,
-        resume="allow",
-    )
-
     print(f"Loading targets from {TARGETS_CSV}...")
     targets_orig = pd.read_csv(TARGETS_CSV)
 
@@ -251,56 +223,22 @@ def main():
         n_local=config["local_views"]
     )
 
-    # Val dataset uses targets_orig which has the values
-    val_dataset = LeJEPAHDF5Dataset(
-        hdf5_path=HDF5_PATH,
-        keys=val_keys,
-        targets_df=targets_orig,
-        transform=val_aug,
-        n_global=2,
-        n_local=0
-    )
-
     train_loader = DataLoader(train_dataset, batch_size=config["batch_size"], shuffle=True, num_workers=4, collate_fn=lejepa_collate_fn, pin_memory=True)
-    val_loader = DataLoader(val_dataset, batch_size=config["batch_size"], shuffle=False, num_workers=4, collate_fn=lejepa_collate_fn, pin_memory=True)
 
     # ---------------------------------------------------------
     # 7. MODEL & LOOP
 
     encoder = LeJEPA_Encoder(config["model_name"], img_size=config['img_size'], proj_out_dim=64).to(DEVICE)
 
-    # [EXPERIMENTAL] SWA — uniform weight averaging in the final phase of training
-    if config["use_swa"]:
-        from torch.optim.swa_utils import AveragedModel, update_bn
-        swa_encoder = AveragedModel(encoder)
-        print(f"[EXPERIMENTAL] SWA enabled (starts epoch {config['swa_start_epoch']}, lr={config['swa_lr']})")
-    else:
-        swa_encoder = None
-
-    # Probe heads are detached from encoder for SSL monitoring and late fusion.
-    probe_bone = nn.Linear(encoder.embed_dim, 1).to(DEVICE)
-    probe_tissue = nn.Linear(encoder.embed_dim, 1).to(DEVICE)
-
     sigreg_module = SIGReg(num_slices=config["sigreg_slices"]).to(DEVICE)
 
-    # Optimizer for encoder (SSL loss)
     opt_enc = optim.AdamW(encoder.parameters(), lr=config["lr"], weight_decay=config["weight_decay"])
-
-    # Separate optimizer for probes (detached for SSL monitoring)
-    opt_probe = optim.AdamW(
-        list(probe_bone.parameters()) + list(probe_tissue.parameters()),
-        lr=config["probe_lr"],
-        weight_decay=1e-5,
-    )
 
     total_steps = config["epochs"] * len(train_loader)
     warmup_steps = config["warmup_epochs"] * len(train_loader)
     scheduler = get_cosine_schedule_with_warmup(opt_enc, warmup_steps, total_steps)
 
-    mse_crit = nn.MSELoss()
-
     start_epoch = 1
-    best_val_r2 = -float('inf')
     global_step = 0
 
     os.makedirs(CHECKPOINTS, exist_ok=True)
@@ -309,40 +247,24 @@ def main():
     if RESUME_FROM and os.path.exists(RESUME_FROM):
         checkpoint = torch.load(RESUME_FROM, map_location=DEVICE)
         encoder.load_state_dict(checkpoint['encoder'])
-        if swa_encoder is not None and 'swa_encoder' in checkpoint:
-            swa_encoder.load_state_dict(checkpoint['swa_encoder'])
-        if 'probe_bone' in checkpoint:
-            probe_bone.load_state_dict(checkpoint['probe_bone'])
-            probe_tissue.load_state_dict(checkpoint['probe_tissue'])
-        elif 'probe' in checkpoint:
-            # Backward compatibility for older checkpoints with a single probe.
-            probe_bone.load_state_dict(checkpoint['probe'])
-            probe_tissue.load_state_dict(checkpoint['probe'])
         start_epoch = checkpoint['epoch'] + 1
-        best_val_r2 = checkpoint.get('best_val_r2', -float('inf'))
-        global_step = checkpoint.get('global_step', 0)  # Restore step counter
+        global_step = checkpoint.get('global_step', 0)
         print(f"Resumed from Epoch {start_epoch}, global_step={global_step}")
 
     print("Starting Training...")
 
     for epoch in range(start_epoch, config["epochs"] + 1):
         encoder.train()
-        probe_bone.train()
-        probe_tissue.train()
+        train_stats = {'loss': 0, 'pred': 0, 'sig': 0}
 
-        train_stats = {'loss': 0, 'pred': 0, 'sig': 0, 'probe': 0}
-        train_preds, train_trues = [], []
-
-        for views_data, age_targets in train_loader:
-            age_targets = age_targets.to(DEVICE).view(-1)
-            bs = age_targets.size(0)
-
+        for views_data, _ in train_loader:
+            bs = views_data[0].size(0)
             n_globals = config["global_views"]
             n_locals = config["local_views"]
-                
+
             def compute_ssl(views):
                 global_views = torch.cat(views[:n_globals], dim=0).to(DEVICE)
-                g_feats, g_projs = encoder(global_views)
+                _, g_projs = encoder(global_views)
 
                 local_inputs = torch.cat(views[n_globals:], dim=0).to(DEVICE)
                 _, l_projs = encoder(local_inputs)
@@ -360,128 +282,31 @@ def main():
                 l_sig = l_sig / all_projs.shape[0]
 
                 l_ssl = (1 - config["lambda"]) * l_pred + config["lambda"] * l_sig
-                return l_ssl, l_pred, l_sig, g_feats.view(n_globals, bs, -1)
+                return l_ssl, l_pred, l_sig
 
             opt_enc.zero_grad()
-            loss_ssl, loss_pred, loss_sigreg, g_feats_all = compute_ssl(views_data)
-                
+            loss_ssl, loss_pred, loss_sigreg = compute_ssl(views_data)
             loss_ssl.backward()
             torch.nn.utils.clip_grad_norm_(encoder.parameters(), max_norm=1.0)
             opt_enc.step()
-
-            # 2. Probe update with DETACHED features for SSL monitoring
-            label_mask = (age_targets != -1.0) & (~torch.isnan(age_targets))
-            loss_probe = torch.tensor(0.0, device=DEVICE)
-
-            if label_mask.sum() > 0:
-                target_labeled = age_targets[label_mask]
-                feat_b = g_feats_all[0].detach()  # Global view 1 (Bone)
-                feat_t = g_feats_all[1].detach()  # Global view 2 (Tissue)
-                age_pred_b = probe_bone(feat_b[label_mask]).view(-1)
-                age_pred_t = probe_tissue(feat_t[label_mask]).view(-1)
-                
-                # Train probes simultaneously on independent modalities
-                loss_probe_b = mse_crit(age_pred_b, target_labeled)
-                loss_probe_t = mse_crit(age_pred_t, target_labeled)
-                loss_probe = (loss_probe_b + loss_probe_t) / 2.0
-
-                opt_probe.zero_grad()
-                loss_probe.backward()
-                opt_probe.step()
-
-                age_pred = (age_pred_b.detach() + age_pred_t.detach()) / 2.0
-                train_preds.extend(age_pred.detach().cpu().numpy())
-                train_trues.extend(target_labeled.cpu().numpy())
-
             scheduler.step()
 
             train_stats['loss'] += loss_ssl.item()
             train_stats['pred'] += loss_pred.item()
             train_stats['sig'] += loss_sigreg.item()
-            train_stats['probe'] += loss_probe.item()
-
             global_step += 1
 
-        train_r2 = r2_score(train_trues, train_preds) if len(train_trues) > 1 else 0.0
+        print(f"Ep {epoch} | step {global_step} | "
+              f"loss {train_stats['loss']/len(train_loader):.4f} | "
+              f"pred {train_stats['pred']/len(train_loader):.4f} | "
+              f"sig {train_stats['sig']/len(train_loader):.4f} | "
+              f"lr {scheduler.get_last_lr()[0]:.2e}")
 
-        # --- VALIDATION LOOP ---
-        encoder.eval()
-        probe_bone.eval()
-        probe_tissue.eval()
-        val_preds, val_trues = [], []
-
-        with torch.no_grad():
-            for views_data, age_targets in val_loader:
-                age_targets = age_targets.to(DEVICE).view(-1)
-                bone_view = views_data[0].to(DEVICE)
-                tissue_view = views_data[1].to(DEVICE)
-                
-                f_b, _ = encoder(bone_view)
-                pred_b = probe_bone(f_b).view(-1)
-                
-                f_t, _ = encoder(tissue_view)
-                pred_t = probe_tissue(f_t).view(-1)
-                
-                pred = (pred_b + pred_t) / 2.0
-
-                val_preds.extend(pred.cpu().numpy())
-                val_trues.extend(age_targets.cpu().numpy())
-
-        val_r2 = r2_score(val_trues, val_preds) if len(val_trues) > 0 else 0.0
-
-        wandb.log({
-            "epoch": epoch,
-            "train_r2": train_r2,
-            "val_r2": val_r2,
-            "train_loss": train_stats['loss'] / len(train_loader),
-            "train_pred_loss": train_stats['pred'] / len(train_loader),
-            "train_sig_loss": train_stats['sig'] / len(train_loader),
-            "lr": scheduler.get_last_lr()[0]
-        }, step=global_step)
-
-        print(f"Ep {epoch} | Train R2: {train_r2:.4f} | Val R2: {val_r2:.4f}")
-
-        # [EXPERIMENTAL] SWA: update averaged weights after swa_start_epoch
-        if swa_encoder is not None and epoch >= config["swa_start_epoch"]:
-            swa_encoder.update_parameters(encoder)
-            # Switch to flat SWA learning rate
-            for pg in opt_enc.param_groups:
-                pg['lr'] = config["swa_lr"]
-
-        if val_r2 > best_val_r2 or epoch % 50 == 0:
-            best_val_r2 = val_r2
-            ckpt = {
-                'epoch': epoch,
-                'encoder': encoder.state_dict(),
-                'probe_bone': probe_bone.state_dict(),
-                'probe_tissue': probe_tissue.state_dict(),
-                'best_val_r2': best_val_r2,
-                'global_step': global_step,
-            }
-            if swa_encoder is not None:
-                ckpt['swa_encoder'] = swa_encoder.state_dict()
-            torch.save(ckpt, os.path.join(CHECKPOINTS, f'best_model_{run_name}.pth'))
-
-    # [EXPERIMENTAL] SWA: update BatchNorm stats on averaged model
-    if swa_encoder is not None:
-        print("[EXPERIMENTAL] Updating SWA BatchNorm statistics...")
-        # Reset BN running stats
-        for module in swa_encoder.modules():
-            if isinstance(module, (nn.BatchNorm1d, nn.BatchNorm2d)):
-                module.reset_running_stats()
-        swa_encoder.train()
-        bn_dataset = LeJEPAHDF5Dataset(
-            hdf5_path=HDF5_PATH, keys=train_keys, targets_df=targets_train,
-            transform=val_aug, n_global=2, n_local=0,
-        )
-        bn_loader = DataLoader(bn_dataset, batch_size=config["batch_size"],
-                               shuffle=False, num_workers=4,
-                               collate_fn=lejepa_collate_fn)
-        with torch.no_grad():
-            for views_data, _ in bn_loader:
-                x = views_data[0].to(DEVICE)
-                swa_encoder(x)
-        swa_encoder.eval()
+        if epoch % 50 == 0 or epoch == config["epochs"]:
+            torch.save(
+                {'epoch': epoch, 'encoder': encoder.state_dict(), 'global_step': global_step},
+                os.path.join(CHECKPOINTS, f'best_model_{run_name}.pth'),
+            )
 
     labeled_all_keys = []
     for k in all_raw_keys:
@@ -503,10 +328,8 @@ def main():
         n_global=2,
         n_local=0,
     )
-    # Use SWA-averaged encoder for extraction if available, otherwise original
-    extraction_encoder = swa_encoder if swa_encoder is not None else encoder
     extract_and_save_embeddings(
-        encoder=extraction_encoder,
+        encoder=encoder,
         dataset=full_dataset,
         batch_size=config["batch_size"],
         filename_prefix=EMBEDDINGS_PREFIX,

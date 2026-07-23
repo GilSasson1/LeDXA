@@ -97,9 +97,8 @@ LeDXA/
 ```
 
 Shared utilities and metadata support these main directories, while paths for controlled data and
-outputs are configured through [`config.py`](config.py). Detailed data and output descriptions are in
-[`data/README.md`](data/README.md), [`downstream/README.md`](downstream/README.md),
-[`tables/README.md`](tables/README.md), and
+outputs are configured through [`config.py`](config.py). Detailed descriptions are in
+[`downstream/README.md`](downstream/README.md), [`tables/README.md`](tables/README.md), and
 [`figures/README.md`](figures/README.md).
 
 
