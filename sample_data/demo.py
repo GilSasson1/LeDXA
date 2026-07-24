@@ -6,7 +6,7 @@ forward pass on a random DXA-shaped batch, so you can confirm the model loads an
 embeddings before wiring up your own data.
 
 Requires `pip install -e .` (run from the repo root). Usage:
-    python sample_data/demo.py
+    python -m sample_data.demo
 """
 import torch
 

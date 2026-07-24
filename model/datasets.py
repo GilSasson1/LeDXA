@@ -102,7 +102,7 @@ class LeJEPAHDF5Dataset(Dataset):
             views.append(self.config.global_trans(source))
 
         # 4. Local Views (Crops)
-        # Note: Your creation code says crops are "local bone scans"
+        # Note: crops in the source HDF5 are always local bone-region scans.
         real_crops = []
         if 'crops' in group:
             crop_grp = group['crops']

@@ -184,7 +184,7 @@ def main():
             parts = k.split('_')
             s_id = "_".join(parts[:2])
 
-            # STRICT LOGIC from your snippet: join everything after index 2
+            # Reconstruct the visit id: join every key segment after the subject-id prefix
             v_id = "_".join(parts[2:])
 
             # Check if this specific visit (e.g. baseline) has a value

@@ -29,7 +29,7 @@ ORDER = [
 ]
 
 MODELS = {
-    "lejepa": "DeepDXA",
+    "lejepa": "LeDXA",
     "dino": "DINOv3",
     "tabular": "DXA Tabular",
     "covariates": "Covariates",
@@ -95,9 +95,9 @@ def main() -> None:
             m = sub[sub["model"] == model]
             row[f"{label}_mean"] = float(m["mean"].iloc[0]) if len(m) else float("nan")
             row[f"{label}_SE"] = float(m["se"].iloc[0]) if len(m) else float("nan")
-        row["P_DeepDXA_vs_Cov_adj"] = padj.get("Cov", {}).get(target, float("nan"))
-        row["P_DeepDXA_vs_Tab_adj"] = padj.get("Tab", {}).get(target, float("nan"))
-        row["P_DeepDXA_vs_DINO_adj"] = padj.get("DINO", {}).get(target, float("nan"))
+        row["P_LeDXA_vs_Cov_adj"] = padj.get("Cov", {}).get(target, float("nan"))
+        row["P_LeDXA_vs_Tab_adj"] = padj.get("Tab", {}).get(target, float("nan"))
+        row["P_LeDXA_vs_DINO_adj"] = padj.get("DINO", {}).get(target, float("nan"))
         rows.append(row)
 
     out = pd.DataFrame(rows)

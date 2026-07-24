@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 """Build a supp_tableA-format HPP disease-AUC table from a given raw seed file.
 
-Replicates the Table-A reshape in export_supplementary_tables_4arm.py (same
-_dis_label mapping, same arm-label columns) but reads an arbitrary raw file and
-writes to an arbitrary output — used to render Figure 2 with the differential-
-penalisation HPP results without touching the published supp_tableA.
+Replicates the published supplementary Table-A reshape (same _dis_label mapping and
+arm-label columns) but reads an arbitrary raw file and writes to an arbitrary output
+— used to render Figure 2 with the differential-penalisation HPP results without
+touching the published supp_tableA.
 """
 import os, sys, json, argparse
 import numpy as np
@@ -14,7 +14,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common.plot_style import _dis_label, DISEASE_TARGETS_CSV, _DISEASE_NAMES_JSON  # noqa: E402
 
 MODELS = ['covariates', 'lejepa_cov', 'dino_cov', 'tab_cov']
-LBL = {'covariates': 'Covariates (age/sex/BMI)', 'lejepa_cov': 'DXA-FM + Covariates',
+LBL = {'covariates': 'Covariates (age/sex/BMI)', 'lejepa_cov': 'LeDXA + Covariates',
        'dino_cov': 'DINOv3 + Covariates', 'tab_cov': 'DXA Tabular + Covariates'}
 
 

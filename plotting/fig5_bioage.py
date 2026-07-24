@@ -10,8 +10,8 @@ Layout (4 rows × 2 cols)
     e  Mortality HR forest (continuous + Q1–Q4)        f  KM by gap quartile
     g  Disease prevalence Q1 vs Q4 (bar chart)         h  Paired pre/post medication
 
-Visual conventions are pulled verbatim from Fig 2 / Fig 3 (``plot_fig2_4arm.py``
-and ``ukbb/plot_fig3_cox.py``): sans-serif rcParams, 26 pt bold panel letters
+Visual conventions are pulled verbatim from Fig 2 / Fig 3 (``fig2_heatmap.py``
+and ``fig3_cox.py``): sans-serif rcParams, 12 pt bold panel letters
 at (-0.14, 1.03), dashed y-grid, top+right spines hidden, ``MODEL_COLORS``
 palette, alternating ``#F5F5F5`` row backgrounds for lollipop forests, KM line
 widths 2.2/1.4, PercentFormatter y-axis on KM panels.
@@ -47,7 +47,7 @@ ROW_SHADE = '#F5F5F5'   # Fig 3 alternating-row background
 # ICD-10 sub-conditions that decompose the three composite buckets (cardiovascular
 # disease, osteoarthritis, renal failure). They live in the extended prevalence
 # table alongside sarcopenia, but panel g shows only the composite buckets — the
-# sub-condition breakdown is a supplementary figure (extend_disease_panel.py).
+# sub-condition breakdown is a supplementary figure (not included in this release).
 DECOMP_SUBCONDITIONS = {
     'Angina', 'Myocardial infarction', 'Chronic ischaemic heart disease', 'Heart failure',
     'Hip arthrosis', 'Knee arthrosis', 'Other arthrosis',

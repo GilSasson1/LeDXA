@@ -1,9 +1,8 @@
 """Regression-to-the-mean (RTM) detrending and quartile binning.
 
-A single source of truth for the biological-age-gap definition used across
-the section. Mirrors the canonical implementation that previously lived
-inline in ``ukbb_aging_pace_v2v3.py:load_and_detrend`` (poly-2 RTM on
-chronological age).
+The biological-age-gap definition for the section: a poly-2 regression-to-the-mean
+(RTM) detrend on chronological age. (``mortality.py`` currently re-implements the
+same detrend inline rather than importing this helper.)
 
 The gap is orthogonal-by-construction to the polynomial of ``age_col``:
 
@@ -63,14 +62,14 @@ def rtm_correct_pace(pace: pd.Series, baseline_gap: pd.Series) -> pd.Series:
 
 
 if __name__ == '__main__':
-    # Smoke check: verify against the original inline RTM in ukbb_aging_pace_v2v3.py
+    # Smoke check: verify detrend_gap matches an inline poly-2 RTM reference.
     import os
     import sys
-    sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..')))
+    sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
     from downstream.bioage.paths import PRED_CSV
     df = pd.read_csv(PRED_CSV).head(5000)
 
-    # Inline reference implementation (verbatim from ukbb_aging_pace_v2v3.py)
+    # Inline reference implementation (poly-2 RTM).
     X = PolynomialFeatures(degree=2).fit_transform(df[['age_true']])
     expected = LinearRegression().fit(X, df['age_pred_lejepa']).predict(X)
     ref_gap = df['age_pred_lejepa'] - expected

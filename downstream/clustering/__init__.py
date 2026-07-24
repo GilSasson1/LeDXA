@@ -1,6 +1,5 @@
-"""Unsupervised female clustering section (Figure 6).
+"""Unsupervised female-clustering section (Figure 6) helpers.
 
-Single source of truth for the DEXA paper's female-cluster analyses:
-canonical output paths, style helpers, orchestration, figure composition,
-and claim audit.
+Canonical output paths and plot-style helpers for the clustering analyses. The
+figure-composition script lives in ``plotting/fig6_clustering.py``.
 """

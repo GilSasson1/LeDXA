@@ -12,7 +12,7 @@ Four-panel main figure for the female-cluster results section:
     d  Proteomics volcano (matched cohort): external DE, BH q<0.05
 
 Visual conventions match Figs 2, 3, 5: nature_double style as base,
-apply_paper_rcparams() font overrides, 26 pt bold panel letters via
+apply_paper_rcparams() font overrides, 12 pt bold panel letters via
 add_panel_letter(), dashed y-grid (#CCCCCC, alpha=0.7), alternating
 #F5F5F5 row backgrounds in the forest panel, MODEL_COLORS palette.
 """

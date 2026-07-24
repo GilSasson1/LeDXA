@@ -1,7 +1,8 @@
+"""Shared Cox endpoint label/category mappings and the event-name prettifier.
+
+Imported by plotting/fig3_cox.py.
 """
-Shared Cox endpoint label and category mappings.
-Imported by plot_combined_figure.py and plot_cox_model_comparison.py.
-"""
+import re
 
 # Maps raw long ICD-10/HES event column names → short display labels.
 COX_EVENT_SHORT_NAMES = {
@@ -53,3 +54,34 @@ COX_CATEGORY_NAMES_ABBREV = {
     1: 'Musculosk.', 2: 'Metabolic', 3: 'Cardiovasc.',
     4: 'Respiratory', 5: 'Hep. & Renal', 6: 'Neurolog.', 7: 'Mortality',
 }
+
+# Administrative / non-disease event columns that must never be plotted.
+_NON_DISEASE_EVENTS = {'__derived_admin_censor_date__'}
+_NON_DISEASE_PATTERNS = [re.compile(r'assessment centre', re.IGNORECASE)]
+
+
+def prettify_event(raw):
+    """Map a raw HES/first-reported event column name to a short display label.
+
+    Returns None for administrative/non-disease columns that should be skipped.
+    """
+    raw = raw.strip()
+    if raw in _NON_DISEASE_EVENTS:
+        return None
+    if any(p.search(raw) for p in _NON_DISEASE_PATTERNS):
+        return None
+    low = raw.lower()
+    if 'death due to cancer' in low or 'c00-c97' in low: return 'Cancer Death'
+    if re.search(r'\bdate of death\b', low): return 'All-Cause Death'
+    if 'all cause dementia' in low: return 'Dementia'
+    if 'parkinsonism' in low: return 'Parkinsonism'
+    if 'alzheimer' in low and 'report' in low: return None
+    if 'alzheimer' in low: return "Alzheimer's Disease"
+    m = re.search(r'\(([^)]+)\)', raw)
+    if m:
+        name = m.group(1)
+        name = re.sub(r'\s*\[.*?\]', '', name).strip().title()
+        return COX_EVENT_SHORT_NAMES.get(name, name)
+    name = re.sub(r'\s*-\s*visit\s*\d+', '', raw, flags=re.IGNORECASE).strip()
+    name = re.sub(r'^Date\s+(of\s+)?', '', name, flags=re.IGNORECASE).strip().title()
+    return name if name else raw

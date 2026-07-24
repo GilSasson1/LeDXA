@@ -1,7 +1,7 @@
 """
-compute_age_mae_imaging_only.py — HPP age MAE (years) for the IMAGING-ONLY arms.
+age_mae.py — HPP age MAE (years) for the IMAGING-ONLY arms.
 
-Same protocol as compute_age_mae.py (80/20 subject split, StandardScaler, RidgeCV,
+Same protocol (80/20 subject split, StandardScaler, RidgeCV,
 target z-scored, MAE-in-years = age_std × mean|pred − y|, 10 seeds) but the imaging
 arms carry NO covariate block — they are embeddings / tabular features alone. The
 covariates arm (sex+BMI) is kept as the baseline bar. Used by Fig 2 panel c when it
@@ -18,7 +18,7 @@ from sklearn.linear_model import RidgeCV
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 
-sys.path.insert(0, os.path.dirname(__file__))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 import common.utils as U
 from config import TABLES_DIR
 from downstream.disease.linear_probe import _COV_COLS, _TABULAR_LEAKAGE_EXCLUSIONS, _impute, load_embeddings

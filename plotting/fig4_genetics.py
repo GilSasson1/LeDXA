@@ -459,14 +459,15 @@ def draw_overlap_panel(ax: plt.Axes, annotated: pd.DataFrame) -> None:
     _panel_label(ax, "b", x=-0.18, y=1.04)
 
 
-# Panel c is derived reproducibly from fig4c/fig4c_primary.tsv: each of the 18
-# LeDXA-specific loci is assigned ONE primary organ-system domain from its lead
+# Panel c is derived reproducibly from tables/fig4c/fig4c_primary.tsv: each of the
+# 18 LeDXA-specific loci is assigned ONE primary organ-system domain from its lead
 # SNP's GWAS-Catalog associations (LD proxies, 1000G EUR r2>=0.8, are used only
 # when the lead SNP is itself uncatalogued), preferring the strongest on-target
-# {Bone / Body composition / Height} association. See fig4c/build_fig4c.py for
-# the pipeline and fig4c/fig4c_associations.tsv for the full multi-domain
-# evidence (Supplement). Loci with no catalogued association in any domain are
-# shown as their own "Catalog-absent" bar rather than being dropped.
+# {Bone / Body composition / Height} association. See downstream/genetics/build_fig4c.py
+# for the pipeline (writes into tables/fig4c/, not shipped — regenerate locally) and
+# tables/fig4c/fig4c_associations.tsv for the full multi-domain evidence (Supplement).
+# Loci with no catalogued association in any domain are shown as their own
+# "Catalog-absent" bar rather than being dropped.
 PRIMARY_TSV = ROOT / "tables" / "fig4c" / "fig4c_primary.tsv"
 # on-target (musculoskeletal / body-composition) domains, pinned to the top of
 # the panel in this order; all remaining domains follow, sorted by descending count.

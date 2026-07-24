@@ -1,21 +1,21 @@
 """
-plot_fig3_cox.py — combined Cox Figure 3.
+fig3_cox.py — combined Cox Figure 3.
 
-Panel (a): C-index for endpoints where DeepDXA+cov significantly beats DXA
+Panel (a): C-index for endpoints where LeDXA+cov significantly beats DXA
 Tabular+cov specifically (FDR q<SIG_Q) — the core "adds value over the existing
 clinical DXA measurement" claim, not necessarily beating DINOv3 too — plus
 Osteoporosis (FORCE_INCLUDE), shown despite no significant win because DXA-measured
 BMD IS the diagnostic gold standard for that disease, so matching it (marked 'ns')
 is itself the point. Bars = across-seed mean, error bars = across-seed SE. Bracket
-markers show every comparator (DINOv3/Tabular/Covariates) DeepDXA beats
+markers show every comparator (DINOv3/Tabular/Covariates) LeDXA beats
 significantly: '*' q<SIG_Q, '**' q<0.01 — each comparison type FDR-corrected
-separately across all endpoints by cox_regression_comparison.py itself (the correct
+separately across all endpoints by cox_regression.py itself (the correct
 testing family per claim, reused as-is rather than re-derived). Bracket height
 clears every bar spanned between the two arms being compared, not just those two,
 so a bracket never visually collides with an intervening bar (e.g. DINOv3 sitting
-between DeepDXA and Tabular). The full endpoint set (including nulls) is in the
+between LeDXA and Tabular). The full endpoint set (including nulls) is in the
 companion Supplementary Table (export_supp_table) — all 4 arms and all 3
-DeepDXA-vs-comparator tests (raw p, FDR q), N/events/follow-up — so nothing from
+LeDXA-vs-comparator tests (raw p, FDR q), N/events/follow-up — so nothing from
 the analysis is silently dropped, without a second lossy summary figure alongside it.
 
 Panel (b): cumulative incidence by risk quartile for a deliberate contrast set
@@ -23,17 +23,17 @@ of four endpoints (PANEL_B_ENDPOINTS) — hip and knee arthrosis (the two large
 wins), type 2 diabetes (a modest-but-real win, showing the effect is graded not
 binary), and osteoporosis (a deliberate negative control: DXA-measured BMD IS
 osteoporosis's diagnostic criterion, so no gain is mechanistically expected) —
-top-risk-quartile (Q4) cumulative incident-event capture, DeepDXA+Cov vs
+top-risk-quartile (Q4) cumulative incident-event capture, LeDXA+Cov vs
 DXA Tabular+Cov; capture@Q4 annotated at years 1/2/3 and end of follow-up.
 
-Colours follow the fig2 palette (plot_combined_figure.MODEL_COLORS).
+Colours follow the fig2 palette (fig2_heatmap.MODEL_COLORS).
 
 Panel (a) and the supplementary table both read the main (non-perseed) summary file
-emitted by cox_regression_comparison.py (`<out_prefix>.csv` — MAIN_CSV). Panel (b)
+emitted by cox_regression.py (`<out_prefix>.csv` — MAIN_CSV). Panel (b)
 risk scores are recomputed here as out-of-fold joint Cox.
 
 Panel (b) significance is a PAIRED SUBJECT-LEVEL BOOTSTRAP of the Capture@Q4
-difference (DeepDXA - DXA Tabular): both arms are scored on the same bootstrap
+difference (LeDXA - DXA Tabular): both arms are scored on the same bootstrap
 resample of subjects, the top-risk quartile is re-thresholded within each resample
 (Q4 is defined relative to the cohort), and the difference yields a 95% percentile
 CI and a two-sided bootstrap p at each time cutoff. This quantifies uncertainty from
@@ -41,7 +41,7 @@ the finite patient cohort — the claim the panel actually makes. It replaces th
 Wilcoxon over CV fold-shuffle seeds, which only tested fold-partition stability (not
 population significance) and had a hard two-tailed p floor of 2/2**n_seeds (n=10 ->
 0.002). p-values are BH-FDR corrected across the four PANEL_B_ENDPOINTS at each
-cutoff — the same DeepDXA-vs-Tabular testing family panel (a) corrects over.
+cutoff — the same LeDXA-vs-Tabular testing family panel (a) corrects over.
 """
 import os
 import sys
@@ -73,16 +73,15 @@ def _load(mod_name, path):
 
 
 _crc = _load("crc", os.path.join(_ROOT, "downstream", "survival", "cox_regression.py"))
-_cmp = _load("cox_cmp", os.path.join(_HERE, "cox_model_comparison.py"))
 get_survival_target = _crc.get_survival_target
 preprocess_block = _crc.preprocess_block
 fit_joint_cox = _crc.fit_joint_cox
 load_clean_data = _crc.load_clean_data
 split_tabular_features = _crc.split_tabular_features
 _load_embeddings = _crc._load_embeddings
-_prettify_event = _cmp._prettify_event
-_EVENT_CATEGORIES = _cmp._EVENT_CATEGORIES
-_CATEGORY_NAMES = _cmp._CATEGORY_NAMES
+from common.cox_utils import (prettify_event as _prettify_event,
+                              COX_EVENT_CATEGORIES as _EVENT_CATEGORIES,
+                              COX_CATEGORY_NAMES as _CATEGORY_NAMES)
 
 EVENTS_PATH = os.environ.get("FIG3_EVENTS", str(DATA_ROOT / "ukbb" / "incident_events.csv"))
 # Canonical Fig 3 regime = bp_logsweep: BONE-POOL fusion, PCA(100 emb / 30 dxa), per-endpoint
@@ -98,7 +97,7 @@ TABULAR_PATH = os.environ.get("FIG3_TABULAR", str(DATA_ROOT / "ukbb" / "dxa_tabu
 PERSEED_CSV  = os.environ.get("FIG3_PERSEED",
     os.path.join(_ROOT, "tables", "cox_ttest_results_bp_logsweep_nodxapca_perseed.csv"))
 # Main (non-perseed) summary output from the same run — has per-arm mean/SE and
-# all pairwise DeepDXA-vs-comparator raw p / FDR-adjusted q (each comparison type
+# all pairwise LeDXA-vs-comparator raw p / FDR-adjusted q (each comparison type
 # corrected separately across endpoints), plus N/events/follow-up. Panel (a), the
 # extended-data figure, and the supplementary table all read from this file.
 MAIN_CSV = os.environ.get("FIG3_MAIN_CSV", PERSEED_CSV.replace("_perseed.csv", ".csv"))
@@ -118,8 +117,8 @@ PEN_COV, PEN_DXA, PEN_EMB = 0.1, 1.0, 1.0   # cov fixed 0.1; emb/dxa are per-end
 SWEEP_GRID = [0.1, 0.3, 1.0, 3.0, 10.0, 30.0]   # matches the bp_logsweep grid-search
 N_FOLDS, SEED = 5, 42
 
-# Palette aligned with Fig 2 MODEL_COLORS (plot_combined_figure.py)
-# Bar order matches Fig 2: DeepDXA → DINOv3 → Tabular → Covariates (left to right)
+# Palette aligned with Fig 2 MODEL_COLORS (fig2_heatmap.py)
+# Bar order matches Fig 2: LeDXA → DINOv3 → Tabular → Covariates (left to right)
 ARMS = [  # (csv arm name, display, colour)
     ("DXA SSL (LeJEPA) + Covariates", "LeDXA + cov",       "#083c7d"),
     ("DXA SSL (DINO) + Covariates",   "DINOv3 + cov",      "#7fb9dc"),
@@ -128,7 +127,7 @@ ARMS = [  # (csv arm name, display, colour)
 ]
 COL_DXAFM, COL_TAB = "#083c7d", "#8ccbb3"   # panel b recall-curve colours
 
-DEEP_ARM = ARMS[0][0]     # DeepDXA+cov arm name, shared by panel (a) and the supplementary
+DEEP_ARM = ARMS[0][0]     # LeDXA+cov arm name, shared by panel (a) and the supplementary
 TABULAR_ARM = ARMS[2][0]  # DXA Tabular+cov — the specific comparator panel-a inclusion gates on
 SIG_Q = 0.05               # FDR-adjusted significance threshold for panel-a inclusion
 # Shown in panel (a) even without a significant win vs Tabular: DXA-measured BMD is the
@@ -247,7 +246,7 @@ CAPTURE_TIMEPOINTS_YR = [1, 2, 3, None]   # None = full follow-up
 
 def bootstrap_capture_diff(risk_fm, risk_tab, t_days, e,
                            timepoints=CAPTURE_TIMEPOINTS_YR, n_boot=N_BOOT, seed=BOOT_SEED):
-    """Paired subject-level bootstrap of the Capture@Q4 difference (DeepDXA - Tabular).
+    """Paired subject-level bootstrap of the Capture@Q4 difference (LeDXA - Tabular).
 
     Both arms are scored on the SAME resample of subjects each iteration (paired), so
     the difference isolates the model effect from subject-sampling noise; the top-risk
@@ -323,20 +322,20 @@ def _bh_fdr(pvals):
     return q
 
 
-# ── Shared: per-endpoint means + DeepDXA-vs-comparator significance, read directly
-# from cox_regression_comparison.py's own summary output. Each comparison type (vs
+# ── Shared: per-endpoint means + LeDXA-vs-comparator significance, read directly
+# from cox_regression.py's own summary output. Each comparison type (vs
 # Tabular, vs DINOv3, vs Covariates) is FDR-corrected THERE separately across all
 # endpoints for that one comparison — the correct testing family for a specific claim
-# like "does DeepDXA beat Tabular?" — so it's reused as-is rather than re-derived from
+# like "does LeDXA beat Tabular?" — so it's reused as-is rather than re-derived from
 # a pooled, mixed-comparator correction. ─────────────────────────────────────────────
 def compute_endpoint_significance(main_df):
-    """Per-endpoint arm means/SEs and DeepDXA-vs-each-comparator raw p / FDR q, pulled
-    from the main (non-perseed) cox_regression_comparison.py output.
+    """Per-endpoint arm means/SEs and LeDXA-vs-each-comparator raw p / FDR q, pulled
+    from the main (non-perseed) cox_regression.py output.
 
     Returns a list of row dicts: event, label, cat, means, ses, best/best_score (display
     ordering only), ranked_comps (non-deep arms, best mean first), raw_p/adj_p (dict per
     comparator), n, events, followup_yr, qualifies (beats DXA Tabular+cov at FDR q<SIG_Q),
-    wins (list of (comp_arm, 'fdr') for every comparator DeepDXA beats at FDR q<SIG_Q).
+    wins (list of (comp_arm, 'fdr') for every comparator LeDXA beats at FDR q<SIG_Q).
     """
     arm_names = [a[0] for a in ARMS]
     _PANEL_A_SKIP = {"Obesity"}   # definitional endpoint: BMI in covariate arm
@@ -379,7 +378,7 @@ def compute_endpoint_significance(main_df):
     return rows
 
 
-# ── Panel (a): C-index for endpoints where DeepDXA+cov beats DXA Tabular+cov
+# ── Panel (a): C-index for endpoints where LeDXA+cov beats DXA Tabular+cov
 # specifically (FDR q<SIG_Q) — the core "adds value over the clinical DXA
 # measurement" claim, not necessarily beating DINOv3 too ──────────────────────
 def draw_panel_a(ax, main_df):
@@ -429,7 +428,7 @@ def draw_panel_a(ax, main_df):
     # Brackets reuse the per-comparator FDR q already computed (each comparison type
     # corrected separately across all endpoints) by compute_endpoint_significance.
     # Height must clear EVERY bar between the two arms being bracketed (not just the
-    # two endpoints of the bracket) — e.g. a DeepDXA-vs-Tabular bracket spans over the
+    # two endpoints of the bracket) — e.g. a LeDXA-vs-Tabular bracket spans over the
     # DINOv3 bar sitting between them on the x-axis, so it must clear that bar too.
     # running_top makes multiple brackets on the same endpoint stack monotonically.
     # bkt_gap = clearance above the bars for the first (lowest) bracket; bkt_step = the
@@ -533,7 +532,7 @@ def draw_panel_a(ax, main_df):
 
 
 # ── Supplementary Table: full numeric breakdown backing panel (a) — all 4 arms x
-# all 3 DeepDXA-vs-comparator tests, N/events/follow-up, for every endpoint tested.
+# all 3 LeDXA-vs-comparator tests, N/events/follow-up, for every endpoint tested.
 def export_supp_table(main_df, out_csv):
     rows = compute_endpoint_significance(main_df)
     out = []
@@ -544,8 +543,8 @@ def export_supp_table(main_df, out_csv):
             rec[f"{disp} C-index"] = r["means"].get(arm_name, np.nan)
             rec[f"{disp} SE"] = r["ses"].get(arm_name, np.nan)
         for comp_arm, disp, _ in ARMS[1:]:
-            rec[f"DeepDXA vs {disp}: raw p"] = r["raw_p"].get(comp_arm, np.nan)
-            rec[f"DeepDXA vs {disp}: FDR q"] = r["adj_p"].get(comp_arm, np.nan)
+            rec[f"LeDXA vs {disp}: raw p"] = r["raw_p"].get(comp_arm, np.nan)
+            rec[f"LeDXA vs {disp}: FDR q"] = r["adj_p"].get(comp_arm, np.nan)
         rec["Significant vs Tabular (FDR q<0.05)"] = r["qualifies"]
         out.append(rec)
     pd.DataFrame(out).to_csv(out_csv, index=False)
@@ -571,7 +570,7 @@ def draw_panel_b(axes, events, cov_df, dxa_df, emb_df, common, reg_df=None):
     n_cols_b = 2 if len(PANEL_B_ENDPOINTS) > 3 else len(PANEL_B_ENDPOINTS)
 
     # Pass 1: fit each endpoint, draw the Capture@Q4 curves, bootstrap the paired
-    # DeepDXA-vs-Tabular difference. Annotations are deferred to pass 2 so the p-values
+    # LeDXA-vs-Tabular difference. Annotations are deferred to pass 2 so the p-values
     # can be BH-FDR corrected across endpoints (the family panel a also corrects over).
     pending = []   # (ax, label, boot_results)
     for i, (ax, (label, event_col)) in enumerate(zip(axes, PANEL_B_ENDPOINTS)):
@@ -598,7 +597,7 @@ def draw_panel_b(axes, events, cov_df, dxa_df, emb_df, common, reg_df=None):
             fair_dxa = _crc.select_dxa_penalizer(cov_df, dxa_df, target, _pens0, SWEEP_GRID, random_seed=42)
         print(f"    panel-b pens — emb={fair_emb}, dxa={fair_dxa}")
 
-        # DeepDXA arm = bone-pool fusion (regional already merged); tabular = DXA scalars.
+        # LeDXA arm = bone-pool fusion (regional already merged); tabular = DXA scalars.
         blocks_fm  = [(cov_raw, False, 0, PEN_COV), (emb_raw, True, 100, fair_emb)]
         if reg_df is not None:
             reg_raw = reg_df.loc[idx].values.astype(float)
@@ -664,8 +663,8 @@ def main():
 
     events = pd.read_csv(EVENTS_PATH, low_memory=False, index_col="eid")
     events.index = events.index.astype(int)
-    emb_df = _load_embeddings(LEJEPA_PATH, "DeepDXA")   # bone-pool enriched fusion
-    reg_df = _load_embeddings(REGION_PATH, "DeepDXA-Regional") if REGION_PATH else None
+    emb_df = _load_embeddings(LEJEPA_PATH, "LeDXA")   # bone-pool enriched fusion
+    reg_df = _load_embeddings(REGION_PATH, "LeDXA-Regional") if REGION_PATH else None
     tabular = load_clean_data(TABULAR_PATH, "Tabular")
     cov_df, dxa_df = split_tabular_features(tabular)
     common = (events[events[BASELINE_COL].notna()].index

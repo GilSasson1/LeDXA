@@ -18,10 +18,10 @@ class DINOv3(nn.Module):
         print(f"Initializing {model_name}...")
 
         if load_to_gpu:
-            # For very large models (e.g. 7B): create on meta device, then load
-            # weights directly to CUDA to avoid CPU RAM bottleneck.
+            # For very large models (e.g. 7B): build the architecture on CPU, then
+            # stream the safetensors weights straight onto CUDA (safe_open below)
+            # so the full checkpoint is never materialized in CPU RAM at once.
             import safetensors.torch
-            from timm.models._hub import download_cached_file
 
             os.makedirs(_NETWORK_HF_CACHE, exist_ok=True)
             os.environ["HF_HOME"] = _NETWORK_HF_CACHE
@@ -35,7 +35,6 @@ class DINOv3(nn.Module):
             )
 
             # Download checkpoint (uses network cache dir)
-            from timm.models._pretrained import PretrainedCfg
             pretrained_cfg = timm.get_pretrained_cfg(model_name)
             hf_hub_id = pretrained_cfg.hf_hub_id
             hf_hub_filename = pretrained_cfg.hf_hub_filename or "model.safetensors"

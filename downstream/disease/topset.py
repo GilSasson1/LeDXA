@@ -7,15 +7,16 @@ BH-FDR within cohort) form the 'top set'. The figure colors the top set identica
 and boxes a lone significant winner; non-top models are greyed.
 
 Two-tailed is required: it correctly flags a competitor that is significantly BETTER
-(e.g. DINOv3 > DeepDXA on COPD), which a one-tailed DeepDXA>X test would mask.
+(e.g. DINOv3 > LeDXA on COPD), which a one-tailed LeDXA>X test would mask.
 
 Inputs : HPP  raw  = {RESULTS_DIR}/lp_cov_disease_4arm_raw.csv  (per-seed 'score')
          UKBB seeds = tables/ukbb_disease_4arm_seeds.csv        (per-seed 'auc')
          Neither raw per-seed file is distributed in this repo (participant-level
          provenance); point --hpp-raw/--ukbb-seeds at your own reproduction of them.
-Output : tables/disease_pairwise_diffpentuned.csv and tables/disease_top_set.csv
-         (cohort, key, raw_key, arm, mean, in_top_set, sole_winner, argmax) — named
-         to match the canonical inputs plotting/fig2_heatmap.py reads by default.
+Output : tables/disease_pairwise_diffpentuned.csv (the per-pair Wilcoxon FDR table
+         that plotting/fig2_heatmap.py reads for its significance overlay) and
+         tables/disease_top_set.csv (cohort, key, raw_key, arm, mean, in_top_set,
+         sole_winner, argmax — a convenience summary for inspection/supplement).
 """
 import os, sys, json, argparse, itertools
 import numpy as np

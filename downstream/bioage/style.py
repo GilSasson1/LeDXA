@@ -1,10 +1,9 @@
-"""Plot-style helpers aligned to Fig 2 / Fig 3 of the DEXA paper.
+"""Plot-style helpers aligned to Fig 2 / Fig 3 of the LeDXA manuscript.
 
 Two-fold purpose:
 
-1. ``apply_paper_rcparams()`` sets matplotlib defaults identical to those
-   already used by ``dexa_fm/plot_combined_figure.py`` (sans-serif, fontsize
-   11/12, top+right spines off, dashed grid α=0.3).
+1. ``apply_paper_rcparams()`` sets the manuscript matplotlib defaults
+   (sans-serif, fontsize 11/12, top+right spines off, dashed grid α=0.3).
 2. Re-exports ``MODEL_COLORS`` (the canonical palette) plus quartile / sex
    palettes used by the biological-age figures.
 
@@ -32,9 +31,8 @@ __all__ = [
     'apply_paper_rcparams', 'add_panel_letter',
 ]
 
-# Quartile palette (Q1 = biologically young → Q4 = biologically old).
-# Identical to PALETTE_Q in ukbb_aging_pace_v2v3.py so existing figures
-# don't shift hue when the new helper is dropped in.
+# Quartile palette (Q1 = biologically young → Q4 = biologically old);
+# fixed hues so figures stay consistent across the section.
 PALETTE_QUARTILE = {'Q1': '#2471a3', 'Q2': '#76b7c8', 'Q3': '#f0a07a', 'Q4': '#c0392b'}
 
 PALETTE_SEX = {'Female': '#c0392b', 'Male': '#2471a3'}

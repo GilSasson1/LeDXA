@@ -3,10 +3,12 @@ extract_embeddings.py
 
 GPU extraction of frozen bone and tissue embeddings for all HDF5 subjects.
 
-Outputs (one pair per model):
+Outputs (per model):
   {EMBEDDINGS_DIR}/{model}_bone.pkl    — DataFrame(n_subjects, embed_dim)
   {EMBEDDINGS_DIR}/{model}_tissue.pkl  — DataFrame(n_subjects, embed_dim)
-Both are indexed by MultiIndex(RegistrationCode, research_stage).
+  {EMBEDDINGS_DIR}/{model}_fusion.pkl  — DataFrame(n_subjects, 2*embed_dim), bone+tissue concatenated
+Indexed by MultiIndex(RegistrationCode, research_stage, Date) by default,
+or (eid, visit_index) in --ukbb mode.
 
 Usage:
   python extract_embeddings.py --models lejepa dino

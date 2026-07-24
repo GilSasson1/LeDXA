@@ -151,7 +151,7 @@ def _fit_predict_blocks(X_tr, X_val, y_tr, y_val, is_cls: bool, seed: int = 0,
     factor s ∈ {1,4,16,64} (standardized columns ×s ⇒ ridge penalty 1/s² as hard, so s>1
     trusts that block more). Starting from all-1, each free block's scale is greedily set
     to its inner-CV-score argmax in turn (one pass). One block ⇒ a plain single fit.
-    Generalizes the Cox-style per-block penalizer (compare_lp_cov._fit_base).
+    Generalizes the Cox-style per-block penalizer (linear_probe_cov._fit_base).
 
     `fixed_block_scales` skips the scale sweep and applies explicit post-standardization
     block scales. This is used for sensitivity analyses such as approximately
@@ -533,7 +533,7 @@ def main():
                         help="Auto-detect classification targets: columns with only {0,1} values")
     parser.add_argument("--first-scan-only", action="store_true",
                         help="Keep only the earliest scan per subject (one row per subject, "
-                             "matching HPP disease_classfication.py design)")
+                             "mirroring the HPP one-scan-per-subject convention)")
     parser.add_argument("--pca", type=int, default=0,
                         help="PCA components per embedding view (bone and tissue independently). "
                              "0 = no PCA. Applied to SSL embeddings only, not tabular/covariates.")

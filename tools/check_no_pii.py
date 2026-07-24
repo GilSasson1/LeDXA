@@ -16,7 +16,10 @@ import sys
 TEXT_EXT = {".csv", ".tsv"}
 BINARY_EXT = {".pkl", ".pickle", ".npy", ".npz", ".h5", ".hdf5", ".pt", ".pth",
               ".ckpt", ".feather", ".parquet", ".safetensors"}
-SKIP_DIRS = {".git", "__pycache__", ".ipynb_checkpoints", "wandb", "data"}
+# NOTE: `data/` is intentionally NOT skipped — it is the default landing spot for
+# real HPP/UKBB data (config.DATA_ROOT), so the guard must inspect anything committed
+# there rather than share .gitignore's blind spot for the most likely accident path.
+SKIP_DIRS = {".git", "__pycache__", ".ipynb_checkpoints", "wandb"}
 
 # Identifier column names (word-boundary matched; deliberately specific to avoid
 # false positives like `pseudo_r2`).

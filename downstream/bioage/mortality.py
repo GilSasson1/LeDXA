@@ -1,4 +1,4 @@
-"""UKBB cross-cohort validation: does DXA-FM age-residual (biological-age gap)
+"""UKBB cross-cohort validation: does LeDXA age-residual (biological-age gap)
 predict all-cause mortality?
 
 Loads the existing UKBB age-prediction residuals (visit 2, DXA imaging
@@ -7,7 +7,7 @@ PH model with quartile-binned residuals + age + sex covariates, and reports
 HR per quartile + KM curves.
 
 This is independent of Fig. 2's all-cause-mortality Cox panel: that uses the
-full DXA-FM embedding as predictor; this uses only the chronological-age-
+full LeDXA embedding as predictor; this uses only the chronological-age-
 orthogonal residual, asking whether the age-orthogonal signal is itself
 prognostic.
 """
@@ -33,7 +33,7 @@ DEATH_COL      = 'Date of death - visit 0'
 BASELINE_COL   = f'Date of attending assessment centre - visit {BASELINE_VISIT}'
 
 def main():
-    print("Loading UKBB DXA-FM age predictions...")
+    print("Loading UKBB LeDXA age predictions...")
     pred = pd.read_csv(PRED_CSV)
     pred = pred[pred['visit'] == BASELINE_VISIT].drop_duplicates('eid').set_index('eid')
     print(f"  Visit-{BASELINE_VISIT} predictions: {len(pred)} subjects, age {pred['age_true'].min():.0f}–{pred['age_true'].max():.0f} (mean {pred['age_true'].mean():.1f})")

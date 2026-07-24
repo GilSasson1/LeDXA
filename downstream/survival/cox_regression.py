@@ -1076,7 +1076,7 @@ def main():
                     pr[metric] = mv[si] if si < len(mv) else np.nan
                 perseed_rows.append(pr)
 
-        # One-tailed Wilcoxon signed-rank: H1 is model1 > model2, consistent with
+        # Two-tailed Wilcoxon signed-rank (alternative='two-sided'), consistent with
         # HPP and UKBB disease classification comparisons.
         def _get_wilcoxon_p(model1, model2, metric='C-Index'):
             if model1 in seed_results and model2 in seed_results:

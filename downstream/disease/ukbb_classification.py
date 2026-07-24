@@ -2,7 +2,7 @@
 
 Arms:
   Arm 1: Covariates only          (age / sex / BMI)
-  Arm 2: DXA-FM + Covariates      (LeJEPA early fusion)
+  Arm 2: LeDXA + Covariates      (LeJEPA early fusion)
   Arm 3: DINOv3 + Covariates      (DINO early fusion)
   Arm 4: DXA Tabular + Covariates (tabular early fusion)
 
@@ -14,7 +14,7 @@ Protocol per disease × model × seed:
   - StandardScaler on train, applied to val; median imputation of NaNs
   - LogisticRegressionCV (C ∈ 5 log-spaced values, 2-fold inner CV)
   - Metric: ROC-AUC on val set
-  - Minimum positives: 150
+  - Minimum positives: 100
 
 Statistics:
   - Two-tailed Wilcoxon signed-rank test across seeds (H1: test != ref, paired within seed)
@@ -55,7 +55,7 @@ TABULAR_CSV = str(DATA_ROOT / "ukbb" / "dxa_tabular.csv")
 DEFAULT_OUT_SEEDS = str(RESULTS_DIR / "ukbb_disease_4arm_seeds.csv")
 DEFAULT_OUT_SUMMARY = str(RESULTS_DIR / "ukbb_disease_4arm_summary.csv")
 DEFAULT_N_SEEDS = 10
-DEFAULT_PCA = 50
+DEFAULT_PCA = 0  # no PCA (canonical UKBB regime); pass --pca N to opt in
 _SEED_POOL = [42, 73, 99, 123, 2024, 7, 17, 31, 137, 256,
               13, 21, 55, 89, 144, 233, 377, 610, 987, 1597]
 MIN_POSITIVE = 100       # minimum positive cases
@@ -81,7 +81,7 @@ _SEX_SPECIFIC_MALE: set = set()
 MODELS = ["covariates", "lejepa_cov", "dino_cov", "tab_cov"]
 MODEL_LABELS = {
     "covariates":  "Covariates (age/sex/BMI)",
-    "lejepa_cov":  "DXA-FM + Covariates",
+    "lejepa_cov":  "LeDXA + Covariates",
     "dino_cov":    "DINOv3 + Covariates",
     "tab_cov":     "DXA Tabular + Covariates",
 }

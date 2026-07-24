@@ -244,7 +244,7 @@ def make_dino():
 
 
 def make_dino7b():
-    """DINOv3 7B ViT. Same protocol as make_dino() but with the largest model."""
+    """DINOv3 7B ViT. Like make_dino(), but the largest model and a 224-px train crop (vs 256)."""
     # load_to_gpu=True: loads weights directly to CUDA, bypassing CPU RAM
     backbone = DINOv3(model_name=DINO_7B_MODEL_NAME, freeze_backbone=False, load_to_gpu=True).to(DEVICE)
     embed_dim = backbone.backbone.num_features
@@ -415,7 +415,7 @@ def run_one_config(
     criterion = nn.BCEWithLogitsLoss() if is_cls else nn.MSELoss()
     metric_name = "auc" if is_cls else "pearson"
     best_val_metric = -float("inf")
-    ckpt_path = ckpt_path = checkpoint_path(model_name, "ft", fusion, target_col, seed)
+    ckpt_path = checkpoint_path(model_name, "ft", fusion, target_col, seed)
     os.makedirs(os.path.dirname(ckpt_path), exist_ok=True)
 
     for epoch in range(num_epochs):

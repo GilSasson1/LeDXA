@@ -1,6 +1,6 @@
 """Fine-tuning comparison: LeDXA vs DINOv3.
 
-Full end-to-end fine-tuning with cosine LR schedule and linear warmup.
+Full end-to-end fine-tuning with a cosine one-cycle LR schedule (cosine warmup + cosine decay, via OneCycleLR).
 Best checkpoint is saved per run; embeddings are extracted from best model.
 
 Usage:

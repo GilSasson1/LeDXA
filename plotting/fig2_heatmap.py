@@ -1,22 +1,22 @@
 """
-plot_fig2_heatmap.py — Figure 2 redesign (Virchow Fig. 2a idiom)
+fig2_heatmap.py — Figure 2 (disease/trait prediction, Virchow Fig. 2a idiom)
 
-Panel a : Disease-classification AUROC heatmap for diagnoses available in both
-          HPP and UK Biobank. Rows = 4 covariate-adjusted model arms; columns =
-          diseases. AUROC printed in every cell; cell shade encodes within-disease
-          model rank.
-Panel b : Cohort-specific disease AUROC heatmaps for diagnoses shown only in HPP
-          or only in UK Biobank.
-Panel c : HPP chronological-age prediction, MAE bars.
-Panel d : HPP continuous physiological biomarkers, Pearson r bars with SE error
-          bars and FDR-corrected DeepDXA-vs-all-comparators significance markers.
+Panel a   : HPP chronological-age prediction, MAE bars.
+Panel b   : HPP continuous physiological biomarkers, Pearson r bars with SE error
+            bars and FDR-corrected LeDXA-vs-all-comparators significance markers.
+Panel c   : Disease-classification AUROC heatmap for diagnoses available in both
+            HPP and UK Biobank. Rows = 4 covariate-adjusted model arms; columns =
+            diseases. AUROC printed in every cell; cell shade encodes within-disease
+            model rank.
+Panels d/e: Cohort-specific disease AUROC heatmaps for diagnoses shown only in
+            HPP (d) or only in UK Biobank (e).
 
 No Cox/KM (lives in Fig 3).
 
 Usage:
-  python plot_fig2_heatmap.py
-  python plot_fig2_heatmap.py --verify           # print matrices, skip render
-  python plot_fig2_heatmap.py --out path.png
+  python -m plotting.fig2_heatmap
+  python -m plotting.fig2_heatmap --verify           # print matrices, skip render
+  python -m plotting.fig2_heatmap --out path.png
 """
 import argparse, os, sys
 from pathlib import Path
@@ -40,7 +40,7 @@ except Exception:  # pragma: no cover — fallback if import chain breaks
                     "covariates": "#bdbdbd"}
     _draw_sig_markers = None
 
-# Arm colors = the heatmap rank-shade ramp (Blues at 0.95/0.66/0.40/0.16): DeepDXA
+# Arm colors = the heatmap rank-shade ramp (Blues at 0.95/0.66/0.40/0.16): LeDXA
 # boldest, then DINOv3, then DXA-Tabular (features), then Age/sex/BMI (covariates)
 # lightest — so the bar colors echo the within-disease rank shading. Local override.
 MODEL_COLORS = {**MODEL_COLORS, "lejepa": "#083c7d", "ensemble": "#083c7d",
@@ -68,14 +68,14 @@ SUPP_A = os.environ.get(
     'FIG2_HPP_TABLE', os.path.join(_ROOT, 'tables', 'table_1_hpp_disease.csv'))
 UKBB_AUC = os.environ.get(
     'FIG2_UKBB_TABLE', os.path.join(_ROOT, 'tables', 'table_2_ukbb_disease.csv'))
-AGE_MAE_CSV  = os.environ.get('FIG2_AGE_MAE', os.path.join(_ROOT, 'tables', 'age_mae_imaging_only_wholebody.csv'))  # per-model age (imaging-only, multi-visit)
+AGE_MAE_CSV  = os.environ.get('FIG2_AGE_MAE', os.path.join(_ROOT, 'tables', 'age_mae_imaging_only_wholebody.csv'))  # per-model age (imaging-only, multi-visit); NOT shipped — supply via FIG2_AGE_MAE
 OUT_DEF   = os.path.join(_ROOT, 'figures', 'fig2_disease_heatmap.png')
 # External inputs (participant-level or not distributed — supply via env / DEXA_ROOT):
 SUPP_B    = os.environ.get('FIG2_REG_TABLE', f'{DEXA}/supp_tableB_systems_mv_wholebody.csv')  # systems biomarkers; panels c & d
 AGE_PRED  = os.environ.get('FIG2_AGE_PRED', f'{DEXA}/age_prediction_ukbb/ukbb_age_predictions_with_visits.csv')
 HPP_AGE_PRED = os.environ.get('FIG2_HPP_AGE_PRED', os.path.join(_ROOT, 'tables', 'tableD_bioage_predictions_hpp.csv'))  # per-participant; not shipped
 
-# ── Model rows (top → bottom); DeepDXA is the hero ──────────────────────────────
+# ── Model rows (top → bottom); LeDXA is the hero ──────────────────────────────
 MODELS = [
     ('lejepa',     'LeDXA + cov'),
     ('dino',       'DINOv3 + cov'),
@@ -83,31 +83,31 @@ MODELS = [
     ('covariates', 'Age, sex & BMI\n(covariates)'),
 ]
 # Per-cohort wide-column lookup: key -> mean column in that cohort's table.
-HPP_COLS = {  # exporter labels DINOv3 as "DINOv3"; relabelled to DINOv3 on the row axis
-    'lejepa':     'DXA-FM + Covariates_mean',
+HPP_COLS = {  # key -> mean-AUROC column name in the HPP summary table
+    'lejepa':     'LeDXA + Covariates_mean',
     'dino':       'DINOv3 + Covariates_mean',
     'tabular':    'DXA Tabular + Covariates_mean',
     'covariates': 'Covariates (age/sex/BMI)_mean',
 }
-UKBB_COLS = {  # NOTE: UKBB summary labels DINOv3 as "DINOv3"; we relabel to DINOv3.
-    'lejepa':     'DXA-FM + Covariates_mean',
+UKBB_COLS = {  # key -> mean-AUROC column name in the UKBB summary table
+    'lejepa':     'LeDXA + Covariates_mean',
     'dino':       'DINOv3 + Covariates_mean',
     'tabular':    'DXA Tabular + Covariates_mean',
     'covariates': 'Covariates (age/sex/BMI)_mean',
 }
 # Table-B arm -> mean/SE columns (regression panel + age bars).
-# Imaging-only arms (no covariate fusion): DeepDXA/DINOv3/DXA-Tabular embeddings
+# Imaging-only arms (no covariate fusion): LeDXA/DINOv3/DXA-Tabular embeddings
 # alone, plus a covariates-only baseline bar. Source table summarises 10 seeds.
 B_COLS = {
-    'lejepa':     ('DeepDXA_mean',      'DeepDXA_SE'),
+    'lejepa':     ('LeDXA_mean',      'LeDXA_SE'),
     'dino':       ('DINOv3_mean',       'DINOv3_SE'),
     'tabular':    ('DXA Tabular_mean',  'DXA Tabular_SE'),
     'covariates': ('Covariates_mean',   'Covariates_SE'),
 }
 B_PCOLS = {  # comparison -> (pcol, mean-col-of-comparator) for sig markers
-    'covariates': ('P_DeepDXA_vs_Cov_adj',  'Covariates_mean'),
-    'tabular':    ('P_DeepDXA_vs_Tab_adj',  'DXA Tabular_mean'),
-    'dino':       ('P_DeepDXA_vs_DINO_adj', 'DINOv3_mean'),
+    'covariates': ('P_LeDXA_vs_Cov_adj',  'Covariates_mean'),
+    'tabular':    ('P_LeDXA_vs_Tab_adj',  'DXA Tabular_mean'),
+    'dino':       ('P_LeDXA_vs_DINO_adj', 'DINOv3_mean'),
 }
 
 # ── Curated columns for panel c ─────────────────────────────────────────────────
@@ -139,7 +139,7 @@ COLUMN_BLOCKS = [
 ]
 
 # ── Cohort-specific gains (compact per-cohort heatmaps) ─────────────
-# DeepDXA gains highlighted in one cohort after the replicated set is shown above.
+# LeDXA gains highlighted in one cohort after the replicated set is shown above.
 HPP_ONLY = [   # HPP gain examples
     ('Fatty Liver',         'MASLD'),
     ('Fibromyalgia',        'Fibromyalgia'),
@@ -156,7 +156,7 @@ UKBB_ONLY = [  # UKBB gain examples
     ('dis__gout',                 'Gout'),
 ]
 
-# ── Continuous-trait order handled dynamically (sorted by DeepDXA r) ─────────────
+# ── Continuous-trait order handled dynamically (sorted by LeDXA r) ─────────────
 
 # Heatmap color encodes RANK WITHIN A DISEASE (winner darkest), not absolute AUROC.
 _CMAP = matplotlib.colormaps['Blues']
@@ -328,7 +328,7 @@ def _col_topset(cohort, key):
 
 
 def _col_gain(hpp, ukbb, h, u):
-    """Mean DeepDXA−DXA-tabular AUROC gain across available cohorts, for column ordering."""
+    """Mean LeDXA−DXA-tabular AUROC gain across available cohorts, for column ordering."""
     gains = []
     if h:
         l, t = _auc(hpp, h, HPP_COLS['lejepa']), _auc(hpp, h, HPP_COLS['tabular'])
@@ -343,8 +343,8 @@ def _col_gain(hpp, ukbb, h, u):
 
 def build_matrix(hpp, ukbb):
     """Return columns list, group boundaries/headers, and per-cohort AUC matrices.
-    Replicated diseases are ordered by descending HPP DeepDXA AUROC; any
-    cohort-specific blocks remain ordered by descending DeepDXA−tabular gain."""
+    Replicated diseases are ordered by descending HPP LeDXA AUROC; any
+    cohort-specific blocks remain ordered by descending LeDXA−tabular gain."""
     defs = []
     for block, grp, _ in COLUMN_BLOCKS:
         block_defs = [(h, u, hl, ul, grp) for (h, u, hl, ul) in block]
@@ -511,7 +511,7 @@ def _single_mat(df, items, cols_map, cohort):
 
 
 def _sort_items_by_gain(df, items, cols_map):
-    """Order (idx, label) items by descending DeepDXA−tabular AUROC gain (largest left)."""
+    """Order (idx, label) items by descending LeDXA−tabular AUROC gain (largest left)."""
     def g(it):
         l, t = _auc(df, it[0], cols_map['lejepa']), _auc(df, it[0], cols_map['tabular'])
         return (l - t) if (l is not None and t is not None) else -1e9
@@ -549,7 +549,7 @@ def draw_panel_c_age(ax, supp_b):
     SE error bars, value labelled at the bar end. No scatter."""
     # Imaging-only age: MAE and r both come from AGE_MAE_CSV (HPP), so the
     # age panel stays tied to one consistent run
-    # (compute_age_mae_imaging_only.py). supp_b is unused here.
+    # (downstream/bioage/age_mae.py). supp_b is unused here.
     order = ['lejepa', 'dino', 'tabular']           # no covariates baseline for age
     labs  = ['LeDXA', 'DINOv3', 'DXA-Tab']
     md = pd.read_csv(AGE_MAE_CSV)
@@ -615,13 +615,13 @@ def draw_panel_c(ax, supp_b):
             if np.isfinite(v):
                 bar_ends[(t, mkey)] = float(v + (s if np.isfinite(s) else 0.0))
 
-    # Significance marker per trait: DeepDXA FDR-significantly beats every
+    # Significance marker per trait: LeDXA FDR-significantly beats every
     # competing model. The displayed star tier reflects the weakest adjusted
     # q-value across the three pairwise contrasts.
     _P_COL_MAP = {
-        'tabular':    'P_DeepDXA_vs_Tab_adj',
-        'dino':       'P_DeepDXA_vs_DINO_adj',
-        'covariates': 'P_DeepDXA_vs_Cov_adj',
+        'tabular':    'P_LeDXA_vs_Tab_adj',
+        'dino':       'P_LeDXA_vs_DINO_adj',
+        'covariates': 'P_LeDXA_vs_Cov_adj',
     }
     def _stars(p):
         return '***' if p < 1e-3 else '**' if p < 1e-2 else '*' if p < 0.05 else ''

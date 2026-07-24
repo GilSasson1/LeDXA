@@ -1,4 +1,4 @@
-Disease,N_positives,Sex_flag,Covariates (age/sex/BMI)_mean,Covariates (age/sex/BMI)_SE,Covariates (age/sex/BMI)_N,DXA-FM + Covariates_mean,DXA-FM + Covariates_SE,DXA-FM + Covariates_N,DINOv3 + Covariates_mean,DINOv3 + Covariates_SE,DINOv3 + Covariates_N,DXA Tabular + Covariates_mean,DXA Tabular + Covariates_SE,DXA Tabular + Covariates_N
+Disease,N_positives,Sex_flag,Covariates (age/sex/BMI)_mean,Covariates (age/sex/BMI)_SE,Covariates (age/sex/BMI)_N,LeDXA + Covariates_mean,LeDXA + Covariates_SE,LeDXA + Covariates_N,DINOv3 + Covariates_mean,DINOv3 + Covariates_SE,DINOv3 + Covariates_N,DXA Tabular + Covariates_mean,DXA Tabular + Covariates_SE,DXA Tabular + Covariates_N
 ADHD,1835,,0.5791,0.0055,10,0.5923,0.0062,10,0.5817,0.0048,10,0.5791,0.0048,10
 Allergy,2246,,0.5901,0.0052,10,0.6001,0.0048,10,0.5975,0.0047,10,0.6003,0.005,10
 Anal Fissure,665,,0.5004,0.01,10,0.5232,0.0077,10,0.4944,0.0111,10,0.5083,0.0085,10

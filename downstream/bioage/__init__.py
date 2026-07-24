@@ -1,6 +1,6 @@
-"""Biological-age section pipeline (Figure 5).
+"""Biological-age section (Figure 5) helpers.
 
-Single source of truth for the DEXA paper's biological-age analyses:
-RTM detrending, quartile binning, plotting style, orchestration, and
-claim-vs-result audit.
+Repository-relative output paths, plot-style helpers, RTM detrending, and the
+quartile-binning / age-MAE / mortality analyses. The figure-composition script
+lives in ``plotting/fig5_bioage.py``.
 """

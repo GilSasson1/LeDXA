@@ -2,14 +2,10 @@
 
 Documentation images for the top-level README.
 
-`figure1.png` is rendered inline by the top-level README with standard Markdown:
-
-```markdown
-![Figure 1 — LeDXA study overview](assets/figure1.png)
-```
-
-`figure1.pdf` is the print-quality version linked immediately below it. Keep both files in this
-directory and preserve the lowercase, space-free names so links work on case-sensitive systems.
+`figure1.pdf` is the print-quality study-overview figure. The top-level README does not embed it
+inline; it shows the `readme/model_and_applications.png` preview hyperlinked to this PDF.
+`figure1.png` is a raster of the same figure, kept for convenience. Preserve the lowercase,
+space-free names so links work on case-sensitive systems.
 
 `readme/` contains legibility-focused PNG previews derived from the complete manuscript figures.
 Their source-panel provenance is documented in `readme/README.md`.

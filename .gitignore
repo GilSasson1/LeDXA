@@ -1,7 +1,5 @@
 # --- Data: participant-level data must NEVER be committed ---
 data/*
-!data/.gitkeep
-!data/README.md
 *.h5
 *.hdf5
 *.dcm

@@ -28,7 +28,7 @@ EMBEDDINGS_DIR  = Path(os.environ.get("LEDXA_EMBEDDINGS",  DATA_ROOT / "embeddin
 GWAS_DIR        = Path(os.environ.get("LEDXA_GWAS",        DATA_ROOT / "gwas_analysis"))
 RESULTS_DIR     = Path(os.environ.get("LEDXA_RESULTS",     DATA_ROOT / "results"))
 LEJEPA_CHECKPOINT = Path(
-    os.environ.get("LEDXA_CHECKPOINT", CHECKPOINTS_DIR / "hpp" / "best_model.pth")
+    os.environ.get("LEDXA_CHECKPOINT", CHECKPOINTS_DIR / "hpp" / "best_model_ledxa_late_fusion.pth")
 )
 
 # Repo-relative outputs (curated, de-identified aggregate results — safe to commit).
