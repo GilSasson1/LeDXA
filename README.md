@@ -79,7 +79,7 @@ embeddings.
 Expected output:
 
 ```text
-input (2, 3, 384, 128) -> features (2, 384) -> projections (2, 128)
+input (8, 3, 384, 128) -> features (8, 384) -> projections (8, 64)
 ```
 
 Dependencies are declared in `pyproject.toml`; `requirements.txt` is provided for compatibility.

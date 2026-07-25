@@ -12,11 +12,11 @@ import torch
 
 from model.model import LeJEPA_Encoder
 
-INPUT_SHAPE = (2, 3, 384, 128)  # (batch, channels, height, width) — whole-body DXA aspect ratio
+INPUT_SHAPE = (8, 3, 384, 128)  # (batch, channels, height, width) — whole-body DXA aspect ratio
 
 
 def main():
-    encoder = LeJEPA_Encoder(model_name="vit_small_patch16_384", img_size=(384, 128), proj_out_dim=128)
+    encoder = LeJEPA_Encoder(model_name="vit_small_patch16_384", img_size=(384, 128), proj_out_dim=64)
     encoder.eval()
     x = torch.randn(*INPUT_SHAPE)  # synthetic stand-in for a batch of DXA scans
     with torch.no_grad():
