@@ -78,3 +78,17 @@ The scanner-derived DXA measurements used by the DXA-tabular baseline (Methods),
 ---
 
 DXA, dual-energy X-ray absorptiometry; HPP, Human Phenotype Project; BMD/BMC, bone mineral density/content; VAT, visceral adipose tissue; ALM(I), appendicular lean mass (index); AUROC, area under the receiver-operating-characteristic curve; AUPRC, area under the precision-recall curve; C-index, Harrell's concordance index; adj. P, Benjamini-Hochberg false-discovery-rate-adjusted P value; PC, principal component; ATC, Anatomical Therapeutic Chemical classification; s.d., standard deviation; s.e.m., standard error of the mean. Shorthand appearing inside feature names: L1-L4, first to fourth lumbar vertebra; REM/NREM, rapid-eye-movement and non-rapid-eye-movement sleep; AHI, apnoea-hypopnoea index; ODI, oxygen desaturation index; ML/AP, mediolateral and anteroposterior; I, II, III, aVR, aVL, aVF and V1-V6, standard electrocardiogram leads; ST and QT, electrocardiogram segment and interval; RR, interval between successive heartbeats; HDL, high-density lipoprotein; BMR, basal metabolic rate; CV, coefficient of variation; RAE, retinol activity equivalents; NOVA, food-processing classification; vitamins B1, B6, B12, D2 and D3 denote the named vitamin forms. Condition abbreviations follow standard clinical usage (ADHD, COPD, IBS, IBD, PTSD, CLL, DLBCL, GORD, G6PD, FMF, familial Mediterranean fever; pes planus, flat foot). Gene and protein identifiers (MYL3, LRIG1, ITGB6, EXOSC3) are HGNC symbols and are not abbreviations of a descriptive phrase. Gait feature names carry the treadmill protocol code from the source instrument (TM3, TMS). Estimates are shown as value ± s.e.m. DELIVERY: every table is also provided as an S-numbered data file (TableS1_... to TableS10_...), so each can be cited and downloaded on its own. Supplementary Tables 6, 8 and 10 are too long to typeset in full. Each keeps its number and legend and is shown here in summarised form, with its complete body provided as the separate data file named in its legend. This workbook is the reader-facing version of the typeset tables - estimates are merged into single cells and constant or derivable columns are omitted. The complete record for every table is the accompanying set of CSV files, which carry every row, every value and its standard error in separate numeric columns, unadjusted P values, and the raw analysis identifiers. Cite those files, not this workbook, when recomputing.
+
+
+---
+
+## Plotting-pipeline files (not supplementary tables)
+
+`table_2_hpp_disease.csv` and `table_3_ukbb_disease.csv` are the internal-schema inputs that
+`plotting/fig2_heatmap.py` reads. They hold the same statistics as Supplementary Tables 2 and 3
+but keep the raw analysis column names and the abbreviated disease labels used as figure axis
+ticks, so the figure code is not coupled to publication formatting. For any use other than
+regenerating Figure 2, read the `TableS*.csv` files above.
+
+`plotting/fig3_cox.py` writes `table_5_incident_disease.csv` here as a by-product; it is
+git-ignored, and its published form is `TableS5_ukbb_incident_disease_cindex.csv`.
