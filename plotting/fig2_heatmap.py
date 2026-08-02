@@ -65,9 +65,9 @@ DEXA  = os.environ.get('DEXA_ROOT', os.path.dirname(_ROOT))  # parent dir holds 
 FIG2_SOURCE_REGIME = 'diffpentuned'
 # In-repo canonical inputs (repo-relative):
 SUPP_A = os.environ.get(
-    'FIG2_HPP_TABLE', os.path.join(_ROOT, 'tables', 'table_1_hpp_disease.csv'))
+    'FIG2_HPP_TABLE', os.path.join(_ROOT, 'tables', 'table_2_hpp_disease.csv'))
 UKBB_AUC = os.environ.get(
-    'FIG2_UKBB_TABLE', os.path.join(_ROOT, 'tables', 'table_2_ukbb_disease.csv'))
+    'FIG2_UKBB_TABLE', os.path.join(_ROOT, 'tables', 'table_3_ukbb_disease.csv'))
 AGE_MAE_CSV  = os.environ.get('FIG2_AGE_MAE', os.path.join(_ROOT, 'tables', 'age_mae_imaging_only_wholebody.csv'))  # per-model age (imaging-only, multi-visit); NOT shipped — supply via FIG2_AGE_MAE
 OUT_DEF   = os.path.join(_ROOT, 'figures', 'fig2_disease_heatmap.png')
 # External inputs (participant-level or not distributed — supply via env / DEXA_ROOT):
@@ -201,8 +201,8 @@ def _assert_canonical_sources():
         'FIG2_PAIRS': _PAIRS_CSV,
     }
     canonical_public = {
-        'FIG2_HPP_TABLE': 'table_1_hpp_disease.csv',
-        'FIG2_UKBB_TABLE': 'table_2_ukbb_disease.csv',
+        'FIG2_HPP_TABLE': 'table_2_hpp_disease.csv',
+        'FIG2_UKBB_TABLE': 'table_3_ukbb_disease.csv',
     }
     banned = ('regionpool', 'twopen')
     problems = []

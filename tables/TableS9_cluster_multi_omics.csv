@@ -1,0 +1,10 @@
+Omics layer (scale),Feature,Scale,Mean difference (B − A),Higher in,Cluster A (n),Cluster B (n),P,Adj. P,Confidence tier,Cluster A / B (n)
+Metabolites (NMR) — Platform concentration units,Creatinine,Platform concentration units,2.31,Cluster B,773,808,9.1e-08,9.7e-06,strong (q<0.05),773 / 808
+Metabolites (NMR) — Platform concentration units,GlycA,Platform concentration units,-0.0222,Cluster A,775,808,7.2e-05,0.004,strong (q<0.05),775 / 808
+Microbiome — Relative abundance,Oscillibacter sp900544615,Relative abundance,0.000108,Cluster B,998,1004,0.00079,0.078,discovery (q<0.10),"998 / 1,004"
+Microbiome — Relative abundance,Ruthenibacterium lactatiformans,Relative abundance,-0.000305,Cluster A,998,1004,0.00049,0.078,discovery (q<0.10),"998 / 1,004"
+Microbiome — Relative abundance,Unclassified taxon,Relative abundance,2.72e-05,Cluster B,998,1004,0.00061,0.078,discovery (q<0.10),"998 / 1,004"
+Proteomics (Olink) — log₂ scale,MYL3,log₂ scale,0.472,Cluster B,302,321,9e-09,9.3e-06,strong (q<0.05),302 / 321
+Proteomics (Olink) — log₂ scale,LRIG1,log₂ scale,-0.147,Cluster A,302,321,6.5e-06,0.003,strong (q<0.05),302 / 321
+Proteomics (Olink) — log₂ scale,ITGB6,log₂ scale,0.124,Cluster B,302,321,3.7e-05,0.013,strong (q<0.05),302 / 321
+Proteomics (Olink) — log₂ scale,EXOSC3,log₂ scale,-0.297,Cluster A,302,321,0.0002,0.052,discovery (q<0.10),302 / 321

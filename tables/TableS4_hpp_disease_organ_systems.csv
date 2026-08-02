@@ -1,0 +1,125 @@
+Organ system,Diagnosis,Cases (n),Individually analysed (Supplementary Table 2),Organ-system participants (n),System evaluated in Extended Data Fig. 3,Note
+Cardiovascular,Hypertension,835,Yes,1111,Yes,—
+Cardiovascular,Heart valve disease,116,Yes,1111,Yes,—
+Cardiovascular,Ischemic heart disease,96,Yes,1111,Yes,—
+Cardiovascular,Erectile dysfunction,45,No,1111,Yes,—
+Cardiovascular,Loss of consciousness,27,No,1111,Yes,—
+Cardiovascular,Atherosclerotic disease,23,No,1111,Yes,—
+Cardiovascular,Atrial fibrillation,21,No,1111,Yes,—
+Cardiovascular,AV. conduction disorder,15,No,1111,Yes,—
+Cardiovascular,Myocarditis,13,No,1111,Yes,—
+Cardiovascular,Heart failure,6,No,1111,Yes,—
+Cardiovascular,Pulmonary embolism,4,No,1111,Yes,—
+Cardiovascular,Stroke,4,No,1111,Yes,—
+Cardiovascular,Aortic aneurysm,3,No,1111,Yes,—
+Dermatology,Allergy,1719,Yes,1296,Yes,Also grouped under Immunology in the source mapping. Assigned here to the primary system used by the analysis; the case count is the union across both systems and therefore exceeds this system's participant total.
+Dermatology,Atopic dermatitis,278,Yes,1296,Yes,—
+Dermatology,Psoriasis,226,Yes,1296,Yes,—
+Dermatology,Vitiligo,52,No,1296,Yes,—
+Dermatology,Skin rash,41,No,1296,Yes,—
+Dermatology,Haemangioma,8,No,1296,Yes,—
+ENT,Hearing loss,324,Yes,792,Yes,—
+ENT,Chronic sinusitis,291,Yes,792,Yes,—
+ENT,Episodic vertigo,211,Yes,792,Yes,—
+ENT,Tinnitus,16,No,792,Yes,—
+ENT,Vertigo,4,No,792,Yes,—
+Endocrinology,Hypothyroidism,527,Yes,928,Yes,—
+Endocrinology,Osteopenia,245,No,928,Yes,—
+Endocrinology,Osteoporosis,131,No,928,Yes,—
+Endocrinology,Hyperthyroidism,109,Yes,928,Yes,—
+Endocrinology,Hashimoto,54,No,928,Yes,—
+Endocrinology,Goiter,24,No,928,Yes,—
+Endocrinology,Hyperparathyroidism,19,No,928,Yes,—
+Endocrinology,Vitamin d deficiency,14,No,928,Yes,—
+Endocrinology,Thyroid adenoma,6,No,928,Yes,—
+Endocrinology,Pituitary gland adenoma,3,No,928,Yes,—
+Endocrinology,Parathyroid adenoma,1,No,928,Yes,—
+Gastro,Peptic ulcer disease,853,Yes,1846,Yes,—
+Gastro,Vitamin B12 deficiency,401,Yes,1846,Yes,—
+Gastro,Irritable bowel syndrome (IBS),315,Yes,1846,Yes,—
+Gastro,Gallstone disease,311,Yes,1846,Yes,—
+Gastro,Gastroduodenal ulcer,160,Yes,1846,Yes,—
+Gastro,Folic acid deficiency,78,Yes,1846,Yes,—
+Gastro,Lactose intolerance,33,No,1846,Yes,—
+Gastro,Celiac,32,No,1846,Yes,—
+Gastro,Inflammatory bowel disease (IBD),23,No,1846,Yes,—
+Gastro,Iron deficiency,19,No,1846,Yes,—
+Gastro,FMF,16,No,1846,Yes,—
+Gastro,Gallbladder polyp,9,No,1846,Yes,—
+Gastro,Esophagitis,7,No,1846,Yes,—
+Gastro,Constipation,4,No,1846,Yes,—
+Gastro,Barrett's esophagus,3,No,1846,Yes,—
+Hematological,Anemia,412,Yes,542,Yes,—
+Hematological,G6PD deficiency,89,Yes,542,Yes,—
+Hematological,Thalassemia,34,No,542,Yes,—
+Hematological,Hypercoagulability,28,No,542,Yes,—
+Hematological,Lymphoma,10,No,542,Yes,—
+Immunology,Food allergy,6,No,1121,No,—
+Infectious disease,COVID-19,637,No,659,No,—
+Infectious disease,Past malaria,24,No,659,No,—
+Metabolic,Hyperlipidemia,1702,Yes,2543,Yes,—
+Metabolic,Prediabetes,627,Yes,2543,Yes,—
+Metabolic,Fatty liver disease,452,Yes,2543,Yes,—
+Metabolic,Obesity,414,No,2543,Yes,—
+Metabolic,Diabetes,119,Yes,2543,Yes,—
+Metabolic,Primary hypercholesterolaemia,63,No,2543,Yes,—
+Metabolic,Overweight,18,No,2543,Yes,—
+Metabolic,Gestational diabetes,9,No,2543,Yes,—
+Nephrology,Proteinuria,5,No,5,No,—
+Neurologic,Attention deficit hyperactivity disorder (ADHD),1451,Yes,2236,Yes,—
+Neurologic,Migraine,481,Yes,2236,Yes,—
+Neurologic,Anxiety,307,Yes,2236,Yes,—
+Neurologic,Depression,295,Yes,2236,Yes,—
+Neurologic,Headache,206,Yes,2236,Yes,—
+Neurologic,Post trauma (PTSD),14,No,2236,Yes,—
+Neurologic,Bipolar disorder,8,No,2236,Yes,—
+Neurologic,Eating disorder,8,No,2236,Yes,—
+Neurologic,Hydrocephalus,3,No,2236,Yes,—
+Neurologic,Neuropathy,1,No,2236,Yes,—
+Obstetrics and gynaecology,Endometriosis and adenomyosis,198,No,406,No,—
+Obstetrics and gynaecology,Polycystic ovary disease,188,No,406,No,—
+Obstetrics and gynaecology,Perimenopausal disorders,28,No,406,No,—
+Obstetrics and gynaecology,Uterine fibroid/ leiomyomas,17,No,406,No,—
+Oncology,Basal cell carcinoma,163,No,381,No,—
+Oncology,Breast cancer,121,No,381,No,—
+Oncology,Squamous call carcinoma,46,No,381,No,—
+Oncology,Prostate cancer,26,No,381,No,—
+Oncology,Melanoma,23,No,381,No,—
+Oncology,Colorectal carcinoma,11,No,381,No,—
+Oncology,other,9,No,381,No,—
+Oncology,Thyroid cancer,6,No,381,No,—
+Oncology,Lung cancer,4,No,381,No,—
+Oncology,Cervical cancer,1,No,381,No,—
+Ophthalmology,Retinal detachment,68,No,214,No,—
+Ophthalmology,Glaucoma,59,No,214,No,—
+Ophthalmology,Nearsightedness (myopia),56,No,214,No,—
+Ophthalmology,Keratoconus,18,No,214,No,—
+Ophthalmology,Uveitis,17,No,214,No,—
+Ophthalmology,Ocular hypertension,9,No,214,No,—
+Orthopedic,Back pain,1556,Yes,2188,Yes,—
+Orthopedic,Fracture,756,No,2188,Yes,—
+Orthopedic,Intervertebral disc disease,41,No,2188,Yes,—
+Orthopedic,Meniscus tears,39,No,2188,Yes,—
+Orthopedic,PES PLANUS,9,No,2188,Yes,—
+Orthopedic,Tendon injury,8,No,2188,Yes,—
+Orthopedic,Tenosynovitis,6,No,2188,Yes,—
+Orthopedic,Intervertebral disc stenosis cervical region,5,No,2188,Yes,—
+Orthopedic,Tendon rupture,2,No,2188,Yes,—
+Other,Oral aphthae,297,No,297,No,—
+Pulmonology,Asthma,438,Yes,450,Yes,—
+Pulmonology,COPD,14,No,450,Yes,—
+Pulmonology,Pulmonary hypertension,2,No,450,Yes,—
+Rheumatology,Osteoarthritis,221,Yes,384,Yes,—
+Rheumatology,Fibromyalgia,106,Yes,384,Yes,—
+Rheumatology,Gout,73,No,384,Yes,—
+Sleep,Sleep apnea,232,Yes,357,Yes,—
+Sleep,Insomnia,132,Yes,357,Yes,—
+Surgery,Haemorrhoids,1645,Yes,1994,No,—
+Surgery,Anal fissure,500,Yes,1994,No,—
+Surgery,Anal abscess,60,No,1994,No,—
+Surgery,Diaphragmatic hernia,42,No,1994,No,—
+Surgery,Breast fibrocystic change,14,No,1994,No,—
+Urology,Urinary tract infection,833,No,1052,Yes,—
+Urology,Urinary tract stones,228,Yes,1052,Yes,—
+Urology,Renal stones,35,No,1052,Yes,—
+Urology,Urinary incontinence,2,No,1052,Yes,—

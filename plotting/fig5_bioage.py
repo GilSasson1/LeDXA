@@ -48,6 +48,11 @@ ROW_SHADE = '#F5F5F5'   # Fig 3 alternating-row background
 # disease, osteoarthritis, renal failure). They live in the extended prevalence
 # table alongside sarcopenia, but panel g shows only the composite buckets — the
 # sub-condition breakdown is a supplementary figure (not included in this release).
+# Probable sarcopenia is derived from the EWGSOP2 ALMI threshold, not ascertained as a recorded
+# diagnosis like the rest of the panel, so it is excluded here and reported in its own right in the
+# Results. Dropping it takes panel g to the 17 diagnosed conditions the Methods describes.
+DISEASE_PANEL_EXCLUDE = {'Sarcopenia (EWGSOP2)'}
+
 DECOMP_SUBCONDITIONS = {
     'Angina', 'Myocardial infarction', 'Chronic ischaemic heart disease', 'Heart failure',
     'Hip arthrosis', 'Knee arthrosis', 'Other arthrosis',
@@ -272,6 +277,7 @@ def _disease_panel(ax, disease_csv: str, *, top_n: int = DISEASE_TOP_N) -> None:
     df = pd.read_csv(disease_csv)
     df = df[df['Adj_P_Value'] < 0.05].copy()
     df = df[~df['Condition'].isin(DECOMP_SUBCONDITIONS)].copy()  # composite buckets only
+    df = df[~df['Condition'].isin(DISEASE_PANEL_EXCLUDE)].copy()  # diagnosed conditions only
     # average RR across sexes; show top_n by avg RR (with ≥1% Q1 prev each sex)
     pivot = df.pivot_table(index='Condition', columns='Sex',
                             values=['Prev_Q1', 'Prev_Q4', 'RR'])
@@ -322,21 +328,23 @@ def _disease_panel(ax, disease_csv: str, *, top_n: int = DISEASE_TOP_N) -> None:
 
 def _medication_panel(ax, paired_csv: str) -> None:
     """Δgap before → after for FDR-significant ATC-3 groups (panel h)."""
+    # Supplementary Table 7 schema (sex-split run; BH over the 37 class x sex combos with n > 10).
     df = pd.read_csv(paired_csv)
-    sig = df[df['adjusted_p_value'] < 0.05].copy()
-
-    sig = sig.sort_values('mean_delta')
+    sig = df[df['Adj. P'] < 0.05].copy()
+    sig = sig.sort_values('Change in gap (yr)')
 
     entries = []
     for _, row in sig.iterrows():
-        name = f"{row['drug']} ({row['demo']})"
+        sex = {'Women': 'women', 'Men': 'men'}.get(row['Sex'], str(row['Sex']).lower())
         entries.append({
-            'label':  name,
-            'before': row['mean_before'],
-            'after':  row['mean_after'],
-            'delta':  row['mean_delta'],
-            'N':      int(row['N_paired']),
-            'q':      row['adjusted_p_value'],
+            'label':  f"{row['ATC-3 class']} ({sex})",
+            'code':   row['ATC-3 class'],
+            'name':   row['Drug class'],
+            'before': row['Gap before initiation (yr)'],
+            'after':  row['Gap after initiation (yr)'],
+            'delta':  row['Change in gap (yr)'],
+            'N':      int(row['Pairs (n)']),
+            'q':      row['Adj. P'],
         })
 
     if not entries:
@@ -363,19 +371,20 @@ def _medication_panel(ax, paired_csv: str) -> None:
     ax.set_xticks(x)
     ax.set_xticklabels([e['label'] for e in entries])
     ax.set_ylabel('Biological-age gap (yr)')
-    subtitle = '   ·   '.join(
-        f"{e['label'].split(' ')[0]} (n={e['N']}): Δ = {e['delta']:+.2f} yr"
-        for e in entries
-    )
-    ax.text(0.5, 1.02, subtitle, transform=ax.transAxes,
-            ha='center', va='bottom', fontsize=6, color='#222')
+    # One annotation per drug, sitting above its own bar pair. Blended transform: x in data
+    # coordinates so each label tracks its bars, y in axes coordinates so they align with each
+    # other regardless of bar height.
+    for i, e in enumerate(entries):
+        ax.text(i, 1.02, f"{e['code']} (n={e['N']}): Δ = {e['delta']:+.2f} yr",
+                transform=ax.get_xaxis_transform(),
+                ha='center', va='bottom', fontsize=6, color='#222')
 
     # Headroom so the significance star and legend don't crowd the bars.
     ymax_bar = max(max(e['before'], e['after']) for e in entries)
     ymin_bar = min(min(e['before'], e['after'], 0) for e in entries)
     ax.set_ylim(ymin_bar - 0.4, ymax_bar * 1.20 + 0.4)
 
-    ax.legend(frameon=False, loc='upper right')
+    ax.legend(frameon=False, loc='upper left')  # right side collides with the tallest bar's marker
     ax.grid(axis='y', linestyle='--', color='#CCCCCC', alpha=0.7)
     ax.grid(axis='x', visible=False)
 
@@ -461,7 +470,7 @@ def compose_figure(*, save: bool = True):
     gap_df = _load_mortality_followup()
     _km_panel(ax_f, gap_df)
     _disease_panel(ax_g, paths.out_table('tableD_bioage_disease_prevalence_extended.csv'))
-    _medication_panel(ax_h, paths.out_table('table_6_medications.csv'))
+    _medication_panel(ax_h, paths.out_table('TableS7_medication_bioage_gap.csv'))
 
     # ── panel letters ────────────────────────────────────────────────────────
     for ax, letter in zip([ax_a, ax_b, ax_c, ax_d, ax_e, ax_f, ax_g, ax_h],

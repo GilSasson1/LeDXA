@@ -1,0 +1,436 @@
+Index,Cohort,Feature ID,Feature,Category
+1,UK Biobank,Android bone mass - visit 2,Android bone mass - visit 2,Body composition
+2,UK Biobank,Android fat mass - visit 2,Android fat mass - visit 2,Body composition
+3,UK Biobank,Android lean mass - visit 2,Android lean mass - visit 2,Body composition
+4,UK Biobank,Android tissue fat percentage - visit 2,Android tissue fat percentage - visit 2,Body composition
+5,UK Biobank,Android total mass - visit 2,Android total mass - visit 2,Body composition
+6,UK Biobank,Appendicular lean mass - visit 2,Appendicular lean mass - visit 2,Body composition
+7,UK Biobank,Arm BMC (bone mineral content) (left) - visit 2,Arm BMC (bone mineral content) (left) - visit 2,Bone mineral content (BMC)
+8,UK Biobank,Arm BMC (bone mineral content) (right) - visit 2,Arm BMC (bone mineral content) (right) - visit 2,Bone mineral content (BMC)
+9,UK Biobank,Arm BMD (bone mineral density) (left) - visit 2,Arm BMD (bone mineral density) (left) - visit 2,Bone mineral density (BMD)
+10,UK Biobank,Arm BMD (bone mineral density) (right) - visit 2,Arm BMD (bone mineral density) (right) - visit 2,Bone mineral density (BMD)
+11,UK Biobank,Arm bone area (left) - visit 2,Arm bone area (left) - visit 2,Bone area and geometry
+12,UK Biobank,Arm bone area (right) - visit 2,Arm bone area (right) - visit 2,Bone area and geometry
+13,UK Biobank,Arm fat mass (left) - visit 2,Arm fat mass (left) - visit 2,Body composition
+14,UK Biobank,Arm fat mass (right) - visit 2,Arm fat mass (right) - visit 2,Body composition
+15,UK Biobank,Arm lean mass (left) - visit 2,Arm lean mass (left) - visit 2,Body composition
+16,UK Biobank,Arm lean mass (right) - visit 2,Arm lean mass (right) - visit 2,Body composition
+17,UK Biobank,Arm tissue fat percentage (left) - visit 2,Arm tissue fat percentage (left) - visit 2,Body composition
+18,UK Biobank,Arm tissue fat percentage (right) - visit 2,Arm tissue fat percentage (right) - visit 2,Body composition
+19,UK Biobank,Arm total mass (left) - visit 2,Arm total mass (left) - visit 2,Body composition
+20,UK Biobank,Arm total mass (right) - visit 2,Arm total mass (right) - visit 2,Body composition
+21,UK Biobank,Arms BMC (bone mineral content) - visit 2,Arms BMC (bone mineral content) - visit 2,Bone mineral content (BMC)
+22,UK Biobank,Arms BMD (bone mineral density) - visit 2,Arms BMD (bone mineral density) - visit 2,Bone mineral density (BMD)
+23,UK Biobank,Arms combined bone area - visit 2,Arms combined bone area - visit 2,Bone area and geometry
+24,UK Biobank,Arms fat mass - visit 2,Arms fat mass - visit 2,Body composition
+25,UK Biobank,Arms lean mass - visit 2,Arms lean mass - visit 2,Body composition
+26,UK Biobank,Arms tissue fat percentage - visit 2,Arms tissue fat percentage - visit 2,Body composition
+27,UK Biobank,Arms total mass - visit 2,Arms total mass - visit 2,Body composition
+28,UK Biobank,Femur lower neck BMD (bone mineral density) (left) - visit 2,Femur lower neck BMD (bone mineral density) (left) - visit 2,Bone mineral density (BMD)
+29,UK Biobank,Femur lower neck BMD (bone mineral density) (right) - visit 2,Femur lower neck BMD (bone mineral density) (right) - visit 2,Bone mineral density (BMD)
+30,UK Biobank,Femur neck BMD (bone mineral density) (left) - visit 2,Femur neck BMD (bone mineral density) (left) - visit 2,Bone mineral density (BMD)
+31,UK Biobank,Femur neck BMD (bone mineral density) (right) - visit 2,Femur neck BMD (bone mineral density) (right) - visit 2,Bone mineral density (BMD)
+32,UK Biobank,Femur neck BMD (bone mineral density) T-score (left) - visit 2,Femur neck BMD (bone mineral density) T-score (left) - visit 2,Bone mineral density (BMD)
+33,UK Biobank,Femur neck BMD (bone mineral density) T-score (right) - visit 2,Femur neck BMD (bone mineral density) T-score (right) - visit 2,Bone mineral density (BMD)
+34,UK Biobank,Femur shaft BMD (bone mineral density) (left) - visit 2,Femur shaft BMD (bone mineral density) (left) - visit 2,Bone mineral density (BMD)
+35,UK Biobank,Femur shaft BMD (bone mineral density) (right) - visit 2,Femur shaft BMD (bone mineral density) (right) - visit 2,Bone mineral density (BMD)
+36,UK Biobank,Femur total BMD (bone mineral density) (left) - visit 2,Femur total BMD (bone mineral density) (left) - visit 2,Bone mineral density (BMD)
+37,UK Biobank,Femur total BMD (bone mineral density) (right) - visit 2,Femur total BMD (bone mineral density) (right) - visit 2,Bone mineral density (BMD)
+38,UK Biobank,Femur total BMD (bone mineral density) T-score (left) - visit 2,Femur total BMD (bone mineral density) T-score (left) - visit 2,Bone mineral density (BMD)
+39,UK Biobank,Femur total BMD (bone mineral density) T-score (right) - visit 2,Femur total BMD (bone mineral density) T-score (right) - visit 2,Bone mineral density (BMD)
+40,UK Biobank,Femur troch BMD (bone mineral density) (left) - visit 2,Femur troch BMD (bone mineral density) (left) - visit 2,Bone mineral density (BMD)
+41,UK Biobank,Femur troch BMD (bone mineral density) (right) - visit 2,Femur troch BMD (bone mineral density) (right) - visit 2,Bone mineral density (BMD)
+42,UK Biobank,Femur troch BMD (bone mineral density) T-score (left) - visit 2,Femur troch BMD (bone mineral density) T-score (left) - visit 2,Bone mineral density (BMD)
+43,UK Biobank,Femur troch BMD (bone mineral density) T-score (right) - visit 2,Femur troch BMD (bone mineral density) T-score (right) - visit 2,Bone mineral density (BMD)
+44,UK Biobank,Femur upper neck BMD (bone mineral density) (left) - visit 2,Femur upper neck BMD (bone mineral density) (left) - visit 2,Bone mineral density (BMD)
+45,UK Biobank,Femur upper neck BMD (bone mineral density) (right) - visit 2,Femur upper neck BMD (bone mineral density) (right) - visit 2,Bone mineral density (BMD)
+46,UK Biobank,Femur upper neck BMD (bone mineral density) T-score (left) - visit 2,Femur upper neck BMD (bone mineral density) T-score (left) - visit 2,Bone mineral density (BMD)
+47,UK Biobank,Femur upper neck BMD (bone mineral density) T-score (right) - visit 2,Femur upper neck BMD (bone mineral density) T-score (right) - visit 2,Bone mineral density (BMD)
+48,UK Biobank,Femur wards BMD (bone mineral density) (left) - visit 2,Femur wards BMD (bone mineral density) (left) - visit 2,Bone mineral density (BMD)
+49,UK Biobank,Femur wards BMD (bone mineral density) (right) - visit 2,Femur wards BMD (bone mineral density) (right) - visit 2,Bone mineral density (BMD)
+50,UK Biobank,Femur wards BMD (bone mineral density) T-score (left) - visit 2,Femur wards BMD (bone mineral density) T-score (left) - visit 2,Bone mineral density (BMD)
+51,UK Biobank,Femur wards BMD (bone mineral density) T-score (right) - visit 2,Femur wards BMD (bone mineral density) T-score (right) - visit 2,Bone mineral density (BMD)
+52,UK Biobank,Gynoid bone mass - visit 2,Gynoid bone mass - visit 2,Body composition
+53,UK Biobank,Gynoid fat mass - visit 2,Gynoid fat mass - visit 2,Body composition
+54,UK Biobank,Gynoid lean mass - visit 2,Gynoid lean mass - visit 2,Body composition
+55,UK Biobank,Gynoid tissue fat percentage - visit 2,Gynoid tissue fat percentage - visit 2,Body composition
+56,UK Biobank,Gynoid total mass - visit 2,Gynoid total mass - visit 2,Body composition
+57,UK Biobank,Head BMC (bone mineral content) - visit 2,Head BMC (bone mineral content) - visit 2,Bone mineral content (BMC)
+58,UK Biobank,Head BMD (bone mineral density) - visit 2,Head BMD (bone mineral density) - visit 2,Bone mineral density (BMD)
+59,UK Biobank,Head bone area - visit 2,Head bone area - visit 2,Bone area and geometry
+60,UK Biobank,L1-L4 BMC (bone mineral content) - visit 2,L1-L4 BMC (bone mineral content) - visit 2,Bone mineral content (BMC)
+61,UK Biobank,L1-L4 BMD (bone mineral density) - visit 2,L1-L4 BMD (bone mineral density) - visit 2,Bone mineral density (BMD)
+62,UK Biobank,L1-L4 BMD (bone mineral density) T-score - visit 2,L1-L4 BMD (bone mineral density) T-score - visit 2,Bone mineral density (BMD)
+63,UK Biobank,L1-L4 area - visit 2,L1-L4 area - visit 2,Bone area and geometry
+64,UK Biobank,L1-L4 average height - visit 2,L1-L4 average height - visit 2,Bone area and geometry
+65,UK Biobank,L1-L4 average width - visit 2,L1-L4 average width - visit 2,Bone area and geometry
+66,UK Biobank,Leg BMC (bone mineral content) (left) - visit 2,Leg BMC (bone mineral content) (left) - visit 2,Bone mineral content (BMC)
+67,UK Biobank,Leg BMC (bone mineral content) (right) - visit 2,Leg BMC (bone mineral content) (right) - visit 2,Bone mineral content (BMC)
+68,UK Biobank,Leg BMD (bone mineral density) (left) - visit 2,Leg BMD (bone mineral density) (left) - visit 2,Bone mineral density (BMD)
+69,UK Biobank,Leg BMD (bone mineral density) (right) - visit 2,Leg BMD (bone mineral density) (right) - visit 2,Bone mineral density (BMD)
+70,UK Biobank,Leg bone area (left) - visit 2,Leg bone area (left) - visit 2,Bone area and geometry
+71,UK Biobank,Leg bone area (right) - visit 2,Leg bone area (right) - visit 2,Bone area and geometry
+72,UK Biobank,Leg fat mass (left) - visit 2,Leg fat mass (left) - visit 2,Body composition
+73,UK Biobank,Leg fat mass (right) - visit 2,Leg fat mass (right) - visit 2,Body composition
+74,UK Biobank,Leg lean mass (left) - visit 2,Leg lean mass (left) - visit 2,Body composition
+75,UK Biobank,Leg lean mass (right) - visit 2,Leg lean mass (right) - visit 2,Body composition
+76,UK Biobank,Leg tissue fat percentage (left) - visit 2,Leg tissue fat percentage (left) - visit 2,Body composition
+77,UK Biobank,Leg tissue fat percentage (right) - visit 2,Leg tissue fat percentage (right) - visit 2,Body composition
+78,UK Biobank,Leg total mass (left) - visit 2,Leg total mass (left) - visit 2,Body composition
+79,UK Biobank,Leg total mass (right) - visit 2,Leg total mass (right) - visit 2,Body composition
+80,UK Biobank,Legs BMC (bone mineral content) - visit 2,Legs BMC (bone mineral content) - visit 2,Bone mineral content (BMC)
+81,UK Biobank,Legs BMD (bone mineral density) - visit 2,Legs BMD (bone mineral density) - visit 2,Bone mineral density (BMD)
+82,UK Biobank,Legs combined bone area - visit 2,Legs combined bone area - visit 2,Bone area and geometry
+83,UK Biobank,Legs fat mass - visit 2,Legs fat mass - visit 2,Body composition
+84,UK Biobank,Legs lean mass - visit 2,Legs lean mass - visit 2,Body composition
+85,UK Biobank,Legs tissue fat percentage - visit 2,Legs tissue fat percentage - visit 2,Body composition
+86,UK Biobank,Legs total mass - visit 2,Legs total mass - visit 2,Body composition
+87,UK Biobank,Pelvis BMC (bone mineral content) - visit 2,Pelvis BMC (bone mineral content) - visit 2,Bone mineral content (BMC)
+88,UK Biobank,Pelvis BMD (bone mineral density) - visit 2,Pelvis BMD (bone mineral density) - visit 2,Bone mineral density (BMD)
+89,UK Biobank,Pelvis bone area - visit 2,Pelvis bone area - visit 2,Bone area and geometry
+90,UK Biobank,Ribs BMC (bone mineral content) - visit 2,Ribs BMC (bone mineral content) - visit 2,Bone mineral content (BMC)
+91,UK Biobank,Ribs BMD (bone mineral density) - visit 2,Ribs BMD (bone mineral density) - visit 2,Bone mineral density (BMD)
+92,UK Biobank,Ribs bone area - visit 2,Ribs bone area - visit 2,Bone area and geometry
+93,UK Biobank,Spine BMC (bone mineral content) - visit 2,Spine BMC (bone mineral content) - visit 2,Bone mineral content (BMC)
+94,UK Biobank,Spine BMD (bone mineral density) - visit 2,Spine BMD (bone mineral density) - visit 2,Bone mineral density (BMD)
+95,UK Biobank,Spine bone area - visit 2,Spine bone area - visit 2,Bone area and geometry
+96,UK Biobank,Total BMC (bone mineral content) - visit 2,Total BMC (bone mineral content) - visit 2,Bone mineral content (BMC)
+97,UK Biobank,Total BMD (bone mineral density) (left) - visit 2,Total BMD (bone mineral density) (left) - visit 2,Bone mineral density (BMD)
+98,UK Biobank,Total BMD (bone mineral density) (right) - visit 2,Total BMD (bone mineral density) (right) - visit 2,Bone mineral density (BMD)
+99,UK Biobank,Total BMD (bone mineral density) - visit 2,Total BMD (bone mineral density) - visit 2,Bone mineral density (BMD)
+100,UK Biobank,Total BMD (bone mineral density) T-score - visit 2,Total BMD (bone mineral density) T-score - visit 2,Bone mineral density (BMD)
+101,UK Biobank,Total fat mass - visit 2,Total fat mass - visit 2,Body composition
+102,UK Biobank,Total fat-free mass - visit 2,Total fat-free mass - visit 2,Body composition
+103,UK Biobank,Total lean mass - visit 2,Total lean mass - visit 2,Body composition
+104,UK Biobank,Total mass - visit 2,Total mass - visit 2,Body composition
+105,UK Biobank,Total tissue fat percentage - visit 2,Total tissue fat percentage - visit 2,Body composition
+106,UK Biobank,Total tissue mass - visit 2,Total tissue mass - visit 2,Body composition
+107,UK Biobank,Trunk BMC (bone mineral content) - visit 2,Trunk BMC (bone mineral content) - visit 2,Bone mineral content (BMC)
+108,UK Biobank,Trunk BMD (bone mineral density) (left) - visit 2,Trunk BMD (bone mineral density) (left) - visit 2,Bone mineral density (BMD)
+109,UK Biobank,Trunk BMD (bone mineral density) (right) - visit 2,Trunk BMD (bone mineral density) (right) - visit 2,Bone mineral density (BMD)
+110,UK Biobank,Trunk BMD (bone mineral density) - visit 2,Trunk BMD (bone mineral density) - visit 2,Bone mineral density (BMD)
+111,UK Biobank,Trunk bone area - visit 2,Trunk bone area - visit 2,Bone area and geometry
+112,UK Biobank,Trunk fat mass - visit 2,Trunk fat mass - visit 2,Body composition
+113,UK Biobank,Trunk lean mass - visit 2,Trunk lean mass - visit 2,Body composition
+114,UK Biobank,Trunk tissue fat percentage - visit 2,Trunk tissue fat percentage - visit 2,Body composition
+115,UK Biobank,Trunk total mass - visit 2,Trunk total mass - visit 2,Body composition
+116,UK Biobank,VAT (visceral adipose tissue) mass - visit 2,VAT (visceral adipose tissue) mass - visit 2,Body composition
+117,UK Biobank,VAT (visceral adipose tissue) volume - visit 2,VAT (visceral adipose tissue) volume - visit 2,Body composition
+118,HPP,body_arm_left_area,Body arm left area,Bone area and geometry
+119,HPP,body_arm_left_bmc,Body arm left BMC,Bone mineral content (BMC)
+120,HPP,body_arm_left_bmd,Body arm left BMD,Bone mineral density (BMD)
+121,HPP,body_arm_right_area,Body arm right area,Bone area and geometry
+122,HPP,body_arm_right_bmc,Body arm right BMC,Bone mineral content (BMC)
+123,HPP,body_arm_right_bmd,Body arm right BMD,Bone mineral density (BMD)
+124,HPP,body_arms_area,Body arms area,Bone area and geometry
+125,HPP,body_arms_bmc,Body arms BMC,Bone mineral content (BMC)
+126,HPP,body_arms_bmd,Body arms BMD,Bone mineral density (BMD)
+127,HPP,body_head_area,Body head area,Bone area and geometry
+128,HPP,body_head_bmc,Body head BMC,Bone mineral content (BMC)
+129,HPP,body_head_bmd,Body head BMD,Bone mineral density (BMD)
+130,HPP,body_leg_left_area,Body leg left area,Bone area and geometry
+131,HPP,body_leg_left_bmc,Body leg left BMC,Bone mineral content (BMC)
+132,HPP,body_leg_left_bmd,Body leg left BMD,Bone mineral density (BMD)
+133,HPP,body_leg_right_area,Body leg right area,Bone area and geometry
+134,HPP,body_leg_right_bmc,Body leg right BMC,Bone mineral content (BMC)
+135,HPP,body_leg_right_bmd,Body leg right BMD,Bone mineral density (BMD)
+136,HPP,body_legs_area,Body legs area,Bone area and geometry
+137,HPP,body_legs_bmc,Body legs BMC,Bone mineral content (BMC)
+138,HPP,body_legs_bmd,Body legs BMD,Bone mineral density (BMD)
+139,HPP,body_pelvis_area,Body pelvis area,Bone area and geometry
+140,HPP,body_pelvis_bmc,Body pelvis BMC,Bone mineral content (BMC)
+141,HPP,body_pelvis_bmd,Body pelvis BMD,Bone mineral density (BMD)
+142,HPP,body_ribs_area,Body ribs area,Bone area and geometry
+143,HPP,body_ribs_bmc,Body ribs BMC,Bone mineral content (BMC)
+144,HPP,body_ribs_bmd,Body ribs BMD,Bone mineral density (BMD)
+145,HPP,body_spine_area,Body spine area,Bone area and geometry
+146,HPP,body_spine_bmc,Body spine BMC,Bone mineral content (BMC)
+147,HPP,body_spine_bmd,Body spine BMD,Bone mineral density (BMD)
+148,HPP,body_total_area,Body total area,Bone area and geometry
+149,HPP,body_total_bmc,Body total BMC,Bone mineral content (BMC)
+150,HPP,body_total_bmd,Body total BMD,Bone mineral density (BMD)
+151,HPP,body_total_left_area,Body total left area,Bone area and geometry
+152,HPP,body_total_left_bmc,Body total left BMC,Bone mineral content (BMC)
+153,HPP,body_total_left_bmd,Body total left BMD,Bone mineral density (BMD)
+154,HPP,body_total_right_area,Body total right area,Bone area and geometry
+155,HPP,body_total_right_bmc,Body total right BMC,Bone mineral content (BMC)
+156,HPP,body_total_right_bmd,Body total right BMD,Bone mineral density (BMD)
+157,HPP,body_trunk_area,Body trunk area,Bone area and geometry
+158,HPP,body_trunk_bmc,Body trunk BMC,Bone mineral content (BMC)
+159,HPP,body_trunk_bmd,Body trunk BMD,Bone mineral density (BMD)
+160,HPP,body_trunk_left_area,Body trunk left area,Bone area and geometry
+161,HPP,body_trunk_left_bmc,Body trunk left BMC,Bone mineral content (BMC)
+162,HPP,body_trunk_left_bmd,Body trunk left BMD,Bone mineral density (BMD)
+163,HPP,body_trunk_right_area,Body trunk right area,Bone area and geometry
+164,HPP,body_trunk_right_bmc,Body trunk right BMC,Bone mineral content (BMC)
+165,HPP,body_trunk_right_bmd,Body trunk right BMD,Bone mineral density (BMD)
+166,HPP,femur_left_lower_neck_area,Femur left lower neck area,Bone area and geometry
+167,HPP,femur_left_lower_neck_bmc,Femur left lower neck BMC,Bone mineral content (BMC)
+168,HPP,femur_left_lower_neck_bmd,Femur left lower neck BMD,Bone mineral density (BMD)
+169,HPP,femur_left_neck_area,Femur left neck area,Bone area and geometry
+170,HPP,femur_left_neck_bmc,Femur left neck BMC,Bone mineral content (BMC)
+171,HPP,femur_left_neck_bmd,Femur left neck BMD,Bone mineral density (BMD)
+172,HPP,femur_left_shaft_area,Femur left shaft area,Bone area and geometry
+173,HPP,femur_left_shaft_bmc,Femur left shaft BMC,Bone mineral content (BMC)
+174,HPP,femur_left_shaft_bmd,Femur left shaft BMD,Bone mineral density (BMD)
+175,HPP,femur_left_total_area,Femur left total area,Bone area and geometry
+176,HPP,femur_left_total_bmc,Femur left total BMC,Bone mineral content (BMC)
+177,HPP,femur_left_total_bmd,Femur left total BMD,Bone mineral density (BMD)
+178,HPP,femur_left_troch_area,Femur left troch area,Bone area and geometry
+179,HPP,femur_left_troch_bmc,Femur left troch BMC,Bone mineral content (BMC)
+180,HPP,femur_left_troch_bmd,Femur left troch BMD,Bone mineral density (BMD)
+181,HPP,femur_left_upper_neck_area,Femur left upper neck area,Bone area and geometry
+182,HPP,femur_left_upper_neck_bmc,Femur left upper neck BMC,Bone mineral content (BMC)
+183,HPP,femur_left_upper_neck_bmd,Femur left upper neck BMD,Bone mineral density (BMD)
+184,HPP,femur_left_wards_area,Femur left wards area,Bone area and geometry
+185,HPP,femur_left_wards_bmc,Femur left wards BMC,Bone mineral content (BMC)
+186,HPP,femur_left_wards_bmd,Femur left wards BMD,Bone mineral density (BMD)
+187,HPP,femur_lower_neck_diff_area,Femur lower neck diff area,Bone area and geometry
+188,HPP,femur_lower_neck_diff_bmc,Femur lower neck diff BMC,Bone mineral content (BMC)
+189,HPP,femur_lower_neck_diff_bmd,Femur lower neck diff BMD,Bone mineral density (BMD)
+190,HPP,femur_lower_neck_mean_area,Femur lower neck mean area,Bone area and geometry
+191,HPP,femur_lower_neck_mean_bmc,Femur lower neck mean BMC,Bone mineral content (BMC)
+192,HPP,femur_lower_neck_mean_bmd,Femur lower neck mean BMD,Bone mineral density (BMD)
+193,HPP,femur_neck_diff_area,Femur neck diff area,Bone area and geometry
+194,HPP,femur_neck_diff_bmc,Femur neck diff BMC,Bone mineral content (BMC)
+195,HPP,femur_neck_diff_bmd,Femur neck diff BMD,Bone mineral density (BMD)
+196,HPP,femur_neck_mean_area,Femur neck mean area,Bone area and geometry
+197,HPP,femur_neck_mean_bmc,Femur neck mean BMC,Bone mineral content (BMC)
+198,HPP,femur_neck_mean_bmd,Femur neck mean BMD,Bone mineral density (BMD)
+199,HPP,femur_right_lower_neck_area,Femur right lower neck area,Bone area and geometry
+200,HPP,femur_right_lower_neck_bmc,Femur right lower neck BMC,Bone mineral content (BMC)
+201,HPP,femur_right_lower_neck_bmd,Femur right lower neck BMD,Bone mineral density (BMD)
+202,HPP,femur_right_neck_area,Femur right neck area,Bone area and geometry
+203,HPP,femur_right_neck_bmc,Femur right neck BMC,Bone mineral content (BMC)
+204,HPP,femur_right_neck_bmd,Femur right neck BMD,Bone mineral density (BMD)
+205,HPP,femur_right_shaft_area,Femur right shaft area,Bone area and geometry
+206,HPP,femur_right_shaft_bmc,Femur right shaft BMC,Bone mineral content (BMC)
+207,HPP,femur_right_shaft_bmd,Femur right shaft BMD,Bone mineral density (BMD)
+208,HPP,femur_right_total_area,Femur right total area,Bone area and geometry
+209,HPP,femur_right_total_bmc,Femur right total BMC,Bone mineral content (BMC)
+210,HPP,femur_right_total_bmd,Femur right total BMD,Bone mineral density (BMD)
+211,HPP,femur_right_troch_area,Femur right troch area,Bone area and geometry
+212,HPP,femur_right_troch_bmc,Femur right troch BMC,Bone mineral content (BMC)
+213,HPP,femur_right_troch_bmd,Femur right troch BMD,Bone mineral density (BMD)
+214,HPP,femur_right_upper_neck_area,Femur right upper neck area,Bone area and geometry
+215,HPP,femur_right_upper_neck_bmc,Femur right upper neck BMC,Bone mineral content (BMC)
+216,HPP,femur_right_upper_neck_bmd,Femur right upper neck BMD,Bone mineral density (BMD)
+217,HPP,femur_right_wards_area,Femur right wards area,Bone area and geometry
+218,HPP,femur_right_wards_bmc,Femur right wards BMC,Bone mineral content (BMC)
+219,HPP,femur_right_wards_bmd,Femur right wards BMD,Bone mineral density (BMD)
+220,HPP,femur_shaft_diff_area,Femur shaft diff area,Bone area and geometry
+221,HPP,femur_shaft_diff_bmc,Femur shaft diff BMC,Bone mineral content (BMC)
+222,HPP,femur_shaft_diff_bmd,Femur shaft diff BMD,Bone mineral density (BMD)
+223,HPP,femur_shaft_mean_area,Femur shaft mean area,Bone area and geometry
+224,HPP,femur_shaft_mean_bmc,Femur shaft mean BMC,Bone mineral content (BMC)
+225,HPP,femur_shaft_mean_bmd,Femur shaft mean BMD,Bone mineral density (BMD)
+226,HPP,femur_total_diff_area,Femur total diff area,Bone area and geometry
+227,HPP,femur_total_diff_bmc,Femur total diff BMC,Bone mineral content (BMC)
+228,HPP,femur_total_diff_bmd,Femur total diff BMD,Bone mineral density (BMD)
+229,HPP,femur_total_mean_area,Femur total mean area,Bone area and geometry
+230,HPP,femur_total_mean_bmc,Femur total mean BMC,Bone mineral content (BMC)
+231,HPP,femur_total_mean_bmd,Femur total mean BMD,Bone mineral density (BMD)
+232,HPP,femur_troch_diff_area,Femur troch diff area,Bone area and geometry
+233,HPP,femur_troch_diff_bmc,Femur troch diff BMC,Bone mineral content (BMC)
+234,HPP,femur_troch_diff_bmd,Femur troch diff BMD,Bone mineral density (BMD)
+235,HPP,femur_troch_mean_area,Femur troch mean area,Bone area and geometry
+236,HPP,femur_troch_mean_bmc,Femur troch mean BMC,Bone mineral content (BMC)
+237,HPP,femur_troch_mean_bmd,Femur troch mean BMD,Bone mineral density (BMD)
+238,HPP,femur_upper_neck_diff_area,Femur upper neck diff area,Bone area and geometry
+239,HPP,femur_upper_neck_diff_bmc,Femur upper neck diff BMC,Bone mineral content (BMC)
+240,HPP,femur_upper_neck_diff_bmd,Femur upper neck diff BMD,Bone mineral density (BMD)
+241,HPP,femur_upper_neck_mean_area,Femur upper neck mean area,Bone area and geometry
+242,HPP,femur_upper_neck_mean_bmc,Femur upper neck mean BMC,Bone mineral content (BMC)
+243,HPP,femur_upper_neck_mean_bmd,Femur upper neck mean BMD,Bone mineral density (BMD)
+244,HPP,femur_wards_diff_area,Femur wards diff area,Bone area and geometry
+245,HPP,femur_wards_diff_bmc,Femur wards diff BMC,Bone mineral content (BMC)
+246,HPP,femur_wards_diff_bmd,Femur wards diff BMD,Bone mineral density (BMD)
+247,HPP,femur_wards_mean_area,Femur wards mean area,Bone area and geometry
+248,HPP,femur_wards_mean_bmc,Femur wards mean BMC,Bone mineral content (BMC)
+249,HPP,femur_wards_mean_bmd,Femur wards mean BMD,Bone mineral density (BMD)
+250,HPP,spine_l1_area,Spine L1 area,Bone area and geometry
+251,HPP,spine_l1_average_height,Spine L1 average height,Bone area and geometry
+252,HPP,spine_l1_average_width,Spine L1 average width,Bone area and geometry
+253,HPP,spine_l1_bmc,Spine L1 BMC,Bone mineral content (BMC)
+254,HPP,spine_l1_bmd,Spine L1 BMD,Bone mineral density (BMD)
+255,HPP,spine_l1_l2_area,Spine L1 L2 area,Bone area and geometry
+256,HPP,spine_l1_l2_average_height,Spine L1 L2 average height,Bone area and geometry
+257,HPP,spine_l1_l2_average_width,Spine L1 L2 average width,Bone area and geometry
+258,HPP,spine_l1_l2_bmc,Spine L1 L2 BMC,Bone mineral content (BMC)
+259,HPP,spine_l1_l2_bmd,Spine L1 L2 BMD,Bone mineral density (BMD)
+260,HPP,spine_l1_l3_area,Spine L1 L3 area,Bone area and geometry
+261,HPP,spine_l1_l3_average_height,Spine L1 L3 average height,Bone area and geometry
+262,HPP,spine_l1_l3_average_width,Spine L1 L3 average width,Bone area and geometry
+263,HPP,spine_l1_l3_bmc,Spine L1 L3 BMC,Bone mineral content (BMC)
+264,HPP,spine_l1_l3_bmd,Spine L1 L3 BMD,Bone mineral density (BMD)
+265,HPP,spine_l1_l4_area,Spine L1 L4 area,Bone area and geometry
+266,HPP,spine_l1_l4_average_height,Spine L1 L4 average height,Bone area and geometry
+267,HPP,spine_l1_l4_average_width,Spine L1 L4 average width,Bone area and geometry
+268,HPP,spine_l1_l4_bmc,Spine L1 L4 BMC,Bone mineral content (BMC)
+269,HPP,spine_l1_l4_bmd,Spine L1 L4 BMD,Bone mineral density (BMD)
+270,HPP,spine_l2_area,Spine L2 area,Bone area and geometry
+271,HPP,spine_l2_average_height,Spine L2 average height,Bone area and geometry
+272,HPP,spine_l2_average_width,Spine L2 average width,Bone area and geometry
+273,HPP,spine_l2_bmc,Spine L2 BMC,Bone mineral content (BMC)
+274,HPP,spine_l2_bmd,Spine L2 BMD,Bone mineral density (BMD)
+275,HPP,spine_l2_l3_area,Spine L2 L3 area,Bone area and geometry
+276,HPP,spine_l2_l3_average_height,Spine L2 L3 average height,Bone area and geometry
+277,HPP,spine_l2_l3_average_width,Spine L2 L3 average width,Bone area and geometry
+278,HPP,spine_l2_l3_bmc,Spine L2 L3 BMC,Bone mineral content (BMC)
+279,HPP,spine_l2_l3_bmd,Spine L2 L3 BMD,Bone mineral density (BMD)
+280,HPP,spine_l2_l4_area,Spine L2 L4 area,Bone area and geometry
+281,HPP,spine_l2_l4_average_height,Spine L2 L4 average height,Bone area and geometry
+282,HPP,spine_l2_l4_average_width,Spine L2 L4 average width,Bone area and geometry
+283,HPP,spine_l2_l4_bmc,Spine L2 L4 BMC,Bone mineral content (BMC)
+284,HPP,spine_l2_l4_bmd,Spine L2 L4 BMD,Bone mineral density (BMD)
+285,HPP,spine_l3_area,Spine L3 area,Bone area and geometry
+286,HPP,spine_l3_average_height,Spine L3 average height,Bone area and geometry
+287,HPP,spine_l3_average_width,Spine L3 average width,Bone area and geometry
+288,HPP,spine_l3_bmc,Spine L3 BMC,Bone mineral content (BMC)
+289,HPP,spine_l3_bmd,Spine L3 BMD,Bone mineral density (BMD)
+290,HPP,spine_l3_l4_area,Spine L3 L4 area,Bone area and geometry
+291,HPP,spine_l3_l4_average_height,Spine L3 L4 average height,Bone area and geometry
+292,HPP,spine_l3_l4_average_width,Spine L3 L4 average width,Bone area and geometry
+293,HPP,spine_l3_l4_bmc,Spine L3 L4 BMC,Bone mineral content (BMC)
+294,HPP,spine_l3_l4_bmd,Spine L3 L4 BMD,Bone mineral density (BMD)
+295,HPP,spine_l4_area,Spine L4 area,Bone area and geometry
+296,HPP,spine_l4_average_height,Spine L4 average height,Bone area and geometry
+297,HPP,spine_l4_average_width,Spine L4 average width,Bone area and geometry
+298,HPP,spine_l4_bmc,Spine L4 BMC,Bone mineral content (BMC)
+299,HPP,spine_l4_bmd,Spine L4 BMD,Bone mineral density (BMD)
+300,HPP,total_scan_dose,Total scan dose,Scan acquisition mode
+301,HPP,total_scan_sat_area,Total scan SAT area,Bone area and geometry
+302,HPP,total_scan_sat_mass,Total scan SAT mass,Body composition
+303,HPP,total_scan_sat_volume,Total scan SAT volume,Body composition
+304,HPP,total_scan_vat_area,Total scan VAT area,Bone area and geometry
+305,HPP,total_scan_vat_mass,Total scan VAT mass,Body composition
+306,HPP,total_scan_vat_volume,Total scan VAT volume,Body composition
+307,HPP,body_comp_leg_left_fat_free_mass,Leg left fat free mass,Body composition
+308,HPP,body_comp_leg_right_region_percent_fat,Leg right region percent fat,Body composition
+309,HPP,body_comp_trunk_fat_free_mass,Trunk fat free mass,Body composition
+310,HPP,body_comp_total_right_tissue_mass,Total right tissue mass,Body composition
+311,HPP,body_comp_gynoid_total_mass,Gynoid total mass,Body composition
+312,HPP,body_comp_trunk_left_bone_mass,Trunk left bone mass,Body composition
+313,HPP,body_comp_leg_right_lean_mass,Leg right lean mass,Body composition
+314,HPP,body_comp_android_tissue_mass,Android tissue mass,Body composition
+315,HPP,body_comp_trunk_lean_mass,Trunk lean mass,Body composition
+316,HPP,body_comp_total_lean_mass,Total lean mass,Body composition
+317,HPP,body_comp_trunk_right_fat_mass,Trunk right fat mass,Body composition
+318,HPP,body_comp_arms_lean_mass,Arms lean mass,Body composition
+319,HPP,body_comp_legs_total_mass,Legs total mass,Body composition
+320,HPP,body_comp_total_right_fat_mass,Total right fat mass,Body composition
+321,HPP,body_comp_arms_fat_free_mass,Arms fat free mass,Body composition
+322,HPP,body_comp_trunk_tissue_mass,Trunk tissue mass,Body composition
+323,HPP,body_comp_android_bone_mass,Android bone mass,Body composition
+324,HPP,body_comp_total_total_mass,Total total mass,Body composition
+325,HPP,body_comp_trunk_region_percent_fat,Trunk region percent fat,Body composition
+326,HPP,body_comp_arm_left_region_percent_fat,Arm left region percent fat,Body composition
+327,HPP,body_comp_leg_right_bone_mass,Leg right bone mass,Body composition
+328,HPP,body_comp_arms_diff_total_mass,Arms diff total mass,Body composition
+329,HPP,body_comp_trunk_right_tissue_percent_fat,Trunk right tissue percent fat,Body composition
+330,HPP,body_comp_trunk_left_tissue_percent_fat,Trunk left tissue percent fat,Body composition
+331,HPP,body_comp_arm_right_tissue_mass,Arm right tissue mass,Body composition
+332,HPP,body_comp_leg_left_total_mass,Leg left total mass,Body composition
+333,HPP,body_comp_legs_bone_mass,Legs bone mass,Body composition
+334,HPP,body_comp_total_diff_total_mass,Total diff total mass,Body composition
+335,HPP,body_comp_arm_right_total_mass,Arm right total mass,Body composition
+336,HPP,body_comp_total_diff_bone_mass,Total diff bone mass,Body composition
+337,HPP,body_comp_arms_diff_bone_mass,Arms diff bone mass,Body composition
+338,HPP,body_comp_trunk_diff_lean_mass,Trunk diff lean mass,Body composition
+339,HPP,body_comp_arm_left_fat_mass,Arm left fat mass,Body composition
+340,HPP,body_comp_trunk_left_fat_mass,Trunk left fat mass,Body composition
+341,HPP,body_comp_leg_left_lean_mass,Leg left lean mass,Body composition
+342,HPP,body_comp_leg_left_tissue_mass,Leg left tissue mass,Body composition
+343,HPP,body_comp_trunk_right_fat_free_mass,Trunk right fat free mass,Body composition
+344,HPP,body_comp_arms_bone_mass,Arms bone mass,Body composition
+345,HPP,body_comp_arm_right_fat_mass,Arm right fat mass,Body composition
+346,HPP,body_comp_trunk_fat_mass,Trunk fat mass,Body composition
+347,HPP,body_comp_arms_diff_fat_free_mass,Arms diff fat free mass,Body composition
+348,HPP,body_comp_arms_tissue_mass,Arms tissue mass,Body composition
+349,HPP,body_comp_total_left_fat_mass,Total left fat mass,Body composition
+350,HPP,body_comp_trunk_diff_tissue_percent_fat,Trunk diff tissue percent fat,Body composition
+351,HPP,body_comp_arm_right_region_percent_fat,Arm right region percent fat,Body composition
+352,HPP,body_comp_legs_tissue_mass,Legs tissue mass,Body composition
+353,HPP,body_comp_leg_left_region_percent_fat,Leg left region percent fat,Body composition
+354,HPP,body_comp_android_fat_free_mass,Android fat free mass,Body composition
+355,HPP,body_comp_total_fat_mass,Total fat mass,Body composition
+356,HPP,body_comp_trunk_diff_tissue_mass,Trunk diff tissue mass,Body composition
+357,HPP,body_comp_arm_left_tissue_percent_fat,Arm left tissue percent fat,Body composition
+358,HPP,body_comp_total_tissue_mass,Total tissue mass,Body composition
+359,HPP,body_comp_total_left_bone_mass,Total left bone mass,Body composition
+360,HPP,body_comp_legs_tissue_percent_fat,Legs tissue percent fat,Body composition
+361,HPP,body_comp_leg_right_tissue_percent_fat,Leg right tissue percent fat,Body composition
+362,HPP,body_comp_legs_diff_lean_mass,Legs diff lean mass,Body composition
+363,HPP,body_comp_trunk_right_tissue_mass,Trunk right tissue mass,Body composition
+364,HPP,body_comp_arm_left_total_mass,Arm left total mass,Body composition
+365,HPP,body_comp_leg_right_fat_mass,Leg right fat mass,Body composition
+366,HPP,body_comp_total_diff_lean_mass,Total diff lean mass,Body composition
+367,HPP,body_comp_arms_fat_mass,Arms fat mass,Body composition
+368,HPP,body_comp_total_diff_tissue_mass,Total diff tissue mass,Body composition
+369,HPP,body_comp_trunk_diff_total_mass,Trunk diff total mass,Body composition
+370,HPP,body_comp_trunk_left_region_percent_fat,Trunk left region percent fat,Body composition
+371,HPP,body_comp_trunk_left_total_mass,Trunk left total mass,Body composition
+372,HPP,body_comp_total_diff_fat_free_mass,Total diff fat free mass,Body composition
+373,HPP,body_comp_gynoid_fat_mass,Gynoid fat mass,Body composition
+374,HPP,body_comp_leg_left_fat_mass,Leg left fat mass,Body composition
+375,HPP,body_comp_leg_left_tissue_percent_fat,Leg left tissue percent fat,Body composition
+376,HPP,body_comp_total_right_lean_mass,Total right lean mass,Body composition
+377,HPP,body_comp_arms_diff_fat_mass,Arms diff fat mass,Body composition
+378,HPP,body_comp_total_right_bone_mass,Total right bone mass,Body composition
+379,HPP,body_comp_arm_right_bone_mass,Arm right bone mass,Body composition
+380,HPP,body_comp_total_right_fat_free_mass,Total right fat free mass,Body composition
+381,HPP,body_comp_arm_left_fat_free_mass,Arm left fat free mass,Body composition
+382,HPP,body_comp_android_total_mass,Android total mass,Body composition
+383,HPP,body_comp_arm_right_fat_free_mass,Arm right fat free mass,Body composition
+384,HPP,body_comp_arm_left_tissue_mass,Arm left tissue mass,Body composition
+385,HPP,body_comp_total_diff_fat_mass,Total diff fat mass,Body composition
+386,HPP,body_comp_dose,Dose,Scan acquisition mode
+387,HPP,body_comp_arm_left_bone_mass,Arm left bone mass,Body composition
+388,HPP,body_comp_trunk_left_lean_mass,Trunk left lean mass,Body composition
+389,HPP,body_comp_trunk_right_total_mass,Trunk right total mass,Body composition
+390,HPP,body_comp_arms_diff_lean_mass,Arms diff lean mass,Body composition
+391,HPP,body_comp_legs_diff_region_percent_fat,Legs diff region percent fat,Body composition
+392,HPP,body_comp_arm_right_lean_mass,Arm right lean mass,Body composition
+393,HPP,body_comp_gynoid_lean_mass,Gynoid lean mass,Body composition
+394,HPP,body_comp_trunk_diff_fat_free_mass,Trunk diff fat free mass,Body composition
+395,HPP,body_comp_android_fat_mass,Android fat mass,Body composition
+396,HPP,body_comp_total_fat_free_mass,Total fat free mass,Body composition
+397,HPP,body_comp_trunk_left_fat_free_mass,Trunk left fat free mass,Body composition
+398,HPP,body_comp_legs_diff_fat_mass,Legs diff fat mass,Body composition
+399,HPP,body_comp_leg_right_total_mass,Leg right total mass,Body composition
+400,HPP,body_comp_legs_lean_mass,Legs lean mass,Body composition
+401,HPP,body_comp_trunk_total_mass,Trunk total mass,Body composition
+402,HPP,body_comp_gynoid_tissue_mass,Gynoid tissue mass,Body composition
+403,HPP,body_comp_leg_right_tissue_mass,Leg right tissue mass,Body composition
+404,HPP,body_comp_android_lean_mass,Android lean mass,Body composition
+405,HPP,body_comp_trunk_tissue_percent_fat,Trunk tissue percent fat,Body composition
+406,HPP,body_comp_total_left_tissue_mass,Total left tissue mass,Body composition
+407,HPP,body_comp_trunk_bone_mass,Trunk bone mass,Body composition
+408,HPP,body_comp_gynoid_fat_free_mass,Gynoid fat free mass,Body composition
+409,HPP,body_comp_arms_diff_tissue_mass,Arms diff tissue mass,Body composition
+410,HPP,body_comp_arm_left_lean_mass,Arm left lean mass,Body composition
+411,HPP,body_comp_trunk_right_region_percent_fat,Trunk right region percent fat,Body composition
+412,HPP,body_comp_total_left_total_mass,Total left total mass,Body composition
+413,HPP,body_comp_trunk_right_bone_mass,Trunk right bone mass,Body composition
+414,HPP,body_comp_trunk_left_tissue_mass,Trunk left tissue mass,Body composition
+415,HPP,body_comp_total_left_lean_mass,Total left lean mass,Body composition
+416,HPP,body_comp_legs_diff_fat_free_mass,Legs diff fat free mass,Body composition
+417,HPP,body_comp_legs_fat_free_mass,Legs fat free mass,Body composition
+418,HPP,body_comp_total_bone_mass,Total bone mass,Body composition
+419,HPP,body_comp_total_left_fat_free_mass,Total left fat free mass,Body composition
+420,HPP,body_comp_leg_left_bone_mass,Leg left bone mass,Body composition
+421,HPP,body_comp_gynoid_bone_mass,Gynoid bone mass,Body composition
+422,HPP,body_comp_trunk_right_lean_mass,Trunk right lean mass,Body composition
+423,HPP,body_comp_total_right_total_mass,Total right total mass,Body composition
+424,HPP,body_comp_leg_right_fat_free_mass,Leg right fat free mass,Body composition
+425,HPP,body_comp_arms_total_mass,Arms total mass,Body composition
+426,HPP,body_comp_legs_fat_mass,Legs fat mass,Body composition
+427,HPP,body_comp_legs_diff_tissue_percent_fat,Legs diff tissue percent fat,Body composition
+428,HPP,body_comp_trunk_diff_fat_mass,Trunk diff fat mass,Body composition
+429,HPP,body_comp_legs_region_percent_fat,Legs region percent fat,Body composition
+430,HPP,body_comp_legs_diff_total_mass,Legs diff total mass,Body composition
+431,HPP,body_comp_trunk_diff_region_percent_fat,Trunk diff region percent fat,Body composition
+432,HPP,body_comp_trunk_diff_bone_mass,Trunk diff bone mass,Body composition
+433,HPP,body_comp_arm_right_tissue_percent_fat,Arm right tissue percent fat,Body composition
+434,HPP,body_comp_legs_diff_bone_mass,Legs diff bone mass,Body composition
+435,HPP,body_comp_legs_diff_tissue_mass,Legs diff tissue mass,Body composition

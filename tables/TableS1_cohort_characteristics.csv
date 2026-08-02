@@ -1,0 +1,8 @@
+Characteristic,Internal cohort (HPP),External cohort (UK Biobank)
+N (analytic sample),"8,759","45,789"
+Country,Israel,United Kingdom
+DXA scans analysed,"11,540","47,400"
+"Age, years (mean ± s.d., range)",50.3 ± 9.7 (18–80),66.1 ± 7.6 (44–85)
+"Sex, women (n, %)","4,558 (52.0%)","23,729 (51.8%)"
+"Sex, men (n, %)","4,201 (48.0%)","22,060 (48.2%)"
+"BMI, kg/m² (mean ± s.d., range)",25.9 ± 4.1 (15.3–51.0),26.6 ± 4.5 (13.9–69.6)
