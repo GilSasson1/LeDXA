@@ -18,7 +18,7 @@ Usage:
   python -m plotting.fig2_heatmap --verify           # print matrices, skip render
   python -m plotting.fig2_heatmap --out path.png
 """
-import argparse, os, sys
+import argparse, functools, os, sys
 from pathlib import Path
 import matplotlib
 matplotlib.use("Agg")
@@ -65,10 +65,10 @@ DEXA  = os.environ.get('DEXA_ROOT', os.path.dirname(_ROOT))  # parent dir holds 
 FIG2_SOURCE_REGIME = 'diffpentuned'
 # In-repo canonical inputs (repo-relative):
 SUPP_A = os.environ.get(
-    'FIG2_HPP_TABLE', os.path.join(_ROOT, 'tables', 'table_2_hpp_disease.csv'))
+    'FIG2_HPP_TABLE', os.path.join(_ROOT, 'tables', 'figure_inputs', 'fig2_hpp_disease.csv'))
 UKBB_AUC = os.environ.get(
-    'FIG2_UKBB_TABLE', os.path.join(_ROOT, 'tables', 'table_3_ukbb_disease.csv'))
-AGE_MAE_CSV  = os.environ.get('FIG2_AGE_MAE', os.path.join(_ROOT, 'tables', 'age_mae_imaging_only_wholebody.csv'))  # per-model age (imaging-only, multi-visit); NOT shipped — supply via FIG2_AGE_MAE
+    'FIG2_UKBB_TABLE', os.path.join(_ROOT, 'tables', 'figure_inputs', 'fig2_ukbb_disease.csv'))
+AGE_MAE_CSV  = os.environ.get('FIG2_AGE_MAE', os.path.join(_ROOT, 'tables', 'figure_inputs', 'fig2_age_mae_imaging_only_wholebody.csv'))  # per-model age (imaging-only, multi-visit); NOT shipped — supply via FIG2_AGE_MAE
 OUT_DEF   = os.path.join(_ROOT, 'figures', 'fig2_disease_heatmap.png')
 # External inputs (participant-level or not distributed — supply via env / DEXA_ROOT):
 SUPP_B    = os.environ.get('FIG2_REG_TABLE', f'{DEXA}/supp_tableB_systems_mv_wholebody.csv')  # systems biomarkers; panels c & d
@@ -182,7 +182,8 @@ def _auc(df, idx, col):
 # ── Significance vs covariates (binary overlay) ───────────────────────────────────
 # For each (cohort, disease_key, imaging_arm): True if arm sig. beats covariates
 # (two-tailed Wilcoxon FDR<0.05). Drawn as a bold border on the cell.
-_PAIRS_CSV = os.environ.get('FIG2_PAIRS', os.path.join(_ROOT, 'tables', 'disease_pairwise_diffpentuned.csv'))
+_PAIRS_CSV = os.environ.get('FIG2_PAIRS', os.path.join(  # NOT shipped — supply via FIG2_PAIRS
+    _ROOT, 'tables', 'figure_inputs', 'fig2_disease_pairwise_diffpentuned.csv'))
 _HPP_KEY_ALIAS = {
     'Gallstone disease':    'Gallstones',
     'Urinary tract stones': 'Urinary Stones',
@@ -201,8 +202,8 @@ def _assert_canonical_sources():
         'FIG2_PAIRS': _PAIRS_CSV,
     }
     canonical_public = {
-        'FIG2_HPP_TABLE': 'table_2_hpp_disease.csv',
-        'FIG2_UKBB_TABLE': 'table_3_ukbb_disease.csv',
+        'FIG2_HPP_TABLE': 'fig2_hpp_disease.csv',
+        'FIG2_UKBB_TABLE': 'fig2_ukbb_disease.csv',
     }
     banned = ('regionpool', 'twopen')
     problems = []
@@ -222,12 +223,32 @@ def _assert_canonical_sources():
         )
 
 
+@functools.lru_cache(maxsize=1)  # both consumers below read the same file
+def _read_pairs():
+    """Read the pairwise-significance table, or stop.
+
+    Every significance mark in the figure — the bold cell borders and the top-set bolding —
+    comes from this one file. Silently falling back to an empty table renders a heatmap that
+    looks finished but carries no significance information at all, which is worse than not
+    rendering: nothing on the page says the marks are missing.
+    """
+    if os.path.exists(_PAIRS_CSV):
+        return pd.read_csv(_PAIRS_CSV)
+    if os.environ.get('FIG2_ALLOW_NO_PAIRS') == '1':
+        print(f'! FIG2_ALLOW_NO_PAIRS=1: {_PAIRS_CSV} is missing — rendering with NO '
+              'significance borders and NO top-set bolding. Not the publication figure.')
+        return pd.DataFrame(columns=['cohort', 'key', 'model_a', 'model_b',
+                                     'mean_a', 'mean_b', 'p_two_tailed_adj'])
+    raise SystemExit(
+        f'Pairwise significance table not found: {_PAIRS_CSV}\n'
+        'Every significance mark in Figure 2 comes from this file. Point FIG2_PAIRS at it, '
+        'or set FIG2_ALLOW_NO_PAIRS=1 to render an unmarked draft.')
+
+
 def _load_sig_vs_cov():
     """Returns {(cohort, display_key, arm): bool} — True where arm sig. > covariates."""
     out = {}
-    if not os.path.exists(_PAIRS_CSV):
-        return out
-    df = pd.read_csv(_PAIRS_CSV)
+    df = _read_pairs()
     for _, r in df.iterrows():
         # only rows involving covariates as the weaker model
         if 'covariates' not in (r.model_a, r.model_b):
@@ -248,9 +269,7 @@ _SIG_VS_COV = _load_sig_vs_cov()
 def _load_sig_all():
     """Full pairwise dict: {(cohort, key, model_a, model_b): bool} — True = model_a sig. beats model_b."""
     out = {}
-    if not os.path.exists(_PAIRS_CSV):
-        return out
-    df = pd.read_csv(_PAIRS_CSV)
+    df = _read_pairs()
     for _, r in df.iterrows():
         key, cohort = str(r.key), str(r.cohort)
         sig_ab = (np.isfinite(r.p_two_tailed_adj) and r.p_two_tailed_adj < ALPHA

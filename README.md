@@ -91,7 +91,8 @@ LeDXA/
 ├── model/          architecture, datasets, augmentation, training, embedding extraction
 ├── downstream/     portable disease, survival, biological-age, and genetics templates
 ├── plotting/       quantitative manuscript figure generation (Figures 2–6)
-├── tables/         de-identified supplementary result tables
+├── tables/         de-identified supplementary result tables (Tables S1–S10)
+│   └── figure_inputs/  machine-schema copies the plotting scripts read and write
 ├── figures/        rendered manuscript figures
 └── sample_data/    participant-free synthetic smoke test
 ```
@@ -117,9 +118,18 @@ preview above or use the links below for the complete publication-quality PDF.
 
 The `model/` and `downstream/` packages provide training and analysis reference implementations.
 The `plotting/` package contains the quantitative plotting code for Figures 2–6; Figure 1 is a
-manually assembled study-design schematic and is supplied only as a rendered PDF. Regenerating the
-quantitative figures end-to-end requires controlled UK Biobank / HPP cohort data, which cannot be
-distributed here. Supplementary results are provided as de-identified tables in [`tables/`](tables/).
+manually assembled study-design schematic and is supplied only as a rendered PDF.
+
+**`plotting/` is a reference implementation, not a reproduction pipeline.** It is published so that
+the statistics behind each panel are inspectable — how the top set is defined, which comparisons
+carry a significance mark, how per-endpoint penalties are selected — rather than to be run as-is.
+Beyond controlled UK Biobank / HPP cohort data, which cannot be distributed here, the scripts read
+intermediate per-seed and pairwise-significance tables that are also not distributed; each names
+the environment variable that points at a local copy (`FIG2_PAIRS`, `FIG2_AGE_MAE`, `FIG3_PERSEED`).
+A script whose inputs are absent stops with an error naming the missing file, rather than rendering
+a panel that silently omits its significance marks.
+
+Supplementary results are provided as de-identified tables in [`tables/`](tables/).
 Any aggregate table added later must contain no participant-level rows — run
 `python tools/check_no_pii.py` before publishing new outputs.
 

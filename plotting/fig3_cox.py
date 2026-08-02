@@ -94,8 +94,8 @@ _BONEPOOL = os.environ.get("FIG3_BONEPOOL", str(EMBEDDINGS_DIR / "ukbb" / "bonep
 LEJEPA_PATH  = f"{_BONEPOOL}/lejepa_fusion.pkl"
 REGION_PATH  = None
 TABULAR_PATH = os.environ.get("FIG3_TABULAR", str(DATA_ROOT / "ukbb" / "dxa_tabular.csv"))
-PERSEED_CSV  = os.environ.get("FIG3_PERSEED",
-    os.path.join(_ROOT, "tables", "cox_ttest_results_bp_logsweep_nodxapca_perseed.csv"))
+PERSEED_CSV  = os.environ.get("FIG3_PERSEED", os.path.join(  # NOT shipped — supply via FIG3_PERSEED
+    _ROOT, "tables", "figure_inputs", "fig3_cox_cindex_bp_logsweep_nodxapca_perseed.csv"))
 # Main (non-perseed) summary output from the same run — has per-arm mean/SE and
 # all pairwise LeDXA-vs-comparator raw p / FDR-adjusted q (each comparison type
 # corrected separately across endpoints), plus N/events/follow-up. Panel (a), the
@@ -105,7 +105,7 @@ MAIN_CSV = os.environ.get("FIG3_MAIN_CSV", PERSEED_CSV.replace("_perseed.csv", "
 # SWEEP_GRID (matches the grid-search panel a). Set the env var to a number to force a fixed pen.
 FIG3_FIXED_PEN = os.environ.get("FIG3_FIXED_PEN", "") or None
 OUT_PATH        = os.path.join(_ROOT, "figures", "fig3_cox_survival")
-SUPP_TABLE_PATH = os.path.join(_ROOT, "tables", "table_5_incident_disease.csv")
+SUPP_TABLE_PATH = os.path.join(_ROOT, "tables", "figure_inputs", "fig3_incident_disease.csv")
 
 BASELINE_COL = "Date of attending assessment centre - visit 2"
 DEATH_COL    = "Date of death - visit 0"
@@ -547,6 +547,7 @@ def export_supp_table(main_df, out_csv):
             rec[f"LeDXA vs {disp}: FDR q"] = r["adj_p"].get(comp_arm, np.nan)
         rec["Significant vs Tabular (FDR q<0.05)"] = r["qualifies"]
         out.append(rec)
+    os.makedirs(os.path.dirname(out_csv), exist_ok=True)
     pd.DataFrame(out).to_csv(out_csv, index=False)
     print(f"Saved {out_csv}")
 
