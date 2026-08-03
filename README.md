@@ -119,21 +119,6 @@ The `model/` and `downstream/` packages provide training and analysis reference 
 The `plotting/` package contains the quantitative plotting code for Figures 2–6; Figure 1 is a
 manually assembled study-design schematic and is supplied only as a rendered PDF.
 
-**`plotting/` is a reference implementation, not a reproduction pipeline.** It is published so that
-the statistics behind each panel are inspectable — how the top set is defined, which comparisons
-carry a significance mark, how per-endpoint penalties are selected — rather than to be run as-is.
-Beyond controlled UK Biobank / HPP cohort data, which cannot be distributed here, the scripts read
-intermediate per-arm, per-seed and pairwise-significance tables that are also not distributed; each
-names the environment variable that points at a local copy (`FIG2_HPP_TABLE`, `FIG2_UKBB_TABLE`,
-`FIG2_PAIRS`, `FIG2_AGE_MAE`, `FIG3_PERSEED`). A script whose inputs are absent stops with an error
-naming the missing file, rather than rendering a panel that silently omits its significance marks.
-
-No copies of those intermediate tables are shipped. An earlier `tables/figure_inputs/` directory
-held two of them and was removed: a partial set is worse than none, because the copies had drifted
-from the run behind the published figures, so anyone running the scripts would have obtained panels
-that disagreed with the paper and concluded the results did not reproduce. The published numbers
-themselves are in [`tables/`](tables/), which is the authoritative form.
-
 Supplementary results are provided as de-identified tables in [`tables/`](tables/).
 Any aggregate table added later must contain no participant-level rows — run
 `python tools/check_no_pii.py` before publishing new outputs.
