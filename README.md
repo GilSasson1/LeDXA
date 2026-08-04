@@ -2,10 +2,10 @@
 
 **A self-supervised foundation model for whole-body dual-energy X-ray absorptiometry (DXA) scans**
 
-Official implementation of *LeDXA: a self-supervised foundation model for dual-energy X-ray
-absorptiometry* — **Sasson et al. (2026)**
+Official implementation of *Self-supervised DXA representations encode multi-system disease risk,
+biological aging and heritability* — **Sasson et al. (2026)**
 
-📄 **Paper:** coming soon <!-- Replace with: [Paper](MANUSCRIPT_URL) --> · [Citation](#citation)
+📄 **Preprint:** [arXiv:2608.02208](https://arxiv.org/abs/2608.02208) · [Citation](#citation)
 
 [![LeDXA pretraining and downstream applications](assets/readme/model_and_applications.png)](assets/figure1.pdf)
 
@@ -132,11 +132,17 @@ provided for adaptation to authorized DXA datasets.
 ## Citation
 
 ```bibtex
-@article{ledxa,
-  title  = {LeDXA: a self-supervised foundation model for dual-energy X-ray absorptiometry},
-  author = {Sasson, Gil and others},
-  year   = {2026},
-  note   = {Manuscript in preparation}
+@article{sasson2026ledxa,
+  title         = {Self-supervised DXA representations encode multi-system disease risk,
+                   biological aging and heritability},
+  author        = {Sasson, Gil and Levine, Zachary and Shilo, Smadar and Kohn, Sarah and
+                   Lutsker, Guy and Godneva, Anastasia and Gabet, Adam and Krongauz, David and
+                   Weinberger, Adina and LeCun, Yann and Balestriero, Randall and Segal, Eran},
+  year          = {2026},
+  eprint        = {2608.02208},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV},
+  url           = {https://arxiv.org/abs/2608.02208}
 }
 ```
 
