@@ -2,8 +2,7 @@
 
 **A self-supervised foundation model for whole-body dual-energy X-ray absorptiometry (DXA) scans**
 
-Official implementation of *Self-supervised DXA representations encode multi-system disease risk,
-biological aging and heritability* — **Sasson et al. (2026)**
+Official implementation of *LeDXA* — **Sasson et al. (2026)**
 
 📄 **Preprint:** [arXiv:2608.02208](https://arxiv.org/abs/2608.02208) · [Citation](#citation)
 
